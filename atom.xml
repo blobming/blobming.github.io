@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+  <title>Jiaming&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blobming.github.io/"/>
+  <updated>2019-11-16T20:16:15.094Z</updated>
+  <id>https://blobming.github.io/</id>
+  
+  <author>
+    <name>Jiaming Xu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Introduction To Computer System</title>
+    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
+    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2019-11-16T20:16:15.094Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Template Page</title>
+    <link href="https://blobming.github.io/2019/11/16/demo/"/>
+    <id>https://blobming.github.io/2019/11/16/demo/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2019-11-16T20:13:21.227Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a markdown demo to quickly start&lt;/p&gt;
+&lt;h1 id=&quot;1-Title&quot;&gt;&lt;a href=&quot;#1-Title&quot; class=&quot;headerlink&quot; title=&quot;1. Title&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="https://blobming.github.io/categories/Blog/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode Everyday</title>
+    <link href="https://blobming.github.io/2019/11/16/LeetCode-Everyday/"/>
+    <id>https://blobming.github.io/2019/11/16/LeetCode-Everyday/</id>
+    <published>2019-11-16T17:28:21.000Z</published>
+    <updated>2019-11-17T06:06:33.357Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a record of my craking process.&lt;br&gt;List it by frequency.&lt;/p&gt;
+&lt;!-- toc --&gt;
+
+&lt;h2 id=&quot;1-Two-Sum&quot;&gt;&lt;a href=&quot;#1-Two-Sum&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++</title>
+    <link href="https://blobming.github.io/2019/06/09/C/"/>
+    <id>https://blobming.github.io/2019/06/09/C/</id>
+    <published>2019-06-09T14:10:00.000Z</published>
+    <updated>2019-11-17T18:18:57.986Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;asfd&lt;br&gt;asfd&lt;br&gt;asf&lt;br&gt;asf&lt;br&gt;sadfa&lt;br&gt;s&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="projects" scheme="https://blobming.github.io/categories/projects/"/>
+    
+    
+  </entry>
+  
+</feed>

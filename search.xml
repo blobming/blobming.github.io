@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Introduction To Computer System</title>
+    <url>/2019/11/16/IntroToComSys/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Template Page</title>
+    <url>/2019/11/16/demo/</url>
+    <content><![CDATA[<p>This is a markdown demo to quickly start</p>
+<h1 id="1-Title"><a href="#1-Title" class="headerlink" title="1. Title"></a>1. Title</h1><h1 id="Title1"><a href="#Title1" class="headerlink" title="Title1"></a>Title1</h1><h2 id="Title2"><a href="#Title2" class="headerlink" title="Title2"></a>Title2</h2><h3 id="Title3"><a href="#Title3" class="headerlink" title="Title3"></a>Title3</h3><h4 id="Title4"><a href="#Title4" class="headerlink" title="Title4"></a>Title4</h4><h5 id="Title5"><a href="#Title5" class="headerlink" title="Title5"></a>Title5</h5><h6 id="Title6"><a href="#Title6" class="headerlink" title="Title6"></a>Title6</h6><h1 id="2-Blod"><a href="#2-Blod" class="headerlink" title="2. Blod"></a>2. Blod</h1><p><strong>Blod Text</strong></p>
+<p>Non Blod Text</p>
+<h1 id="3-Italic"><a href="#3-Italic" class="headerlink" title="3. Italic"></a>3. Italic</h1><p>/<em>italic</em>/<br><em>italic</em></p>
+<p>/non-italic/</p>
+<h1 id="4-Blod-amp-Italic"><a href="#4-Blod-amp-Italic" class="headerlink" title="4. Blod &amp; Italic"></a>4. Blod &amp; Italic</h1><p><strong><em>Blod &amp; Italic</em></strong></p>
+<h1 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h1><blockquote>
+<p>Reference</p>
+</blockquote>
+<blockquote>
+<p>Reference MultiLine</p>
+<p>adsf<br>sadf</p>
+<p>sadf</p>
+</blockquote>
+<blockquote>
+<p>asdf</p>
+<blockquote>
+<p>multiLayer</p>
+</blockquote>
+</blockquote>
+<h1 id="6-Paragraph"><a href="#6-Paragraph" class="headerlink" title="6. Paragraph"></a>6. Paragraph</h1><ul>
+<li>1 xxx</li>
+<li>2 xxx</li>
+</ul>
+<h1 id="7-List"><a href="#7-List" class="headerlink" title="7. List"></a>7. List</h1><ol>
+<li>list1</li>
+<li>list2</li>
+<li>list3<ol>
+<li>list1</li>
+<li>list2</li>
+<li>list3</li>
+</ol>
+</li>
+</ol>
+<h1 id="8-Unordered-List"><a href="#8-Unordered-List" class="headerlink" title="8. Unordered List"></a>8. Unordered List</h1><ul>
+<li>list1</li>
+</ul>
+<ul>
+<li>list2</li>
+</ul>
+<ul>
+<li>list3</li>
+</ul>
+<ul>
+<li>list4<ul>
+<li>list1</li>
+<li>list2<ul>
+<li>list3<ul>
+<li>list4</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>list5</li>
+</ul>
+<h1 id="9-Single-Line-and-Block-Code"><a href="#9-Single-Line-and-Block-Code" class="headerlink" title="9. Single Line and Block Code"></a>9. Single Line and Block Code</h1><p>Single line or code <code>System.out.println(&quot;JmX&quot;);</code></p>
+<p>Block Code</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Markdown code style</p>
+<table>
+<thead>
+<tr>
+<th align="center">LanguageName</th>
+<th align="center">Keyword</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Bash</td>
+<td align="center">bash</td>
+</tr>
+<tr>
+<td align="center">CoffeeScript</td>
+<td align="center">coffeescrip</td>
+</tr>
+<tr>
+<td align="center">C++</td>
+<td align="center">cpp</td>
+</tr>
+<tr>
+<td align="center">C#</td>
+<td align="center">cs</td>
+</tr>
+<tr>
+<td align="center">CSS</td>
+<td align="center">css</td>
+</tr>
+<tr>
+<td align="center">Diff</td>
+<td align="center">diff</td>
+</tr>
+<tr>
+<td align="center">HTTP</td>
+<td align="center">http</td>
+</tr>
+<tr>
+<td align="center">Ini</td>
+<td align="center">ini</td>
+</tr>
+<tr>
+<td align="center">Java</td>
+<td align="center">java</td>
+</tr>
+<tr>
+<td align="center">JavaScript</td>
+<td align="center">javascript</td>
+</tr>
+<tr>
+<td align="center">JSON</td>
+<td align="center">json</td>
+</tr>
+<tr>
+<td align="center">XML</td>
+<td align="center">xml</td>
+</tr>
+<tr>
+<td align="center">Makefile</td>
+<td align="center">makefile</td>
+</tr>
+<tr>
+<td align="center">Markdown</td>
+<td align="center">markdown</td>
+</tr>
+<tr>
+<td align="center">Objective-C</td>
+<td align="center">objectivec</td>
+</tr>
+<tr>
+<td align="center">Perl</td>
+<td align="center">perl</td>
+</tr>
+<tr>
+<td align="center">Python</td>
+<td align="center">python</td>
+</tr>
+<tr>
+<td align="center">Ruby</td>
+<td align="center">ruby</td>
+</tr>
+<tr>
+<td align="center">SQL</td>
+<td align="center">sql</td>
+</tr>
+<tr>
+<td align="center">ARM Assembly Language</td>
+<td align="center">armasm</td>
+</tr>
+<tr>
+<td align="center">MIPS Assembly Language</td>
+<td align="center">mipsasm</td>
+</tr>
+<tr>
+<td align="center">x86 Assembly Language</td>
+<td align="center">x86asm</td>
+</tr>
+<tr>
+<td align="center">Elixir</td>
+<td align="center">elixir</td>
+</tr>
+<tr>
+<td align="center">Elm</td>
+<td align="center">elm</td>
+</tr>
+<tr>
+<td align="center">Erlang</td>
+<td align="center">erlang</td>
+</tr>
+<tr>
+<td align="center">F#</td>
+<td align="center">fsharp</td>
+</tr>
+<tr>
+<td align="center">Haskell</td>
+<td align="center">haskell</td>
+</tr>
+<tr>
+<td align="center">GLSL</td>
+<td align="center">glsl</td>
+</tr>
+<tr>
+<td align="center">Clojure</td>
+<td align="center">clojure</td>
+</tr>
+<tr>
+<td align="center">Lisp</td>
+<td align="center">lisp</td>
+</tr>
+</tbody></table>
+<h1 id="9-Horizontal-Line"><a href="#9-Horizontal-Line" class="headerlink" title="9. Horizontal Line"></a>9. Horizontal Line</h1><hr>
+<hr>
+<hr>
+<h1 id="10-Link"><a href="#10-Link" class="headerlink" title="10. Link"></a>10. Link</h1><p><a href="https://blobming.github.io/">My GitHub Link</a></p>
+<h1 id="11-Delete-Line"><a href="#11-Delete-Line" class="headerlink" title="11. Delete Line"></a>11. Delete Line</h1><p><del>asdf</del></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode Everyday</title>
+    <url>/2019/11/16/LeetCode-Everyday/</url>
+    <content><![CDATA[<p>This is a record of my craking process.<br>List it by frequency.</p>
+<!-- toc -->
+
+<h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h2><h3 id="1-1-Problem-Description"><a href="#1-1-Problem-Description" class="headerlink" title="1.1 Problem Description"></a>1.1 Problem Description</h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
+<p>return [0, 1].</p>
+</blockquote>
+<h3 id="1-2-Soulution"><a href="#1-2-Soulution" class="headerlink" title="1.2 Soulution"></a>1.2 Soulution</h3><p>It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(temp)&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Add-Two-Numbers"><a href="#2-Add-Two-Numbers" class="headerlink" title="2 Add Two Numbers"></a>2 Add Two Numbers</h2><h3 id="2-1-Problem-Description"><a href="#2-1-Problem-Description" class="headerlink" title="2.1 Problem Description"></a>2.1 Problem Description</h3><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse</strong> order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</p>
+<p>Output: 7 -&gt; 0 -&gt; 8</p>
+<p>Explanation: 342 + 465 = 807.</p>
+</blockquote>
+<h3 id="2-2-Soulution"><a href="#2-2-Soulution" class="headerlink" title="2.2 Soulution"></a>2.2 Soulution</h3><p>This problem is quite similar to merge sort. Hence, in my case, I use the concept the merge sort to generate a new line. In addition, when we calculate the last number, we shuould determine whether it has a carry. In my case, I use a variable called flag to record the carry.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">if</span>(l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">int</span> num = l1.val + l2.val;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(num &gt;= <span class="number">10</span>) flag = <span class="number">1</span>;</span><br><span class="line">        num %= <span class="number">10</span>;</span><br><span class="line">        ListNode ans = <span class="keyword">new</span> ListNode(num);</span><br><span class="line">        ListNode p = ans;</span><br><span class="line">        l1 = l1.next;</span><br><span class="line">        l2 = l2.next;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num1 = l1 == <span class="keyword">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="keyword">int</span> num2 = l2 == <span class="keyword">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            num = num1 + num2 + flag;</span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= <span class="number">10</span>) flag = <span class="number">1</span>;</span><br><span class="line">            num %= <span class="number">10</span>;</span><br><span class="line">            p.next = <span class="keyword">new</span> ListNode(num);</span><br><span class="line">            p = p.next;</span><br><span class="line">            l1 = l1 == <span class="keyword">null</span> ? <span class="keyword">null</span> : l1.next;</span><br><span class="line">            l2 = l2 == <span class="keyword">null</span> ? <span class="keyword">null</span> : l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>) p.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++</title>
+    <url>/2019/06/09/C/</url>
+    <content><![CDATA[<p>asfd<br>asfd<br>asf<br>asf<br>sadfa<br>s</p>
+]]></content>
+      <categories>
+        <category>projects</category>
+      </categories>
+  </entry>
+</search>
