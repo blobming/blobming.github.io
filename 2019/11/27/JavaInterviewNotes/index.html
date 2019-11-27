@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="This is a record of questions from Nowcoder. Q &amp;amp; A  Java Basic QuestionsOOP 面向对象程序设计方法的优点包含 可重用性   可扩展性   易于管理和维护     Design Pattern Java中四种线程安全的单例模式实现方式  饿汉式(线程安全)123456789101112public class Sing">
+<meta name="description" content="This is a record of questions from Nowcoder. Q &amp;amp; A      Java Basic Questions Basic grammar OOP Design Pattern Networking I&#x2F;O Multi-threading        Java Basic Questions#Basic grammar# 三元操作符如果遇到可以转">
 <meta name="keywords" content="Learning,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Notes">
 <meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2019&#x2F;11&#x2F;27&#x2F;JavaInterviewNotes&#x2F;index.html">
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
-<meta property="og:description" content="This is a record of questions from Nowcoder. Q &amp;amp; A  Java Basic QuestionsOOP 面向对象程序设计方法的优点包含 可重用性   可扩展性   易于管理和维护     Design Pattern Java中四种线程安全的单例模式实现方式  饿汉式(线程安全)123456789101112public class Sing">
+<meta property="og:description" content="This is a record of questions from Nowcoder. Q &amp;amp; A      Java Basic Questions Basic grammar OOP Design Pattern Networking I&#x2F;O Multi-threading        Java Basic Questions#Basic grammar# 三元操作符如果遇到可以转">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-27T17:17:16.177Z">
+<meta property="og:updated_time" content="2019-11-27T17:24:29.854Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -353,8 +353,47 @@
 
       
         <p>This is a record of questions from Nowcoder. Q &amp; A</p>
+<div class="toc">
+
 <!-- toc -->
-<h2 id="Java-Basic-Questions"><a href="#Java-Basic-Questions" class="headerlink" title="Java Basic Questions"></a>Java Basic Questions</h2><h3 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h3><ol>
+
+<ul>
+<li><a href="#java-basic-questions">Java Basic Questions</a><ul>
+<li><a href="#basic-grammar">Basic grammar</a></li>
+<li><a href="#oop">OOP</a></li>
+<li><a href="#design-pattern">Design Pattern</a></li>
+<li><a href="#networking">Networking</a></li>
+<li><a href="#i-o">I/O</a></li>
+<li><a href="#multi-threading">Multi-threading</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="java-basic-questions">Java Basic Questions</span><a href="#java-basic-questions" class="header-anchor">#</a></h2><h3><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h3><ol>
+<li><p>三元操作符如果遇到可以转换为数字的类型，会做自动类型提升。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o1 = (<span class="keyword">false</span>) ? <span class="keyword">new</span> Double(<span class="number">1.0</span>) : <span class="keyword">new</span> Integer(<span class="number">2</span>);</span><br><span class="line">System.out.println(o1);</span><br></pre></td></tr></table></figure>
+<p>Output: 2.0</p>
+<p>三元操作符类型的转换规则：</p>
+<ul>
+<li>若两个操作数不可转换，则不做转换，返回值为Object类型</li>
+</ul>
+<ul>
+<li>若两个操作数是明确类型的表达式（比如变量），则按照正常的二进制数字来转换，int类型转换为long类型，long类型转换为float类型等。</li>
+</ul>
+<ul>
+<li>若两个操作数中有一个是数字S,另外一个是表达式，且其类型标示为T，那么，若数字S在T的范围内，则转换为T类型；若S超出了T类型的范围，则T转换为S类型。</li>
+</ul>
+<ul>
+<li>若两个操作数都是直接量数字，则返回值类型为范围较大者</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<hr>
+<h3><span id="oop">OOP</span><a href="#oop" class="header-anchor">#</a></h3><ol>
 <li>面向对象程序设计方法的优点包含<ul>
 <li>可重用性</li>
 </ul>
@@ -367,7 +406,7 @@
 </li>
 </ol>
 <hr>
-<h3 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h3><ol>
+<h3><span id="design-pattern">Design Pattern</span><a href="#design-pattern" class="header-anchor">#</a></h3><ol>
 <li><p>Java中四种线程安全的单例模式实现方式</p>
 <ul>
 <li>饿汉式(线程安全)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Single2 instance = <span class="keyword">new</span> Single2();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Single2: "</span> + System.nanoTime());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single2 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -390,20 +429,20 @@
 </li>
 </ol>
 <hr>
-<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><ol>
+<h3><span id="networking">Networking</span><a href="#networking" class="header-anchor">#</a></h3><ol>
 <li><p>如果希望监听TCP端口9000，服务器端应该怎样创建socket?</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server serverProcess = <span class="keyword">new</span> ServerSocket(<span class="number">9000</span>);</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 <hr>
-<h3 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h3><ol>
+<h3><span id="i-o">I/O</span><a href="#i-o" class="header-anchor">#</a></h3><ol>
 <li><p>哪个I / O类可以附加或更新文件?</p>
 <p> RandomAccessFile 可以通过 seek(long pos) 方法去移动文件指针进行追加更新写入.OutputStream() 是一个抽象类 不能直接实例化去写入.DataOutputStream() 也无法追加写入</p>
 </li>
 <li></li>
 </ol>
 <hr>
-<h3 id="Multi-threading"><a href="#Multi-threading" class="headerlink" title="Multi-threading"></a>Multi-threading</h3><ol>
+<h3><span id="multi-threading">Multi-threading</span><a href="#multi-threading" class="header-anchor">#</a></h3><ol>
 <li><p>volatile与synchronized的区别：</p>
 <ul>
 <li>volatile本质是在告诉jvm当前变量在寄存器中的值是不确定的,需要从主存中读取,synchronized则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住.</li>
@@ -606,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Basic-Questions"><span class="nav-number">1.</span> <span class="nav-text">Java Basic Questions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OOP"><span class="nav-number">1.1.</span> <span class="nav-text">OOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Pattern"><span class="nav-number">1.2.</span> <span class="nav-text">Design Pattern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Networking"><span class="nav-number">1.3.</span> <span class="nav-text">Networking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O"><span class="nav-number">1.4.</span> <span class="nav-text">I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-threading"><span class="nav-number">1.5.</span> <span class="nav-text">Multi-threading</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Java Basic Questions#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Basic grammar#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">OOP#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">Design Pattern#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">Networking#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">I/O#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">Multi-threading#</span></a></li></ol></li></ol></div>
             
 
           </div>

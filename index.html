@@ -357,8 +357,47 @@
         
           
             <p>This is a record of questions from Nowcoder. Q &amp; A</p>
+<div class="toc">
+
 <!-- toc -->
-<h2 id="Java-Basic-Questions"><a href="#Java-Basic-Questions" class="headerlink" title="Java Basic Questions"></a>Java Basic Questions</h2><h3 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h3><ol>
+
+<ul>
+<li><a href="#java-basic-questions">Java Basic Questions</a><ul>
+<li><a href="#basic-grammar">Basic grammar</a></li>
+<li><a href="#oop">OOP</a></li>
+<li><a href="#design-pattern">Design Pattern</a></li>
+<li><a href="#networking">Networking</a></li>
+<li><a href="#i-o">I/O</a></li>
+<li><a href="#multi-threading">Multi-threading</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="java-basic-questions">Java Basic Questions</span><a href="#java-basic-questions" class="header-anchor">#</a></h2><h3><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h3><ol>
+<li><p>三元操作符如果遇到可以转换为数字的类型，会做自动类型提升。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o1 = (<span class="keyword">false</span>) ? <span class="keyword">new</span> Double(<span class="number">1.0</span>) : <span class="keyword">new</span> Integer(<span class="number">2</span>);</span><br><span class="line">System.out.println(o1);</span><br></pre></td></tr></table></figure>
+<p>Output: 2.0</p>
+<p>三元操作符类型的转换规则：</p>
+<ul>
+<li>若两个操作数不可转换，则不做转换，返回值为Object类型</li>
+</ul>
+<ul>
+<li>若两个操作数是明确类型的表达式（比如变量），则按照正常的二进制数字来转换，int类型转换为long类型，long类型转换为float类型等。</li>
+</ul>
+<ul>
+<li>若两个操作数中有一个是数字S,另外一个是表达式，且其类型标示为T，那么，若数字S在T的范围内，则转换为T类型；若S超出了T类型的范围，则T转换为S类型。</li>
+</ul>
+<ul>
+<li>若两个操作数都是直接量数字，则返回值类型为范围较大者</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<hr>
+<h3><span id="oop">OOP</span><a href="#oop" class="header-anchor">#</a></h3><ol>
 <li>面向对象程序设计方法的优点包含<ul>
 <li>可重用性</li>
 </ul>
@@ -371,7 +410,7 @@
 </li>
 </ol>
 <hr>
-<h3 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h3><ol>
+<h3><span id="design-pattern">Design Pattern</span><a href="#design-pattern" class="header-anchor">#</a></h3><ol>
 <li><p>Java中四种线程安全的单例模式实现方式</p>
 <ul>
 <li>饿汉式(线程安全)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Single2 instance = <span class="keyword">new</span> Single2();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Single2: "</span> + System.nanoTime());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single2 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -394,20 +433,20 @@
 </li>
 </ol>
 <hr>
-<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><ol>
+<h3><span id="networking">Networking</span><a href="#networking" class="header-anchor">#</a></h3><ol>
 <li><p>如果希望监听TCP端口9000，服务器端应该怎样创建socket?</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server serverProcess = <span class="keyword">new</span> ServerSocket(<span class="number">9000</span>);</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 <hr>
-<h3 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h3><ol>
+<h3><span id="i-o">I/O</span><a href="#i-o" class="header-anchor">#</a></h3><ol>
 <li><p>哪个I / O类可以附加或更新文件?</p>
 <p> RandomAccessFile 可以通过 seek(long pos) 方法去移动文件指针进行追加更新写入.OutputStream() 是一个抽象类 不能直接实例化去写入.DataOutputStream() 也无法追加写入</p>
 </li>
 <li></li>
 </ol>
 <hr>
-<h3 id="Multi-threading"><a href="#Multi-threading" class="headerlink" title="Multi-threading"></a>Multi-threading</h3><ol>
+<h3><span id="multi-threading">Multi-threading</span><a href="#multi-threading" class="header-anchor">#</a></h3><ol>
 <li><p>volatile与synchronized的区别：</p>
 <ul>
 <li>volatile本质是在告诉jvm当前变量在寄存器中的值是不确定的,需要从主存中读取,synchronized则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住.</li>
@@ -710,12 +749,12 @@
         
           
             <p>This is a markdown demo to quickly start</p>
-<h1 id="1-Title"><a href="#1-Title" class="headerlink" title="1. Title"></a>1. Title</h1><h1 id="Title1"><a href="#Title1" class="headerlink" title="Title1"></a>Title1</h1><h2 id="Title2"><a href="#Title2" class="headerlink" title="Title2"></a>Title2</h2><h3 id="Title3"><a href="#Title3" class="headerlink" title="Title3"></a>Title3</h3><h4 id="Title4"><a href="#Title4" class="headerlink" title="Title4"></a>Title4</h4><h5 id="Title5"><a href="#Title5" class="headerlink" title="Title5"></a>Title5</h5><h6 id="Title6"><a href="#Title6" class="headerlink" title="Title6"></a>Title6</h6><h1 id="2-Blod"><a href="#2-Blod" class="headerlink" title="2. Blod"></a>2. Blod</h1><p><strong>Blod Text</strong></p>
+<h1><span id="1-title">1. Title</span><a href="#1-title" class="header-anchor">#</a></h1><h1><span id="title1">Title1</span><a href="#title1" class="header-anchor">#</a></h1><h2><span id="title2">Title2</span><a href="#title2" class="header-anchor">#</a></h2><h3><span id="title3">Title3</span><a href="#title3" class="header-anchor">#</a></h3><h4><span id="title4">Title4</span><a href="#title4" class="header-anchor">#</a></h4><h5><span id="title5">Title5</span><a href="#title5" class="header-anchor">#</a></h5><h6><span id="title6">Title6</span><a href="#title6" class="header-anchor">#</a></h6><h1><span id="2-blod">2. Blod</span><a href="#2-blod" class="header-anchor">#</a></h1><p><strong>Blod Text</strong></p>
 <p>Non Blod Text</p>
-<h1 id="3-Italic"><a href="#3-Italic" class="headerlink" title="3. Italic"></a>3. Italic</h1><p>/<em>italic</em>/<br><em>italic</em></p>
+<h1><span id="3-italic">3. Italic</span><a href="#3-italic" class="header-anchor">#</a></h1><p>/<em>italic</em>/<br><em>italic</em></p>
 <p>/non-italic/</p>
-<h1 id="4-Blod-amp-Italic"><a href="#4-Blod-amp-Italic" class="headerlink" title="4. Blod &amp; Italic"></a>4. Blod &amp; Italic</h1><p><strong><em>Blod &amp; Italic</em></strong></p>
-<h1 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h1><blockquote>
+<h1><span id="4-blod-amp-italic">4. Blod &amp; Italic</span><a href="#4-blod-amp-italic" class="header-anchor">#</a></h1><p><strong><em>Blod &amp; Italic</em></strong></p>
+<h1><span id="5-reference">5. Reference</span><a href="#5-reference" class="header-anchor">#</a></h1><blockquote>
 <p>Reference</p>
 </blockquote>
 <blockquote>
@@ -729,11 +768,11 @@
 <p>multiLayer</p>
 </blockquote>
 </blockquote>
-<h1 id="6-Paragraph"><a href="#6-Paragraph" class="headerlink" title="6. Paragraph"></a>6. Paragraph</h1><ul>
+<h1><span id="6-paragraph">6. Paragraph</span><a href="#6-paragraph" class="header-anchor">#</a></h1><ul>
 <li>1 xxx</li>
 <li>2 xxx</li>
 </ul>
-<h1 id="7-List"><a href="#7-List" class="headerlink" title="7. List"></a>7. List</h1><ol>
+<h1><span id="7-list">7. List</span><a href="#7-list" class="header-anchor">#</a></h1><ol>
 <li>list1</li>
 <li>list2</li>
 <li>list3<ol>
@@ -743,7 +782,7 @@
 </ol>
 </li>
 </ol>
-<h1 id="8-Unordered-List"><a href="#8-Unordered-List" class="headerlink" title="8. Unordered List"></a>8. Unordered List</h1><ul>
+<h1><span id="8-unordered-list">8. Unordered List</span><a href="#8-unordered-list" class="header-anchor">#</a></h1><ul>
 <li>list1</li>
 </ul>
 <ul>
@@ -768,7 +807,7 @@
 <ul>
 <li>list5</li>
 </ul>
-<h1 id="9-Single-Line-and-Block-Code"><a href="#9-Single-Line-and-Block-Code" class="headerlink" title="9. Single Line and Block Code"></a>9. Single Line and Block Code</h1><p>Single line or code <code>System.out.println(&quot;JmX&quot;);</code></p>
+<h1><span id="9-single-line-and-block-code">9. Single Line and Block Code</span><a href="#9-single-line-and-block-code" class="header-anchor">#</a></h1><p>Single line or code <code>System.out.println(&quot;JmX&quot;);</code></p>
 <p>Block Code</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br><span class="line">System.out.println(<span class="string">"JmX"</span>);</span><br></pre></td></tr></table></figure>
 
@@ -901,11 +940,11 @@
 <td align="center">lisp</td>
 </tr>
 </tbody></table>
-<h1 id="9-Horizontal-Line"><a href="#9-Horizontal-Line" class="headerlink" title="9. Horizontal Line"></a>9. Horizontal Line</h1><hr>
+<h1><span id="9-horizontal-line">9. Horizontal Line</span><a href="#9-horizontal-line" class="header-anchor">#</a></h1><hr>
 <hr>
 <hr>
-<h1 id="10-Link"><a href="#10-Link" class="headerlink" title="10. Link"></a>10. Link</h1><p><a href="https://blobming.github.io/">My GitHub Link</a></p>
-<h1 id="11-Delete-Line"><a href="#11-Delete-Line" class="headerlink" title="11. Delete Line"></a>11. Delete Line</h1><p><del>asdf</del></p>
+<h1><span id="10-link">10. Link</span><a href="#10-link" class="header-anchor">#</a></h1><p><a href="https://blobming.github.io/">My GitHub Link</a></p>
+<h1><span id="11-delete-line">11. Delete Line</span><a href="#11-delete-line" class="header-anchor">#</a></h1><p><del>asdf</del></p>
 
           
         
@@ -1048,9 +1087,27 @@
         
           
             <p>This is a record of my craking process.<br>List it by frequency.</p>
+<div class="toc">
+
 <!-- toc -->
 
-<h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h2><h3 id="1-1-Problem-Description"><a href="#1-1-Problem-Description" class="headerlink" title="1.1 Problem Description"></a>1.1 Problem Description</h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<ul>
+<li><a href="#1-two-sum">1. Two Sum</a><ul>
+<li><a href="#1-1-problem-description">1.1 Problem Description</a></li>
+<li><a href="#1-2-soulution">1.2 Soulution</a></li>
+</ul>
+</li>
+<li><a href="#2-add-two-numbers">2 Add Two Numbers</a><ul>
+<li><a href="#2-1-problem-description">2.1 Problem Description</a></li>
+<li><a href="#2-2-soulution">2.2 Soulution</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="1-two-sum">1. Two Sum</span><a href="#1-two-sum" class="header-anchor">#</a></h2><h3><span id="1-1-problem-description">1.1 Problem Description</span><a href="#1-1-problem-description" class="header-anchor">#</a></h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
 <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 <p><strong>Example:</strong></p>
 <blockquote>
@@ -1058,10 +1115,10 @@
 <p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
 <p>return [0, 1].</p>
 </blockquote>
-<h3 id="1-2-Soulution"><a href="#1-2-Soulution" class="headerlink" title="1.2 Soulution"></a>1.2 Soulution</h3><p>It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.</p>
+<h3><span id="1-2-soulution">1.2 Soulution</span><a href="#1-2-soulution" class="header-anchor">#</a></h3><p>It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(temp)&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-Add-Two-Numbers"><a href="#2-Add-Two-Numbers" class="headerlink" title="2 Add Two Numbers"></a>2 Add Two Numbers</h2><h3 id="2-1-Problem-Description"><a href="#2-1-Problem-Description" class="headerlink" title="2.1 Problem Description"></a>2.1 Problem Description</h3><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse</strong> order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<h2><span id="2-add-two-numbers">2 Add Two Numbers</span><a href="#2-add-two-numbers" class="header-anchor">#</a></h2><h3><span id="2-1-problem-description">2.1 Problem Description</span><a href="#2-1-problem-description" class="header-anchor">#</a></h3><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse</strong> order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 <p><strong>Example:</strong></p>
 <blockquote>
@@ -1069,7 +1126,7 @@
 <p>Output: 7 -&gt; 0 -&gt; 8</p>
 <p>Explanation: 342 + 465 = 807.</p>
 </blockquote>
-<h3 id="2-2-Soulution"><a href="#2-2-Soulution" class="headerlink" title="2.2 Soulution"></a>2.2 Soulution</h3><p>This problem is quite similar to merge sort. Hence, in my case, I use the concept the merge sort to generate a new line. In addition, when we calculate the last number, we shuould determine whether it has a carry. In my case, I use a variable called flag to record the carry.</p>
+<h3><span id="2-2-soulution">2.2 Soulution</span><a href="#2-2-soulution" class="header-anchor">#</a></h3><p>This problem is quite similar to merge sort. Hence, in my case, I use the concept the merge sort to generate a new line. In addition, when we calculate the last number, we shuould determine whether it has a carry. In my case, I use a variable called flag to record the carry.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">if</span>(l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">int</span> num = l1.val + l2.val;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(num &gt;= <span class="number">10</span>) flag = <span class="number">1</span>;</span><br><span class="line">        num %= <span class="number">10</span>;</span><br><span class="line">        ListNode ans = <span class="keyword">new</span> ListNode(num);</span><br><span class="line">        ListNode p = ans;</span><br><span class="line">        l1 = l1.next;</span><br><span class="line">        l2 = l2.next;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num1 = l1 == <span class="keyword">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="keyword">int</span> num2 = l2 == <span class="keyword">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            num = num1 + num2 + flag;</span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= <span class="number">10</span>) flag = <span class="number">1</span>;</span><br><span class="line">            num %= <span class="number">10</span>;</span><br><span class="line">            p.next = <span class="keyword">new</span> ListNode(num);</span><br><span class="line">            p = p.next;</span><br><span class="line">            l1 = l1 == <span class="keyword">null</span> ? <span class="keyword">null</span> : l1.next;</span><br><span class="line">            l2 = l2 == <span class="keyword">null</span> ? <span class="keyword">null</span> : l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>) p.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
