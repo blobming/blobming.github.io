@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2019-11-16T20:16:15.094Z</updated>
+  <updated>2019-11-27T17:17:16.177Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Notes</title>
+    <link href="https://blobming.github.io/2019/11/27/JavaInterviewNotes/"/>
+    <id>https://blobming.github.io/2019/11/27/JavaInterviewNotes/</id>
+    <published>2019-11-27T17:03:01.000Z</published>
+    <updated>2019-11-27T17:17:16.177Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a record of questions from Nowcoder. Q &amp;amp; A&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;h2 id=&quot;Java-Basic-Questions&quot;&gt;&lt;a href=&quot;#Java-Basic-Questions&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Interviews" scheme="https://blobming.github.io/categories/Interviews/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Introduction To Computer System</title>
