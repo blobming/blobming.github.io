@@ -3,7 +3,7 @@
   <entry>
     <title>Java Notes</title>
     <url>/2019/11/27/JavaInterviewNotes/</url>
-    <content><![CDATA[<p>This is a record of questions from Nowcoder. Q &amp; A</p>
+    <content><![CDATA[<p>This is a record of JAVA questions from Nowcoder.</p>
 <div class="toc">
 
 <!-- toc -->
@@ -39,6 +39,46 @@
 </ul>
 <ul>
 <li>若两个操作数都是直接量数字，则返回值类型为范围较大者</li>
+</ul>
+</li>
+<li><p>Java中的那些基本类型属于原生类，而数组是引用类型，不属于原生类，可以看成是一种对象。</p>
+</li>
+<li><p>Synchronized保证三大性，原子性，有序性，可见性，volatile保证有序性，可见性，不能保证原子性</p>
+</li>
+<li><p>Java的堆内存分为两块:permantspace（持久带） 和 heap space。<br>持久带中主要存放用于存放静态类型数据，如 Java Class, Method 等， 与垃圾收集器要收集的Java对象关系不大。<br>而heapspace分为年轻带和年老带<br>年轻代的垃圾回收叫 Young GC， 年老代的垃圾回收叫 Full GC。<br>在年轻代中经历了N次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象<br>年老代溢出原因有  循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存，既A B D选项<br>持久代溢出原因  动态加载了大量Java类而导致溢出。</p>
+</li>
+<li><p>Java 内部类、成员类、局部类、匿名类等</p>
+<ul>
+<li>类指外部类，最大的类，修饰符有public(表示该类在项目所有类中可以被导入），default(该类只能在同一个package中使用）,abstract,final</li>
+</ul>
+<ul>
+<li>内部类指位于类内部但不包括位于块、构造器、方法内，且有名称的类，修饰符有public,private,protected访问控制符，也可以用static,final关键字修饰，public和private比较简单，一个表示所有可以被所有类访问，一个表示只能被自身访问，protected修饰的成员类可以被同一个包中的类和子类访问。而default修饰的成员类只能被同一个包中的类访问。</li>
+</ul>
+<ul>
+<li><p>局部内部类指位于块、构造器、方法内的有名称类，最多只能有final修饰</p>
+<p><a href="http://blog.csdn.net/a327369238/article/details/52780442" target="_blank" rel="noopener">Reference Link</a></p>
+</li>
+</ul>
+</li>
+<li><p>java.exe是java虚拟机; javadoc.exe用来制作java文档; jdb.exe是java的调试器; javaprof.exe是剖析工具</p>
+</li>
+<li><p>Java中的位运算符：</p>
+<ul>
+<li>&gt;&gt;表示右移，如果该数为正，则高位补0，若为负数，则高位补1；</li>
+</ul>
+<ul>
+<li>&gt;&gt;&gt;表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。</li>
+</ul>
+</li>
+<li><p>抽象类中可以有普通成员变量，接口中没有普通成员变量</p>
+</li>
+<li><p>HttpServletResponse完成：设置http头标，设置cookie，设置返回数据类型，输出返回数据；读取路径信息是HttpServletRequest做的</p>
+</li>
+<li><p>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间。//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。对于LInkedList的话，由于每个节点都需要额外的指针。</p>
+</li>
+<li><p>可以正确获取结果集的有</p>
+<ul>
+<li>```java<br>  Statement sta=con.createStatement();<br>  ResultSet rst=sta.executeQuery(“select * from book”);<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- ```java</span><br><span class="line">    PreparedStatement pst=con.prepareStatement(“select * from book”);</span><br><span class="line">    ResultSet rst=pst.executeQuery();</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li></li>
@@ -111,7 +151,23 @@
 <li>volatile标记的变量不会被编译器优化,而synchronized标记的变量可以被编译器优化.</li>
 </ul>
 </li>
-<li></li>
+<li><p>多进程与多线程</p>
+<ul>
+<li>一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程（通常说的主线程）。</li>
+</ul>
+<ul>
+<li>资源分配给进程，同一进程的所有线程共享该进程的所有资源。</li>
+</ul>
+<ul>
+<li>线程在执行过程中，需要协作同步。不同进程的线程间要利用消息通信的办法实现同步。</li>
+</ul>
+<ul>
+<li>处理机分给线程，即真正在处理机上运行的是线程。</li>
+</ul>
+<ul>
+<li>线程是指进程内的一个执行单元，也是进程内的可调度实体。</li>
+</ul>
+</li>
 </ol>
 ]]></content>
       <categories>
