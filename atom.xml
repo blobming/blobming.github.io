@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2019-11-28T02:57:12.774Z</updated>
+  <updated>2019-11-28T07:11:00.102Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer</title>
+    <link href="https://blobming.github.io/2019/11/27/JianZhiOfferProgramming/"/>
+    <id>https://blobming.github.io/2019/11/27/JianZhiOfferProgramming/</id>
+    <published>2019-11-28T03:48:54.000Z</published>
+    <updated>2019-11-28T07:11:00.102Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a record of my craking process for 剑指offer.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="剑指offer" scheme="https://blobming.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Personal Notes</title>
@@ -100,7 +135,7 @@
     <link href="https://blobming.github.io/2019/11/16/LeetCode-Everyday/"/>
     <id>https://blobming.github.io/2019/11/16/LeetCode-Everyday/</id>
     <published>2019-11-16T17:28:21.000Z</published>
-    <updated>2019-11-17T06:06:33.357Z</updated>
+    <updated>2019-11-28T03:50:09.536Z</updated>
     
     <summary type="html">
     
@@ -108,13 +143,13 @@
       
         
         
-          &lt;p&gt;This is a record of my craking process.&lt;br&gt;List it by frequency.&lt;/p&gt;
+          &lt;p&gt;This is a record of my craking process for Leetcode.&lt;br&gt;List it by frequency.&lt;/p&gt;
 &lt;div class=&quot;toc&quot;&gt;
 
 &lt;!-- toc --&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-two-sum&quot;&gt;1.
+&lt;li&gt;&lt;a
         
       
     
