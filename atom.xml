@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2019-11-28T01:36:01.774Z</updated>
+  <updated>2019-11-28T02:57:12.774Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java Notes</title>
+    <title>Java Personal Notes</title>
     <link href="https://blobming.github.io/2019/11/27/JavaInterviewNotes/"/>
     <id>https://blobming.github.io/2019/11/27/JavaInterviewNotes/</id>
     <published>2019-11-27T17:03:01.000Z</published>
-    <updated>2019-11-28T01:36:01.774Z</updated>
+    <updated>2019-11-28T02:57:12.774Z</updated>
     
     <summary type="html">
     
@@ -30,12 +30,7 @@
         
         
           &lt;p&gt;This is a record of JAVA questions from Nowcoder.&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#java-basic-questions&quot;&gt;Java
+&lt;p&gt;!!!&lt;br&gt;Most original answers rights to the original author listed on Nowcoder
         
       
     

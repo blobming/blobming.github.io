@@ -282,7 +282,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/27/JavaInterviewNotes/" itemprop="url">Java Notes</a></h1>
+                <a class="post-title-link" href="/2019/11/27/JavaInterviewNotes/" itemprop="url">Java Personal Notes</a></h1>
         
 
         <div class="post-meta">
@@ -357,13 +357,15 @@
         
           
             <p>This is a record of JAVA questions from Nowcoder.</p>
+<p>!!!<br>Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do delete processing.[<a href="mailto:xjm.good@gmail.com" target="_blank" rel="noopener">xjm.good@gmail.com</a>]</p>
 <div class="toc">
 
 <!-- toc -->
 
 <ul>
-<li><a href="#java-basic-questions">Java Basic Questions</a><ul>
+<li><a href="#java-basic">Java Basic</a><ul>
 <li><a href="#basic-grammar">Basic grammar</a></li>
+<li><a href="#exception">Exception</a></li>
 <li><a href="#oop">OOP</a></li>
 <li><a href="#design-pattern">Design Pattern</a></li>
 <li><a href="#networking">Networking</a></li>
@@ -371,12 +373,17 @@
 <li><a href="#multi-threading">Multi-threading</a></li>
 </ul>
 </li>
+<li><a href="#java-web">Java Web</a><ul>
+<li><a href="#java-web-basic">Java Web Basic</a></li>
+<li><a href="#spring-framework">Spring Framework</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<h2><span id="java-basic-questions">Java Basic Questions</span><a href="#java-basic-questions" class="header-anchor">#</a></h2><h3><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h3><ol>
+<h1><span id="java-basic">Java Basic</span><a href="#java-basic" class="header-anchor">#</a></h1><h2><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h2><ol>
 <li><p>三元操作符如果遇到可以转换为数字的类型，会做自动类型提升。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o1 = (<span class="keyword">false</span>) ? <span class="keyword">new</span> Double(<span class="number">1.0</span>) : <span class="keyword">new</span> Integer(<span class="number">2</span>);</span><br><span class="line">System.out.println(o1);</span><br></pre></td></tr></table></figure>
 <p>Output: 2.0</p>
@@ -413,7 +420,59 @@
 </li>
 </ul>
 </li>
-<li><p>java.exe是java虚拟机; javadoc.exe用来制作java文档; jdb.exe是java的调试器; javaprof.exe是剖析工具</p>
+<li><p>Java几个常用程序</p>
+<table>
+<thead>
+<tr>
+<th align="center">程序名</th>
+<th align="center">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">java.exe</td>
+<td align="center">java虚拟机</td>
+</tr>
+<tr>
+<td align="center">javadoc.exe</td>
+<td align="center">制作java文档</td>
+</tr>
+<tr>
+<td align="center">jdb.exe</td>
+<td align="center">java的调试器</td>
+</tr>
+<tr>
+<td align="center">javaprof.exe</td>
+<td align="center">剖析工具</td>
+</tr>
+<tr>
+<td align="center">jps.exe</td>
+<td align="center">查看本机java进程信息</td>
+</tr>
+<tr>
+<td align="center">jstack</td>
+<td align="center">打印线程的栈信息，制作线程dump文件</td>
+</tr>
+<tr>
+<td align="center">jmap</td>
+<td align="center">打印内存映射，制作堆dump文件</td>
+</tr>
+<tr>
+<td align="center">jstat</td>
+<td align="center">性能监控工具</td>
+</tr>
+<tr>
+<td align="center">jhat</td>
+<td align="center">内存分析工具</td>
+</tr>
+<tr>
+<td align="center">jconsole</td>
+<td align="center">简易的可视化控制台</td>
+</tr>
+<tr>
+<td align="center">jvisualvm</td>
+<td align="center">功能强大的控制台</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>Java中的位运算符：</p>
 <ul>
@@ -431,13 +490,37 @@
 </li>
 <li><p>可以正确获取结果集的有</p>
 <ul>
-<li>```java<br>  Statement sta=con.createStatement();<br>  ResultSet rst=sta.executeQuery(“select * from book”);<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```java</span><br><span class="line">    PreparedStatement pst=con.prepareStatement(“select * from book”);</span><br><span class="line">    ResultSet rst=pst.executeQuery();</span><br></pre></td></tr></table></figure></li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement sta=con.createStatement();</span><br><span class="line">ResultSet rst=sta.executeQuery(“select * from book”);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement pst=con.prepareStatement(“select * from book”);</span><br><span class="line">ResultSet rst=pst.executeQuery();</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+<li><p>Java允许对boolean类型的值进行按位“与”、“或”和“异或”操作，但不能进行按位“非”。对于boolean值，按位操作与逻辑操作有相同的结果，但是不会发生“短路”。</p>
+</li>
+<li><p>Array的foreach可以用break直接跳出</p>
+</li>
+<li><p>java初始化顺序</p>
+<ul>
+<li>不同类中 父类 &gt; 子类</li>
+<li>同类中 静态变量 &gt; 静态代码块 &gt; 普通成员变量 &gt; 普通代码块 &gt; 构造方法</li>
+</ul>
+</li>
+<li><p>(b1 + b4)  结果仍然转换成int //b1, b4均为byte</p>
+</li>
+<li><p>Java复制的效率System.arraycopy&gt;clone&gt;Arrays.copyOf&gt;for循环，这个有兴趣自己测试一下就知道了。这里面在System类源码中给出了arraycopy的方法，是native方法，也就是本地方法，肯定是最快的。而Arrays.copyOf(注意是Arrays类，不是Array)的实现，在源码中是调用System.copyOf的，多了一个步骤，肯定就不是最快的。</p>
+</li>
+<li><p>二维数组定义，一维长度必须定义，二维可以后续定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f[][] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> []f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][];</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 <hr>
-<h3><span id="oop">OOP</span><a href="#oop" class="header-anchor">#</a></h3><ol>
+<h2><span id="exception">Exception</span><a href="#exception" class="header-anchor">#</a></h2><ol>
+<li>Java的try后不一定必须有catch块，也可以加final块 但是一定要有(要么有catch要么有final)</li>
+<li></li>
+</ol>
+<hr>
+<h2><span id="oop">OOP</span><a href="#oop" class="header-anchor">#</a></h2><ol>
 <li>面向对象程序设计方法的优点包含<ul>
 <li>可重用性</li>
 </ul>
@@ -450,7 +533,7 @@
 </li>
 </ol>
 <hr>
-<h3><span id="design-pattern">Design Pattern</span><a href="#design-pattern" class="header-anchor">#</a></h3><ol>
+<h2><span id="design-pattern">Design Pattern</span><a href="#design-pattern" class="header-anchor">#</a></h2><ol>
 <li><p>Java中四种线程安全的单例模式实现方式</p>
 <ul>
 <li>饿汉式(线程安全)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Single2 instance = <span class="keyword">new</span> Single2();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Single2: "</span> + System.nanoTime());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single2 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -473,20 +556,20 @@
 </li>
 </ol>
 <hr>
-<h3><span id="networking">Networking</span><a href="#networking" class="header-anchor">#</a></h3><ol>
+<h2><span id="networking">Networking</span><a href="#networking" class="header-anchor">#</a></h2><ol>
 <li><p>如果希望监听TCP端口9000，服务器端应该怎样创建socket?</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server serverProcess = <span class="keyword">new</span> ServerSocket(<span class="number">9000</span>);</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 <hr>
-<h3><span id="i-o">I/O</span><a href="#i-o" class="header-anchor">#</a></h3><ol>
+<h2><span id="i-o">I/O</span><a href="#i-o" class="header-anchor">#</a></h2><ol>
 <li><p>哪个I / O类可以附加或更新文件?</p>
 <p> RandomAccessFile 可以通过 seek(long pos) 方法去移动文件指针进行追加更新写入.OutputStream() 是一个抽象类 不能直接实例化去写入.DataOutputStream() 也无法追加写入</p>
 </li>
 <li></li>
 </ol>
 <hr>
-<h3><span id="multi-threading">Multi-threading</span><a href="#multi-threading" class="header-anchor">#</a></h3><ol>
+<h2><span id="multi-threading">Multi-threading</span><a href="#multi-threading" class="header-anchor">#</a></h2><ol>
 <li><p>volatile与synchronized的区别：</p>
 <ul>
 <li>volatile本质是在告诉jvm当前变量在寄存器中的值是不确定的,需要从主存中读取,synchronized则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住.</li>
@@ -522,7 +605,25 @@
 </ul>
 </li>
 </ol>
-
+<h1><span id="java-web">Java Web</span><a href="#java-web" class="header-anchor">#</a></h1><h2><span id="java-web-basic">Java Web Basic</span><a href="#java-web-basic" class="header-anchor">#</a></h2><ol>
+<li>Servlet的生命周期分为5个阶段<ul>
+<li>加载：容器通过类加载器使用servlet类对应的文件加载servlet</li>
+</ul>
+<ul>
+<li>创建：通过调用servlet构造函数创建一个servlet对象</li>
+</ul>
+<ul>
+<li>初始化：调用init方法初始化</li>
+</ul>
+<ul>
+<li>处理客户请求：每当有一个客户请求，容器会创建一个线程来处理客户请求</li>
+</ul>
+<ul>
+<li>卸载：调用destroy方法让servlet自己释放其占用的资源</li>
+</ul>
+</li>
+</ol>
+<h2><span id="spring-framework">Spring Framework</span><a href="#spring-framework" class="header-anchor">#</a></h2>
           
         
       
