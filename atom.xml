@@ -56,7 +56,7 @@
     <link href="https://blobming.github.io/2019/11/27/JavaInterviewNotes/"/>
     <id>https://blobming.github.io/2019/11/27/JavaInterviewNotes/</id>
     <published>2019-11-27T17:03:01.000Z</published>
-    <updated>2019-11-28T02:57:12.774Z</updated>
+    <updated>2019-12-03T17:19:12.999Z</updated>
     
     <summary type="html">
     
@@ -78,6 +78,25 @@
       <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
       <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction To Computer System</title>
+    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
+    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2019-11-16T20:16:15.094Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -108,25 +127,6 @@
       <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
       <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Introduction To Computer System</title>
-    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
-    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
-    <published>2019-11-16T20:13:02.000Z</published>
-    <updated>2019-11-16T20:16:15.094Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
   </entry>
   

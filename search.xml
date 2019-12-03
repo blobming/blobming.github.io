@@ -450,6 +450,7 @@
 <hr>
 <h2><span id="exception">Exception</span><a href="#exception" class="header-anchor">#</a></h2><ol>
 <li>Java的try后不一定必须有catch块，也可以加final块 但是一定要有(要么有catch要么有final)</li>
+<li>异常是指程序运行时（非编译）所发生的非正常情况或错误，当程序违反了语音规则，jvm就会将出现的错误表示一个异常抛出。<br>异常也是java 的对象，定义了基类 java。lang。throwable作为异常父类。 这些异常类又包括error和exception。两大类<br>error类异常主要是运行时逻辑错误导致，一个正确程序中是不应该出现error的。当出现error一般jvm会终止。<br>exception表示可恢复异常，包括检查异常和运行时异常。 检查异常是最常见异常比如 io异常sql异常，都发生在编译阶段。这类通过try、catch捕捉<br>而运行时异常，编译器没有强制对其进行捕捉和处理。一般都会把异常向上抛出，直到遇到处理代码位置，若没有处理块就会抛到最上层，多线程用thread。run（）抛出，单线程用main（）抛出。常见的运行异常包括 空指针异常 类型转换异常 数组月结异常 数组存储异常 缓冲区溢出异常 算术异常等。</li>
 <li></li>
 </ol>
 <hr>
@@ -563,6 +564,17 @@
       <tags>
         <tag>Learning</tag>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduction To Computer System</title>
+    <url>/2019/11/16/IntroToComSys/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -772,17 +784,6 @@
       <tags>
         <tag>Learning</tag>
         <tag>MarkDown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Introduction To Computer System</title>
-    <url>/2019/11/16/IntroToComSys/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Computer Architecture</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
