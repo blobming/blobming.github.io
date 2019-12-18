@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
 <meta property="og:description" content="This is a record of JAVA questions from Nowcoder. !!!Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do d">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-03T17:19:12.999Z">
+<meta property="og:updated_time" content="2019-12-18T02:58:21.750Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -508,7 +508,45 @@
 </li>
 <li><p>二维数组定义，一维长度必须定义，二维可以后续定义</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f[][] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> []f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][];</span><br></pre></td></tr></table></figure></li>
-<li></li>
+<li><p>java Collection and map</p>
+<ul>
+<li>Collection<ul>
+<li>List<ul>
+<li>LinkedList    非同步</li>
+</ul>
+<ul>
+<li>ArrayList      非同步，实现了可变大小的元素数组</li>
+</ul>
+<ul>
+<li>Vector          同步<ul>
+<li>Stack</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Set   不允许有相同的元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>- Map
+    + HashTable        同步，实现一个key--value映射的哈希表
+    - HashMap          非同步，
+    + WeakHashMap      改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收</code></pre><ol start="19">
+<li>加载驱动方法<ul>
+<li>Class.forName(“com.microsoft.sqlserver.jdbc.SQLServerDriver”);</li>
+</ul>
+<ul>
+<li>DriverManager.registerDriver(new com.mysql.jdbc.Driver());</li>
+</ul>
+<ul>
+<li>System.setProperty(“jdbc.drivers”, “com.mysql.jdbc.Driver”);</li>
+</ul>
+</li>
+<li>sadf</li>
 </ol>
 <hr>
 <h2><span id="exception">Exception</span><a href="#exception" class="header-anchor">#</a></h2><ol>
