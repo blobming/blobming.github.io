@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-01-04T19:03:17.068Z</updated>
+  <updated>2020-01-04T23:50:25.961Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -21,9 +21,23 @@
     <link href="https://blobming.github.io/2020/01/04/MySqlNotes/"/>
     <id>https://blobming.github.io/2020/01/04/MySqlNotes/</id>
     <published>2020-01-04T19:02:08.000Z</published>
-    <updated>2020-01-04T19:03:17.068Z</updated>
+    <updated>2020-01-04T23:50:25.961Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a note of MySQL datbase for future review&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-basic-concept&quot;&gt;1. Basic
+        
+      
     
     </summary>
     

@@ -3,7 +3,88 @@
   <entry>
     <title>MYSQL NOTES</title>
     <url>/2020/01/04/MySqlNotes/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>This is a note of MySQL datbase for future review</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#1-basic-concept">1. Basic Concept</a></li>
+<li><a href="#2-dql-data-query-language">2. DQL (Data query language)</a><ul>
+<li><a href="#1-syntax">1. Syntax</a></li>
+<li><a href="#2-character">2. Character</a></li>
+<li><a href="#3-example">3. Example</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="1-basic-concept">1. Basic Concept</span><a href="#1-basic-concept" class="header-anchor">#</a></h2><ol>
+<li>DB: database, a container used to store data.</li>
+<li>DBMS: database management system, a system used to create or manamge database</li>
+<li>SQL: strucutred query language, a kind of way to communicate with database.</li>
+</ol>
+<h2><span id="2-dql-data-query-language">2. DQL (Data query language)</span><a href="#2-dql-data-query-language" class="header-anchor">#</a></h2><h3><span id="1-syntax">1. Syntax</span><a href="#1-syntax" class="header-anchor">#</a></h3><p>select col_name<br>from table_name;</p>
+<h3><span id="2-character">2. Character</span><a href="#2-character" class="header-anchor">#</a></h3><ol>
+<li>col_name can be a single or muliple column, constant value, expression, function</li>
+<li>the result is a virtual table</li>
+</ol>
+<h3><span id="3-example">3. Example</span><a href="#3-example" class="header-anchor">#</a></h3><ol>
+<li>Query a single column<ul>
+<li>select col_name from table_name;</li>
+</ul>
+</li>
+<li>Query multiple columns<ul>
+<li>select col_name1, col_name2 from table_name;</li>
+</ul>
+</li>
+<li>Query all columns<ul>
+<li>select * from table_name;</li>
+</ul>
+</li>
+<li>Query constant value<ul>
+<li>select * cons_val</li>
+</ul>
+<ul>
+<li>constant value with char and date must be quoted with single quote.</li>
+</ul>
+</li>
+<li>Query function<ul>
+<li>select function_name(parm_list)</li>
+</ul>
+</li>
+<li>Query expression<ul>
+<li>select 100/1234;</li>
+</ul>
+</li>
+<li>alias<ul>
+<li>as</li>
+<li>space</li>
+</ul>
+</li>
+<li>distinct -&gt; reduce duplication<ul>
+<li>select distinct col_name from table_name;</li>
+</ul>
+</li>
+<li>+ // add operation<ul>
+<li>select number1 + number2</li>
+<li>select character + number // trying to convert character to number. If succeed, continue calculation. If failed, regard character as 0.</li>
+<li>select null + any value // result would be always null</li>
+</ul>
+</li>
+<li>concat function // do characters concatination<ul>
+<li>select concat(char1, char2, char3, …);</li>
+</ul>
+</li>
+<li>ifnull function // identify xxx is null or not null. if null, return 0 or return original value<ul>
+<li>select ifnull(xxx, 0) from employees;</li>
+</ul>
+</li>
+<li>isnull function // identify a col is null or nut, if null, return 1 or return 0</li>
+</ol>
+]]></content>
       <categories>
         <category>Database</category>
       </categories>
