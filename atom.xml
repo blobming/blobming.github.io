@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2019-12-21T01:02:40.660Z</updated>
+  <updated>2020-01-04T19:03:17.068Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MYSQL NOTES</title>
+    <link href="https://blobming.github.io/2020/01/04/MySqlNotes/"/>
+    <id>https://blobming.github.io/2020/01/04/MySqlNotes/</id>
+    <published>2020-01-04T19:02:08.000Z</published>
+    <updated>2020-01-04T19:03:17.068Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="https://blobming.github.io/categories/Database/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="MySQL" scheme="https://blobming.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding Interview</title>

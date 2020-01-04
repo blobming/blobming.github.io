@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MYSQL NOTES</title>
+    <url>/2020/01/04/MySqlNotes/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Coding Interview</title>
     <url>/2019/11/27/JianZhiOfferProgramming/</url>
     <content><![CDATA[<p>This is a record of my craking process for 剑指offer.</p>
