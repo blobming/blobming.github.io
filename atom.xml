@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-01-04T23:50:25.961Z</updated>
+  <updated>2020-01-14T04:51:15.415Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>latex</title>
+    <link href="https://blobming.github.io/2020/01/13/latex/"/>
+    <id>https://blobming.github.io/2020/01/13/latex/</id>
+    <published>2020-01-14T04:51:15.000Z</published>
+    <updated>2020-01-14T04:51:15.415Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaTips</title>
+    <link href="https://blobming.github.io/2020/01/11/JavaTips/"/>
+    <id>https://blobming.github.io/2020/01/11/JavaTips/</id>
+    <published>2020-01-12T02:05:25.000Z</published>
+    <updated>2020-01-16T21:57:13.892Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a record of JAVA language tips when I am programming.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Interviews" scheme="https://blobming.github.io/categories/Interviews/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>MYSQL NOTES</title>
@@ -117,25 +167,6 @@
   </entry>
   
   <entry>
-    <title>Introduction To Computer System</title>
-    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
-    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
-    <published>2019-11-16T20:13:02.000Z</published>
-    <updated>2019-11-16T20:16:15.094Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Template Page</title>
     <link href="https://blobming.github.io/2019/11/16/demo/"/>
     <id>https://blobming.github.io/2019/11/16/demo/</id>
@@ -162,6 +193,25 @@
       <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
       <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction To Computer System</title>
+    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
+    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2019-11-16T20:16:15.094Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
   </entry>
   
