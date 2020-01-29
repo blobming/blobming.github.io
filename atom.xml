@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-01-29T21:32:07.339Z</updated>
+  <updated>2020-01-29T23:55:03.507Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Algorithms review 2 Trees and Graphs</title>
+    <link href="https://blobming.github.io/2020/01/30/AlgorithmsRev2/"/>
+    <id>https://blobming.github.io/2020/01/30/AlgorithmsRev2/</id>
+    <published>2020-01-30T22:20:35.000Z</published>
+    <updated>2020-01-29T23:55:03.507Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#trees-and-graphs&quot;&gt;Trees and
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Algorithms review 1 Runtime Complexity</title>
     <link href="https://blobming.github.io/2020/01/29/AlgorithmsRev1/"/>
     <id>https://blobming.github.io/2020/01/29/AlgorithmsRev1/</id>
     <published>2020-01-30T02:05:25.000Z</published>
-    <updated>2020-01-29T21:32:07.339Z</updated>
+    <updated>2020-01-29T22:17:48.042Z</updated>
     
     <summary type="html">
     
