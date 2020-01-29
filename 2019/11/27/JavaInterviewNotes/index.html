@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
 <meta property="og:description" content="This is a record of JAVA questions from Nowcoder. !!!Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do d">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T02:58:21.750Z">
+<meta property="og:updated_time" content="2020-01-29T17:38:21.941Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -353,11 +353,10 @@
 
       
         <p>This is a record of JAVA questions from Nowcoder.</p>
-<p>!!!<br>Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do delete processing.[<a href="mailto:xjm.good@gmail.com" target="_blank" rel="noopener">xjm.good@gmail.com</a>]</p>
+<p>!!!<br>Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do delete processing.[xjm.good@gmail.com]</p>
 <div class="toc">
 
 <!-- toc -->
-
 <ul>
 <li><a href="#java-basic">Java Basic</a><ul>
 <li><a href="#basic-grammar">Basic grammar</a></li>
@@ -376,7 +375,6 @@
 </li>
 </ul>
 <!-- tocstop -->
-
 </div>
 
 <h1><span id="java-basic">Java Basic</span><a href="#java-basic" class="header-anchor">#</a></h1><h2><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h2><ol>
@@ -397,12 +395,9 @@
 <li>若两个操作数都是直接量数字，则返回值类型为范围较大者</li>
 </ul>
 </li>
-<li><p>Java中的那些基本类型属于原生类，而数组是引用类型，不属于原生类，可以看成是一种对象。</p>
-</li>
-<li><p>Synchronized保证三大性，原子性，有序性，可见性，volatile保证有序性，可见性，不能保证原子性</p>
-</li>
-<li><p>Java的堆内存分为两块:permantspace（持久带） 和 heap space。<br>持久带中主要存放用于存放静态类型数据，如 Java Class, Method 等， 与垃圾收集器要收集的Java对象关系不大。<br>而heapspace分为年轻带和年老带<br>年轻代的垃圾回收叫 Young GC， 年老代的垃圾回收叫 Full GC。<br>在年轻代中经历了N次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象<br>年老代溢出原因有  循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存，既A B D选项<br>持久代溢出原因  动态加载了大量Java类而导致溢出。</p>
-</li>
+<li>Java中的那些基本类型属于原生类，而数组是引用类型，不属于原生类，可以看成是一种对象。</li>
+<li>Synchronized保证三大性，原子性，有序性，可见性，volatile保证有序性，可见性，不能保证原子性</li>
+<li>Java的堆内存分为两块:permantspace（持久带） 和 heap space。<br>持久带中主要存放用于存放静态类型数据，如 Java Class, Method 等， 与垃圾收集器要收集的Java对象关系不大。<br>而heapspace分为年轻带和年老带<br>年轻代的垃圾回收叫 Young GC， 年老代的垃圾回收叫 Full GC。<br>在年轻代中经历了N次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象<br>年老代溢出原因有  循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存，既A B D选项<br>持久代溢出原因  动态加载了大量Java类而导致溢出。</li>
 <li><p>Java 内部类、成员类、局部类、匿名类等</p>
 <ul>
 <li>类指外部类，最大的类，修饰符有public(表示该类在项目所有类中可以被导入），default(该类只能在同一个package中使用）,abstract,final</li>
@@ -416,100 +411,35 @@
 </li>
 </ul>
 </li>
-<li><p>Java几个常用程序</p>
-<table>
-<thead>
-<tr>
-<th align="center">程序名</th>
-<th align="center">用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">java.exe</td>
-<td align="center">java虚拟机</td>
-</tr>
-<tr>
-<td align="center">javadoc.exe</td>
-<td align="center">制作java文档</td>
-</tr>
-<tr>
-<td align="center">jdb.exe</td>
-<td align="center">java的调试器</td>
-</tr>
-<tr>
-<td align="center">javaprof.exe</td>
-<td align="center">剖析工具</td>
-</tr>
-<tr>
-<td align="center">jps.exe</td>
-<td align="center">查看本机java进程信息</td>
-</tr>
-<tr>
-<td align="center">jstack</td>
-<td align="center">打印线程的栈信息，制作线程dump文件</td>
-</tr>
-<tr>
-<td align="center">jmap</td>
-<td align="center">打印内存映射，制作堆dump文件</td>
-</tr>
-<tr>
-<td align="center">jstat</td>
-<td align="center">性能监控工具</td>
-</tr>
-<tr>
-<td align="center">jhat</td>
-<td align="center">内存分析工具</td>
-</tr>
-<tr>
-<td align="center">jconsole</td>
-<td align="center">简易的可视化控制台</td>
-</tr>
-<tr>
-<td align="center">jvisualvm</td>
-<td align="center">功能强大的控制台</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>Java中的位运算符：</p>
-<ul>
-<li>&gt;&gt;表示右移，如果该数为正，则高位补0，若为负数，则高位补1；</li>
+<li>Java几个常用程序<br>|程序名|用法|<br>|:———:|:———:|<br>|java.exe|java虚拟机|<br>|javadoc.exe|制作java文档|<br>|jdb.exe|java的调试器|<br>|javaprof.exe|剖析工具|<br>|jps.exe|查看本机java进程信息|<br>|jstack|打印线程的栈信息，制作线程dump文件|<br>|jmap|打印内存映射，制作堆dump文件|<br>|jstat|性能监控工具|<br>|jhat|内存分析工具|<br>|jconsole|简易的可视化控制台|<br>|jvisualvm|功能强大的控制台|</li>
+<li>Java中的位运算符：<ul>
+<li>>>表示右移，如果该数为正，则高位补0，若为负数，则高位补1；</li>
 </ul>
 <ul>
-<li>&gt;&gt;&gt;表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。</li>
+<li>>>>表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。</li>
 </ul>
 </li>
-<li><p>抽象类中可以有普通成员变量，接口中没有普通成员变量</p>
-</li>
-<li><p>HttpServletResponse完成：设置http头标，设置cookie，设置返回数据类型，输出返回数据；读取路径信息是HttpServletRequest做的</p>
-</li>
-<li><p>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间。//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。对于LInkedList的话，由于每个节点都需要额外的指针。</p>
-</li>
-<li><p>可以正确获取结果集的有</p>
-<ul>
+<li>抽象类中可以有普通成员变量，接口中没有普通成员变量</li>
+<li>HttpServletResponse完成：设置http头标，设置cookie，设置返回数据类型，输出返回数据；读取路径信息是HttpServletRequest做的</li>
+<li>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间。//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。对于LInkedList的话，由于每个节点都需要额外的指针。</li>
+<li>可以正确获取结果集的有<ul>
 <li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement sta=con.createStatement();</span><br><span class="line">ResultSet rst=sta.executeQuery(“select * from book”);</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ul>
 <li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement pst=con.prepareStatement(“select * from book”);</span><br><span class="line">ResultSet rst=pst.executeQuery();</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>Java允许对boolean类型的值进行按位“与”、“或”和“异或”操作，但不能进行按位“非”。对于boolean值，按位操作与逻辑操作有相同的结果，但是不会发生“短路”。</p>
-</li>
-<li><p>Array的foreach可以用break直接跳出</p>
-</li>
-<li><p>java初始化顺序</p>
-<ul>
+<li>Java允许对boolean类型的值进行按位“与”、“或”和“异或”操作，但不能进行按位“非”。对于boolean值，按位操作与逻辑操作有相同的结果，但是不会发生“短路”。</li>
+<li>Array的foreach可以用break直接跳出</li>
+<li>java初始化顺序<ul>
 <li>不同类中 父类 &gt; 子类</li>
 <li>同类中 静态变量 &gt; 静态代码块 &gt; 普通成员变量 &gt; 普通代码块 &gt; 构造方法</li>
 </ul>
 </li>
-<li><p>(b1 + b4)  结果仍然转换成int //b1, b4均为byte</p>
-</li>
-<li><p>Java复制的效率System.arraycopy&gt;clone&gt;Arrays.copyOf&gt;for循环，这个有兴趣自己测试一下就知道了。这里面在System类源码中给出了arraycopy的方法，是native方法，也就是本地方法，肯定是最快的。而Arrays.copyOf(注意是Arrays类，不是Array)的实现，在源码中是调用System.copyOf的，多了一个步骤，肯定就不是最快的。</p>
-</li>
-<li><p>二维数组定义，一维长度必须定义，二维可以后续定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f[][] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> []f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][];</span><br></pre></td></tr></table></figure></li>
-<li><p>java Collection and map</p>
-<ul>
+<li>(b1 + b4)  结果仍然转换成int //b1, b4均为byte</li>
+<li>Java复制的效率System.arraycopy&gt;clone&gt;Arrays.copyOf&gt;for循环，这个有兴趣自己测试一下就知道了。这里面在System类源码中给出了arraycopy的方法，是native方法，也就是本地方法，肯定是最快的。而Arrays.copyOf(注意是Arrays类，不是Array)的实现，在源码中是调用System.copyOf的，多了一个步骤，肯定就不是最快的。</li>
+<li>二维数组定义，一维长度必须定义，二维可以后续定义<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f[][] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> []f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][];</span><br></pre></td></tr></table></figure></li>
+<li>java Collection and map<ul>
 <li>Collection<ul>
 <li>List<ul>
 <li>LinkedList    非同步</li>
@@ -535,7 +465,8 @@
 <pre><code>- Map
     + HashTable        同步，实现一个key--value映射的哈希表
     - HashMap          非同步，
-    + WeakHashMap      改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收</code></pre><ol start="19">
+    + WeakHashMap      改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收
+</code></pre><ol>
 <li>加载驱动方法<ul>
 <li>Class.forName(“com.microsoft.sqlserver.jdbc.SQLServerDriver”);</li>
 </ul>
@@ -546,7 +477,10 @@
 <li>System.setProperty(“jdbc.drivers”, “com.mysql.jdbc.Driver”);</li>
 </ul>
 </li>
-<li>sadf</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.asList(num1, num2, num3)</span><br></pre></td></tr></table></figure></li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(intervals, (x, y) -&gt; &#123;</span><br><span class="line">       <span class="keyword">return</span> Integer.compare(x[<span class="number">0</span>], y[<span class="number">0</span>]);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.getOrDefault(t.charAt(i), <span class="number">0</span>);</span><br><span class="line">map.computeIfAbsent() <span class="comment">//V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <hr>
 <h2><span id="exception">Exception</span><a href="#exception" class="header-anchor">#</a></h2><ol>
@@ -572,7 +506,6 @@
 <li><p>Java中四种线程安全的单例模式实现方式</p>
 <ul>
 <li>饿汉式(线程安全)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Single2 instance = <span class="keyword">new</span> Single2();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Single2: "</span> + System.nanoTime());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single2 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <ul>
@@ -622,8 +555,7 @@
 <li>volatile标记的变量不会被编译器优化,而synchronized标记的变量可以被编译器优化.</li>
 </ul>
 </li>
-<li><p>多进程与多线程</p>
-<ul>
+<li>多进程与多线程<ul>
 <li>一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程（通常说的主线程）。</li>
 </ul>
 <ul>
@@ -690,8 +622,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/16/demo/" rel="next" title="Template Page">
-                <i class="fa fa-chevron-left"></i> Template Page
+              <a href="/2019/11/16/IntroToComSys/" rel="next" title="Introduction To Computer System">
+                <i class="fa fa-chevron-left"></i> Introduction To Computer System
               </a>
             
           </div>
@@ -794,7 +726,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1052,6 +984,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
