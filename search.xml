@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Algorithms review 1</title>
+    <title>Algorithms review 1 Runtime Complexity</title>
     <url>/2020/01/29/AlgorithmsRev1/</url>
     <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
 <div class="toc">
@@ -15,9 +15,10 @@
 <li><a href="#exact-bound-big-theta">Exact Bound (Big-Theta)</a></li>
 <li><a href="#lower-bound-for-sorting">Lower Bound for Sorting</a></li>
 <li><a href="#some-tips-to-compare-time-complexity">Some tips to compare time complexity</a><ul>
-<li><a href="#example-1">Example 1:</a></li>
-<li><a href="#example-2">Example 2:</a></li>
-<li><a href="#example-3">Example 3:</a></li>
+<li><a href="#example-1">Example 1</a></li>
+<li><a href="#example-2">Example 2</a></li>
+<li><a href="#example-3">Example 3</a></li>
+<li><a href="#example-4">Example 4</a></li>
 </ul>
 </li>
 </ul>
@@ -32,7 +33,7 @@
 <li>We measure the runtime of an algorithm using $\Theta$,$\Omega$,O<h2><span id="upper-bound-big-o">Upper Bound (Big-O)</span><a href="#upper-bound-big-o" class="header-anchor">#</a></h2>For any monotonic functions with two positive number f, g,we say $f(n) = O(g(n))$[or $f(n)\in O(g(n))$ if $g(n)$ eventually dominates $f(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \leq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is smaller or equal than $g(n)$) or we called $g(n)$ is upper bound of $f(n)$.<h2><span id="lower-bound-big-omega">Lower Bound (Big-Omega)</span><a href="#lower-bound-big-omega" class="header-anchor">#</a></h2>For any monotonic functions with two positive numbers f, g,we say $f(n) = \Omega(g(n))$[or $f(n)\in \Omega(g(n))$ if $f(n)$ eventually dominates $g(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \geq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is greater or equal than $g(n)$)<h2><span id="exact-bound-big-theta">Exact Bound (Big-Theta)</span><a href="#exact-bound-big-theta" class="header-anchor">#</a></h2>For any monotonic functions with two positive numbers f, g,we say $f(n) = \Theta(g(n))$[or $f(n)\in \Theta(g(n))$ if $f(n) = \Omega(g(n))$ and $f(n) = O(g(n))$]. Formally, there exists two positive real number $c_1$ and $c_2$, and a real number, $n_0$, such that $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ has the same increasing rate with $g(n)$)<h2><span id="lower-bound-for-sorting">Lower Bound for Sorting</span><a href="#lower-bound-for-sorting" class="header-anchor">#</a></h2>For any sorting based on comparison we must take at least($\Omega(n\log(n))$)to sort an array of n elements in the worst case. A decision tree model was introducted to illustrate this model.<br><img src="/2020/01/29/AlgorithmsRev1/decisionTree.png" alt="Decision Tree"><!--center>Decision Tree</center-->
 Suppose we have input size = n, Now we have 6 leaves in this decision tree which can represent as $n!$. If we make it as a Full Binary Tree, the number of leaves becomes $2^h$ where h represents its height. Hence, $2^h \geq n!$, after taking log on both sides, $h \geq\log(n!)$. Since h(the height of decision tree) represents the number of comparisons in a sorting algorithm, so $T(n) = h \geq \log(n!)$. To simplify $\log(n!)$:<script type="math/tex; mode=display">\log(n!) = \log(n(n-1)(n-2)...1)</script><script type="math/tex; mode=display">\log(n!) \geq \log(n(n-1)(n-2)...(n-n/2))</script><script type="math/tex; mode=display">\log(n!) \geq \log((n/2)^{n/2}) = \Omega(n \cdot \log(n))</script></li>
 </ol>
-<h2><span id="some-tips-to-compare-time-complexity">Some tips to compare time complexity</span><a href="#some-tips-to-compare-time-complexity" class="header-anchor">#</a></h2><h3><span id="example-1">Example 1:</span><a href="#example-1" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$</p>
+<h2><span id="some-tips-to-compare-time-complexity">Some tips to compare time complexity</span><a href="#some-tips-to-compare-time-complexity" class="header-anchor">#</a></h2><h3><span id="example-1">Example 1</span><a href="#example-1" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$</p>
 <p>$\log{n^n}$, $n^2$,$n^{\log n}$,$n\log\log{n}$,$2^{\log{n}}$,$\log^2{n}$,$n^{\sqrt{2}}$</p>
 <p>Tips:</p>
 <ul>
@@ -44,9 +45,9 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 <ul>
 <li>TRICK: set n = 1024</li>
 </ul>
-<h3><span id="example-2">Example 2:</span><a href="#example-2" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) = O(g(n))$, Is it true that $2^{f(n)} = O(2^{g(n)})$ ?</p>
+<h3><span id="example-2">Example 2</span><a href="#example-2" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) = O(g(n))$, Is it true that $2^{f(n)} = O(2^{g(n)})$ ?</p>
 <p>Tip : Suppose $f(n) = 2n$ and $g(n) = n$.</p>
-<h3><span id="example-3">Example 3:</span><a href="#example-3" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$</p>
+<h3><span id="example-3">Example 3</span><a href="#example-3" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$</p>
 <p>$4^{\log n}$,$\sqrt{\log n}$,$n^{\log\log n}$,$(\sqrt{2})^{\log n}$,$2^{2\sqrt{\log n}}$,$n^{1/\log{n}}$,$(\log{n})!$</p>
 <p>Tips:</p>
 <ul>
@@ -71,6 +72,8 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 <p>$n^{\log\log n} = n^{\log t} = n^{\frac{\log_n{t}}{\log_n{2}}} = (n^{log_n{t}})^\frac{1}{\log_n{2}} = t^\frac{1}{log_n{2}} = (\log{n})^{\log{n}}$</p>
 </li>
 </ul>
+<h3><span id="example-4">Example 4</span><a href="#example-4" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) = \Omega(g(n))$, Is it true that $2^{f(n)} = \Omega(2^{g(n)})$ ?</p>
+<p>Tip : Suppose $f(n) = n$ and $g(n) = 5n$.</p>
 ]]></content>
       <categories>
         <category>Algorithms</category>
