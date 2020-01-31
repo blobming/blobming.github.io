@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="This is a personal notes of algorithms courses     Trees and Graphs Definition Graph Traversals DFS BFS Complexity Analysis         Trees and Graphs#Definition#A graph G is a pair (V, E), where V is a">
+<meta name="description" content="This is a personal notes of algorithms courses     Definition Graph Traversals DFS BFS Complexity Analysis Topological Sort   Planar Graph Theorem1. Theorem2.   Applications Example1 Description Solut">
 <meta name="keywords" content="Learning,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithms review 2 Trees and Graphs">
 <meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;01&#x2F;30&#x2F;AlgorithmsRev2&#x2F;index.html">
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
-<meta property="og:description" content="This is a personal notes of algorithms courses     Trees and Graphs Definition Graph Traversals DFS BFS Complexity Analysis         Trees and Graphs#Definition#A graph G is a pair (V, E), where V is a">
+<meta property="og:description" content="This is a personal notes of algorithms courses     Definition Graph Traversals DFS BFS Complexity Analysis Topological Sort   Planar Graph Theorem1. Theorem2.   Applications Example1 Description Solut">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-29T23:55:03.507Z">
+<meta property="og:updated_time" content="2020-01-31T21:56:46.336Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -357,12 +357,23 @@
 
 <!-- toc -->
 <ul>
-<li><a href="#trees-and-graphs">Trees and Graphs</a><ul>
 <li><a href="#definition">Definition</a></li>
 <li><a href="#graph-traversals">Graph Traversals</a><ul>
 <li><a href="#dfs">DFS</a></li>
 <li><a href="#bfs">BFS</a></li>
 <li><a href="#complexity-analysis">Complexity Analysis</a></li>
+<li><a href="#topological-sort">Topological Sort</a></li>
+</ul>
+</li>
+<li><a href="#planar-graph">Planar Graph</a><ul>
+<li><a href="#theorem1">Theorem1.</a></li>
+<li><a href="#theorem2">Theorem2.</a></li>
+</ul>
+</li>
+<li><a href="#applications">Applications</a><ul>
+<li><a href="#example1">Example1</a><ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#solution">Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -371,7 +382,8 @@
 <!-- tocstop -->
 </div>
 
-<h1><span id="trees-and-graphs">Trees and Graphs</span><a href="#trees-and-graphs" class="header-anchor">#</a></h1><h2><span id="definition">Definition</span><a href="#definition" class="header-anchor">#</a></h2><p>A graph G is a pair (V, E), where V is a set of vertices(also called Nodes) and E is a set of Edges connecting the vertices. Graphs can be directed or undirected and weighted or unweighted.(weights are always assigned on the edges)</p>
+
+<h2><span id="definition">Definition</span><a href="#definition" class="header-anchor">#</a></h2><p>A graph G is a pair (V, E), where V is a set of vertices(also called Nodes) and E is a set of Edges connecting the vertices. Graphs can be directed or undirected and weighted or unweighted.(weights are always assigned on the edges)</p>
 <ul>
 <li>self-loop is an edge that connects to the same vertex twice. </li>
 </ul>
@@ -408,6 +420,27 @@
 <li>It visited all the vertices in the connected component;</li>
 <li>edges labeled by traversal form a spanning tree of the connected component</li>
 </ol>
+<h3><span id="topological-sort">Topological Sort</span><a href="#topological-sort" class="header-anchor">#</a></h3><p>In a DAG(direct acyclic graph), each vertex represents a task that must be completed and a directed edge$(u,v)$ indicates that task v depends on task u. If we want to find an exist order to complete the tasks. This called topological order or topological sort. There are two ways to get a proper topological order:</p>
+<ol>
+<li><ul>
+<li>1) select a vertex</li>
+<li>2) run DFS and return vertices that has no undiscorvered leaving edges</li>
+<li>3) run DFS several times(each DFS uses linear time)</li>
+<li>4) We can get verties in reverse order</li>
+</ul>
+</li>
+<li><ul>
+<li>1) select a vertex whose indegree = 0</li>
+<li>2) return that vertex and continue search vertexs whose indegree = 0</li>
+</ul>
+</li>
+</ol>
+<h2><span id="planar-graph">Planar Graph</span><a href="#planar-graph" class="header-anchor">#</a></h2><p>A connected graph is planar if it can be drawn in the plane with edge drawn as a continuous curve such that no two edge cross. A planar graph in addition to vertices and edges also has disjoint faces.</p>
+<h3><span id="theorem1">Theorem1.</span><a href="#theorem1" class="header-anchor">#</a></h3><p>(Euler’s formula) If G is a connected plaar graph with V vertices, E edges, and F faces, then </p>
+<script type="math/tex; mode=display">V - E + F = 2</script><h3><span id="theorem2">Theorem2.</span><a href="#theorem2" class="header-anchor">#</a></h3><p>In any simple connected planar graph with at least 3 vertices,</p>
+<script type="math/tex; mode=display">E\leq3V-6</script><p>remaing proof for later :D</p>
+<h2><span id="applications">Applications</span><a href="#applications" class="header-anchor">#</a></h2><h3><span id="example1">Example1</span><a href="#example1" class="header-anchor">#</a></h3><h4><span id="description">Description</span><a href="#description" class="header-anchor">#</a></h4><p>Finding the longest pat in a DAG with linear time.</p>
+<h4><span id="solution">Solution</span><a href="#solution" class="header-anchor">#</a></h4><p>We use a topological Order to solve that problem. We apply a new attribute to all node which means the longest path from the start point to the current node. If we can find a longer path we update this attribute.<br>Here is the code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Class Solution&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TopologicalOrder</span><span class="params">(<span class="keyword">int</span>[][] adj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = adj.length;</span><br><span class="line">        <span class="keyword">int</span>[] indegree = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] longestPath = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.fill(indegree, <span class="number">0</span>);</span><br><span class="line">        Arrays.fill(longestPath, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(adj[i][j] == <span class="number">1</span>) indegree[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(indegree[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                queue.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = queue.remove();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(adj[j][k] == <span class="number">1</span>) &#123;</span><br><span class="line">                    indegree[k] -= <span class="number">1</span>;</span><br><span class="line">                    longestPath[k] = Math.max(longestPath[k], <span class="number">1</span> + longestPath[j]);</span><br><span class="line">                    <span class="keyword">if</span>(indegree[k] == <span class="number">0</span>) queue.add(k);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -591,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Trees and Graphs#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Definition#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">Graph Traversals#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.1.</span> <span class="nav-text">DFS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.2.</span> <span class="nav-text">BFS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.3.</span> <span class="nav-text">Complexity Analysis#</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Definition#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Graph Traversals#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">DFS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">BFS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">Complexity Analysis#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">Topological Sort#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Planar Graph#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">Theorem1.#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">Theorem2.#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">Applications#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">Example1#</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.1.1.</span> <span class="nav-text">Description#</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.1.2.</span> <span class="nav-text">Solution#</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

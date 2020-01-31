@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-01-29T23:55:03.507Z</updated>
+  <updated>2020-01-31T21:56:46.336Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blobming.github.io/2020/01/30/AlgorithmsRev2/"/>
     <id>https://blobming.github.io/2020/01/30/AlgorithmsRev2/</id>
     <published>2020-01-30T22:20:35.000Z</published>
-    <updated>2020-01-29T23:55:03.507Z</updated>
+    <updated>2020-01-31T21:56:46.336Z</updated>
     
     <summary type="html">
     
@@ -34,7 +34,7 @@
 
 &lt;!-- toc --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#trees-and-graphs&quot;&gt;Trees and
+&lt;li&gt;&lt;a
         
       
     
@@ -55,7 +55,7 @@
     <link href="https://blobming.github.io/2020/01/29/AlgorithmsRev1/"/>
     <id>https://blobming.github.io/2020/01/29/AlgorithmsRev1/</id>
     <published>2020-01-30T02:05:25.000Z</published>
-    <updated>2020-01-29T22:17:48.042Z</updated>
+    <updated>2020-01-31T21:26:52.360Z</updated>
     
     <summary type="html">
     
@@ -68,7 +68,7 @@
 
 &lt;!-- toc --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#runtime-complexity&quot;&gt;Runtime
+&lt;li&gt;&lt;a
         
       
     
