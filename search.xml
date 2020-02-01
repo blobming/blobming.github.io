@@ -7,10 +7,100 @@
 <div class="toc">
 
 <!-- toc -->
+<ul>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#unbounded-array">Unbounded Array</a><ul>
+<li><a href="#the-aggregrate-method">The _aggregrate_ method</a></li>
+</ul>
+</li>
+<li><a href="#reference">Reference</a></li>
+</ul>
 <!-- tocstop -->
 </div>
 
-<h1><span id>#</span><a href="#" class="header-anchor">#</a></h1>]]></content>
+<h2><span id="definition">Definition</span><a href="#definition" class="header-anchor">#</a></h2><p>In a sequence of operations, the worst-case does not occur ofen in each operation; some operation may be cheap (even be O(1)), some may be expensive. Therefore, a traditional worst-case per operation analysis can give an overly pessimitic bound. When the same operation takes different times, amortized analysis can accurately calculate the runtime complexity. it can give the average performance of each operation in the worst case. Please notice that amortized analysis is not anverage case analysis. In average case analysis we compute the expected cost of each operation. To describe it in a more general example. There is an algorithm with 1000 operations. There are 99 operations take $0(1)$ and one operation takes $O(n ^ 2)$. If we use average case analysis. The expected cost of this algorithm might be $O(n^2)$. However, it does not need so much time since this time-consuming operation can be amortized to other 99 operations. So, amortized function can give us a tigher upper bound of an algorithm. There are generally three method to perform amortized analysis.(We only forcus on the first two methods)</p>
+<ol>
+<li><p>The aggregate method computes the upper bound $T(n)$ on the total cost of n operations. The amortized cost is given by $T(n)/n$. In this method each operation will get the same amortized cost, even if there are several types of operations in the sequence.</p>
+</li>
+<li><p>The accounting method(or the banker’s method) computes th individual cost of each operation. We assign different charges to each operation; some operations may charge more or less than they actually cost. The amount we charge an operation is called its amortized cost.</p>
+</li>
+<li><p>The potential method(or the physicist’s method).</p>
+</li>
+</ol>
+<h2><span id="unbounded-array">Unbounded Array</span><a href="#unbounded-array" class="header-anchor">#</a></h2><h3><span id="the-aggregrate-method">The _aggregrate_ method</span><a href="#the-aggregrate-method" class="header-anchor">#</a></h3><p>We implement the idea of java.util.ArrayList in java. We maintain an array of a fixed length limit and an internal index size. When we insert a value, if current index dose reach array.length, we will double the size and then we will copy our elements to the new array. The table showing below records the current size of the array, its new size, the number of inserts and the number of copies.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Insert</th>
+<th style="text-align:center">Old size</th>
+<th style="text-align:center">New Size</th>
+<th style="text-align:center">Copy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This table shows that 9 inserts requre$1 + 2 + 4 + 8 = 15$ copy operations. Therefore, the amortized cost of a single insert is the total cost$(9+15=24)$ over $9$ inserts, which is $2.67$.</p>
+<p>When we generalize this pattern. Assume we start with the array of size $1$ and make $2^n + 1$ inserts. These inserts will require $\sum\limits_{k=1}^n{2^n} = 2^{n+1} - 1$ copy operations. So the total work $T(n) = (2^n + 1) + (2^{(n+1)} - 1) = 3\cdot 2^n$. Then we compute the average cost per insert as a limit when the input size tend to infinity: </p>
+<script type="math/tex; mode=display">\lim_{n\to\infty}\frac{3\cdot2^n}{1+2^n} = 3</script><p>So the amortized cost of insertion is constant, namely $O(3)$. This method is called _aggegate_ method which seeks an upper bound on the total running time of a sequence of operations.</p>
+<h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
+]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
@@ -48,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li><a href="#reference">Reference</a></li>
 </ul>
 <!-- tocstop -->
 </div>
@@ -113,6 +204,7 @@
 <script type="math/tex; mode=display">E\leq3V-6</script><p>remaing proof for later :D</p>
 <h2><span id="applications">Applications</span><a href="#applications" class="header-anchor">#</a></h2><h3><span id="example1">Example1</span><a href="#example1" class="header-anchor">#</a></h3><h4><span id="description">Description</span><a href="#description" class="header-anchor">#</a></h4><p>Finding the longest pat in a DAG with linear time.</p>
 <h4><span id="solution">Solution</span><a href="#solution" class="header-anchor">#</a></h4><p>We use a topological Order to solve that problem. We apply a new attribute to all node which means the longest path from the start point to the current node. If we can find a longer path we update this attribute.<br>Here is the code:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class Solution&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TopologicalOrder</span><span class="params">(<span class="keyword">int</span>[][] adj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = adj.length;</span><br><span class="line">        <span class="keyword">int</span>[] indegree = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] longestPath = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.fill(indegree, <span class="number">0</span>);</span><br><span class="line">        Arrays.fill(longestPath, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(adj[i][j] == <span class="number">1</span>) indegree[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(indegree[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                queue.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = queue.remove();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(adj[j][k] == <span class="number">1</span>) &#123;</span><br><span class="line">                    indegree[k] -= <span class="number">1</span>;</span><br><span class="line">                    longestPath[k] = Math.max(longestPath[k], <span class="number">1</span> + longestPath[j]);</span><br><span class="line">                    <span class="keyword">if</span>(indegree[k] == <span class="number">0</span>) queue.add(k);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
       <categories>
         <category>Algorithms</category>
@@ -142,6 +234,7 @@
 <li><a href="#example-4">Example 4</a></li>
 </ul>
 </li>
+<li><a href="#reference">Reference</a></li>
 </ul>
 <!-- tocstop -->
 </div>
@@ -194,6 +287,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 </ul>
 <h3><span id="example-4">Example 4</span><a href="#example-4" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) = \Omega(g(n))$, Is it true that $2^{f(n)} = \Omega(2^{g(n)})$ ?</p>
 <p>Tip : Suppose $f(n) = n$ and $g(n) = 5n$.</p>
+<h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
       <categories>
         <category>Algorithms</category>
