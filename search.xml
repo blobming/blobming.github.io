@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algorithms review 3 Amortized Analysis</title>
+    <url>/2020/02/01/AlgorithmsRev3/</url>
+    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<!-- tocstop -->
+</div>
+
+<h1><span id>#</span><a href="#" class="header-anchor">#</a></h1>]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithms review 2 Trees and Graphs</title>
     <url>/2020/01/30/AlgorithmsRev2/</url>
     <content><![CDATA[<p>This is a personal notes of algorithms courses</p>

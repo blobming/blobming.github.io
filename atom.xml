@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-02-01T17:48:05.153Z</updated>
+  <updated>2020-02-01T17:56:13.546Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Algorithms review 3 Amortized Analysis</title>
+    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev3/"/>
+    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev3/</id>
+    <published>2020-02-01T17:54:28.000Z</published>
+    <updated>2020-02-01T17:56:13.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;!-- tocstop --&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;&lt;span id&gt;#&lt;/span&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithms review 2 Trees and Graphs</title>
