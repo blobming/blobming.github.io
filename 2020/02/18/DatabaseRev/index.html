@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jiaming's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="This is a review reference of datbase course.     Introduction 1. The difference between data and and information 2. What a database is, the various types of databases, and why they are valuable asset">
+<meta name="keywords" content="Programming, Traveling">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DatabaseReview">
+<meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;index.html">
+<meta property="og:site_name" content="Jiaming&#39;s Blog">
+<meta property="og:description" content="This is a review reference of datbase course.     Introduction 1. The difference between data and and information 2. What a database is, the various types of databases, and why they are valuable asset">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-19T07:18:04.030Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blobming.github.io/2020/02/18/DatabaseRev/"/>
+
+
+
+
+
+  <title>DatabaseReview | Jiaming's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jiaming's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/02/18/DatabaseRev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiaming Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaming's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DatabaseReview</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-18T19:37:59-08:00">
+                2020-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This is a review reference of datbase course.</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#1-the-difference-between-data-and-and-information">1. The difference between data and and information</a></li>
+<li><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</a></li>
+<li><a href="#3-the-importance-of-database-design">3. The importance of database design</a></li>
+<li><a href="#4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</a></li>
+<li><a href="#5-flaws-in-file-system-data-management">5. Flaws in file system data management</a></li>
+<li><a href="#6-the-main-components-of-the-database-system">6. The main components of the database system</a></li>
+<li><a href="#7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h1><span id="introduction">Introduction</span><a href="#introduction" class="header-anchor">#</a></h1><h2><span id="1-the-difference-between-data-and-and-information">1. The difference between data and and information</span><a href="#1-the-difference-between-data-and-and-information" class="header-anchor">#</a></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Data</th>
+<th style="text-align:left">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Raw fact(Raw data- Not yet been processed to reveal the meaning)</td>
+<td style="text-align:left">produced by processing data</td>
+</tr>
+<tr>
+<td style="text-align:left">Building blocks of information</td>
+<td style="text-align:left">Reveals the meaning of data</td>
+</tr>
+<tr>
+<td style="text-align:left">Data management(Generation, storage, and retrieval of data)</td>
+<td style="text-align:left">Enables knowledge creation</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Should be accurate, relevant, and timely to enable good decision making</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>To be simple, Data is raw fact, objective exists in the real word. Information is a kind of processed data. After gathering and processing, data becomes information. For example, the data of phone is pixel but the people can see it is a picture.</li>
+</ul>
+<ul>
+<li>Knowledge is useful information. Something you can do with the information. Knowledge can use the information we found.</li>
+</ul>
+<h2><span id="2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</span><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making" class="header-anchor">#</a></h2><ul>
+<li>Database is a shared, integrated computer structure that sotres a collection of:<ul>
+<li>End-user data: Raw facts of interest to end user, such as student’s gpa…</li>
+<li><strong>Metadata</strong>: Data about data, which the end-user data are integrated and managed<ul>
+<li>describe data characteristics and relationships such as what does the GPA mean and some restriction such as $0 \leq GPA \leq 4.0$ and $student-age &gt; 0$. About how we store the information. Or How many tables we have.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database management system(DBMS)<ul>
+<li>Collection of programs</li>
+<li>Manages the database structure</li>
+<li>Controls access to data stored in the database(who can access database | access restrictions)</li>
+</ul>
+</li>
+<li>Role of the DBMS<ul>
+<li>Intermediary between the user and the database</li>
+<li>Enables data to be shared</li>
+<li>Presents the end user with an integrated view of the data</li>
+<li>Receives and translates application requests(what are you searching for) into operations required to fulfill the request</li>
+<li>Hides database’s internal complexity from the application programs and users(People can reorganise data in the future)</li>
+</ul>
+</li>
+<li>Advantages of DBMS<ul>
+<li>Better data integration and less data inconsistency(pervent having two difference record of the same things)<ul>
+<li><strong>Data inconsistency:</strong> Different versions of the same data appear in different places</li>
+</ul>
+</li>
+<li>Increase end-user productivity</li>
+<li>Data sharing</li>
+<li>Data security // Who gonna see what</li>
+<li>Data access</li>
+<li>Decision making<ul>
+<li><strong>Data quality</strong>: Promoting accuracy, validity, and timeliness of data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases<ul>
+<li>Single-user database: Supports one user at a time (Like a database in your phone/Desktop)<ul>
+<li>Desktop database: Runs on PC</li>
+</ul>
+</li>
+<li>Multiuser database: Supports multiple users at the same time (Like BOA or Amazon database)<ul>
+<li>Workgroup databases: Support a small number of users or a specific department</li>
+<li>Enterprise database: Supports many users across many departments</li>
+</ul>
+</li>
+<li>Centralized database: Data is located at a single site</li>
+<li>Distributed database: Data is distributed across different sites (Part of database from xxx part of database from xxx different contries) <strong>Note</strong>: It is not copies. Just different parts of one database from different sites. — google uses it</li>
+<li>Cloud database: Created and maintained using cloud data services that provide defined performance measures for the database. Companies do not actually using the hardwares. Like UBER, they dont have their physical, their databases live on some cloud.(AWS)</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>General-purpose databases: Contains a wide variety of data used in multiple disciplines. Like Oracle database, you can use the database where you want. And you can put anything you want in Oracle. —&gt; general purpose</li>
+<li>Discipline-specific databases: Contains data focused on specific subject areas. Like scientists use protein database(PDB -&gt; protein data bank) Every protein molecules are stored in database. Different structure for specific usage. They have their own buliding plans and only the users know what it is or what it represents.</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database) -&gt; purly for business point of view<ul>
+<li>Operational database: Designed to support a company’s day to day operations. </li>
+<li>Analytical database: Stores historical data and business metrics used exclusively for tactical or strategic decision making<ul>
+<li>Data warehouse: Stores data in a format optimized for decision support.</li>
+</ul>
+</li>
+<li><strong>Example:</strong> Constantly writing data…. every purchase into Operational database daily. At night, they put the data to one central place called analytical database(used to analytical later) It is constantly reading database.</li>
+<li>where do data warehouse caculations<ul>
+<li>Online analytical processing(OLAP) Command to go to the warehouse and analysis data<ul>
+<li>Enable retrieving, processing, and modeling data from the data warehouse.</li>
+</ul>
+</li>
+<li>Business intelligence: Captures and processes business data to generate information that support decision making. (stock from Operational database to Analytical database piece to piece) -&gt; data mining</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>Unstructured data: It exists in their original state (dont have a specific format like musci/video files)</li>
+<li>Structured data: It results from formatting (like students information stored in each row of studnet table)<ul>
+<li>Structure is applied based on type of processing to be performed</li>
+</ul>
+</li>
+<li>Semistructured data: Processed to some extent like document. Generally it is used to describe sth. Between structured and unstructured.</li>
+<li>Extensible Markup Language(XML) Json better than xml can be used in structured and unstructured<ul>
+<li>Represents data elements in textual format</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="3-the-importance-of-database-design">3. The importance of database design</span><a href="#3-the-importance-of-database-design" class="header-anchor">#</a></h2><h2><span id="4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</span><a href="#4-how-modern-databases-envolved-from-file-systems" class="header-anchor">#</a></h2><ul>
+<li>Early Dbs: file systems<ul>
+<li>Manual file systems: Accompulished through a system of file folders and filing cabinets</li>
+<li>Computerized File Systems<ul>
+<li>Data processing(DP) specialist: Create a computer-based system that would track data and produce required reports</li>
+</ul>
+</li>
+<li>File System Redux: Mdern End-User Productivity Tools(Includes spreadsheet programs such as Microsoft Excel)</li>
+</ul>
+</li>
+<li>File systems<ul>
+<li>Data -&gt; Raw facts, such as a Tel number, birth date or customer name. Data have little meaning unless they have been organized in some logical manner. Each cell!</li>
+<li>Field -&gt; A character of group of characters(alphabetic or numeric) that has a specific meaning. A field is used to define and store data. Like the definition of the meaning of data in this field.</li>
+<li>Record -&gt; A row (contains person’s name, address….)</li>
+<li>File -&gt; a collection of record</li>
+</ul>
+</li>
+<li>Problems with Fie System Data Processing<ul>
+<li>Lengthy development times</li>
+<li>Difficulty of getting quick answers</li>
+<li>Complex system administration</li>
+<li>Lack of security and limited data sharing</li>
+<li>Extensive programming</li>
+</ul>
+</li>
+<li>Structural and Data dependence<ul>
+<li>Data dependence<ul>
+<li>Data access changes when data storage characteristics chage</li>
+</ul>
+</li>
+<li>Data independence<ul>
+<li>Data storage characteristics is changed without affecting the program’s ability to access the data</li>
+</ul>
+</li>
+<li>Practical significance of data dependence is difference between logical and physical format</li>
+</ul>
+</li>
+<li>Data Redundancy<ul>
+<li>Unnecessarily storing same data at different places</li>
+<li>Islands of information: Scattered data locations<ul>
+<li>Increases the probability of having different versions of the same data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Redundancy Implications<ul>
+<li>Poor data security</li>
+<li>Data inconsistency</li>
+<li>Increased likelihood of data-entry errors when complex enries are made in different files</li>
+<li>Data anomaly: Develops when not all of the required changes in the redundant data are made successfully.<ul>
+<li>Update Anomalies</li>
+<li>Insertion Anomalies</li>
+<li>Deletion Anomalies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database System<ul>
+<li>Logically related data stored in a single logical data repository<ul>
+<li>Physically distributed among multiple storage facilities</li>
+<li>DBMS eliminates most of file system’s problems</li>
+</ul>
+</li>
+<li>Curent generation DBMS software<ul>
+<li>Stores data structures, relationships between structures, and access pahts</li>
+<li>Defines, stores, and manages all access paths and components.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="5-flaws-in-file-system-data-management">5. Flaws in file system data management</span><a href="#5-flaws-in-file-system-data-management" class="header-anchor">#</a></h2><h2><span id="6-the-main-components-of-the-database-system">6. The main components of the database system</span><a href="#6-the-main-components-of-the-database-system" class="header-anchor">#</a></h2><h2><span id="7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</span><a href="#7-the-main-functions-of-a-database-management-system-dbms" class="header-anchor">#</a></h2><ul>
+<li>Data dictionary management<ul>
+<li><strong>Data dictionary</strong>: Stores definitions of the data elements and their relationships</li>
+</ul>
+</li>
+<li>Data storage management<ul>
+<li><strong>Performance tuning</strong>: Ensures efficient performance of the database in terms of storage and access speed</li>
+</ul>
+</li>
+<li>Data transformation and presentation<ul>
+<li>Transforms entered data to conform to required data structures.</li>
+</ul>
+</li>
+<li>Security management<ul>
+<li>Enforces user security and data privacy.</li>
+</ul>
+</li>
+<li>Multiuser access control<ul>
+<li>Sophisticated algorithms ensure that multiple users can access the database concurrently without compromising its integrity.</li>
+</ul>
+</li>
+<li>Backup and recovery management<ul>
+<li>Enables recovery of the database after a failure</li>
+</ul>
+</li>
+<li>Data integrity management<ul>
+<li>Minimizes redundancy and maximizes consistency</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/01/AlgorithmsRev3/" rel="next" title="Algorithms review 3 Amortized Analysis">
+                <i class="fa fa-chevron-left"></i> Algorithms review 3 Amortized Analysis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpeg"
+                alt="Jiaming Xu" />
+            
+              <p class="site-author-name" itemprop="name">Jiaming Xu</p>
+              <p class="site-description motion-element" itemprop="description">Personal Life record</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/blobming" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xujiamin@usc.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)#</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiaming Xu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

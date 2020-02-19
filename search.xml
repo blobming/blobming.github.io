@@ -1,6 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DatabaseReview</title>
+    <url>/2020/02/18/DatabaseRev/</url>
+    <content><![CDATA[<p>This is a review reference of datbase course.</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#1-the-difference-between-data-and-and-information">1. The difference between data and and information</a></li>
+<li><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</a></li>
+<li><a href="#3-the-importance-of-database-design">3. The importance of database design</a></li>
+<li><a href="#4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</a></li>
+<li><a href="#5-flaws-in-file-system-data-management">5. Flaws in file system data management</a></li>
+<li><a href="#6-the-main-components-of-the-database-system">6. The main components of the database system</a></li>
+<li><a href="#7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h1><span id="introduction">Introduction</span><a href="#introduction" class="header-anchor">#</a></h1><h2><span id="1-the-difference-between-data-and-and-information">1. The difference between data and and information</span><a href="#1-the-difference-between-data-and-and-information" class="header-anchor">#</a></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Data</th>
+<th style="text-align:left">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Raw fact(Raw data- Not yet been processed to reveal the meaning)</td>
+<td style="text-align:left">produced by processing data</td>
+</tr>
+<tr>
+<td style="text-align:left">Building blocks of information</td>
+<td style="text-align:left">Reveals the meaning of data</td>
+</tr>
+<tr>
+<td style="text-align:left">Data management(Generation, storage, and retrieval of data)</td>
+<td style="text-align:left">Enables knowledge creation</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Should be accurate, relevant, and timely to enable good decision making</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>To be simple, Data is raw fact, objective exists in the real word. Information is a kind of processed data. After gathering and processing, data becomes information. For example, the data of phone is pixel but the people can see it is a picture.</li>
+</ul>
+<ul>
+<li>Knowledge is useful information. Something you can do with the information. Knowledge can use the information we found.</li>
+</ul>
+<h2><span id="2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</span><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making" class="header-anchor">#</a></h2><ul>
+<li>Database is a shared, integrated computer structure that sotres a collection of:<ul>
+<li>End-user data: Raw facts of interest to end user, such as student’s gpa…</li>
+<li><strong>Metadata</strong>: Data about data, which the end-user data are integrated and managed<ul>
+<li>describe data characteristics and relationships such as what does the GPA mean and some restriction such as $0 \leq GPA \leq 4.0$ and $student-age &gt; 0$. About how we store the information. Or How many tables we have.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database management system(DBMS)<ul>
+<li>Collection of programs</li>
+<li>Manages the database structure</li>
+<li>Controls access to data stored in the database(who can access database | access restrictions)</li>
+</ul>
+</li>
+<li>Role of the DBMS<ul>
+<li>Intermediary between the user and the database</li>
+<li>Enables data to be shared</li>
+<li>Presents the end user with an integrated view of the data</li>
+<li>Receives and translates application requests(what are you searching for) into operations required to fulfill the request</li>
+<li>Hides database’s internal complexity from the application programs and users(People can reorganise data in the future)</li>
+</ul>
+</li>
+<li>Advantages of DBMS<ul>
+<li>Better data integration and less data inconsistency(pervent having two difference record of the same things)<ul>
+<li><strong>Data inconsistency:</strong> Different versions of the same data appear in different places</li>
+</ul>
+</li>
+<li>Increase end-user productivity</li>
+<li>Data sharing</li>
+<li>Data security // Who gonna see what</li>
+<li>Data access</li>
+<li>Decision making<ul>
+<li><strong>Data quality</strong>: Promoting accuracy, validity, and timeliness of data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases<ul>
+<li>Single-user database: Supports one user at a time (Like a database in your phone/Desktop)<ul>
+<li>Desktop database: Runs on PC</li>
+</ul>
+</li>
+<li>Multiuser database: Supports multiple users at the same time (Like BOA or Amazon database)<ul>
+<li>Workgroup databases: Support a small number of users or a specific department</li>
+<li>Enterprise database: Supports many users across many departments</li>
+</ul>
+</li>
+<li>Centralized database: Data is located at a single site</li>
+<li>Distributed database: Data is distributed across different sites (Part of database from xxx part of database from xxx different contries) <strong>Note</strong>: It is not copies. Just different parts of one database from different sites. — google uses it</li>
+<li>Cloud database: Created and maintained using cloud data services that provide defined performance measures for the database. Companies do not actually using the hardwares. Like UBER, they dont have their physical, their databases live on some cloud.(AWS)</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>General-purpose databases: Contains a wide variety of data used in multiple disciplines. Like Oracle database, you can use the database where you want. And you can put anything you want in Oracle. —&gt; general purpose</li>
+<li>Discipline-specific databases: Contains data focused on specific subject areas. Like scientists use protein database(PDB -&gt; protein data bank) Every protein molecules are stored in database. Different structure for specific usage. They have their own buliding plans and only the users know what it is or what it represents.</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database) -&gt; purly for business point of view<ul>
+<li>Operational database: Designed to support a company’s day to day operations. </li>
+<li>Analytical database: Stores historical data and business metrics used exclusively for tactical or strategic decision making<ul>
+<li>Data warehouse: Stores data in a format optimized for decision support.</li>
+</ul>
+</li>
+<li><strong>Example:</strong> Constantly writing data…. every purchase into Operational database daily. At night, they put the data to one central place called analytical database(used to analytical later) It is constantly reading database.</li>
+<li>where do data warehouse caculations<ul>
+<li>Online analytical processing(OLAP) Command to go to the warehouse and analysis data<ul>
+<li>Enable retrieving, processing, and modeling data from the data warehouse.</li>
+</ul>
+</li>
+<li>Business intelligence: Captures and processes business data to generate information that support decision making. (stock from Operational database to Analytical database piece to piece) -&gt; data mining</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>Unstructured data: It exists in their original state (dont have a specific format like musci/video files)</li>
+<li>Structured data: It results from formatting (like students information stored in each row of studnet table)<ul>
+<li>Structure is applied based on type of processing to be performed</li>
+</ul>
+</li>
+<li>Semistructured data: Processed to some extent like document. Generally it is used to describe sth. Between structured and unstructured.</li>
+<li>Extensible Markup Language(XML) Json better than xml can be used in structured and unstructured<ul>
+<li>Represents data elements in textual format</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="3-the-importance-of-database-design">3. The importance of database design</span><a href="#3-the-importance-of-database-design" class="header-anchor">#</a></h2><h2><span id="4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</span><a href="#4-how-modern-databases-envolved-from-file-systems" class="header-anchor">#</a></h2><ul>
+<li>Early Dbs: file systems<ul>
+<li>Manual file systems: Accompulished through a system of file folders and filing cabinets</li>
+<li>Computerized File Systems<ul>
+<li>Data processing(DP) specialist: Create a computer-based system that would track data and produce required reports</li>
+</ul>
+</li>
+<li>File System Redux: Mdern End-User Productivity Tools(Includes spreadsheet programs such as Microsoft Excel)</li>
+</ul>
+</li>
+<li>File systems<ul>
+<li>Data -&gt; Raw facts, such as a Tel number, birth date or customer name. Data have little meaning unless they have been organized in some logical manner. Each cell!</li>
+<li>Field -&gt; A character of group of characters(alphabetic or numeric) that has a specific meaning. A field is used to define and store data. Like the definition of the meaning of data in this field.</li>
+<li>Record -&gt; A row (contains person’s name, address….)</li>
+<li>File -&gt; a collection of record</li>
+</ul>
+</li>
+<li>Problems with Fie System Data Processing<ul>
+<li>Lengthy development times</li>
+<li>Difficulty of getting quick answers</li>
+<li>Complex system administration</li>
+<li>Lack of security and limited data sharing</li>
+<li>Extensive programming</li>
+</ul>
+</li>
+<li>Structural and Data dependence<ul>
+<li>Data dependence<ul>
+<li>Data access changes when data storage characteristics chage</li>
+</ul>
+</li>
+<li>Data independence<ul>
+<li>Data storage characteristics is changed without affecting the program’s ability to access the data</li>
+</ul>
+</li>
+<li>Practical significance of data dependence is difference between logical and physical format</li>
+</ul>
+</li>
+<li>Data Redundancy<ul>
+<li>Unnecessarily storing same data at different places</li>
+<li>Islands of information: Scattered data locations<ul>
+<li>Increases the probability of having different versions of the same data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Redundancy Implications<ul>
+<li>Poor data security</li>
+<li>Data inconsistency</li>
+<li>Increased likelihood of data-entry errors when complex enries are made in different files</li>
+<li>Data anomaly: Develops when not all of the required changes in the redundant data are made successfully.<ul>
+<li>Update Anomalies</li>
+<li>Insertion Anomalies</li>
+<li>Deletion Anomalies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database System<ul>
+<li>Logically related data stored in a single logical data repository<ul>
+<li>Physically distributed among multiple storage facilities</li>
+<li>DBMS eliminates most of file system’s problems</li>
+</ul>
+</li>
+<li>Curent generation DBMS software<ul>
+<li>Stores data structures, relationships between structures, and access pahts</li>
+<li>Defines, stores, and manages all access paths and components.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="5-flaws-in-file-system-data-management">5. Flaws in file system data management</span><a href="#5-flaws-in-file-system-data-management" class="header-anchor">#</a></h2><h2><span id="6-the-main-components-of-the-database-system">6. The main components of the database system</span><a href="#6-the-main-components-of-the-database-system" class="header-anchor">#</a></h2><h2><span id="7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</span><a href="#7-the-main-functions-of-a-database-management-system-dbms" class="header-anchor">#</a></h2><ul>
+<li>Data dictionary management<ul>
+<li><strong>Data dictionary</strong>: Stores definitions of the data elements and their relationships</li>
+</ul>
+</li>
+<li>Data storage management<ul>
+<li><strong>Performance tuning</strong>: Ensures efficient performance of the database in terms of storage and access speed</li>
+</ul>
+</li>
+<li>Data transformation and presentation<ul>
+<li>Transforms entered data to conform to required data structures.</li>
+</ul>
+</li>
+<li>Security management<ul>
+<li>Enforces user security and data privacy.</li>
+</ul>
+</li>
+<li>Multiuser access control<ul>
+<li>Sophisticated algorithms ensure that multiple users can access the database concurrently without compromising its integrity.</li>
+</ul>
+</li>
+<li>Backup and recovery management<ul>
+<li>Enables recovery of the database after a failure</li>
+</ul>
+</li>
+<li>Data integrity management<ul>
+<li>Minimizes redundancy and maximizes consistency</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Algorithms review 3 Amortized Analysis</title>
     <url>/2020/02/01/AlgorithmsRev3/</url>
     <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
@@ -101,6 +352,31 @@
 <script type="math/tex; mode=display">\lim_{n\to\infty}\frac{3\cdot2^n}{1+2^n} = 3</script><p>So the amortized cost of insertion is constant, namely $O(3)$. This method is called _aggegate_ method which seeks an upper bound on the total running time of a sequence of operations.</p>
 <h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <url>/2020/02/01/AlgorithmsRev5/</url>
+    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#optimization-problem">Optimization problem</a></li>
+<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
+<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
+<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
@@ -884,17 +1160,6 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       </tags>
   </entry>
   <entry>
-    <title>Introduction To Computer System</title>
-    <url>/2019/11/16/IntroToComSys/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Computer Architecture</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Template Page</title>
     <url>/2019/11/16/demo/</url>
     <content><![CDATA[<p>This is a markdown demo to quickly start</p>
@@ -1099,6 +1364,17 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       <tags>
         <tag>Learning</tag>
         <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduction To Computer System</title>
+    <url>/2019/11/16/IntroToComSys/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
