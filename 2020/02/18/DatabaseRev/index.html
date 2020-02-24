@@ -81,18 +81,21 @@
 
 
 
-<meta name="description" content="This is a review reference of datbase course.     Introduction 1. The difference between data and and information 2. What a database is, the various types of databases, and why they are valuable asset">
+<meta name="description" content="This is a review reference and some notes&#x2F;my own understanding of datbase course.REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California     Introduction 1. The d">
 <meta name="keywords" content="Programming, Traveling">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DatabaseReview">
 <meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;index.html">
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
-<meta property="og:description" content="This is a review reference of datbase course.     Introduction 1. The difference between data and and information 2. What a database is, the various types of databases, and why they are valuable asset">
+<meta property="og:description" content="This is a review reference and some notes&#x2F;my own understanding of datbase course.REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California     Introduction 1. The d">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;EvoDataModel.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;ADVDISDERIATTR.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;keys.png">
-<meta property="og:updated_time" content="2020-02-23T07:31:30.348Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;1nf.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;2nf.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;3nf.png">
+<meta property="og:updated_time" content="2020-02-24T10:43:05.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;EvoDataModel.png">
 
@@ -356,7 +359,7 @@
       
 
       
-        <p>This is a review reference of datbase course.</p>
+        <p>This is a review reference and some notes/my own understanding of datbase course.<br>REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California</p>
 <div class="toc">
 
 <!-- toc -->
@@ -410,6 +413,32 @@
 <li><a href="#ways-to-handle-nulls">Ways to Handle Nulls</a></li>
 <li><a href="#relational-algebra">Relational Algebra</a></li>
 <li><a href="#relational-set-operators">Relational Set Operators</a></li>
+<li><a href="#data-dictionary-and-the-system-catalog-hold-metadata">Data Dictionary and the System Catalog(hold metadata)</a></li>
+</ul>
+</li>
+<li><a href="#extended-er-eer-advanced-data-modeling">Extended ER (“EER”)-&gt; Advanced data modeling</a><ul>
+<li><a href="#extended-entity-relationship-model-eerm">Extended Entity Relationship Model (EERM)</a></li>
+<li><a href="#entity-supertypes-and-subtypes">Entity Supertypes and Subtypes</a></li>
+<li><a href="#specialization-hierarchy">Specialization Hierarchy</a></li>
+<li><a href="#inheritanc">Inheritanc</a></li>
+<li><a href="#subtype-discriminator">Subtype Discriminator</a></li>
+<li><a href="#disjoint-and-overlapping-constraints">Disjoint and Overlapping Constraints</a></li>
+<li><a href="#completeness-constraint">Completeness Constraint</a></li>
+<li><a href="#entity-cluster">Entity Cluster</a></li>
+</ul>
+</li>
+<li><a href="#normalization">Normalization</a><ul>
+<li><a href="#normalization-do-normalization-once-a-time-one-entity-a-time">Normalization (Do normalization once a time one entity a time)</a></li>
+<li><a href="#need-for-normalization">Need for Normalization</a></li>
+<li><a href="#normalization-process">Normalization Process</a></li>
+<li><a href="#normal-forms">Normal Forms</a></li>
+<li><a href="#functional-dependence-concepts">Functional Dependence Concepts</a></li>
+<li><a href="#types-of-functional-dependencies">Types of Functional Dependencies</a></li>
+<li><a href="#conversion-to-first-normal-form">Conversion to First Normal Form</a></li>
+<li><a href="#conversion-to-two-normal-form">Conversion to Two Normal Form</a></li>
+<li><a href="#conversion-to-third-normal-form">Conversion to Third Normal Form</a></li>
+<li><a href="#requirements-for-good-normalized-set-of-tables">Requirements for Good Normalized Set of Tables</a></li>
+<li><a href="#denormalization">Denormalization</a></li>
 </ul>
 </li>
 <li><a href="#discussion">Discussion</a></li>
@@ -1020,24 +1049,319 @@
 <li>Tables must be union-compatible to yield valid results</li>
 </ul>
 </li>
-<li>Product -&gt; Multiply two tables temporary thing</li>
+<li>Difference <ul>
+<li>Yields all rows in one table that are not found in the other table</li>
+<li>Tables must be union-compatible to yield valid results </li>
+</ul>
+</li>
+<li>Product <ul>
+<li>Yields all possible pairs of rows from two tables</li>
+</ul>
+</li>
+<li>Join<ul>
+<li>Allows information to be intelligently combined from two or more tables </li>
+<li>Types of Joins<ul>
+<li>Natural join: Links tables by selecting only the rows with common values in their common attributes<ul>
+<li>Join columns: Common columns -&gt; the columns have exactly the same name. -&gt; If not the same we do not call it nature join</li>
+</ul>
+</li>
+<li>Equijoin: Links tables on the basis of an equality condition that compares specified columns of each table -&gt; == != &lt; &gt; &lt;= &gt;= ….</li>
+<li>Theta join: Extension of natural join, denoted by adding a theta subscript after the JOIN symbol</li>
+<li>Inner join: Only returns matched records from the tables that are being joined</li>
+<li>Outer join: Matched pairs are retained and unmatched values in the other table are left null </li>
+<li>Left outer join: Yields all of the rows in the first table, including those that do not have a matching value in the second table </li>
+<li>Right outer join: Yields all of the rows in the second table, including those that do not have matching values in the first table </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Divide<ul>
+<li>Uses one 2-column table as the dividend and one single-column table as the divisor</li>
+<li>Output is a single column that contains all values from the second column of the dividend that are associated with every row in the divisor</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-dictionary-and-the-system-catalog-hold-metadata">Data Dictionary and the System Catalog(hold metadata)</span><a href="#data-dictionary-and-the-system-catalog-hold-metadata" class="header-anchor">#</a></h2><ul>
+<li><strong>Data dictionary</strong>: Description of all tables in the database created by the user and designer // Where is the table located and the characteristic of columns</li>
+<li><strong>System catalog</strong>: System data dictionary that describes all objects within the database  // the same as data dictionary</li>
+<li>Homonyms and synonyms must be avoided to lessen confusion<ul>
+<li>Homonym: Same name is used to label different attributes -&gt; Cannot use the same name to describe diff things</li>
+<li>Synonym: Different names are used to describe the same attribute -&gt; same</li>
+</ul>
+</li>
+</ul>
+<h1><span id="extended-er-eer-gt-advanced-data-modeling">Extended ER (“EER”)-&gt; Advanced data modeling</span><a href="#extended-er-eer-gt-advanced-data-modeling" class="header-anchor">#</a></h1><h2><span id="extended-entity-relationship-model-eerm">Extended Entity Relationship Model (EERM)</span><a href="#extended-entity-relationship-model-eerm" class="header-anchor">#</a></h2><ul>
+<li>Result of adding more semantic constructs to the original entity relationship (ER) model</li>
+<li><strong>EER diagram (EERD)</strong>: Uses the EER model</li>
+</ul>
+<h2><span id="entity-supertypes-and-subtypes">Entity Supertypes and Subtypes</span><a href="#entity-supertypes-and-subtypes" class="header-anchor">#</a></h2><ul>
+<li><strong>Entity supertype</strong>: Generic entity type related to one or more entity subtypes<ul>
+<li>Contains common characteristics</li>
+</ul>
+</li>
+<li><strong>Entity subtype</strong>: Contains unique characteristics of each entity subtype</li>
+<li>Criteria to determine the usage<ul>
+<li>There must be different, identifiable kinds of the entity in the user’s environment</li>
+<li>The different kinds of instances should each have one or more attributes that are unique to that kind of instance</li>
+</ul>
+</li>
+</ul>
+<h2><span id="specialization-hierarchy">Specialization Hierarchy</span><a href="#specialization-hierarchy" class="header-anchor">#</a></h2><ul>
+<li>Depicts arrangement of higher-level entity supertypes and lower-level entity subtypes</li>
+<li>Relationships are described in terms of “is-a” relationships -&gt; Composition can have “Has-a” relation</li>
+<li>Subtype exists within the context of a supertype</li>
+<li>Every subtype has one supertype to which it is directly related # Cannot have more</li>
+<li>Supertype can have many subtypes</li>
+<li>Provides the means to:<ul>
+<li>Support attribute inheritance</li>
+<li>Define a special supertype attribute known as the subtype discriminator</li>
+<li>Define disjoint/overlapping constraints and complete/partial constraints</li>
+</ul>
+</li>
+</ul>
+<h2><span id="inheritanc">Inheritanc</span><a href="#inheritanc" class="header-anchor">#</a></h2><ul>
+<li>Enables an entity subtype to inherit attributes and relationships of the supertype</li>
+<li>All entity subtypes inherit their primary key attribute from their supertype</li>
+<li>At the implementation level, supertype and its subtype(s) maintain a 1:1 relationship</li>
+<li>Entity subtypes inherit all relationships in which supertype entity participates</li>
+<li>Lower-level subtypes inherit all attributes and relationships from its upper-level supertypes</li>
+</ul>
+<h2><span id="subtype-discriminator">Subtype Discriminator</span><a href="#subtype-discriminator" class="header-anchor">#</a></h2><ul>
+<li>Attribute in the supertype entity that determines to which entity subtype the supertype occurrence is related</li>
+<li>Default comparison condition is the equality comparison  example:’p’ -&gt; pilot</li>
+</ul>
+<h2><span id="disjoint-and-overlapping-constraints">Disjoint and Overlapping Constraints</span><a href="#disjoint-and-overlapping-constraints" class="header-anchor">#</a></h2><ul>
+<li><strong>Disjoint subtypes</strong>: Contain a unique subset of the supertype entity set<ul>
+<li>Known as <strong>nonoverlapping subtypes</strong></li>
+<li>Implementation is based on the value of the subtype discriminator attribute in the supertype<br><strong>Overlapping subtypes</strong>: Contain nonunique subsets of the supertype entity set</li>
+<li>Implementation requires the use of one discriminator attribute for each subtype</li>
+</ul>
+</li>
+</ul>
+<h2><span id="completeness-constraint">Completeness Constraint</span><a href="#completeness-constraint" class="header-anchor">#</a></h2><ul>
+<li>Specifies whether each supertype occurrence must also be a member of at least one subtype</li>
+<li>Types<ul>
+<li><strong>Partial completeness</strong>: Not every supertype occurrence is a member of a subtype</li>
+<li><strong>Total completeness</strong>: Every supertype occurrence must be a member of any </li>
+</ul>
+</li>
+</ul>
+<h2><span id="entity-cluster">Entity Cluster</span><a href="#entity-cluster" class="header-anchor">#</a></h2><ul>
+<li>Virtual entity type used to represent multiple entities and relationships in ERD</li>
+<li>Avoid the display of attributes to eliminate complications that result when the inheritance rules change</li>
+</ul>
+<h1><span id="normalization">Normalization</span><a href="#normalization" class="header-anchor">#</a></h1><h2><span id="normalization-do-normalization-once-a-time-one-entity-a-time">Normalization (Do normalization once a time one entity a time)</span><a href="#normalization-do-normalization-once-a-time-one-entity-a-time" class="header-anchor">#</a></h2><ul>
+<li>Evaluating and correcting table structures to minimize data redundancies </li>
+<li>Reduces data anomalies</li>
+<li>Assigns attributes to tables based on determination</li>
+<li>Normal forms<ul>
+<li>First normal form (1NF)</li>
+<li>Second normal form (2NF)</li>
+<li>Third normal form (3NF)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="need-for-normalization">Need for Normalization</span><a href="#need-for-normalization" class="header-anchor">#</a></h2><ul>
+<li>Used while designing a new database structure<ul>
+<li>Analyzes the relationship among the attributes within each entity</li>
+<li>Determines if the structure can be improved</li>
+</ul>
+</li>
+<li>Improves the existing data structure and creates an appropriate database design</li>
+</ul>
+<h2><span id="normalization-process">Normalization Process</span><a href="#normalization-process" class="header-anchor">#</a></h2><ul>
+<li>Objective is to ensure that each table conforms to the concept of well-formed relations<ul>
+<li>Each table represents a single subject</li>
+<li>No data item will be unnecessarily stored in more than one table</li>
+<li>All nonprime attributes in a table are wholely dependent on the primary key</li>
+<li>Each table is void of insertion, update, and deletion anomalies</li>
+</ul>
+</li>
+<li>Ensures that all tables are in at least 3NF</li>
+<li>Higher forms are not likely to be encountered in business environment</li>
+<li>Works one relation at a time</li>
+<li>Starts by:<ul>
+<li>Identifying the dependencies of a relation (table)</li>
+<li>Progressively breaking the relation into new set of relations</li>
+</ul>
+</li>
+</ul>
+<h2><span id="normal-forms">Normal Forms</span><a href="#normal-forms" class="header-anchor">#</a></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">NORMAL FORM</th>
+<th style="text-align:center">CHARACTERISTIC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">First Normal form(1NF)</td>
+<td style="text-align:center">Table format, no repeating groups, and PK identified -&gt; Each cell is atomic, cannot be seperated any more</td>
+</tr>
+<tr>
+<td style="text-align:center">Second normal form(2NF)</td>
+<td style="text-align:center">1NF and no partial dependencies</td>
+</tr>
+<tr>
+<td style="text-align:center">Third normal form(3NF)</td>
+<td style="text-align:center">2NF and no transitive dependencies</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>*Note: Normalization how-to, in one sentence: work on one relation (table) at a time: identify dependencies, then ‘normalize’ - progressively break it down into smaller relations (tables), based on the dependencies we identify in the original relation</p>
+<h2><span id="functional-dependence-concepts">Functional Dependence Concepts</span><a href="#functional-dependence-concepts" class="header-anchor">#</a></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Concept</th>
+<th style="text-align:left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Functional dependence</td>
+<td style="text-align:left">The attribute B is fully functionally dependent on the attribute A if each value of A determines one and only one value of B. -&gt; A determines B</td>
+</tr>
+<tr>
+<td style="text-align:left">Functional dependence (Generalized definition)</td>
+<td style="text-align:left">Attribute A determines attribute B if all of the rows in the table that agree in value for attribute A also agree in value for attribute B.</td>
+</tr>
+<tr>
+<td style="text-align:left">Fully functional dependence (composite key)</td>
+<td style="text-align:left">If attribute B is functionally dependent on a composite key A but not on any Subset of that composite key, the attribute B is fully functionally dependent on A. A is composite Key and any subsets of A is not enough to determine B</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="types-of-functional-dependencies">Types of Functional Dependencies</span><a href="#types-of-functional-dependencies" class="header-anchor">#</a></h2><ul>
+<li>Partial dependency: Functional dependence in which the determinant is only part of the primary key (A determines B -&gt; A is determinant)<ul>
+<li>Assumption - One candidate key </li>
+<li>Straight forward</li>
+<li>Easy to identify</li>
+<li>It means that the B only fully determined by part of primary key. -&gt; dont need whole compositive key</li>
+</ul>
+</li>
+<li>Transitive dependency: An attribute functionally depends on another nonkey attribute</li>
+</ul>
+<h2><span id="conversion-to-first-normal-form">Conversion to First Normal Form</span><a href="#conversion-to-first-normal-form" class="header-anchor">#</a></h2><ul>
+<li><strong>Repeating group</strong>: Group of multiple entries of same type can exist for any single key attribute occurrence<ul>
+<li>Existence proves the presence of data redundancies</li>
+</ul>
+</li>
+<li>Enable reducing data redundancies</li>
+<li>Steps<ul>
+<li>Eliminate the repeating groups </li>
+<li>Identify the primary key </li>
+<li>Identify all dependencies</li>
+</ul>
+</li>
+<li><strong>Dependency diagram</strong>: Depicts all dependencies found within given table structure<ul>
+<li>Helps to get an overview of all relationships among table’s attributes</li>
+<li>Makes it less likely that an important dependency will be overlooked</li>
+</ul>
+</li>
+<li>1NF</li>
+<li><img src="/2020/02/18/DatabaseRev/1nf.png" alt="1NF"></li>
+</ul>
+<h2><span id="conversion-to-two-normal-form">Conversion to Two Normal Form</span><a href="#conversion-to-two-normal-form" class="header-anchor">#</a></h2><ul>
+<li>Steps <ul>
+<li>Make new tables to eliminate partial dependencies</li>
+<li>Reassign corresponding dependent attributes</li>
+</ul>
+</li>
+<li>Table is in 2NF when it:<ul>
+<li>Is in 1NF</li>
+<li>Includes no partial dependencies</li>
+</ul>
+</li>
+<li>2NF</li>
+<li><img src="/2020/02/18/DatabaseRev/2nf.png" alt="2NF"></li>
+</ul>
+<h2><span id="conversion-to-third-normal-form">Conversion to Third Normal Form</span><a href="#conversion-to-third-normal-form" class="header-anchor">#</a></h2><ul>
+<li>Steps<ul>
+<li>Make new tables to eliminate transitive dependencies </li>
+<li>Determinant: Any attribute whose value determines other values within a row</li>
+<li>Reassign corresponding dependent attributes</li>
+</ul>
+</li>
+<li>Table is in 3NF when it:<ul>
+<li>Is in 2NF</li>
+<li>Contains no transitive dependencies</li>
+</ul>
+</li>
+<li>3NF</li>
+<li><img src="/2020/02/18/DatabaseRev/3nf.png" alt="3NF"></li>
+</ul>
+<h2><span id="requirements-for-good-normalized-set-of-tables">Requirements for Good Normalized Set of Tables</span><a href="#requirements-for-good-normalized-set-of-tables" class="header-anchor">#</a></h2><ul>
+<li>Evaluate PK assignments and naming conventions -&gt; create a job_code</li>
+<li>evaluate naming conventions -&gt; JOB_CHG_HOUR</li>
+<li>Refine attribute atomicity -&gt; EMP_NAME -&gt; first name, last name<ul>
+<li><strong>Atomic attribute</strong>: Cannot be further subdivided</li>
+<li><strong>Atomicity</strong>: Characteristic of an atomic attribute</li>
+</ul>
+</li>
+<li>Identify new attributes $\And$ new relationships -&gt; EMP_HIREDATE(Add more columns to make it more useful) $\And$ PROJECT can have EMP_NO as FK</li>
+<li>Refine primary keys as required for data granularity -&gt; ASSIGN_NUM<ul>
+<li><strong>Granularity</strong>: Level of detail represented by the values stored in a table’s row</li>
+</ul>
+</li>
+<li>Maintain historical accuracy $\And$ evaluate using derived attributes -&gt; sotre JOB_CHG_HOUR IN assignment $\And$ ASSIGN_CHARGE (It can be caculatd by xx xx waste space but get better performance))</li>
+</ul>
+<h2><span id="denormalization">Denormalization</span><a href="#denormalization" class="header-anchor">#</a></h2><ul>
+<li>Design goals<ul>
+<li>Creation of normalized relations </li>
+<li>Processing requirements and speed</li>
+</ul>
+</li>
+<li>Number of database tables expands when tables are decomposed to conform to normalization requirements</li>
+<li>Joining a larger number of tables:<ul>
+<li>Takes additional input/output (I/O) operations and processing logic</li>
+<li>Reduces system speed</li>
+</ul>
+</li>
+<li>Defects in unnormalized tables<ul>
+<li>Data updates are less efficient because tables are larger</li>
+<li>Indexing is more cumbersome</li>
+<li>No simple strategies for creating virtual tables known as views</li>
+</ul>
+</li>
 </ul>
 <h1><span id="discussion">Discussion</span><a href="#discussion" class="header-anchor">#</a></h1><ul>
-<li>Meta</li>
-<li>You</li>
-<li>Content</li>
-<li>Data - origins?</li>
-<li>Data - tech?</li>
-<li>Data vs info vs knowledge</li>
-<li>Modeling</li>
-<li>Relational</li>
-<li>Another example of a ‘unary’ relationship?</li>
-<li>Another example of a ternary relationship?</li>
+<li>Data - origins?<ul>
+<li>copper</li>
+<li>parchment</li>
+<li>leaves</li>
+<li>stone</li>
+</ul>
+</li>
+<li>Data - tech?<ul>
+<li>hologram</li>
+<li>…</li>
+</ul>
+</li>
+<li>Data vs info vs knowledge<ul>
+<li>info is by Searching sorting … calculation - computation of data(collected from somewhere) |exact information</li>
+<li>knowledge is useful information</li>
+</ul>
+</li>
+<li>Modeling<ul>
+<li>Why? leave the part I dont want (abstraction) features!</li>
+</ul>
+</li>
+<li>Relational -&gt; relating different entity</li>
+<li>Another example of a ‘unary’ relationship? (employee table manager)</li>
+<li>Another example of a ternary relationship? (manufactory)</li>
 <li>Instead of TinyCollege, consider USC - more entities?</li>
 <li>Why is full functional dependence a good thing?</li>
 <li>Diff between entity and referential integrity, in terms of…</li>
 <li>Examples of ‘blind’ (non-identifying) keys in RL?</li>
-<li>How can we use tables to model unary relationships?</li>
+<li>How can we use tables to model unary relationships?<ul>
+<li>one the same table a column called manager column -&gt; point to itself’s employee_id -&gt; drawback if many people donot have manager, it would be sparse column</li>
+<li>use two tables -&gt; make a table called manager_employee which only has two cols (employee1, employee2) em1 -&gt; employeers, em2-&gt; managers</li>
+</ul>
+</li>
 <li>Closure - where else?</li>
 <li>Why is closure a good property?</li>
 <li>Set diff is non-commutative - what else is?</li>
@@ -1238,7 +1562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Data Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">About data modeling and why data models are important#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Modeling and Data Models#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.2.</span> <span class="nav-text">Importance of Data Models#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">About the basic data-modeling building blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">What business rules are and how they influence database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">Hierarchical modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.5.</span> <span class="nav-text">Network modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.6.</span> <span class="nav-text">Difference between Schema and Sub Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.7.</span> <span class="nav-text">Difference between DML and DDL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.8.</span> <span class="nav-text">The Relational Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.9.</span> <span class="nav-text">Relational DBMS(Database Management System)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.10.</span> <span class="nav-text">How the major data models evolved#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.11.</span> <span class="nav-text">Data Abstraction Levels#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.12.</span> <span class="nav-text">The External Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.13.</span> <span class="nav-text">The Conceptual Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.14.</span> <span class="nav-text">The Internal Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.15.</span> <span class="nav-text">The Physical Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.16.</span> <span class="nav-text">About emerging alternative data models and the need they fulfill#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.17.</span> <span class="nav-text">How data models can be classified by their level of abstraction#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">ER#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">Entity Relationship Model (ERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">Relationships#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">Relational Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">A Logical View of Data#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.3.</span> <span class="nav-text">Determination#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.4.</span> <span class="nav-text">Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.5.</span> <span class="nav-text">Types of Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.6.</span> <span class="nav-text">Ways to Handle Nulls#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.7.</span> <span class="nav-text">Relational Algebra#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.8.</span> <span class="nav-text">Relational Set Operators#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">Discussion#</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Data Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">About data modeling and why data models are important#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Modeling and Data Models#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.2.</span> <span class="nav-text">Importance of Data Models#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">About the basic data-modeling building blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">What business rules are and how they influence database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">Hierarchical modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.5.</span> <span class="nav-text">Network modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.6.</span> <span class="nav-text">Difference between Schema and Sub Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.7.</span> <span class="nav-text">Difference between DML and DDL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.8.</span> <span class="nav-text">The Relational Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.9.</span> <span class="nav-text">Relational DBMS(Database Management System)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.10.</span> <span class="nav-text">How the major data models evolved#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.11.</span> <span class="nav-text">Data Abstraction Levels#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.12.</span> <span class="nav-text">The External Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.13.</span> <span class="nav-text">The Conceptual Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.14.</span> <span class="nav-text">The Internal Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.15.</span> <span class="nav-text">The Physical Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.16.</span> <span class="nav-text">About emerging alternative data models and the need they fulfill#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.17.</span> <span class="nav-text">How data models can be classified by their level of abstraction#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">ER#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">Entity Relationship Model (ERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">Relationships#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">Relational Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">A Logical View of Data#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.3.</span> <span class="nav-text">Determination#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.4.</span> <span class="nav-text">Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.5.</span> <span class="nav-text">Types of Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.6.</span> <span class="nav-text">Ways to Handle Nulls#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.7.</span> <span class="nav-text">Relational Algebra#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.8.</span> <span class="nav-text">Relational Set Operators#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.9.</span> <span class="nav-text">Data Dictionary and the System Catalog(hold metadata)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">Extended ER (“EER”)-&gt; Advanced data modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">Extended Entity Relationship Model (EERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.2.</span> <span class="nav-text">Entity Supertypes and Subtypes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.3.</span> <span class="nav-text">Specialization Hierarchy#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.4.</span> <span class="nav-text">Inheritanc#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.5.</span> <span class="nav-text">Subtype Discriminator#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.6.</span> <span class="nav-text">Disjoint and Overlapping Constraints#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.7.</span> <span class="nav-text">Completeness Constraint#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.8.</span> <span class="nav-text">Entity Cluster#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">Normalization#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.1.</span> <span class="nav-text">Normalization (Do normalization once a time one entity a time)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.2.</span> <span class="nav-text">Need for Normalization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.3.</span> <span class="nav-text">Normalization Process#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.4.</span> <span class="nav-text">Normal Forms#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.5.</span> <span class="nav-text">Functional Dependence Concepts#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.6.</span> <span class="nav-text">Types of Functional Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.7.</span> <span class="nav-text">Conversion to First Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.8.</span> <span class="nav-text">Conversion to Two Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.9.</span> <span class="nav-text">Conversion to Third Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.10.</span> <span class="nav-text">Requirements for Good Normalized Set of Tables#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.11.</span> <span class="nav-text">Denormalization#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">Discussion#</span></a></li></ol></div>
             
 
           </div>
