@@ -3,7 +3,39 @@
   <entry>
     <title>C#-working-notes</title>
     <url>/2020/02/19/C-working-notes/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#basic-grammer">Basic grammer</a><ul>
+<li><a href="#how-to-call-async-method-in-sync-method">How to call async method in sync method</a></li>
+</ul>
+</li>
+<li><a href="#utility">Utility</a><ul>
+<li><a href="#elmah">ELMAH</a></li>
+<li><a href="#log4net">log4net</a></li>
+<li><a href="#automapper-https-automapper-readthedocs-io-en-latest-getting-started-html">AutoMapper</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="basic-grammer">Basic grammer</span><a href="#basic-grammer" class="header-anchor">#</a></h2><h3><span id="how-to-call-async-method-in-sync-method">How to call async method in sync method</span><a href="#how-to-call-async-method-in-sync-method" class="header-anchor">#</a></h3><p>suppose function A() is marked as async, if we want to call A in function B, usually we use await and marked b as async. However, if we dont want to modify the return type of B. To solve that, I decide to use anonymous function to encapsulate the calling of function A, then receive the return_val of A sync.<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> asyncTask = Task.Run(<span class="keyword">async</span> () =&gt; &#123; </span><br><span class="line">        IEnumerable&lt;returnObj&gt;res = <span class="keyword">await</span> A();</span><br><span class="line">        <span class="keyword">return</span> res; &#125;);</span><br><span class="line">    asyncTask.Wait();</span><br><span class="line">    <span class="keyword">return</span> asyncTask.Result().Count();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="utility">Utility</span><a href="#utility" class="header-anchor">#</a></h2><h3><span id="elmah">ELMAH</span><a href="#elmah" class="header-anchor">#</a></h3><h3><span id="log4net">log4net</span><a href="#log4net" class="header-anchor">#</a></h3><h3><span id="automapper"></span><a href="#automapper" class="header-anchor">#</a></h3><h4><span id="introduction">Introduction</span><a href="#introduction" class="header-anchor">#</a></h4><p>AutoMapper is an object-object mapper. Object-object mapping works by transforming an input object of one type into an output object of a different type. What makes AutoMapper interesting is that it provides some interesting conventions to take the dirty work out of figuring out how to map type A to type B. As long as type B follows AutoMapper’s established convention, almost zero configuration is needed to map two types.</p>
+<h4><span id="usage">Usage</span><a href="#usage" class="header-anchor">#</a></h4><p>Once you have your types you can create a map for the two types using a MapperConfiguration and CreateMap. You only need one MapperConfiguration instance typically per AppDomain and should be instantiated during startup. More examples of initial setup see in Setup.<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> config = <span class="keyword">new</span> MapperConfiguration(cfg =&gt; cfg.CreateMap&lt;Order, OrderDto&gt;());</span><br></pre></td></tr></table></figure><br>The type on the left is the source type, and the type on the right is the destination type. To perform a mapping, call one of the Map overloads:<br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mapper = config.CreateMapper();</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">var</span> mapper = <span class="keyword">new</span> Mapper(config);</span><br><span class="line">OrderDto dto = mapper.Map&lt;OrderDto&gt;(order);</span><br></pre></td></tr></table></figure><br><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2 = Mapper.Map&lt;Obj1, Obj2&gt;(obj1);</span><br><span class="line"><span class="comment">//obj1 is type of Obj1</span></span><br><span class="line"><span class="comment">//obj2 is type of Obj2</span></span><br><span class="line"><span class="comment">// it will map the same Attribute with Obj1 and Obj2 and return a new obj which type of Obj2</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>Programming</tag>
+        <tag>ASP.NET</tag>
+      </tags>
   </entry>
   <entry>
     <title>DatabaseReview</title>
@@ -88,6 +120,51 @@
 <li><a href="#conversion-to-third-normal-form">Conversion to Third Normal Form</a></li>
 <li><a href="#requirements-for-good-normalized-set-of-tables">Requirements for Good Normalized Set of Tables</a></li>
 <li><a href="#denormalization">Denormalization</a></li>
+</ul>
+</li>
+<li><a href="#transaction-management">Transaction Management</a><ul>
+<li><a href="#transaction">Transaction</a></li>
+<li><a href="#transaction-properities">Transaction Properities</a></li>
+<li><a href="#transaction-management-with-sql">Transaction Management with SQL</a></li>
+<li><a href="#transaction-log">Transaction log</a></li>
+<li><a href="#concurrency-control">Concurrency Control</a></li>
+<li><a href="#the-scheduler">The Scheduler</a></li>
+<li><a href="#concurrency-control-with-locking-methods">Concurrency Control with Locking Methods</a></li>
+<li><a href="#lock-granularity">Lock Granularity</a></li>
+<li><a href="#lock-types">Lock Types</a></li>
+<li><a href="#two-phase-locking-2pl-avoid-deadlock">Two-Phase Locking (2PL) -&gt; avoid deadlock</a></li>
+<li><a href="#deadlocks">Deadlocks</a></li>
+<li><a href="#time-stamping-prevent-deadlock">Time Stamping -&gt; prevent deadlock</a></li>
+<li><a href="#wait-die-and-wound-wait-concurrency-control-schema">Wait/Die and Wound/Wait Concurrency Control Schema</a></li>
+<li><a href="#phases-of-optimistic-approach">Phases of Optimistic Approach</a></li>
+</ul>
+</li>
+<li><a href="#distributed-dbs">Distributed DBs</a><ul>
+<li><a href="#vertical-scalling-and-horizontal-scalling">Vertical scalling and horizontal scalling</a></li>
+<li><a href="#distributed-processing-and-distributed-databases">Distributed Processing and Distributed Databases</a></li>
+<li><a href="#functions-of-distributed-dbms">Functions of Distributed DBMS</a></li>
+<li><a href="#ddbms-components">DDBMS Components</a></li>
+<li><a href="#single-site-processing-single-site-data-mpsd-pretty-simple">Single-Site Processing, Single-Site Data(MPSD) pretty simple</a></li>
+<li><a href="#multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</a></li>
+<li><a href="#multiple-site-processing-single-site-data-mpsd-1">Multiple-Site Processing, Single-Site Data (MPSD)</a></li>
+<li><a href="#restrictions-of-ddbms">Restrictions of DDBMS</a></li>
+<li><a href="#distributed-requests-and-distributed-transactions">Distributed Requests and Distributed Transactions</a></li>
+<li><a href="#distributed-concurrency-control-2pc-2-phrase-commit">Distributed Concurrency Control (2PC 2 phrase commit)</a></li>
+<li><a href="#two-phase-commit-protocol-2pc">Two-Phase Commit Protocol(2PC)</a></li>
+<li><a href="#transparency-hide-sth-to-users">Transparency (Hide sth to users)</a></li>
+<li><a href="#distributed-database-design">Distributed Database Design</a></li>
+<li><a href="#data-fragmentation">Data Fragmentation</a></li>
+<li><a href="#data-replication">Data Replication</a></li>
+<li><a href="#data-replication-scenarios">Data Replication Scenarios</a></li>
+<li><a href="#data-allocation-strategies">Data Allocation Strategies</a></li>
+<li><a href="#the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database">The CAP Theorem (That’s what u need consider when you design a database)</a></li>
+<li><a href="#database-connectivity">Database Connectivity</a></li>
+<li><a href="#various-connectivity-options">Various connectivity options</a></li>
+<li><a href="#components-of-odbc-architecture">Components of ODBC Architecture</a></li>
+<li><a href="#object-linking-and-embedding-for-database-ole-db-database-becomes-object">Object Linking and Embedding for Database (OLE-DB) Database becomes object</a></li>
+<li><a href="#database-internet-connectivity">Database Internet Connectivity</a></li>
+<li><a href="#web-to-database-middleware">Web-to-Database Middleware</a></li>
+<li><a href="#client-side-extensions">Client-Side Extensions</a></li>
 </ul>
 </li>
 <li><a href="#discussion">Discussion</a></li>
@@ -974,6 +1051,527 @@
 <li>Data updates are less efficient because tables are larger</li>
 <li>Indexing is more cumbersome</li>
 <li>No simple strategies for creating virtual tables known as views</li>
+</ul>
+</li>
+</ul>
+<h1><span id="transaction-management">Transaction Management</span><a href="#transaction-management" class="header-anchor">#</a></h1><h2><span id="transaction">Transaction</span><a href="#transaction" class="header-anchor">#</a></h2><ul>
+<li>Logical unit of work that must be entirely completed or aborted</li>
+<li>Consists of:<ul>
+<li>SELECT statement </li>
+<li>Series of related UPDATE statements</li>
+<li>Series of INSERT statements</li>
+<li>Combination of SELECT, UPDATE, and INSERT statements</li>
+</ul>
+</li>
+<li><strong>Consistent database state</strong>: All data integrity constraints are satisfied // Before transaction, the database is good and clean and after transaction is completed, the transaction will leave the database again in a consistent sate.<ul>
+<li>Must begin with the database in a known consistent state to ensure consistency</li>
+</ul>
+</li>
+<li>Formed by two or more database requests<ul>
+<li><strong>Database requests</strong>: Equivalent of a single SQL statement in an application program or transaction</li>
+</ul>
+</li>
+<li>Consists of a single SQL statement or a collection of related SQL statements</li>
+</ul>
+<h2><span id="transaction-properities">Transaction Properities</span><a href="#transaction-properities" class="header-anchor">#</a></h2><ul>
+<li><strong>Atomicity</strong>: All operations of a transaction must be completed. If not, the transaction is aborted.</li>
+<li><strong>Consistency</strong>: Permanence of database’s consistent state</li>
+<li><strong>Isolation</strong>: Data used during transaction cannot be used by second transaction until the first is completed</li>
+<li><strong>Durability</strong>: Ensures that once transactions are committed, they cannot be undone or lost</li>
+<li><strong>Serializability</strong>: Ensures that the schedule for the concurrent execution of several transactions should yield consistent results</li>
+</ul>
+<h2><span id="transaction-management-with-sql">Transaction Management with SQL</span><a href="#transaction-management-with-sql" class="header-anchor">#</a></h2><ul>
+<li>SQL statements that provide transaction support<ul>
+<li>COMMIT </li>
+<li>ROLLBACK -&gt; roll back the current transaction to last commit</li>
+</ul>
+</li>
+<li>Transaction sequence must continue until:<ul>
+<li>COMMIT statement is reached</li>
+<li>ROLLBACK statement is reached</li>
+<li>End of program is reached</li>
+<li>Program is abnormally terminated</li>
+</ul>
+</li>
+</ul>
+<h2><span id="transaction-log">Transaction log</span><a href="#transaction-log" class="header-anchor">#</a></h2><ul>
+<li>Keeps track of all transactions that update the database</li>
+<li>DBMS uses the information stored in a log for:<ul>
+<li>Recovery requirement triggered by a ROLLBACK statement</li>
+<li>A program’s abnormal termination</li>
+<li>A system failure </li>
+</ul>
+</li>
+</ul>
+<h2><span id="concurrency-control">Concurrency Control</span><a href="#concurrency-control" class="header-anchor">#</a></h2><ul>
+<li>Coordination of the simultaneous transactions execution in a multiuser database system</li>
+<li>Objective - Ensures serializability of transactions in a multiuser database environment</li>
+<li>dirty read：一个事务可以读取另一个尚未提交事务的修改数据。</li>
+<li>nonrepeatable read：在同一个事务中，同一个查询在T1时间读取某一行，在T2时间重新读取这一行时候，这一行的数据已经发生修改，可能被更新了（update），也可能被删除了（delete）。</li>
+<li>phantom read：在同一事务中，同一查询多次进行时候，由于其他插入操作（insert）的事务提交，导致每次返回不同的结果集。</li>
+</ul>
+<h2><span id="the-scheduler">The Scheduler</span><a href="#the-scheduler" class="header-anchor">#</a></h2><ul>
+<li>Establishes the order in which the operations are executed within concurrent transactions <ul>
+<li>Interleaves the execution of database operations to ensure serializability and isolation of transactions</li>
+</ul>
+</li>
+<li>Based on concurrent control algorithms to determine the appropriate order</li>
+<li>Creates serialization schedule <ul>
+<li>Serializable schedule: Interleaved execution of transactions yields the same results as the serial execution of the transactions</li>
+</ul>
+</li>
+</ul>
+<h2><span id="concurrency-control-with-locking-methods">Concurrency Control with Locking Methods</span><a href="#concurrency-control-with-locking-methods" class="header-anchor">#</a></h2><ul>
+<li>Locking methods - Facilitate isolation of data items used in concurrently executing transactions   </li>
+<li><strong>Lock</strong>: Guarantees exclusive use of a data item to a current transaction</li>
+<li><strong>Pessimistic locking</strong>: Use of locks based on the assumption that conflict between transactions is likely</li>
+<li><strong>Lock manager</strong>: Responsible for assigning and policing the locks used by the transactions</li>
+</ul>
+<h2><span id="lock-granularity">Lock Granularity</span><a href="#lock-granularity" class="header-anchor">#</a></h2><ul>
+<li>Indicates the level of lock use</li>
+<li>Levels of locking <ul>
+<li>Database-level lock</li>
+<li>Table-level lock</li>
+<li>Page-level lock<ul>
+<li>Page or diskpage: Directly addressable section of a disk</li>
+</ul>
+</li>
+<li>Row-level lock</li>
+<li>Field-level lock</li>
+</ul>
+</li>
+</ul>
+<h2><span id="lock-types">Lock Types</span><a href="#lock-types" class="header-anchor">#</a></h2><ul>
+<li>Binary lock</li>
+<li>Has two states, locked (1) and unlocked (0)<ul>
+<li>If an object is locked by a transaction, no other transaction can use that object</li>
+<li>If an object is unlocked, any transaction can lock the object for its use</li>
+</ul>
+</li>
+<li>Exclusive lock -write<ul>
+<li>Exists when access is reserved for the transaction that locked the object</li>
+</ul>
+</li>
+<li>Shared lock -&gt; read<ul>
+<li>Exists when concurrent transactions are granted read access on the basis of a common lock</li>
+</ul>
+</li>
+</ul>
+<h2><span id="two-phase-locking-2pl-gt-avoid-deadlock">Two-Phase Locking (2PL) -&gt; avoid deadlock</span><a href="#two-phase-locking-2pl-gt-avoid-deadlock" class="header-anchor">#</a></h2><ul>
+<li>Defines how transactions acquire and relinquish locks</li>
+<li>Guarantees serializability but does not prevent deadlocks </li>
+<li>Phases<ul>
+<li>Growing phase - Transaction acquires all required locks without unlocking any data</li>
+<li>Running operations(middle)</li>
+<li>Shrinking phase - Transaction releases all locks and cannot obtain any new lock</li>
+</ul>
+</li>
+<li>Governing rules<ul>
+<li>Two transactions cannot have conflicting locks</li>
+<li>No unlock operation can precede a lock operation in the same transaction</li>
+<li>No data are affected until all locks are obtained</li>
+</ul>
+</li>
+</ul>
+<h2><span id="deadlocks">Deadlocks</span><a href="#deadlocks" class="header-anchor">#</a></h2><ul>
+<li>Occurs when two transactions wait indefinitely for each other to unlock data<ul>
+<li>Known as deadly embrace</li>
+</ul>
+</li>
+<li>Control techniques<ul>
+<li>Deadlock prevention possible deadlock detect and kill one of the potential confilct -&gt; timestamp based</li>
+<li>Deadlock detection </li>
+<li>Deadlock avoidance -&gt; The transaction must obtain all the lock to execute, in the transaction process, no deadlock will occur</li>
+</ul>
+</li>
+<li>Choice of deadlock control method depends on database environment</li>
+</ul>
+<h2><span id="time-stamping-gt-prevent-deadlock">Time Stamping -&gt; prevent deadlock</span><a href="#time-stamping-gt-prevent-deadlock" class="header-anchor">#</a></h2><ul>
+<li>Assigns global, unique time stamp to each transaction<ul>
+<li>Produces explicit order in which transactions are submitted to DBMS</li>
+</ul>
+</li>
+<li>Properties<ul>
+<li>Uniqueness: Ensures no equal time stamp values exist</li>
+<li>Monotonicity: Ensures time stamp values always increases</li>
+</ul>
+</li>
+<li>Disadvantages<ul>
+<li>Each value stored in the database requires two additional stamp fields</li>
+<li>Increases memory needs</li>
+<li>Increases the database’s processing overhead</li>
+<li>Demands a lot of system resources </li>
+</ul>
+</li>
+</ul>
+<h2><span id="wait-die-and-wound-wait-concurrency-control-schema">Wait/Die and Wound/Wait Concurrency Control Schema</span><a href="#wait-die-and-wound-wait-concurrency-control-schema" class="header-anchor">#</a></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Transaction Request Lock</th>
+<th style="text-align:left">Transaction Owning Lock</th>
+<th style="text-align:left">WAIT/DIE Scheme(People who currently has resources has higher privelege)</th>
+<th style="text-align:left">Wound/Wait Scheme -&gt; Old always first if Old has higher privelege</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">T1(11548789)</td>
+<td style="text-align:left">T2(19562545)</td>
+<td style="text-align:left">T1 wait until T2 is complete</td>
+<td style="text-align:left">T1 preempts(rollback) T2 and T2 reschedule</td>
+</tr>
+<tr>
+<td style="text-align:left">T2(19562545)</td>
+<td style="text-align:left">T1(11548789)</td>
+<td style="text-align:left">T2 dies and reschedule with the same timestamp</td>
+<td style="text-align:left">T2 waits T1 is completed and T1 releases lock</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="phases-of-optimistic-approach">Phases of Optimistic Approach</span><a href="#phases-of-optimistic-approach" class="header-anchor">#</a></h2><ul>
+<li>Read<ul>
+<li>Transaction:<ul>
+<li>Reads the database</li>
+<li>Executes the needed computations</li>
+<li>Makes the updates to a private copy of the database values</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Validation<ul>
+<li>Transaction is validated to ensure that the changes made will not affect the integrity and consistency of the database</li>
+</ul>
+</li>
+<li>Write<ul>
+<li>Changes are permanently applied to the database</li>
+</ul>
+</li>
+</ul>
+<h1><span id="distributed-dbs">Distributed DBs</span><a href="#distributed-dbs" class="header-anchor">#</a></h1><h2><span id="vertical-scalling-and-horizontal-scalling">Vertical scalling and horizontal scalling</span><a href="#vertical-scalling-and-horizontal-scalling" class="header-anchor">#</a></h2><ul>
+<li>Vertical scalling: very bad, it’s take one server and add more and more Gigbyte it run, but it is restricted in one machine</li>
+<li>Horizontal scalling: add more and more servers</li>
+</ul>
+<h2><span id="distributed-processing-and-distributed-databases">Distributed Processing and Distributed Databases</span><a href="#distributed-processing-and-distributed-databases" class="header-anchor">#</a></h2><ul>
+<li>Distributed processing: Database’s logical processing is shared among two or more physically independent sites via network</li>
+<li>Distributed database: Stores logically related database over two or more physically independent sites via computer network<ul>
+<li>Database fragments: Database composed of many parts in distributed database system. EXAMPle: take a table and split it to many pieces</li>
+</ul>
+</li>
+</ul>
+<h2><span id="functions-of-distributed-dbms">Functions of Distributed DBMS</span><a href="#functions-of-distributed-dbms" class="header-anchor">#</a></h2><ul>
+<li>Receives the request of an application </li>
+<li><strong>Validates analyzes</strong>, and decomposes the request</li>
+<li>Maps the request</li>
+<li>Decomposes request into several I/O operations</li>
+<li>Searches and validates data</li>
+<li>Ensures consistency, security, and integrity</li>
+<li>Validates data for specific conditions</li>
+<li>Presents data in required format</li>
+</ul>
+<h2><span id="ddbms-components">DDBMS Components</span><a href="#ddbms-components" class="header-anchor">#</a></h2><ul>
+<li>Computer workstations or remote devices</li>
+<li>Network hardware and software components</li>
+<li>Communications media</li>
+<li><strong>Transaction processor (TP)</strong>: Software component of a system that requests data -&gt; access the database and get the query fullfill(make a request)</li>
+<li>Known as <strong>transaction manager (TM)</strong> or <strong>application processor (AP)</strong></li>
+<li><strong>Data processor (DP)</strong> or <strong>data manager (DM)</strong> -&gt; Only serve data dont care where the request come from</li>
+<li>Software component on a system that stores and retrieves data from its location</li>
+</ul>
+<h2><span id="single-site-processing-single-site-data-mpsd-pretty-simple">Single-Site Processing, Single-Site Data(MPSD) pretty simple</span><a href="#single-site-processing-single-site-data-mpsd-pretty-simple" class="header-anchor">#</a></h2><h2><span id="multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</span><a href="#multiple-site-processing-single-site-data-mpsd" class="header-anchor">#</a></h2><ul>
+<li>Multiple processes run on different computers sharing a single data repository</li>
+<li>Require network file server running conventional applications <ul>
+<li>Accessed through LAN</li>
+</ul>
+</li>
+<li><strong>Client/server architecture</strong><br>Reduces network traffic<br>Processing is distributed<br>Supports data at multiple sites</li>
+</ul>
+<h2><span id="multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</span><a href="#multiple-site-processing-single-site-data-mpsd" class="header-anchor">#</a></h2><ul>
+<li>Fully distributed database management system<ul>
+<li>Support multiple data processors and transaction processors at multiple sites</li>
+</ul>
+</li>
+<li>Classification of DDBMS depending on the level of support for various types of databases<ul>
+<li>Homogeneous: Integrate multiple instances of same DBMS over a network -&gt; all databases are in the same model(all oracle/mysql)</li>
+<li>Heterogeneous: Integrate different types of DBMSs -&gt; can have different vendors(oracle, mysql,sqlite) but must follow the same relational model</li>
+<li>Fully heterogeneous: Support different DBMSs, each supporting different data model (some maybe noSQL data/graph/kv pairs)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="restrictions-of-ddbms">Restrictions of DDBMS</span><a href="#restrictions-of-ddbms" class="header-anchor">#</a></h2><ul>
+<li>Remote access is provided on a read-only basis</li>
+<li>Restrictions on the number of remote tables that may be accessed in a single transaction</li>
+<li>Restrictions on the number of distinct databases that may be accessed</li>
+<li>Restrictions on the database model that may be accessed</li>
+</ul>
+<h2><span id="distributed-requests-and-distributed-transactions">Distributed Requests and Distributed Transactions</span><a href="#distributed-requests-and-distributed-transactions" class="header-anchor">#</a></h2><ul>
+<li>Remote request<ul>
+<li>Single SQL statement accesses data processed by a single remote database processor</li>
+</ul>
+</li>
+<li>Remote transaction<ul>
+<li>Accesses data at single remote site composed of several requests</li>
+</ul>
+</li>
+<li>Distributed transaction<ul>
+<li>Requests data from several different remote sites on network</li>
+</ul>
+</li>
+<li>Distributed request<ul>
+<li>Single SQL statement references data at several DP sites</li>
+</ul>
+</li>
+</ul>
+<h2><span id="distributed-concurrency-control-2pc-2-phrase-commit">Distributed Concurrency Control (2PC 2 phrase commit)</span><a href="#distributed-concurrency-control-2pc-2-phrase-commit" class="header-anchor">#</a></h2><ul>
+<li>Concurrency control is important in distributed databases environment<ul>
+<li>Due to multi-site multiple-process operations that create inconsistencies and deadlocked transactions</li>
+</ul>
+</li>
+</ul>
+<h2><span id="two-phase-commit-protocol-2pc">Two-Phase Commit Protocol(2PC)</span><a href="#two-phase-commit-protocol-2pc" class="header-anchor">#</a></h2><ul>
+<li>Guarantees if a portion of a transaction operation cannot be committed, all changes made at the other sites will be undone <ul>
+<li>To maintain a consistent database state</li>
+</ul>
+</li>
+<li>Requires that each DP’s transaction log entry be written before database fragment is updated</li>
+<li><strong>DO-UNDO-REDO protocol</strong>: Roll transactions back and forward with the help of the system’s transaction log entries</li>
+<li><strong>Write-ahead protocol</strong>: Forces the log entry to be written to permanent storage before actual operation takes place </li>
+<li>Defines operations between <strong>coordinator</strong> and <strong>subordinates</strong></li>
+<li>Phases of implementation<ul>
+<li><ol>
+<li>Preparation -&gt; request if others can commit or not(failure happends)</li>
+</ol>
+</li>
+<li><ol>
+<li>The final COMMIT -&gt; Tell all others they can commit</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Details:</li>
+<li><p>第一阶段：准备<br>协调器发送一个PREPARE TO COMMIT信息给所有的从属者。</p>
+<p>从属者接到这个信息，使用先写协议，写入事务日志并发送一个确认信息（YES/PREPARED TO COMMIT或NO/NO PREPARED）给协调器。<br>协调器确保所有节点要么提交，要么取消。<br>如果所有节点为PREPARED TO COMMIT，事务调转到第二阶段。如果有一个或多个节点为NO或NO PREPARED协调器就给所有从属者发送一个ABORT。</p>
+<p>第二阶段：最后的提交</p>
+<p>协调器广播一个COMMIT信息给所有从属者并等待回复。<br>每个从属者接收到COMMIT信息并且使用DO协议更性数据库。<br>从属者回复一个 COMMITTED或者NOT COMMITTED信息给协调器。<br>如果一个或者多个从属者没有提交，协调器就发送一个ABORT消息，这样就使它们都取消所有的操作。</p>
+<p>两阶段提交的目的是为了确保每个节点都提交事务自己所操作的部分；否则，事务就取消。如果其中一个节点提交失败，就用事务日志来恢复数据库的信息，而且使用的是DO-UNDO-REDO协议来恢复（记住使用先写协议更新日志信息）。</p>
+</li>
+<li>CUBRID -&gt; how transaction manager/distribute a good example</li>
+</ul>
+<h2><span id="transparency-hide-sth-to-users">Transparency (Hide sth to users)</span><a href="#transparency-hide-sth-to-users" class="header-anchor">#</a></h2><ul>
+<li>Distribution transparency: The users dont know the databases are distrubuted<ul>
+<li>Allows management of physically dispersed database as if centralized(好像是centralized的)</li>
+<li>Levels<ul>
+<li>Fragmentation transparency </li>
+<li>Location transparency </li>
+<li>Local mapping transparency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transaction transparency: The users dont know what parts of transaction happens where<ul>
+<li>Ensures database transactions will maintain distributed database’s integrity and consistency</li>
+<li>Ensures transaction completed only when all database sites involved complete their part</li>
+<li>Distributed database systems require complex mechanisms to manage transactions</li>
+</ul>
+</li>
+<li>Failure transparency: If the query go to one place, the place is down, they the user will not feel that. reroute to other copies<ul>
+<li>Ensures the system will operate in case of network failure</li>
+<li>Considerations for resolving requests in a distributed data environment<ul>
+<li>Data distribution</li>
+<li>Data replication<ul>
+<li><strong>Replica transparency</strong>: DDBMS’s ability to hide multiple copies of data from the user</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Performance transparency: Hide latency.<ul>
+<li>Allows a DDBMS to perform as if it were a centralized database</li>
+</ul>
+</li>
+<li>Network and node availability<ul>
+<li><strong>Network latency</strong>: delay imposed by the amount of time required for a data packet to make a round trip</li>
+<li><strong>Network partitioning</strong>: delay imposed when nodes become suddenly unavailable due to a network failure</li>
+</ul>
+</li>
+<li>Heterogeneity transparency: dont know what operating system/ database system …</li>
+</ul>
+<h2><span id="distributed-database-design">Distributed Database Design</span><a href="#distributed-database-design" class="header-anchor">#</a></h2><ul>
+<li><strong>Data fragmentation</strong>: How to partition database into fragments</li>
+<li><strong>Data replication</strong>: Which fragments to replicate</li>
+<li><strong>Data allocation</strong>: Where to locate those fragments and replicas</li>
+</ul>
+<h2><span id="data-fragmentation">Data Fragmentation</span><a href="#data-fragmentation" class="header-anchor">#</a></h2><ul>
+<li>Breaks single object into many segments<br>Information is stored in distributed data catalog (DDC)</li>
+<li>Strategies<ul>
+<li><strong>Horizontal fragmentation</strong>: Division of a relation into subsets (fragments) of tuples (rows)</li>
+<li><strong>Vertical fragmentation</strong>: Division of a relation into attribute (column) subsets</li>
+<li><strong>Mixed fragmentation</strong>: Combination of horizontal and vertical strategies</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-replication">Data Replication</span><a href="#data-replication" class="header-anchor">#</a></h2><ul>
+<li>Data copies stored at multiple sites served by a computer network</li>
+<li><strong>Mutual consistency rule</strong>: Replicated data fragments should be identical</li>
+<li>Styles of replication -&gt; How to make changes propogate<ul>
+<li>Push replication -&gt; send changes to others</li>
+<li>Pull replication -&gt; pull others’ changes</li>
+</ul>
+</li>
+<li>Helps restore lost data</li>
+</ul>
+<h2><span id="data-replication-scenarios">Data Replication Scenarios</span><a href="#data-replication-scenarios" class="header-anchor">#</a></h2><ul>
+<li>Fully replicated database<ul>
+<li>Stores multiple copies of each database fragment at multiple sites</li>
+</ul>
+</li>
+<li>Partially replicated database<ul>
+<li>Stores multiple copies of some database fragments at multiple sites</li>
+</ul>
+</li>
+<li>Unreplicated database<ul>
+<li>Stores each database fragment at a single site</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-allocation-strategies">Data Allocation Strategies</span><a href="#data-allocation-strategies" class="header-anchor">#</a></h2><ul>
+<li>Centralized data allocation<ul>
+<li>Entire database stored at one site</li>
+</ul>
+</li>
+<li>Partitioned data allocation<ul>
+<li>Database is divided into two or more disjoined fragments and stored at two or more sites</li>
+</ul>
+</li>
+<li>Replicated data allocation<ul>
+<li>Copies of one or more database fragments are stored at several sites</li>
+</ul>
+</li>
+</ul>
+<h2><span id="the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database">The CAP Theorem (That’s what u need consider when you design a database)</span><a href="#the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database" class="header-anchor">#</a></h2><ul>
+<li>CAP stands for:<ul>
+<li>Consistency: Are all partitions of data keeping the same </li>
+<li>Availability: if some nodes are down, the system can still work</li>
+<li>Partition tolerance: the cluster continues to function even if there is a “partition” (communication break) between two nodes (both nodes are up, but can’t communicate). -&gt; Continue to work even some nodes fail</li>
+</ul>
+</li>
+<li><strong>Basically available, soft state, eventually consistent (BASE)</strong><ul>
+<li>Data changes are not immediate but propagate slowly through the system until all replicas are consistent</li>
+</ul>
+</li>
+</ul>
+<h2><span id="database-connectivity">Database Connectivity</span><a href="#database-connectivity" class="header-anchor">#</a></h2><p><strong>Database middleware</strong>: Provides an interface between the application program and the database<br><strong>Data repository/source</strong> - Data management application used to store data generated by an application program<br><strong>Universal Data Access (UDA)</strong>: Collection of technologies used to access any type of data source and manage the data through a common interface<br>ODBC, OLE-DB, ADO.NET form the backbone of MS UDA architecture</p>
+<h2><span id="various-connectivity-options">Various connectivity options</span><a href="#various-connectivity-options" class="header-anchor">#</a></h2><ul>
+<li>Native SQL(provided by vendors)<ul>
+<li>Connection interface provided by database vendors, which is unique to each vendor</li>
+<li>Interfaces are optimized for particular vendor’s DBMS<ul>
+<li>Maintenance is a burden for the programmer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>M’soft: 1.ODBC(Open database connectivity(Microsoft’s implementation of a superset of SQL Access Group)), DAO(Data Access Object)+JET, RDO(Remote Data Object)</p>
+<ul>
+<li>ODBC<ul>
+<li>Open Database Connectivity (ODBC):Microsoft’s implementation of a superset of SQL Access Group Call Level Interface (CLI) standard for database access</li>
+<li>Widely supported database connectivity interface</li>
+<li>Allows Windows application to access relational data sources by using SQL via standard application programming interface (API)</li>
+</ul>
+</li>
+<li>Data Access Objects(DAO)<ul>
+<li>Object-oriented API used to access MS Access, MS FoxPro, and dBase databases from Visual Basic programs</li>
+<li>Provides an optimized interface that expose functionality of Jet data engine to programmers</li>
+<li>DAO interface can be used to access other relational style data sources</li>
+<li>Jet is a wrapper of DAO</li>
+</ul>
+</li>
+<li>Remote Data Objects (RDO)<ul>
+<li>Higher-level object-oriented application interface used to access remote database servers</li>
+</ul>
+</li>
+<li>Dynamic-link libraries (DLLs)<ul>
+<li>Implements ODBC, DAO, and RDO as shared code that is dynamically linked to the Windows operating environment</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>M’soft: OLE-DB(open linking embeding db)</p>
+</li>
+<li>M’soft: ADO.NET(Access Data Object)</li>
+<li>JDBC(from Sum)</li>
+</ul>
+<h2><span id="components-of-odbc-architecture">Components of ODBC Architecture</span><a href="#components-of-odbc-architecture" class="header-anchor">#</a></h2><ul>
+<li>High-level ODBC API through which application programs access ODBC functionality -&gt; face to program</li>
+<li>Driver manager that is in charge of managing all database connections -&gt; face to table</li>
+<li>ODBC driver that communicates directly to DBMS</li>
+</ul>
+<h2><span id="object-linking-and-embedding-for-database-ole-db-database-becomes-object">Object Linking and Embedding for Database (OLE-DB) Database becomes object</span><a href="#object-linking-and-embedding-for-database-ole-db-database-becomes-object" class="header-anchor">#</a></h2><p>Before: OMG(object management group)<br>CORBA: COMMON OBJECT REQUEST BREAKER ARCHITECHTURE -&gt; Object exchange from different os regardless different memory</p>
+<ul>
+<li>Database middleware that adds object-oriented functionality for access to data</li>
+<li>Series of COM(component object model) objects provides low-level database connectivity for applications</li>
+<li>Types of objects based on functionality<ul>
+<li>Consumers(request data)</li>
+<li>Providers(produce data)</li>
+</ul>
+</li>
+<li>Does not provide support for scripting languages</li>
+<li>ActiveX Data Objects (ADO): Provides:</li>
+<li>High-level application-oriented interface to interact with OLE-DB, DAO, and RDO</li>
+<li>Unified interface to access data from any programming language that uses the underlying OLE-DB objects</li>
+<li>ADO.NET<ul>
+<li>Data access component of Microsoft’s .NET application development framework</li>
+</ul>
+</li>
+<li>Microsoft’s .NET framework<ul>
+<li>Component-based platform for developing distributed, heterogeneous, interoperable applications </li>
+<li>Manipulates any type of data using any combination of network, operating system, and programming language</li>
+</ul>
+</li>
+<li>Features critical for the development of distributed applications<ul>
+<li>DataSet: Disconnected memory-resident representation of database</li>
+<li>XML support <ul>
+<li>DataSet is internally stored in XML format</li>
+<li>Data in DataSet is made persistent as XML documents</li>
+<li>DataSet is internally stored in XML format</li>
+<li>Data in DataSet made persistent as XML documents</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="database-internet-connectivity">Database Internet Connectivity</span><a href="#database-internet-connectivity" class="header-anchor">#</a></h2><ul>
+<li>Allows new innovative services that:<ul>
+<li>Permit rapid response by bringing new services and products to market quickly</li>
+<li>Increase customer satisfaction through creation of web-based support services</li>
+<li>Allow anywhere, anytime data access using mobile smart devices via the Internet</li>
+<li>Yield fast and effective information dissemination through universal access</li>
+</ul>
+</li>
+</ul>
+<h2><span id="web-to-database-middleware">Web-to-Database Middleware</span><a href="#web-to-database-middleware" class="header-anchor">#</a></h2><ul>
+<li>Web server is the main hub through which Internet services are accessed</li>
+<li><strong>Server-side extension</strong>: Program that interacts directly with the web server<ul>
+<li>Known as <strong>web-to-database middleware</strong></li>
+<li>Provides its services to the web server in a way that is totally transparent to the client browser</li>
+</ul>
+</li>
+<li>Middleware must be well integrated</li>
+</ul>
+<h2><span id="client-side-extensions">Client-Side Extensions</span><a href="#client-side-extensions" class="header-anchor">#</a></h2><ul>
+<li>Add functionality to Web browser</li>
+<li>Types <ul>
+<li>Plug-in: External application automatically invoked by the browser when needed</li>
+<li>Java and JavaScript: Embedded in web page<ul>
+<li>Downloaded with the Web page and activated by an event</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ActiveX and VBScript: Embedded in web page<ul>
+<li>Downloaded with page and activated by event</li>
+<li>Oriented to Windows applications</li>
 </ul>
 </li>
 </ul>

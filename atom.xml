@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-02-19T21:39:23.968Z</updated>
+  <updated>2020-02-26T04:11:35.620Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -21,13 +21,32 @@
     <link href="https://blobming.github.io/2020/02/19/C-working-notes/"/>
     <id>https://blobming.github.io/2020/02/19/C-working-notes/</id>
     <published>2020-02-19T21:39:23.000Z</published>
-    <updated>2020-02-19T21:39:23.968Z</updated>
+    <updated>2020-02-26T04:11:35.620Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#basic-grammer&quot;&gt;Basic grammer&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
     
     </summary>
     
     
+      <category term="C#" scheme="https://blobming.github.io/categories/C/"/>
+    
+    
+      <category term="Programming" scheme="https://blobming.github.io/tags/Programming/"/>
+    
+      <category term="ASP.NET" scheme="https://blobming.github.io/tags/ASP-NET/"/>
     
   </entry>
   
@@ -36,7 +55,7 @@
     <link href="https://blobming.github.io/2020/02/18/DatabaseRev/"/>
     <id>https://blobming.github.io/2020/02/18/DatabaseRev/</id>
     <published>2020-02-19T03:37:59.000Z</published>
-    <updated>2020-02-24T10:43:05.712Z</updated>
+    <updated>2020-02-26T11:18:46.443Z</updated>
     
     <summary type="html">
     
