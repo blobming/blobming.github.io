@@ -95,7 +95,11 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;1nf.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;2nf.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;3nf.png">
-<meta property="og:updated_time" content="2020-02-26T11:18:46.443Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;SampleDatabaseStatic.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;optimizerHints.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;BUSINESS_INTELLIGENCE_FRAMEWORK.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;R:M-OLAP.png">
+<meta property="og:updated_time" content="2020-05-03T05:51:50.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;02&#x2F;18&#x2F;DatabaseRev&#x2F;EvoDataModel.png">
 
@@ -486,7 +490,56 @@
 <li><a href="#client-side-extensions">Client-Side Extensions</a></li>
 </ul>
 </li>
-<li><a href="#discussion">Discussion</a></li>
+<li><a href="#performance-tuning-and-query-optimization">Performance Tuning and Query Optimization</a><ul>
+<li><a href="#tuning-database-performance-tuning-concepts">Tuning(Database Performance-Tuning Concepts)</a></li>
+<li><a href="#performance-tuning-client-and-server">Performance Tuning: Client and Server</a><ul>
+<li><a href="#client-side">Client side</a></li>
+<li><a href="#server-side">Server side</a></li>
+</ul>
+</li>
+<li><a href="#dbms-architecture">DBMS Architecture</a></li>
+<li><a href="#database-query-optimization-modes">Database Query Optimization Modes</a></li>
+<li><a href="#classification-of-operation-modes">Classification of Operation Modes</a></li>
+<li><a href="#based-on-timing-of-optimization">Based on Timing of Optimization</a></li>
+<li><a href="#type-of-information-used-to-optimize">Type of Information Used to Optimize</a></li>
+<li><a href="#sample-database-statistics-measurements">Sample Database Statistics Measurements</a></li>
+<li><a href="#query-processing">Query Processing</a></li>
+<li><a href="#sql-parsing-phase">SQL Parsing Phase</a></li>
+<li><a href="#sql-execution-phase">SQL Execution Phase</a></li>
+<li><a href="#sql-fetching-phase">SQL Fetching Phase</a></li>
+<li><a href="#query-processing-bottlenecks">Query Processing Bottlenecks</a></li>
+<li><a href="#indexes-and-query-optimization">Indexes and Query Optimization</a></li>
+<li><a href="#indexes-and-query-optimization-1">Indexes and Query Optimization</a></li>
+<li><a href="#index-selectivity">index Selectivity</a></li>
+<li><a href="#optimizer-choices-statisitc-based">Optimizer Choices -&gt; statisitc-based</a></li>
+<li><a href="#using-hints-to-affect-optimizer-choices">Using Hints to Affect Optimizer Choices</a></li>
+<li><a href="#conditional-expressions">Conditional Expressions</a></li>
+<li><a href="#query-formulation">Query Formulation</a></li>
+<li><a href="#dbms-performance-tuning">DBMS Performance Tuning</a></li>
+</ul>
+</li>
+<li><a href="#business-intelligence">Business Intelligence</a><ul>
+<li><a href="#business-intelligence-bi">Business Intelligence(BI)</a></li>
+<li><a href="#business-intelligence-benefits">Business Intelligence Benefits</a></li>
+<li><a href="#decision-support-data">Decision Support Data</a></li>
+<li><a href="#decision-support-database-requirements">Decision Support Database Requirements</a></li>
+<li><a href="#data-marts">Data Marts</a></li>
+<li><a href="#components-of-star-schemas">Components of Star Schemas</a></li>
+<li><a href="#performance-improving-techniques-for-the-star-schema">Performance-Improving Techniques for the Star Schema</a></li>
+<li><a href="#data-anaytics">Data Anaytics</a></li>
+<li><a href="#olap-online-analytical-processing">OLAP-&gt; Online Analytical Processing</a></li>
+<li><a href="#relational-online-analytical-processing-rolap">Relational Online Analytical Processing (ROLAP)</a></li>
+<li><a href="#multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database</a></li>
+<li><a href="#sql-extensions-for-olap">SQL Extensions for OLAP</a><ul>
+<li><a href="#the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension">The ROLLUP extension(get upper domian data sorted by lower dimension)</a></li>
+<li><a href="#the-cube-extension-only-get-total-by-one-dimension-separately">The CUBE extension(only get total by one dimension separately)</a></li>
+</ul>
+</li>
+<li><a href="#data-lake">Data lake</a></li>
+</ul>
+</li>
+<li><a href="#discussion1">Discussion1</a></li>
+<li><a href="#discussion-2">Discussion 2</a></li>
 </ul>
 <!-- tocstop -->
 </div>
@@ -1894,7 +1947,356 @@
 </ul>
 </li>
 </ul>
-<h1><span id="discussion">Discussion</span><a href="#discussion" class="header-anchor">#</a></h1><ul>
+<h1><span id="performance-tuning-and-query-optimization">Performance Tuning and Query Optimization</span><a href="#performance-tuning-and-query-optimization" class="header-anchor">#</a></h1><h2><span id="tuning-database-performance-tuning-concepts">Tuning(Database Performance-Tuning Concepts)</span><a href="#tuning-database-performance-tuning-concepts" class="header-anchor">#</a></h2><ul>
+<li>Goal of database performance is to execute queries as fast as possible</li>
+<li>Database performance tuning: Set of activities and procedures that reduce response time of database system</li>
+<li>Fine-tuning the performance of a system requires that all factors must operate at optimum level with minimal bottlenecks</li>
+</ul>
+<h2><span id="performance-tuning-client-and-server">Performance Tuning: Client and Server</span><a href="#performance-tuning-client-and-server" class="header-anchor">#</a></h2><h3><span id="client-side">Client side</span><a href="#client-side" class="header-anchor">#</a></h3><ul>
+<li>SQL performance tuning: Generates SQL query that returns correct answer in least amount of time -&gt; suppose A and B and C-&gt; A should fail many times. Re-arranging sql query language<ul>
+<li>Using minimum amount of resources at server</li>
+</ul>
+</li>
+</ul>
+<h3><span id="server-side">Server side</span><a href="#server-side" class="header-anchor">#</a></h3><ul>
+<li>DBMS performance tuning: DBMS environment configured to respond to clients’ requests as fast as possible<ul>
+<li>Optimum use of existing resources</li>
+</ul>
+</li>
+</ul>
+<h2><span id="dbms-architecture">DBMS Architecture</span><a href="#dbms-architecture" class="header-anchor">#</a></h2><ul>
+<li>All data in a database are stored in <strong>data files</strong><ul>
+<li>Data files automatically <strong>expand</strong> in predefined increments known as extends</li>
+</ul>
+</li>
+<li>Data files are grouped in <strong>file groups</strong> or <strong>table spaces</strong><ul>
+<li><strong>Table space</strong> or <strong>file group</strong>: Logical grouping of several data files that store data with similar characteristics</li>
+</ul>
+</li>
+<li><strong>Data cache</strong> or <strong>buffer cache</strong>: Shared, reserved memory area<ul>
+<li>Stores most recently accessed data blocks in RAM</li>
+</ul>
+</li>
+<li><strong>SQL cache</strong> or <strong>procedure cache</strong>: Stores most recently executed SQL statements or PL/SQL procedures</li>
+<li>DBMS retrieves data from permanent storage and places them in RAM <strong>Input/output request</strong>: Low-level data access operation that reads or writes data to and from computer devices</li>
+<li>Data cache is faster than working with data files </li>
+<li>Majority of performance-tuning activities focus on minimizing I/O operations</li>
+<li><strong>Listener</strong> The listener process listens for clients’ requests and handles the processing of the SQL requests to other DBMS processes. Once a request is received, the listener passes the request to the appropriate user process</li>
+<li><strong>User</strong> The DBSM creates a user process to manager each client session. Therefore, when you log on to the DBMS, you are assigned a user process. This process handles all requests you submit to the server. There are many user processes-at least onper logged-in client.</li>
+<li><strong>Scheduler</strong> The scheduler process organizes the concurrent execution of SQL requests.</li>
+<li><strong>Lock Mnager</strong> This process manages all locks placed on database objects, including disk pages</li>
+<li><strong>Optimizer</strong> The optimizer analyzes SQL queries and finds the most efficient way to access the data. // How can we make it better.</li>
+</ul>
+<h2><span id="database-query-optimization-modes">Database Query Optimization Modes</span><a href="#database-query-optimization-modes" class="header-anchor">#</a></h2><ul>
+<li>Algorithms proposed for query optimization are based on:<ul>
+<li>Selection of the optimum order to achieve the fastest execution time // The order to visit each table</li>
+<li>Selection of sites to be accessed to minimize communication costs</li>
+</ul>
+</li>
+<li>Evaluated on the basis of: <ul>
+<li>Operation mode</li>
+<li>Timing of its optimization</li>
+<li>Type of information(used for optimization)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="classification-of-operation-modes">Classification of Operation Modes</span><a href="#classification-of-operation-modes" class="header-anchor">#</a></h2><ul>
+<li>Automatic query optimization: DBMS finds the most cost-effective access path without user intervention</li>
+<li>Manual query optimization: Requires that the optimization be selected and scheduled by the end user or programmer</li>
+</ul>
+<h2><span id="based-on-timing-of-optimization">Based on Timing of Optimization</span><a href="#based-on-timing-of-optimization" class="header-anchor">#</a></h2><ul>
+<li><strong>Static query optimization</strong>: best optimization strategy is selected when the query is compiled by the DBMS<ul>
+<li>Takes place at compilation time</li>
+</ul>
+</li>
+<li><strong>Dynamic query optimization</strong>: Access strategy is dynamically determined by the DBMS at run time, using the most up-to-date information about the database<ul>
+<li>Takes place at execution time: more processing ahead</li>
+</ul>
+</li>
+</ul>
+<h2><span id="type-of-information-used-to-optimize">Type of Information Used to Optimize</span><a href="#type-of-information-used-to-optimize" class="header-anchor">#</a></h2><ul>
+<li><strong>Statistically based query optimization algorithm</strong>: Statistics are used by the DBMS to determine the best access strategy</li>
+<li>Statistical information is generated by DBMS through: <ul>
+<li><strong>Dynamic statistical generation mode - auto eval</strong></li>
+<li><strong>Manual statistical generation mode - via user</strong></li>
+</ul>
+</li>
+<li><strong>Rule-based query optimization algorithm</strong>: based on a set of user-defined rules to determine the best query access strategy</li>
+</ul>
+<h2><span id="sample-database-statistics-measurements">Sample Database Statistics Measurements</span><a href="#sample-database-statistics-measurements" class="header-anchor">#</a></h2><p><img src="/2020/02/18/DatabaseRev/SampleDatabaseStatic.png" alt="Advantages and Disadvantages of Storing Derived Attributes"></p>
+<h2><span id="query-processing">Query Processing</span><a href="#query-processing" class="header-anchor">#</a></h2><ul>
+<li>Parsing<ul>
+<li>DBMS parses the SQL query and chooses the most efficient access/execution plan</li>
+</ul>
+</li>
+<li>Execution<ul>
+<li>DBMS executes the SQL query using the chosen execution plan</li>
+</ul>
+</li>
+<li>Fetching<ul>
+<li>DBMS fetches the data and sends the result set back to the client</li>
+</ul>
+</li>
+</ul>
+<h2><span id="sql-parsing-phase">SQL Parsing Phase</span><a href="#sql-parsing-phase" class="header-anchor">#</a></h2><ul>
+<li>Query is broken down into smaller units</li>
+<li>Original SQL query transformed into slightly different version of original SQL code which is fully equivalent and more efficient</li>
+<li><strong>Query optimizer</strong>: Analyzes SQL query and finds most efficient way to access data</li>
+<li><strong>Access plans</strong>: DBMS-specific and translate client’s SQL query into a series of complex I/O operations</li>
+<li>If access plan already exists for query in SQL cache, DBMS reuses it</li>
+<li>If not, optimizer evaluates various plans and chooses one to be placed in SQL cache for use</li>
+</ul>
+<h2><span id="sql-execution-phase">SQL Execution Phase</span><a href="#sql-execution-phase" class="header-anchor">#</a></h2><ul>
+<li>All I/O operations indicated in the access plan are executed<ul>
+<li>Locks are acquired</li>
+<li>Data are retrieved and placed in data cache</li>
+<li>Transaction management commands are processed</li>
+</ul>
+</li>
+</ul>
+<h2><span id="sql-fetching-phase">SQL Fetching Phase</span><a href="#sql-fetching-phase" class="header-anchor">#</a></h2><ul>
+<li>Rows of resulting query result set are returned to client<ul>
+<li>DBMS may use temporary table space to store temporary data</li>
+<li>Database server coordinates the movement of the result set rows from the server cache to the client cache</li>
+</ul>
+</li>
+</ul>
+<h2><span id="query-processing-bottlenecks">Query Processing Bottlenecks</span><a href="#query-processing-bottlenecks" class="header-anchor">#</a></h2><ul>
+<li>Delay introduced in the processing of an I/O operation that slows the system</li>
+<li>Caused by the: <ul>
+<li>CPU</li>
+<li>RAM</li>
+<li>Hard disk</li>
+<li>Network</li>
+<li>Application code</li>
+</ul>
+</li>
+</ul>
+<h2><span id="indexes-and-query-optimization">Indexes and Query Optimization</span><a href="#indexes-and-query-optimization" class="header-anchor">#</a></h2><ul>
+<li>Indexes<ul>
+<li>Help speed up data access</li>
+<li>Facilitate searching, sorting, using aggregate functions, and join operations</li>
+<li>Ordered set of values that contain the index key and pointers</li>
+<li>More efficient than a full table scan</li>
+</ul>
+</li>
+</ul>
+<h2><span id="indexes-and-query-optimization">Indexes and Query Optimization</span><a href="#indexes-and-query-optimization" class="header-anchor">#</a></h2><ul>
+<li>Data sparsity: Number of different values a column could have; low sparsity =&gt; index might be useless</li>
+<li>Data structures used to implement indexes: <ul>
+<li>Hash indexes -&gt; Bitl generate short-link by hash function</li>
+<li>B-tree indexes</li>
+<li>Bitmap indexes</li>
+</ul>
+</li>
+<li>DBMSs determine best type of index to use</li>
+</ul>
+<h2><span id="index-selectivity">index Selectivity</span><a href="#index-selectivity" class="header-anchor">#</a></h2><ul>
+<li>Measure of the likelihood that an index will be used in query processing. So we strive to create indexes that have high selectivity.</li>
+<li>Indexes are used when a subset of rows from a large table is to be selected based on a given condition</li>
+<li>Index cannot always be used to improve performance</li>
+<li><strong>Function-based index</strong>: Based on a specific SQL function or expression(eg. EMP_SALARY + EMP_COMMISSION)</li>
+<li>Indexes are useful when<ul>
+<li>an indexable column occurs in a WHERE or HAVING search expression</li>
+<li>an indexable column appears in a GROUP BY or ORDER BY clause</li>
+<li>MAX or MIN is applied to an indexable column</li>
+<li>there is high data sparsity on an indexable column</li>
+</ul>
+</li>
+<li>Worth creating indexes on single columns that appear in WHERE, HAVING, ORDER BY, GROUP BY and join conditions.</li>
+</ul>
+<h2><span id="optimizer-choices-gt-statisitc-based">Optimizer Choices -&gt; statisitc-based</span><a href="#optimizer-choices-gt-statisitc-based" class="header-anchor">#</a></h2><ul>
+<li><strong>Rule-based optimizer</strong>: Uses preset rules and points to determine the best approach to execute a query</li>
+<li><strong>Cost-based optimizer</strong>: Uses algorithms based on statistics about objects being accessed to determine the best approach to execute a query(collect all kinds of costs and choose on lowest cost)</li>
+</ul>
+<h2><span id="using-hints-to-affect-optimizer-choices">Using Hints to Affect Optimizer Choices</span><a href="#using-hints-to-affect-optimizer-choices" class="header-anchor">#</a></h2><ul>
+<li>Optimizer might not choose the best execution plan<ul>
+<li>Makes decisions based on existing statistics, which might be old</li>
+<li>Might choose less-efficient decisions</li>
+</ul>
+</li>
+<li>Optimizer hints: Special instructions for the optimizer, embedded in the SQL command text</li>
+<li>Example</li>
+<li><img src="/2020/02/18/DatabaseRev/optimizerHints.png" alt="Optimizer Hints"></li>
+</ul>
+<h2><span id="conditional-expressions">Conditional Expressions</span><a href="#conditional-expressions" class="header-anchor">#</a></h2><ul>
+<li>Equality comparisons are faster than inequality comparisons</li>
+<li>Transform conditional expressions to use literals</li>
+<li>Write equality conditions first when using multiple conditional expressions</li>
+<li>When using multiple AND conditions, write the condition most likely to be false first</li>
+<li>When using multiple OR conditions, put the condition most likely to be true first</li>
+<li>Avoid the use of NOT logical operator</li>
+</ul>
+<h2><span id="query-formulation">Query Formulation</span><a href="#query-formulation" class="header-anchor">#</a></h2><ul>
+<li>Identify what columns and computations are required §Identify source tables</li>
+<li>Determine how to join tables</li>
+<li>Determine what selection criteria are needed</li>
+<li>Determine the order in which to display the output</li>
+</ul>
+<h2><span id="dbms-performance-tuning">DBMS Performance Tuning</span><a href="#dbms-performance-tuning" class="header-anchor">#</a></h2><ul>
+<li>Managing DBMS processes in primary memory and the structures in physical storage</li>
+<li>DBMS performance tuning at server end focuses on setting parameters used for:<ul>
+<li>Data cache</li>
+<li>SQL cache</li>
+<li>Sort cache</li>
+<li>Optimizer mode</li>
+</ul>
+</li>
+<li><strong>In-memory database</strong>: Store large portions of the database in primary storage</li>
+<li>Recommendations for physical storage of databases:<ul>
+<li>Use RAID (Redundant Array of Independent Disks) to provide a balance between performance improvement and fault tolerance</li>
+<li>Minimize disk contention</li>
+<li>Put high-usage tables in their own table spaces</li>
+<li>Assign separate data files in separate storage volumes for indexes, system, and high-usage tables</li>
+</ul>
+</li>
+<li>Take advantage of the various table storage organizations in the database</li>
+<li>Index-organized table or clustered index table: Stores the end-user data and the index data in consecutive locations in permanent storage</li>
+<li>Partition tables based on usage</li>
+<li>Use denormalized tables where appropriate </li>
+<li>Store computed and aggregate attributes in tables</li>
+</ul>
+<h1><span id="business-intelligence">Business Intelligence</span><a href="#business-intelligence" class="header-anchor">#</a></h1><h2><span id="business-intelligence-bi">Business Intelligence(BI)</span><a href="#business-intelligence-bi" class="header-anchor">#</a></h2><ul>
+<li>Comprehensive, cohesive, integrated set of tools and processes<ul>
+<li>Captures, collects, integrates, stores, and analyzes data</li>
+</ul>
+</li>
+<li>Generates and presents information to support business decision making</li>
+<li>Allows a business to transform:<ul>
+<li>Data into information</li>
+<li>Information into knowledge</li>
+<li>Knowledge into wisdom</li>
+</ul>
+</li>
+<li>ETL: extraction transformation and loading</li>
+<li>QUERY &amp; Reporting : include ml algorithm</li>
+<li>Governance: How often to upadte warehouse</li>
+<li>Management: How ETL happens<br><img src="/2020/02/18/DatabaseRev/BUSINESS_INTELLIGENCE_FRAMEWORK.png" alt="Optimizer Hints"></li>
+</ul>
+<h2><span id="business-intelligence-benefits">Business Intelligence Benefits</span><a href="#business-intelligence-benefits" class="header-anchor">#</a></h2><ul>
+<li>Improve decision making</li>
+<li>Integrating architecture</li>
+<li>Common user interface for data reporting and analysis</li>
+<li>Common data repository fosters single version of company data</li>
+<li>Imporeve organizational performance</li>
+</ul>
+<h2><span id="decision-support-data">Decision Support Data</span><a href="#decision-support-data" class="header-anchor">#</a></h2><ul>
+<li>Effectiveness of BI depends on quality of data gathered at operational level</li>
+<li>Operational data<ul>
+<li>Seldom well-suited for decision support tasks</li>
+<li>Stored in relational database with highly normalized structures</li>
+<li>Optimized to support transactions representing daily operations</li>
+</ul>
+</li>
+<li>Differ from operational data in:</li>
+<li>Time span</li>
+<li>Granularity<ul>
+<li><strong>Drill down</strong>: Decomposing a data to a lower level </li>
+<li><strong>Roll up</strong>: Aggregating a data into a higher level</li>
+</ul>
+</li>
+<li>Dimensionality</li>
+</ul>
+<h2><span id="decision-support-database-requirements">Decision Support Database Requirements</span><a href="#decision-support-database-requirements" class="header-anchor">#</a></h2><ul>
+<li>Database schema<ul>
+<li>Must support complex, non-normalized data representations</li>
+<li>Data must be aggregated and summarized</li>
+<li>Queries must be able to extract multidimensional time slices</li>
+</ul>
+</li>
+<li>Data extraction and loading<ul>
+<li>Allow batch and scheduled data extraction</li>
+<li>Support different data sources and check for inconsistent data or data validation rules</li>
+<li>Support advanced integration, aggregation, and classification</li>
+</ul>
+</li>
+<li>Database size should support<ul>
+<li>Very large databases (VLDBs) </li>
+<li>Advanced storage technologies </li>
+<li>Multiple-processor technologies</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-marts">Data Marts</span><a href="#data-marts" class="header-anchor">#</a></h2><ul>
+<li>Small, single-subject data warehouse subset</li>
+<li>Provide decision support to a small group of people</li>
+<li>Benefits over data warehouses</li>
+<li>Lower cost and shorter implementation time § Technologically advanced</li>
+<li>Inevitable people issues</li>
+</ul>
+<h2><span id="components-of-star-schemas">Components of Star Schemas</span><a href="#components-of-star-schemas" class="header-anchor">#</a></h2><ul>
+<li>Facts<ul>
+<li>Numeric values that represent a specific business aspect</li>
+</ul>
+</li>
+<li>Dimensions <ul>
+<li>Qualifying characteristics that provide additional perspectives to a given fact</li>
+</ul>
+</li>
+<li>Attributes<ul>
+<li>Used to search, filter, and classify facts</li>
+<li><strong>Slice and dice</strong>: Ability to focus on slices of the data cube for more detailed analysis.</li>
+</ul>
+</li>
+<li>Attribute hierarchy<ul>
+<li>Provides a top-down data organization</li>
+</ul>
+</li>
+</ul>
+<h2><span id="performance-improving-techniques-for-the-star-schema">Performance-Improving Techniques for the Star Schema</span><a href="#performance-improving-techniques-for-the-star-schema" class="header-anchor">#</a></h2><ul>
+<li>Normalizing dimensional tables<ul>
+<li><strong>Snowflake schema</strong>: Dimension tables can have their own dimension tables</li>
+</ul>
+</li>
+<li>Maintaining multiple fact tables to represent different aggregation levels</li>
+<li>Denormalizing fact tables</li>
+</ul>
+<h2><span id="data-anaytics">Data Anaytics</span><a href="#data-anaytics" class="header-anchor">#</a></h2><ul>
+<li>Encompasses a wide range of mathematical, statistical, and modeling techiques to extract knowledge from data<ul>
+<li>subset of BI functionality</li>
+</ul>
+</li>
+<li>Classfication of tools<ul>
+<li><strong>Explanatory analytics</strong>: Focuses on discovering and explaining data characteristics and relationships based on existing data</li>
+<li><strong>Predictive analytics</strong>: Focuses on predicting future outcomes with a high degree of accuracy</li>
+</ul>
+</li>
+</ul>
+<h2><span id="olap-gt-online-analytical-processing">OLAP-&gt; Online Analytical Processing</span><a href="#olap-gt-online-analytical-processing" class="header-anchor">#</a></h2><ul>
+<li>Advanced data analysis environment that supports decision making, business modeling, and operations research</li>
+<li>Characteristics:<ul>
+<li>Multidimensional data analysis techniques</li>
+<li>Advanced database support</li>
+<li>Easy-to-use end-user interfaces</li>
+</ul>
+</li>
+</ul>
+<h2><span id="relational-online-analytical-processing-rolap">Relational Online Analytical Processing (ROLAP)</span><a href="#relational-online-analytical-processing-rolap" class="header-anchor">#</a></h2><ul>
+<li>Provides OLAP functionality using relational databases and familiar relational tools to store and analyze multidimensional data</li>
+<li>Extensions added to traditional RDBMS technology</li>
+<li>Multidimensional data schema support within the RDBMS</li>
+<li>Data access language and query performance optimized for multidimensional data</li>
+<li>Support for very large databases (VLDBs)</li>
+</ul>
+<h2><span id="multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database</span><a href="#multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database" class="header-anchor">#</a></h2><ul>
+<li>Extends OLAP functionality to multidimensional database management systems (MDBMSs)</li>
+<li><strong>MDBMS</strong>: Uses proprietary techniques store data in matrix-like n-dimensional arrays</li>
+<li>End users visualize stored data as a 3D data cube §Grow to n dimensions, becoming hypercubes</li>
+<li>Held in memory in a cube cache to speed access</li>
+<li><strong>Sparsity</strong>: Measures the density of the data held in the data cube<br><img src="/2020/02/18/DatabaseRev/R:M-OLAP.png" alt="R:MOLAP"></li>
+</ul>
+<h2><span id="sql-extensions-for-olap">SQL Extensions for OLAP</span><a href="#sql-extensions-for-olap" class="header-anchor">#</a></h2><h3><span id="the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension">The ROLLUP extension(get upper domian data sorted by lower dimension)</span><a href="#the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension" class="header-anchor">#</a></h3><ul>
+<li>Used with GROUP BY clause to generate aggregates by different dimensions</li>
+<li>Enables subtotal for each column listed except for the last one, which gets a grand total</li>
+<li>Order of column list important<h3><span id="the-cube-extension-only-get-total-by-one-dimension-separately">The CUBE extension(only get total by one dimension separately)</span><a href="#the-cube-extension-only-get-total-by-one-dimension-separately" class="header-anchor">#</a></h3></li>
+<li>Used with GROUP BY clause to generate aggregates by the listed columns</li>
+<li>Includes the last column</li>
+</ul>
+<h2><span id="data-lake">Data lake</span><a href="#data-lake" class="header-anchor">#</a></h2><ul>
+<li>A traditional data warehouse is an ETL-based, historical record of transactions - very RDB-like</li>
+<li>A ‘modern’ alternative is a ‘data lake’, which offers a more continuous form of analytics, driven by the rise of unstructed data, streaming, cloud storage, etc. In a data lake, data is NOT ETLd, rather, it is stored in its ‘raw’ (“natural”) form [even incomplete, untransformed…]/</li>
+</ul>
+<h1><span id="discussion1">Discussion1</span><a href="#discussion1" class="header-anchor">#</a></h1><ul>
 <li>Data - origins?<ul>
 <li>copper</li>
 <li>parchment</li>
@@ -1933,6 +2335,79 @@
 <li>Set diff is non-commutative - what else is?</li>
 <li>What is the conceptual shift, from a ‘spreadsheet DB’ to a relational one?</li>
 </ul>
+<h1><span id="discussion-2">Discussion 2</span><a href="#discussion-2" class="header-anchor">#</a></h1><ul>
+<li><p>SQL: ____ Oriented Programming - what? What else?</p>
+<ul>
+<li>imperative programming: use for loop to accomplish the same goal. SQL is not but java c c++ is</li>
+<li>Object Oriented -&gt; take data and method of data package them together</li>
+<li>Functional programming language: put function as input in and get function out as output. SQL is functional oriented</li>
+<li><ul>
+<li>Function oriented programming language</li>
+</ul>
+</li>
+<li><ul>
+<li>Set oriented language -&gt; SQL engine figuer out how to do 21:46</li>
+</ul>
+</li>
+<li><ul>
+<li>Declearative … tell what u want fine control</li>
+</ul>
+</li>
+<li>Aspect oriented programming -&gt; AOP<ul>
+<li>aspect means some tasks a program need to do. draw, email, send to printer</li>
+<li>get all the task classes together and make an internface</li>
+<li>if we implement the interface called aspect</li>
+<li>SQL is also domain specific language DSL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pattern matching - <a href="https://www.rexegg.com/regex-quickstart.html" target="_blank" rel="noopener">https://www.rexegg.com/regex-quickstart.html</a> _-&gt; single word % -&gt; more than one word</p>
+</li>
+<li>More datatypes?<ul>
+<li>Color type</li>
+<li>currency type</li>
+</ul>
+</li>
+<li>Breaking closure -&gt; It cannot chain further stop chaining operation</li>
+<li>RL(real life) situations (not DB) where transactions are done sequentially?<ul>
+<li>dating cannot date with many peoples</li>
+</ul>
+</li>
+<li>Robert rules room how to make sure everybody get a chance to speak</li>
+<li>DB cases in RL where interleaving in inevitable?<ul>
+<li>travel book ticket</li>
+<li>buy books from amazon</li>
+<li>Linkedin Job</li>
+</ul>
+</li>
+<li>Database state, during lost updates vs inconsistent analysis?<ul>
+<li>lost updates -&gt; t2 override t1’s modification -&gt; data destroy/ table is not always fine.</li>
+<li>inconsistent analysis -&gt; nonrepeatable read -&gt; integrate of table not harm. table not change the datastructure.</li>
+</ul>
+</li>
+<li>Serial schedule - how many exist, for n serializable transactions?<ul>
+<li>rearrange many transactions very important</li>
+<li>transaction isolation level -&gt; 4 levels for example, allow dirty read allow nonrepeatable read …<ul>
+<li>avoid dirty read</li>
+<li>avoid nonrepeatable read</li>
+<li>avoid phantom read</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Why not make all schedules serial? -&gt; consider performance</li>
+<li>2PL(Static/Conservative) vs Strict 2PL(“S2PL”){hold on some writes and release all the reads, release read lock } vs Rigorous(Stricter/StrongStrict/SS2PL!)(hold on all the lock until commit complete)</li>
+<li>Newton and his 2 cats</li>
+<li>Replication - three reasons?<ul>
+<li>failure reasons</li>
+<li>network-balancing</li>
+<li></li>
+</ul>
+</li>
+<li>Replication tradeoffs with consistency? -&gt; amazon</li>
+<li>2PC - failure, how? rollback hang</li>
+</ul>
 
       
     </div>
@@ -1957,8 +2432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/01/AlgorithmsRev3/" rel="next" title="Algorithms review 3 Amortized Analysis">
-                <i class="fa fa-chevron-left"></i> Algorithms review 3 Amortized Analysis
+              <a href="/2020/02/01/AlgorithmsRev5/" rel="next" title="Algorithms review 5 Greedy Algorithms">
+                <i class="fa fa-chevron-left"></i> Algorithms review 5 Greedy Algorithms
               </a>
             
           </div>
@@ -2128,7 +2603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Data Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">About data modeling and why data models are important#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Modeling and Data Models#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.2.</span> <span class="nav-text">Importance of Data Models#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">About the basic data-modeling building blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">What business rules are and how they influence database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">Hierarchical modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.5.</span> <span class="nav-text">Network modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.6.</span> <span class="nav-text">Difference between Schema and Sub Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.7.</span> <span class="nav-text">Difference between DML and DDL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.8.</span> <span class="nav-text">The Relational Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.9.</span> <span class="nav-text">Relational DBMS(Database Management System)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.10.</span> <span class="nav-text">How the major data models evolved#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.11.</span> <span class="nav-text">Data Abstraction Levels#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.12.</span> <span class="nav-text">The External Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.13.</span> <span class="nav-text">The Conceptual Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.14.</span> <span class="nav-text">The Internal Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.15.</span> <span class="nav-text">The Physical Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.16.</span> <span class="nav-text">About emerging alternative data models and the need they fulfill#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.17.</span> <span class="nav-text">How data models can be classified by their level of abstraction#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">ER#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">Entity Relationship Model (ERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">Relationships#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">Relational Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">A Logical View of Data#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.3.</span> <span class="nav-text">Determination#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.4.</span> <span class="nav-text">Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.5.</span> <span class="nav-text">Types of Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.6.</span> <span class="nav-text">Ways to Handle Nulls#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.7.</span> <span class="nav-text">Relational Algebra#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.8.</span> <span class="nav-text">Relational Set Operators#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.9.</span> <span class="nav-text">Data Dictionary and the System Catalog(hold metadata)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">Extended ER (“EER”)-&gt; Advanced data modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">Extended Entity Relationship Model (EERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.2.</span> <span class="nav-text">Entity Supertypes and Subtypes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.3.</span> <span class="nav-text">Specialization Hierarchy#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.4.</span> <span class="nav-text">Inheritanc#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.5.</span> <span class="nav-text">Subtype Discriminator#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.6.</span> <span class="nav-text">Disjoint and Overlapping Constraints#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.7.</span> <span class="nav-text">Completeness Constraint#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.8.</span> <span class="nav-text">Entity Cluster#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">Normalization#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.1.</span> <span class="nav-text">Normalization (Do normalization once a time one entity a time)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.2.</span> <span class="nav-text">Need for Normalization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.3.</span> <span class="nav-text">Normalization Process#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.4.</span> <span class="nav-text">Normal Forms#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.5.</span> <span class="nav-text">Functional Dependence Concepts#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.6.</span> <span class="nav-text">Types of Functional Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.7.</span> <span class="nav-text">Conversion to First Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.8.</span> <span class="nav-text">Conversion to Two Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.9.</span> <span class="nav-text">Conversion to Third Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.10.</span> <span class="nav-text">Requirements for Good Normalized Set of Tables#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.11.</span> <span class="nav-text">Denormalization#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">Transaction Management#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.1.</span> <span class="nav-text">Transaction#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.2.</span> <span class="nav-text">Transaction Properities#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.3.</span> <span class="nav-text">Transaction Management with SQL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.4.</span> <span class="nav-text">Transaction log#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.5.</span> <span class="nav-text">Concurrency Control#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.6.</span> <span class="nav-text">The Scheduler#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.7.</span> <span class="nav-text">Concurrency Control with Locking Methods#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.8.</span> <span class="nav-text">Lock Granularity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.9.</span> <span class="nav-text">Lock Types#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.10.</span> <span class="nav-text">Two-Phase Locking (2PL) -&gt; avoid deadlock#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.11.</span> <span class="nav-text">Deadlocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.12.</span> <span class="nav-text">Time Stamping -&gt; prevent deadlock#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.13.</span> <span class="nav-text">Wait/Die and Wound/Wait Concurrency Control Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.14.</span> <span class="nav-text">Phases of Optimistic Approach#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">Distributed DBs#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.1.</span> <span class="nav-text">Vertical scalling and horizontal scalling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.2.</span> <span class="nav-text">Distributed Processing and Distributed Databases#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.3.</span> <span class="nav-text">Functions of Distributed DBMS#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.4.</span> <span class="nav-text">DDBMS Components#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.5.</span> <span class="nav-text">Single-Site Processing, Single-Site Data(MPSD) pretty simple#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.6.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.7.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.8.</span> <span class="nav-text">Restrictions of DDBMS#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.9.</span> <span class="nav-text">Distributed Requests and Distributed Transactions#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.10.</span> <span class="nav-text">Distributed Concurrency Control (2PC 2 phrase commit)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.11.</span> <span class="nav-text">Two-Phase Commit Protocol(2PC)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.12.</span> <span class="nav-text">Transparency (Hide sth to users)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.13.</span> <span class="nav-text">Distributed Database Design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.14.</span> <span class="nav-text">Data Fragmentation#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.15.</span> <span class="nav-text">Data Replication#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.16.</span> <span class="nav-text">Data Replication Scenarios#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.17.</span> <span class="nav-text">Data Allocation Strategies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.18.</span> <span class="nav-text">The CAP Theorem (That’s what u need consider when you design a database)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.19.</span> <span class="nav-text">Database Connectivity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.20.</span> <span class="nav-text">Various connectivity options#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.21.</span> <span class="nav-text">Components of ODBC Architecture#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.22.</span> <span class="nav-text">Object Linking and Embedding for Database (OLE-DB) Database becomes object#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.23.</span> <span class="nav-text">Database Internet Connectivity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.24.</span> <span class="nav-text">Web-to-Database Middleware#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.25.</span> <span class="nav-text">Client-Side Extensions#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">Discussion#</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Data Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">About data modeling and why data models are important#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Modeling and Data Models#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.2.</span> <span class="nav-text">Importance of Data Models#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">About the basic data-modeling building blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">What business rules are and how they influence database design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">Hierarchical modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.5.</span> <span class="nav-text">Network modeling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.6.</span> <span class="nav-text">Difference between Schema and Sub Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.7.</span> <span class="nav-text">Difference between DML and DDL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.8.</span> <span class="nav-text">The Relational Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.9.</span> <span class="nav-text">Relational DBMS(Database Management System)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.10.</span> <span class="nav-text">How the major data models evolved#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.11.</span> <span class="nav-text">Data Abstraction Levels#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.12.</span> <span class="nav-text">The External Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.13.</span> <span class="nav-text">The Conceptual Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.14.</span> <span class="nav-text">The Internal Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.15.</span> <span class="nav-text">The Physical Model#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.16.</span> <span class="nav-text">About emerging alternative data models and the need they fulfill#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.17.</span> <span class="nav-text">How data models can be classified by their level of abstraction#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">ER#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">Entity Relationship Model (ERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">Relationships#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">Relational Modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">A Logical View of Data#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.3.</span> <span class="nav-text">Determination#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.4.</span> <span class="nav-text">Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.5.</span> <span class="nav-text">Types of Keys#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.6.</span> <span class="nav-text">Ways to Handle Nulls#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.7.</span> <span class="nav-text">Relational Algebra#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.8.</span> <span class="nav-text">Relational Set Operators#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.9.</span> <span class="nav-text">Data Dictionary and the System Catalog(hold metadata)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">Extended ER (“EER”)-&gt; Advanced data modeling#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">Extended Entity Relationship Model (EERM)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.2.</span> <span class="nav-text">Entity Supertypes and Subtypes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.3.</span> <span class="nav-text">Specialization Hierarchy#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.4.</span> <span class="nav-text">Inheritanc#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.5.</span> <span class="nav-text">Subtype Discriminator#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.6.</span> <span class="nav-text">Disjoint and Overlapping Constraints#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.7.</span> <span class="nav-text">Completeness Constraint#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.8.</span> <span class="nav-text">Entity Cluster#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">Normalization#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.1.</span> <span class="nav-text">Normalization (Do normalization once a time one entity a time)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.2.</span> <span class="nav-text">Need for Normalization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.3.</span> <span class="nav-text">Normalization Process#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.4.</span> <span class="nav-text">Normal Forms#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.5.</span> <span class="nav-text">Functional Dependence Concepts#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.6.</span> <span class="nav-text">Types of Functional Dependencies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.7.</span> <span class="nav-text">Conversion to First Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.8.</span> <span class="nav-text">Conversion to Two Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.9.</span> <span class="nav-text">Conversion to Third Normal Form#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.10.</span> <span class="nav-text">Requirements for Good Normalized Set of Tables#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.11.</span> <span class="nav-text">Denormalization#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">Transaction Management#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.1.</span> <span class="nav-text">Transaction#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.2.</span> <span class="nav-text">Transaction Properities#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.3.</span> <span class="nav-text">Transaction Management with SQL#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.4.</span> <span class="nav-text">Transaction log#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.5.</span> <span class="nav-text">Concurrency Control#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.6.</span> <span class="nav-text">The Scheduler#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.7.</span> <span class="nav-text">Concurrency Control with Locking Methods#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.8.</span> <span class="nav-text">Lock Granularity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.9.</span> <span class="nav-text">Lock Types#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.10.</span> <span class="nav-text">Two-Phase Locking (2PL) -&gt; avoid deadlock#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.11.</span> <span class="nav-text">Deadlocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.12.</span> <span class="nav-text">Time Stamping -&gt; prevent deadlock#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.13.</span> <span class="nav-text">Wait/Die and Wound/Wait Concurrency Control Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.14.</span> <span class="nav-text">Phases of Optimistic Approach#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">Distributed DBs#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.1.</span> <span class="nav-text">Vertical scalling and horizontal scalling#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.2.</span> <span class="nav-text">Distributed Processing and Distributed Databases#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.3.</span> <span class="nav-text">Functions of Distributed DBMS#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.4.</span> <span class="nav-text">DDBMS Components#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.5.</span> <span class="nav-text">Single-Site Processing, Single-Site Data(MPSD) pretty simple#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.6.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.7.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.8.</span> <span class="nav-text">Restrictions of DDBMS#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.9.</span> <span class="nav-text">Distributed Requests and Distributed Transactions#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.10.</span> <span class="nav-text">Distributed Concurrency Control (2PC 2 phrase commit)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.11.</span> <span class="nav-text">Two-Phase Commit Protocol(2PC)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.12.</span> <span class="nav-text">Transparency (Hide sth to users)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.13.</span> <span class="nav-text">Distributed Database Design#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.14.</span> <span class="nav-text">Data Fragmentation#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.15.</span> <span class="nav-text">Data Replication#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.16.</span> <span class="nav-text">Data Replication Scenarios#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.17.</span> <span class="nav-text">Data Allocation Strategies#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.18.</span> <span class="nav-text">The CAP Theorem (That’s what u need consider when you design a database)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.19.</span> <span class="nav-text">Database Connectivity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.20.</span> <span class="nav-text">Various connectivity options#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.21.</span> <span class="nav-text">Components of ODBC Architecture#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.22.</span> <span class="nav-text">Object Linking and Embedding for Database (OLE-DB) Database becomes object#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.23.</span> <span class="nav-text">Database Internet Connectivity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.24.</span> <span class="nav-text">Web-to-Database Middleware#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.25.</span> <span class="nav-text">Client-Side Extensions#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">Performance Tuning and Query Optimization#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.1.</span> <span class="nav-text">Tuning(Database Performance-Tuning Concepts)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.2.</span> <span class="nav-text">Performance Tuning: Client and Server#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">9.2.1.</span> <span class="nav-text">Client side#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">9.2.2.</span> <span class="nav-text">Server side#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.3.</span> <span class="nav-text">DBMS Architecture#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.4.</span> <span class="nav-text">Database Query Optimization Modes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.5.</span> <span class="nav-text">Classification of Operation Modes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.6.</span> <span class="nav-text">Based on Timing of Optimization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.7.</span> <span class="nav-text">Type of Information Used to Optimize#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.8.</span> <span class="nav-text">Sample Database Statistics Measurements#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.9.</span> <span class="nav-text">Query Processing#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.10.</span> <span class="nav-text">SQL Parsing Phase#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.11.</span> <span class="nav-text">SQL Execution Phase#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.12.</span> <span class="nav-text">SQL Fetching Phase#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.13.</span> <span class="nav-text">Query Processing Bottlenecks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.14.</span> <span class="nav-text">Indexes and Query Optimization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.15.</span> <span class="nav-text">Indexes and Query Optimization#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.16.</span> <span class="nav-text">index Selectivity#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.17.</span> <span class="nav-text">Optimizer Choices -&gt; statisitc-based#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.18.</span> <span class="nav-text">Using Hints to Affect Optimizer Choices#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.19.</span> <span class="nav-text">Conditional Expressions#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.20.</span> <span class="nav-text">Query Formulation#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.21.</span> <span class="nav-text">DBMS Performance Tuning#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">Business Intelligence#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.1.</span> <span class="nav-text">Business Intelligence(BI)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.2.</span> <span class="nav-text">Business Intelligence Benefits#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.3.</span> <span class="nav-text">Decision Support Data#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.4.</span> <span class="nav-text">Decision Support Database Requirements#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.5.</span> <span class="nav-text">Data Marts#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.6.</span> <span class="nav-text">Components of Star Schemas#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.7.</span> <span class="nav-text">Performance-Improving Techniques for the Star Schema#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.8.</span> <span class="nav-text">Data Anaytics#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.9.</span> <span class="nav-text">OLAP-&gt; Online Analytical Processing#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.10.</span> <span class="nav-text">Relational Online Analytical Processing (ROLAP)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.11.</span> <span class="nav-text">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.12.</span> <span class="nav-text">SQL Extensions for OLAP#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">10.12.1.</span> <span class="nav-text">The ROLLUP extension(get upper domian data sorted by lower dimension)#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">10.12.2.</span> <span class="nav-text">The CUBE extension(only get total by one dimension separately)#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.13.</span> <span class="nav-text">Data lake#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">11.</span> <span class="nav-text">Discussion1#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">12.</span> <span class="nav-text">Discussion 2#</span></a></li></ol></div>
             
 
           </div>

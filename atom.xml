@@ -55,7 +55,7 @@
     <link href="https://blobming.github.io/2020/02/18/DatabaseRev/"/>
     <id>https://blobming.github.io/2020/02/18/DatabaseRev/</id>
     <published>2020-02-19T03:37:59.000Z</published>
-    <updated>2020-02-26T11:18:46.443Z</updated>
+    <updated>2020-05-03T05:51:50.375Z</updated>
     
     <summary type="html">
     
@@ -72,40 +72,6 @@
     
       <category term="Database" scheme="https://blobming.github.io/categories/Database/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Algorithms review 3 Amortized Analysis</title>
-    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev3/"/>
-    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev3/</id>
-    <published>2020-02-01T17:54:28.000Z</published>
-    <updated>2020-02-01T19:19:56.393Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
     
   </entry>
   
@@ -128,6 +94,40 @@
 &lt;!-- toc --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#optimization-problem&quot;&gt;Optimization
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 3 Amortized Analysis</title>
+    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev3/"/>
+    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev3/</id>
+    <published>2020-02-01T17:54:28.000Z</published>
+    <updated>2020-02-01T19:19:56.393Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
         
       
     
