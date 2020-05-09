@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Learning,Java," />
 
 
 
@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Personal Life record">
-<meta name="keywords" content="Programming, Traveling">
+<meta name="description" content="This is a personal notes for Java spring framework     Spring introduction What is spring Update on Spring 5 Spring Core Framework Goals of Spring Core Container Infrastructure Data Access Layer Web L">
+<meta name="keywords" content="Learning,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="latex">
-<meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;01&#x2F;13&#x2F;latex&#x2F;index.html">
+<meta property="og:title" content="JavaSpringNotes">
+<meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;05&#x2F;08&#x2F;JavaSpringNotes&#x2F;index.html">
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
-<meta property="og:description" content="Personal Life record">
+<meta property="og:description" content="This is a personal notes for Java spring framework     Spring introduction What is spring Update on Spring 5 Spring Core Framework Goals of Spring Core Container Infrastructure Data Access Layer Web L">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-14T04:51:15.415Z">
+<meta property="og:updated_time" content="2020-05-09T03:39:09.622Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://blobming.github.io/2020/01/13/latex/"/>
+  <link rel="canonical" href="https://blobming.github.io/2020/05/08/JavaSpringNotes/"/>
 
 
 
 
 
-  <title>latex | Jiaming's Blog</title>
+  <title>JavaSpringNotes | Jiaming's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/01/13/latex/">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/05/08/JavaSpringNotes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaming Xu">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">latex</h1>
+          <h1 class="post-title" itemprop="name headline">JavaSpringNotes</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-13T20:51:15-08:00">
-                2020-01-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-08T19:30:58-07:00">
+                2020-05-08
               </time>
             
 
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,7 +352,116 @@
       
 
       
-        
+        <p>This is a personal notes for Java spring framework</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#spring-introduction">Spring introduction</a><ul>
+<li><a href="#what-is-spring">What is spring</a></li>
+<li><a href="#update-on-spring-5">Update on Spring 5</a></li>
+<li><a href="#spring-core-framework">Spring Core Framework</a><ul>
+<li><a href="#goals-of-spring">Goals of Spring</a></li>
+<li><a href="#core-container">Core Container</a></li>
+<li><a href="#infrastructure">Infrastructure</a></li>
+<li><a href="#data-access-layer">Data Access Layer</a></li>
+<li><a href="#web-layer">Web Layer</a></li>
+<li><a href="#test-layer">Test Layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#inversion-of-control">Inversion of Control</a><ul>
+<li><a href="#spring-container">Spring Container</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h1><span id="spring-introduction">Spring introduction</span><a href="#spring-introduction" class="header-anchor">#</a></h1><h2><span id="what-is-spring">What is spring</span><a href="#what-is-spring" class="header-anchor">#</a></h2><p>It is a very popular framework for building Java application and initially a simpler and light weight alternative to J2EE. Also, it provides a large number of helper classes.</p>
+<h2><span id="update-on-spring-5">Update on Spring 5</span><a href="#update-on-spring-5" class="header-anchor">#</a></h2><ul>
+<li>Upgraded minimum requirements for Java 8 or higher</li>
+<li>Deprecated legacy integration for: Tiles, Velocity, portlet, Guava etc</li>
+<li>Upgraded Spring MVC to use new versions of Servlet API 4.0</li>
+<li>Added new reactive programming framework: Spring WebFlux</li>
+</ul>
+<h2><span id="spring-core-framework">Spring Core Framework</span><a href="#spring-core-framework" class="header-anchor">#</a></h2><h3><span id="goals-of-spring">Goals of Spring</span><a href="#goals-of-spring" class="header-anchor">#</a></h3><ul>
+<li>Lightweight development with Java POJOs(Plain-Old-Java-Objects)</li>
+<li>Dependency injection to promote loose coupling</li>
+<li>Declarative programming with Aspect-Oriented-Programming(AOP)</li>
+<li>Minimize boilerplate Java code</li>
+</ul>
+<h3><span id="core-container">Core Container</span><a href="#core-container" class="header-anchor">#</a></h3><p>Factory for creating beans. Manage bean dependencies.</p>
+<ul>
+<li>Beans<ul>
+<li>A “Spring Bean” is simply a Java object. When Java objects are created by the Spring Container, then Spring refers to them as “Spring Beans”. Spring Beans are created from normal Java classes …. just like Java objects.</li>
+</ul>
+</li>
+<li>Core</li>
+<li>SpEl<ul>
+<li>Spring extression language</li>
+</ul>
+</li>
+<li>Contex</li>
+</ul>
+<h3><span id="infrastructure">Infrastructure</span><a href="#infrastructure" class="header-anchor">#</a></h3><p>Aspect Oriented Programming. Add functionality to objects declaratively. </p>
+<p>Logging, security,transactions,etc…</p>
+<ul>
+<li>Aop</li>
+<li>Aspects</li>
+<li>Inplementation<ul>
+<li>Java agents to remotely monitor your app with JMX(Java Management Extension)</li>
+</ul>
+</li>
+<li>Messaging</li>
+</ul>
+<h3><span id="data-access-layer">Data Access Layer</span><a href="#data-access-layer" class="header-anchor">#</a></h3><ul>
+<li>JDBC -&gt; helper classes to make easier to access Database</li>
+<li>ORM -&gt; Object Relational Mapping -&gt; JPA / Hibernate</li>
+<li>Transactions</li>
+<li>OXM</li>
+<li>JMS (Java Message Service)<ul>
+<li>For sending async messages to a Message Broker</li>
+<li>Spring provides helper classes for JMS</li>
+</ul>
+</li>
+</ul>
+<h3><span id="web-layer">Web Layer</span><a href="#web-layer" class="header-anchor">#</a></h3><p>All Web related classes. Home of the Spring MVC framework.</p>
+<ul>
+<li>Servlet</li>
+<li>WebSocket</li>
+<li>Web</li>
+<li>Portlet</li>
+</ul>
+<h3><span id="test-layer">Test Layer</span><a href="#test-layer" class="header-anchor">#</a></h3><p>Supports Test-Driven-Development(TDD). Mock objects and out-of-container testing</p>
+<ul>
+<li>Unit</li>
+<li>Integration</li>
+<li>Mock</li>
+</ul>
+<h1><span id="inversion-of-control">Inversion of Control</span><a href="#inversion-of-control" class="header-anchor">#</a></h1><h2><span id="spring-container">Spring Container</span><a href="#spring-container" class="header-anchor">#</a></h2><ul>
+<li>Primary functions<ul>
+<li>Create and manage objects(Inversion of Control)</li>
+<li>Intect object’s dependencies(Dependency Injection)</li>
+</ul>
+</li>
+<li>Configuring Spring Container<ul>
+<li>XML Configuration file</li>
+<li>Java Annotations</li>
+<li>Java Source Code</li>
+</ul>
+</li>
+<li>Spring container is generically known as Application Context</li>
+<li>Specialized implementations<ul>
+<li>ClassPathXmlApplicationContext</li>
+<li>AnnotationConfigApplicationContext</li>
+<li>GenericWebApplicationContext</li>
+<li>Others…<br>+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -345,6 +476,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -354,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/04/MySqlNotes/" rel="next" title="MYSQL NOTES">
-                <i class="fa fa-chevron-left"></i> MYSQL NOTES
+              <a href="/2020/02/19/C-working-notes/" rel="next" title="C#-working-notes">
+                <i class="fa fa-chevron-left"></i> C#-working-notes
               </a>
             
           </div>
@@ -363,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/29/AlgorithmsRev1/" rel="prev" title="Algorithms review 1 Runtime Complexity">
-                Algorithms review 1 Runtime Complexity <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +650,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Spring introduction#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">What is spring#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">Update on Spring 5#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Core Framework#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.1.</span> <span class="nav-text">Goals of Spring#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.2.</span> <span class="nav-text">Core Container#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.3.</span> <span class="nav-text">Infrastructure#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.4.</span> <span class="nav-text">Data Access Layer#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.5.</span> <span class="nav-text">Web Layer#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.6.</span> <span class="nav-text">Test Layer#</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Inversion of Control#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">Spring Container#</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
