@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-05-11T04:43:24.279Z</updated>
+  <updated>2020-05-14T08:35:02.240Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -17,11 +17,60 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Leetcode-05/11/2020</title>
+    <link href="https://blobming.github.io/2020/05/11/Leetcode-05-11-2020/"/>
+    <id>https://blobming.github.io/2020/05/11/Leetcode-05-11-2020/</id>
+    <published>2020-05-12T03:55:44.000Z</published>
+    <updated>2020-05-14T08:35:02.240Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a record of my craking process for Leetcode.&lt;br&gt;List it by frequency.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#3-longest-substring-without-repeating-characters&quot;&gt;3. Longest Substring Without Repeating Characters&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#3-1-problem-description&quot;&gt;3.1 Problem Description&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-2-solution&quot;&gt;3.2 Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5-longest-palindromic-substring&quot;&gt;5. Longest Palindromic Substring&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#5-1-problem-description&quot;&gt;5.1 Problem Description&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5-2-solution&quot;&gt;5.2 Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5-2-1-dynamic-programming&quot;&gt;5.2.1 Dynamic Programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5-2-2-expand-around-center&quot;&gt;5.2.2 Expand Around Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;&lt;span id=&quot;3-longest-substring-without-repeating-characters&quot;&gt;3. Longest Substring Without Repeating Characters&lt;/span&gt;&lt;a href=&quot;#3-longest-substring-without-repeating-characters&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;3-1-problem-description&quot;&gt;3.1 Problem Description&lt;/span&gt;&lt;a href=&quot;#3-1-problem-description&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Given a string, find the length of the &lt;strong&gt;longest substring&lt;/strong&gt; without repeating characters.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Input: &amp;quot;abcabcbb&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Output: 3 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Explanation: The answer is &amp;quot;abc&amp;quot;, with the length of 3.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Input: &amp;quot;bbbbb&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Output: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Explanation: The answer is &amp;quot;b&amp;quot;, with the length of 1.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;Example 3:&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Leetcode-05/10/2020</title>
     <link href="https://blobming.github.io/2020/05/10/Leetcode-05-10-2020/"/>
     <id>https://blobming.github.io/2020/05/10/Leetcode-05-10-2020/</id>
     <published>2020-05-11T03:55:44.000Z</published>
-    <updated>2020-05-11T04:43:24.279Z</updated>
+    <updated>2020-05-14T08:35:06.530Z</updated>
     
     <summary type="html">
     
