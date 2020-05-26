@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/05/11/Leetcode-05-11-2020/">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/05/25/Spring-Annotation-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/11/Leetcode-05-11-2020/" class="post-title-link" itemprop="url">Leetcode-05/11/2020</a>
+            <a href="/2020/05/25/Spring-Annotation-Notes/" class="post-title-link" itemprop="url">Spring Annotation Notes</a>
         </h2>
 
         <div class="post-meta">
@@ -186,23 +186,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-11 20:55:44" itemprop="dateCreated datePublished" datetime="2020-05-11T20:55:44-07:00">2020-05-11</time>
+              <time title="Created: 2020-05-25 21:52:30 / Modified: 22:58:35" itemprop="dateCreated datePublished" datetime="2020-05-25T21:52:30-07:00">2020-05-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-14 01:35:02" itemprop="dateModified" datetime="2020-05-14T01:35:02-07:00">2020-05-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
                 </span>
             </span>
 
@@ -217,150 +211,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This is a record of my craking process for Leetcode.<br>List it by frequency.</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#3-longest-substring-without-repeating-characters">3. Longest Substring Without Repeating Characters</a><ul>
-<li><a href="#3-1-problem-description">3.1 Problem Description</a></li>
-<li><a href="#3-2-solution">3.2 Solution</a></li>
-</ul>
-</li>
-<li><a href="#5-longest-palindromic-substring">5. Longest Palindromic Substring</a><ul>
-<li><a href="#5-1-problem-description">5.1 Problem Description</a></li>
-<li><a href="#5-2-solution">5.2 Solution</a></li>
-<li><a href="#5-2-1-dynamic-programming">5.2.1 Dynamic Programming</a></li>
-<li><a href="#5-2-2-expand-around-center">5.2.2 Expand Around Center</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="3-longest-substring-without-repeating-characters">3. Longest Substring Without Repeating Characters</span><a href="#3-longest-substring-without-repeating-characters" class="header-anchor">#</a></h2><h3><span id="3-1-problem-description">3.1 Problem Description</span><a href="#3-1-problem-description" class="header-anchor">#</a></h3><p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
+          <h1><span id="spring-zhu-jie-qu-dong-kai-fa">Spring 注解驱动开发</span><a href="#spring-zhu-jie-qu-dong-kai-fa" class="header-anchor">#</a></h1><h2><span id="rong-qi-container">容器(Container)</span><a href="#rong-qi-container" class="header-anchor">#</a></h2><p>配置类 == 配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//配置类</span></span><br><span class="line"><span class="meta">@Configuration</span> <span class="comment">//告诉spring这事一个配置类</span></span><br><span class="line"><span class="comment">//@ComponentScan //value表示要扫描包的位置</span></span><br><span class="line"><span class="comment">//excludeFilters 要排除哪些Component,里面装着是Filter[]</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, excludeFilters = &#123;</span><br><span class="line">  <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">&#125;)</span></span><br><span class="line"><span class="class">//<span class="title">Filter</span>的<span class="title">type</span>是表明按照什么方式去排除，里面有5种,分别是：<span class="title">FilterType</span>.<span class="title">ANNOTATION</span>, <span class="title">FilterType</span>.<span class="title">ASPECTJ</span>, <span class="title">FilterType</span>.<span class="title">ASSIGNABLE</span>, <span class="title">FilterType</span>.<span class="title">CUSTOM</span>, <span class="title">FilterType</span>.<span class="title">REGEX</span> 在后面跟<span class="title">classes</span> 表明要去掉哪些包</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ANNOTATION</span> 按照注解</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ASSIGNABLE_TYPE</span> 按照给定的类型</span></span><br><span class="line"><span class="class">@<span class="title">Filter</span>(<span class="title">type</span></span>=<span class="string">"FilterType.ASSIGNABLE_TYPE"</span>,classes=&#123;BookService<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ASPECTJ</span> 使用<span class="title">ASPECTJ</span>表达式</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">REGEX</span> 使用正则表达式规则</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">CUSTOM</span> 给定一个<span class="title">TypeFilter</span>的实现类</span></span><br><span class="line"><span class="class">@<span class="title">Filter</span>(<span class="title">type</span></span>=FilterType.CUSTOM, classes=&#123;MyTypeFilter<span class="class">.<span class="keyword">class</span>&#125;) //就是看<span class="title">MyTypeFilter</span>里面的<span class="title">math</span>返回<span class="title">true</span>或者<span class="title">false</span>来决定匹不匹配</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">//includeFilters 扫描的时候只需要包含哪些组件，里面装着是Filter[] 注意只包含生效的条件是要禁用默认规则，默认规则是扫描所有的因此要禁用掉</span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, includeFilters = &#123;</span><br><span class="line">  <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)&#125;,<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>)</span><br><span class="line"><span class="comment">//制定扫描策略，可以写多条</span></span><br><span class="line"><span class="meta">@ComponentScans</span>(</span><br><span class="line">	value = &#123;</span><br><span class="line">    <span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, includeFilters = &#123;</span><br><span class="line">      <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)&#125;,<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainConfig</span></span>&#123;</span><br><span class="line">  <span class="comment">//给容器中注册一个Bean; 类型为返回值的类型，id默认是方法名作为id</span></span><br><span class="line">  <span class="meta">@Bean</span>(<span class="string">"person"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Person <span class="title">person</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">20</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MyTypeFilter.java 自定义Filter的实现类</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/11/Leetcode-05-11-2020/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/05/10/Leetcode-05-10-2020/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jiaming Xu">
-      <meta itemprop="description" content="Personal Life record">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiaming's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/10/Leetcode-05-10-2020/" class="post-title-link" itemprop="url">Leetcode-05/10/2020</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-10 20:55:44" itemprop="dateCreated datePublished" datetime="2020-05-10T20:55:44-07:00">2020-05-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-14 01:35:06" itemprop="dateModified" datetime="2020-05-14T01:35:06-07:00">2020-05-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is a record of my craking process for Leetcode.<br>List it by frequency.</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#1-two-sum">1. Two Sum</a><ul>
-<li><a href="#1-1-problem-description">1.1 Problem Description</a></li>
-<li><a href="#1-2-soulution">1.2 Soulution</a></li>
-</ul>
-</li>
-<li><a href="#2-add-two-numbers">2 Add Two Numbers</a><ul>
-<li><a href="#2-1-problem-description">2.1 Problem Description</a></li>
-<li><a href="#2-2-soulution">2.2 Soulution</a></li>
-</ul>
-</li>
-<li><a href="#2-add-two-numbers-1">2 Add Two Numbers</a><ul>
-<li><a href="#2-1-problem-description-1">2.1 Problem Description</a></li>
-<li><a href="#2-2-soulution-1">2.2 Soulution</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="1-two-sum">1. Two Sum</span><a href="#1-two-sum" class="header-anchor">#</a></h2><h3><span id="1-1-problem-description">1.1 Problem Description</span><a href="#1-1-problem-description" class="header-anchor">#</a></h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p><strong>Example:</strong></p>
-<blockquote>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
-<p>return [0, 1].</p>
-<h3><span id="1-2-soulution">1.2 Soulution</span><a href="#1-2-soulution" class="header-anchor">#</a></h3><p>It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(temp)&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2><span id="2-add-two-numbers">2 Add Two Numbers</span><a href="#2-add-two-numbers" class="header-anchor">#</a></h2><h3><span id="2-1-problem-description">2.1 Problem Description</span><a href="#2-1-problem-description" class="header-anchor">#</a></h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/10/Leetcode-05-10-2020/#more" rel="contents">
+              <a class="btn" href="/2020/05/25/Spring-Annotation-Notes/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -470,18 +326,6 @@
 </div>
 
 <h1><span id="spring-introduction">Spring introduction</span><a href="#spring-introduction" class="header-anchor">#</a></h1><h2><span id="what-is-spring">What is spring</span><a href="#what-is-spring" class="header-anchor">#</a></h2><p>It is a very popular framework for building Java application and initially a simpler and light weight alternative to J2EE. Also, it provides a large number of helper classes.</p>
-<h2><span id="update-on-spring-5">Update on Spring 5</span><a href="#update-on-spring-5" class="header-anchor">#</a></h2><ul>
-<li>Upgraded minimum requirements for Java 8 or higher</li>
-<li>Deprecated legacy integration for: Tiles, Velocity, portlet, Guava etc</li>
-<li>Upgraded Spring MVC to use new versions of Servlet API 4.0</li>
-<li>Added new reactive programming framework: Spring WebFlux</li>
-</ul>
-<h2><span id="spring-core-framework">Spring Core Framework</span><a href="#spring-core-framework" class="header-anchor">#</a></h2><h3><span id="goals-of-spring">Goals of Spring</span><a href="#goals-of-spring" class="header-anchor">#</a></h3><ul>
-<li>Lightweight development with Java POJOs(Plain-Old-Java-Objects)</li>
-<li>Dependency injection to promote loose coupling</li>
-<li>Declarative programming with Aspect-Oriented-Programming(AOP)</li>
-<li>Minimize boilerplate Java code</li>
-</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/05/08/JavaSpringNotes/#more" rel="contents">
@@ -585,7 +429,7 @@
 </div>
 
 <h2><span id="basic-grammer">Basic grammer</span><a href="#basic-grammer" class="header-anchor">#</a></h2><h3><span id="how-to-call-async-method-in-sync-method">How to call async method in sync method</span><a href="#how-to-call-async-method-in-sync-method" class="header-anchor">#</a></h3><p>suppose function A() is marked as async, if we want to call A in function B, usually we use await and marked b as async. However, if we dont want to modify the return type of B. To solve that, I decide to use anonymous function to encapsulate the calling of function A, then receive the return_val of A sync.<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> asyncTask = Task.Run(<span class="keyword">async</span> () =&gt; &#123; </span><br><span class="line">        IEnumerable&lt;returnObj&gt;res = <span class="keyword">await</span> A();</span><br><span class="line">        <span class="keyword">return</span> res; &#125;);</span><br><span class="line">    asyncTask.Wait();</span><br><span class="line">    <span class="keyword">return</span> asyncTask.Result().Count();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2><span id="utility">Utility</span><a href="#utility" class="header-anchor">#</a></h2><h3><span id="elmah">ELMAH</span><a href="#elmah" class="header-anchor">#</a></h3><h3><span id="log4net">log4net</span><a href="#log4net" class="header-anchor">#</a></h3><h3><span id="automapper"></span><a href="#automapper" class="header-anchor">#</a></h3><h4><span id="introduction">Introduction</span><a href="#introduction" class="header-anchor">#</a></h4><p>AutoMapper is an object-object mapper. Object-object mapping works by transforming an input object of one type into an output object of a different type. What makes AutoMapper interesting is that it provides some interesting conventions to take the dirty work out of figuring out how to map type A to type B. As long as type B follows AutoMapper’s established convention, almost zero configuration is needed to map two types.</p>
+<h2><span id="utility">Utility</span><a href="#utility" class="header-anchor">#</a></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/19/C-working-notes/#more" rel="contents">
@@ -875,102 +719,6 @@
 </tbody>
 </table>
 </div>
-<ul>
-<li>To be simple, Data is raw fact, objective exists in the real word. Information is a kind of processed data. After gathering and processing, data becomes information. For example, the data of phone is pixel but the people can see it is a picture.</li>
-</ul>
-<ul>
-<li>Knowledge is useful information. Something you can do with the information. Knowledge can use the information we found.</li>
-</ul>
-<h2><span id="2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</span><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making" class="header-anchor">#</a></h2><ul>
-<li>Database is a shared, integrated computer structure that sotres a collection of:<ul>
-<li>End-user data: Raw facts of interest to end user, such as student’s gpa…</li>
-<li><strong>Metadata</strong>: Data about data, which the end-user data are integrated and managed<ul>
-<li>describe data characteristics and relationships such as what does the GPA mean and some restriction such as $0 \leq GPA \leq 4.0$ and $student-age &gt; 0$. About how we store the information. Or How many tables we have.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Database management system(DBMS)<ul>
-<li>Collection of programs</li>
-<li>Manages the database structure</li>
-<li>Controls access to data stored in the database(who can access database | access restrictions)</li>
-</ul>
-</li>
-<li>Role of the DBMS<ul>
-<li>Intermediary between the user and the database</li>
-<li>Enables data to be shared</li>
-<li>Presents the end user with an integrated view of the data</li>
-<li>Receives and translates application requests(what are you searching for) into operations required to fulfill the request</li>
-<li>Hides database’s internal complexity from the application programs and users(People can reorganise data in the future)</li>
-</ul>
-</li>
-<li>Advantages of DBMS<ul>
-<li>Better data integration and less data inconsistency(pervent having two difference record of the same things)<ul>
-<li><strong>Data inconsistency:</strong> Different versions of the same data appear in different places</li>
-</ul>
-</li>
-<li>Increase end-user productivity</li>
-<li>Data sharing</li>
-<li>Data security // Who gonna see what</li>
-<li>Data access</li>
-<li>Decision making<ul>
-<li><strong>Data quality</strong>: Promoting accuracy, validity, and timeliness of data.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Types of databases<ul>
-<li>Single-user database: Supports one user at a time (Like a database in your phone/Desktop)<ul>
-<li>Desktop database: Runs on PC</li>
-</ul>
-</li>
-<li>Multiuser database: Supports multiple users at the same time (Like BOA or Amazon database)<ul>
-<li>Workgroup databases: Support a small number of users or a specific department</li>
-<li>Enterprise database: Supports many users across many departments</li>
-</ul>
-</li>
-<li>Centralized database: Data is located at a single site</li>
-<li>Distributed database: Data is distributed across different sites (Part of database from xxx part of database from xxx different contries) <strong>Note</strong>: It is not copies. Just different parts of one database from different sites. — google uses it</li>
-<li>Cloud database: Created and maintained using cloud data services that provide defined performance measures for the database. Companies do not actually using the hardwares. Like UBER, they dont have their physical, their databases live on some cloud.(AWS)</li>
-</ul>
-</li>
-<li>Types of databases (Another way to classify database)<ul>
-<li>General-purpose databases: Contains a wide variety of data used in multiple disciplines. Like Oracle database, you can use the database where you want. And you can put anything you want in Oracle. —&gt; general purpose</li>
-<li>Discipline-specific databases: Contains data focused on specific subject areas. Like scientists use protein database(PDB -&gt; protein data bank) Every protein molecules are stored in database. Different structure for specific usage. They have their own buliding plans and only the users know what it is or what it represents.</li>
-</ul>
-</li>
-<li>Types of databases (Another way to classify database) -&gt; purly for business point of view<ul>
-<li>Operational database: Designed to support a company’s day to day operations. </li>
-<li>Analytical database: Stores historical data and business metrics used exclusively for tactical or strategic decision making<ul>
-<li>Data warehouse: Stores data in a format optimized for decision support.</li>
-</ul>
-</li>
-<li><strong>Example:</strong> Constantly writing data…. every purchase into Operational database daily. At night, they put the data to one central place called analytical database(used to analytical later) It is constantly reading database.</li>
-<li>where do data warehouse caculations<ul>
-<li>Online analytical processing(OLAP) Command to go to the warehouse and analysis data<ul>
-<li>Enable retrieving, processing, and modeling data from the data warehouse.</li>
-</ul>
-</li>
-<li>Business intelligence: Captures and processes business data to generate information that support decision making. (stock from Operational database to Analytical database piece to piece) -&gt; data mining</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Types of databases (Another way to classify database)<ul>
-<li>Unstructured data: It exists in their original state (dont have a specific format like musci/video files)</li>
-<li>Structured data: It results from formatting (like students information stored in each row of studnet table)<ul>
-<li>Structure is applied based on type of processing to be performed</li>
-</ul>
-</li>
-<li>Semistructured data: Processed to some extent like document. Generally it is used to describe sth. Between structured and unstructured.</li>
-<li>Extensible Markup Language(XML) Json better than xml can be used in structured and unstructured<ul>
-<li>Represents data elements in textual format</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2><span id="3-the-importance-of-database-design">3. The importance of database design</span><a href="#3-the-importance-of-database-design" class="header-anchor">#</a></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/18/DatabaseRev/#more" rel="contents">
@@ -979,92 +727,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/02/01/AlgorithmsRev5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jiaming Xu">
-      <meta itemprop="description" content="Personal Life record">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiaming's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/01/AlgorithmsRev5/" class="post-title-link" itemprop="url">Algorithms review 5 Greedy Algorithms</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-01 09:54:28" itemprop="dateCreated datePublished" datetime="2020-02-01T09:54:28-08:00">2020-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-18 19:37:29" itemprop="dateModified" datetime="2020-02-18T19:37:29-08:00">2020-02-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is a personal notes of algorithms courses</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#optimization-problem">Optimization problem</a></li>
-<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
-<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
-<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>
       
     </div>
 
@@ -1155,79 +817,102 @@
 <li><p>The potential method(or the physicist’s method).</p>
 </li>
 </ol>
-<h2><span id="unbounded-array">Unbounded Array</span><a href="#unbounded-array" class="header-anchor">#</a></h2><h3><span id="the-aggregrate-method">The _aggregrate_ method</span><a href="#the-aggregrate-method" class="header-anchor">#</a></h3><p>We implement the idea of java.util.ArrayList in java. We maintain an array of a fixed length limit and an internal index size. When we insert a value, if current index dose reach array.length, we will double the size and then we will copy our elements to the new array. The table showing below records the current size of the array, its new size, the number of inserts and the number of copies.</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Insert</th>
-<th style="text-align:center">Old size</th>
-<th style="text-align:center">New Size</th>
-<th style="text-align:center">Copy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">16</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>This table shows that 9 inserts requre$1 + 2 + 4 + 8 = 15$ copy operations. Therefore, the amortized cost of a single insert is the total cost$(9+15=24)$ over $9$ inserts, which is $2.67$.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/01/AlgorithmsRev3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/02/01/AlgorithmsRev5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jiaming Xu">
+      <meta itemprop="description" content="Personal Life record">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaming's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/01/AlgorithmsRev5/" class="post-title-link" itemprop="url">Algorithms review 5 Greedy Algorithms</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-01 09:54:28" itemprop="dateCreated datePublished" datetime="2020-02-01T09:54:28-08:00">2020-02-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-18 19:37:29" itemprop="dateModified" datetime="2020-02-18T19:37:29-08:00">2020-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#optimization-problem">Optimization problem</a></li>
+<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
+<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/01/AlgorithmsRev5/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1341,21 +1026,6 @@
 <ul>
 <li>self-loop is an edge that connects to the same vertex twice. </li>
 </ul>
-<ul>
-<li>mult-edge is a set of two or more edges that have the same two vertices.</li>
-</ul>
-<ul>
-<li>Simple graph is a graph does not have mult-edges or self-loops</li>
-</ul>
-<ul>
-<li>In a graph G, if every two vertices of G are connected by a unique path (no circle) &lt;-&gt; G is connected and $V = E + 1$</li>
-</ul>
-<ul>
-<li>In an undirected simple graph $G = (V, E)$, there are at most $V(V-1)/2$ edges. In short, by using the asymptotic notation,$E = O(v^2)$</li>
-</ul>
-<ul>
-<li>a graph G is dense if $E=\Omega(v^2)$</li>
-</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/30/AlgorithmsRev2/#more" rel="contents">
@@ -1465,12 +1135,7 @@
 <li>We measure the runtime of an algorithm using $\Theta$,$\Omega$,O<h2><span id="upper-bound-big-o">Upper Bound (Big-O)</span><a href="#upper-bound-big-o" class="header-anchor">#</a></h2>For any monotonic functions with two positive number f, g,we say $f(n) = O(g(n))$[or $f(n)\in O(g(n))$ if $g(n)$ eventually dominates $f(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \leq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is smaller or equal than $g(n)$) or we called $g(n)$ is upper bound of $f(n)$.<h2><span id="lower-bound-big-omega">Lower Bound (Big-Omega)</span><a href="#lower-bound-big-omega" class="header-anchor">#</a></h2>For any monotonic functions with two positive numbers f, g,we say $f(n) = \Omega(g(n))$[or $f(n)\in \Omega(g(n))$ if $f(n)$ eventually dominates $g(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \geq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is greater or equal than $g(n)$)<h2><span id="exact-bound-big-theta">Exact Bound (Big-Theta)</span><a href="#exact-bound-big-theta" class="header-anchor">#</a></h2>For any monotonic functions with two positive numbers f, g,we say $f(n) = \Theta(g(n))$[or $f(n)\in \Theta(g(n))$ if $f(n) = \Omega(g(n))$ and $f(n) = O(g(n))$]. Formally, there exists two positive real number $c_1$ and $c_2$, and a real number, $n_0$, such that $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ has the same increasing rate with $g(n)$)<h2><span id="lower-bound-for-sorting">Lower Bound for Sorting</span><a href="#lower-bound-for-sorting" class="header-anchor">#</a></h2>For any sorting based on comparison we must take at least($\Omega(n\log(n))$)to sort an array of n elements in the worst case. A decision tree model was introducted to illustrate this model.<br><img src="/2020/01/29/AlgorithmsRev1/decisionTree.png" alt="Decision Tree"><!--center>Decision Tree</center-->
 Suppose we have input size = n, Now we have 6 leaves in this decision tree which can represent as $n!$. If we make it as a Full Binary Tree, the number of leaves becomes $2^h$ where h represents its height. Hence, $2^h \geq n!$, after taking log on both sides, $h \geq\log(n!)$. Since h(the height of decision tree) represents the number of comparisons in a sorting algorithm, so $T(n) = h \geq \log(n!)$. To simplify $\log(n!)$:<script type="math/tex; mode=display">\log(n!) = \log(n(n-1)(n-2)...1)</script><script type="math/tex; mode=display">\log(n!) \geq \log(n(n-1)(n-2)...(n-n/2))</script><script type="math/tex; mode=display">\log(n!) \geq \log((n/2)^{n/2}) = \Omega(n \cdot \log(n))</script></li>
 </ol>
-<h2><span id="some-tips-to-compare-time-complexity">Some tips to compare time complexity</span><a href="#some-tips-to-compare-time-complexity" class="header-anchor">#</a></h2><h3><span id="example-1">Example 1</span><a href="#example-1" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$</p>
-<p>$\log{n^n}$, $n^2$,$n^{\log n}$,$n\log\log{n}$,$2^{\log{n}}$,$\log^2{n}$,$n^{\sqrt{2}}$</p>
-<p>Tips:</p>
-<ul>
-<li>$2^{\log{n}}$ = $n$</li>
-</ul>
+<h2><span id="some-tips-to-compare-time-complexity">Some tips to compare time complexity</span><a href="#some-tips-to-compare-time-complexity" class="header-anchor">#</a></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/29/AlgorithmsRev1/#more" rel="contents">
@@ -1536,6 +1201,102 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 
       
           
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/01/04/MySqlNotes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jiaming Xu">
+      <meta itemprop="description" content="Personal Life record">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaming's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/04/MySqlNotes/" class="post-title-link" itemprop="url">MYSQL NOTES</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-04 11:02:08 / Modified: 15:50:25" itemprop="dateCreated datePublished" datetime="2020-01-04T11:02:08-08:00">2020-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This is a note of MySQL datbase for future review</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#1-basic-concept">1. Basic Concept</a></li>
+<li><a href="#2-dql-data-query-language">2. DQL (Data query language)</a><ul>
+<li><a href="#1-syntax">1. Syntax</a></li>
+<li><a href="#2-character">2. Character</a></li>
+<li><a href="#3-example">3. Example</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="1-basic-concept">1. Basic Concept</span><a href="#1-basic-concept" class="header-anchor">#</a></h2><ol>
+<li>DB: database, a container used to store data.</li>
+<li>DBMS: database management system, a system used to create or manamge database</li>
+<li>SQL: strucutred query language, a kind of way to communicate with database.</li>
+</ol>
+<h2><span id="2-dql-data-query-language">2. DQL (Data query language)</span><a href="#2-dql-data-query-language" class="header-anchor">#</a></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/04/MySqlNotes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1621,7 +1382,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1634,7 +1395,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

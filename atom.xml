@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2020-05-14T08:35:02.240Z</updated>
+  <updated>2020-05-26T05:58:35.540Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -17,107 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Leetcode-05/11/2020</title>
-    <link href="https://blobming.github.io/2020/05/11/Leetcode-05-11-2020/"/>
-    <id>https://blobming.github.io/2020/05/11/Leetcode-05-11-2020/</id>
-    <published>2020-05-12T03:55:44.000Z</published>
-    <updated>2020-05-14T08:35:02.240Z</updated>
+    <title>Spring Annotation Notes</title>
+    <link href="https://blobming.github.io/2020/05/25/Spring-Annotation-Notes/"/>
+    <id>https://blobming.github.io/2020/05/25/Spring-Annotation-Notes/</id>
+    <published>2020-05-26T04:52:30.000Z</published>
+    <updated>2020-05-26T05:58:35.540Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;This is a record of my craking process for Leetcode.&lt;br&gt;List it by frequency.&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#3-longest-substring-without-repeating-characters&quot;&gt;3. Longest Substring Without Repeating Characters&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#3-1-problem-description&quot;&gt;3.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#3-2-solution&quot;&gt;3.2 Solution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#5-longest-palindromic-substring&quot;&gt;5. Longest Palindromic Substring&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#5-1-problem-description&quot;&gt;5.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#5-2-solution&quot;&gt;5.2 Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#5-2-1-dynamic-programming&quot;&gt;5.2.1 Dynamic Programming&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#5-2-2-expand-around-center&quot;&gt;5.2.2 Expand Around Center&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- tocstop --&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;&lt;span id=&quot;3-longest-substring-without-repeating-characters&quot;&gt;3. Longest Substring Without Repeating Characters&lt;/span&gt;&lt;a href=&quot;#3-longest-substring-without-repeating-characters&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;3-1-problem-description&quot;&gt;3.1 Problem Description&lt;/span&gt;&lt;a href=&quot;#3-1-problem-description&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Given a string, find the length of the &lt;strong&gt;longest substring&lt;/strong&gt; without repeating characters.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Input: &amp;quot;abcabcbb&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Output: 3 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Explanation: The answer is &amp;quot;abc&amp;quot;, with the length of 3.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Input: &amp;quot;bbbbb&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Output: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Explanation: The answer is &amp;quot;b&amp;quot;, with the length of 1.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;Example 3:&lt;/strong&gt;&lt;/p&gt;
+      &lt;h1&gt;&lt;span id=&quot;spring-zhu-jie-qu-dong-kai-fa&quot;&gt;Spring 注解驱动开发&lt;/span&gt;&lt;a href=&quot;#spring-zhu-jie-qu-dong-kai-fa&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;rong-qi-container&quot;&gt;容器(Container)&lt;/span&gt;&lt;a href=&quot;#rong-qi-container&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;配置类 == 配置文件&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//配置类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Configuration&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;//告诉spring这事一个配置类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//@ComponentScan //value表示要扫描包的位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//excludeFilters 要排除哪些Component,里面装着是Filter[]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@ComponentScan&lt;/span&gt;(value=&lt;span class=&quot;string&quot;&gt;&quot;com.atguigu&quot;&lt;/span&gt;, excludeFilters = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@Filter&lt;/span&gt;(type=&lt;span class=&quot;string&quot;&gt;&quot;FilterType.ANNOTATION&quot;&lt;/span&gt;,classes=&amp;#123;Controller&lt;span class=&quot;class&quot;&gt;.&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;Filter&lt;/span&gt;的&lt;span class=&quot;title&quot;&gt;type&lt;/span&gt;是表明按照什么方式去排除，里面有5种,分别是：&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ANNOTATION&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ASPECTJ&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ASSIGNABLE&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;CUSTOM&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;REGEX&lt;/span&gt; 在后面跟&lt;span class=&quot;title&quot;&gt;classes&lt;/span&gt; 表明要去掉哪些包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ANNOTATION&lt;/span&gt; 按照注解&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ASSIGNABLE_TYPE&lt;/span&gt; 按照给定的类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;@&lt;span class=&quot;title&quot;&gt;Filter&lt;/span&gt;(&lt;span class=&quot;title&quot;&gt;type&lt;/span&gt;&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;FilterType.ASSIGNABLE_TYPE&quot;&lt;/span&gt;,classes=&amp;#123;BookService&lt;span class=&quot;class&quot;&gt;.&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;ASPECTJ&lt;/span&gt; 使用&lt;span class=&quot;title&quot;&gt;ASPECTJ&lt;/span&gt;表达式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;REGEX&lt;/span&gt; 使用正则表达式规则&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;//&lt;span class=&quot;title&quot;&gt;FilterType&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;CUSTOM&lt;/span&gt; 给定一个&lt;span class=&quot;title&quot;&gt;TypeFilter&lt;/span&gt;的实现类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;@&lt;span class=&quot;title&quot;&gt;Filter&lt;/span&gt;(&lt;span class=&quot;title&quot;&gt;type&lt;/span&gt;&lt;/span&gt;=FilterType.CUSTOM, classes=&amp;#123;MyTypeFilter&lt;span class=&quot;class&quot;&gt;.&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;&amp;#125;) //就是看&lt;span class=&quot;title&quot;&gt;MyTypeFilter&lt;/span&gt;里面的&lt;span class=&quot;title&quot;&gt;math&lt;/span&gt;返回&lt;span class=&quot;title&quot;&gt;true&lt;/span&gt;或者&lt;span class=&quot;title&quot;&gt;false&lt;/span&gt;来决定匹不匹配&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//includeFilters 扫描的时候只需要包含哪些组件，里面装着是Filter[] 注意只包含生效的条件是要禁用默认规则，默认规则是扫描所有的因此要禁用掉&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@ComponentScan&lt;/span&gt;(value=&lt;span class=&quot;string&quot;&gt;&quot;com.atguigu&quot;&lt;/span&gt;, includeFilters = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@Filter&lt;/span&gt;(type=&lt;span class=&quot;string&quot;&gt;&quot;FilterType.ANNOTATION&quot;&lt;/span&gt;,classes=&amp;#123;Controller&lt;span class=&quot;class&quot;&gt;.&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;&amp;#125;)&amp;#125;,&lt;span class=&quot;title&quot;&gt;useDefaultFilters&lt;/span&gt; &lt;/span&gt;= &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//制定扫描策略，可以写多条&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@ComponentScans&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	value = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@ComponentScan&lt;/span&gt;(value=&lt;span class=&quot;string&quot;&gt;&quot;com.atguigu&quot;&lt;/span&gt;, includeFilters = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;meta&quot;&gt;@Filter&lt;/span&gt;(type=&lt;span class=&quot;string&quot;&gt;&quot;FilterType.ANNOTATION&quot;&lt;/span&gt;,classes=&amp;#123;Controller&lt;span class=&quot;class&quot;&gt;.&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;&amp;#125;)&amp;#125;,&lt;span class=&quot;title&quot;&gt;useDefaultFilters&lt;/span&gt; &lt;/span&gt;= &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MainConfig&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//给容器中注册一个Bean; 类型为返回值的类型，id默认是方法名作为id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@Bean&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;person&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; Person &lt;span class=&quot;title&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Person(&lt;span class=&quot;string&quot;&gt;&quot;lisi&quot;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;MyTypeFilter.java 自定义Filter的实现类&lt;/p&gt;
     
     </summary>
     
     
-      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+      <category term="Spring" scheme="https://blobming.github.io/categories/Spring/"/>
     
     
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-05/10/2020</title>
-    <link href="https://blobming.github.io/2020/05/10/Leetcode-05-10-2020/"/>
-    <id>https://blobming.github.io/2020/05/10/Leetcode-05-10-2020/</id>
-    <published>2020-05-11T03:55:44.000Z</published>
-    <updated>2020-05-14T08:35:06.530Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is a record of my craking process for Leetcode.&lt;br&gt;List it by frequency.&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-two-sum&quot;&gt;1. Two Sum&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-1-problem-description&quot;&gt;1.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#1-2-soulution&quot;&gt;1.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-add-two-numbers&quot;&gt;2 Add Two Numbers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#2-1-problem-description&quot;&gt;2.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-2-soulution&quot;&gt;2.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-add-two-numbers-1&quot;&gt;2 Add Two Numbers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#2-1-problem-description-1&quot;&gt;2.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-2-soulution-1&quot;&gt;2.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- tocstop --&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;&lt;span id=&quot;1-two-sum&quot;&gt;1. Two Sum&lt;/span&gt;&lt;a href=&quot;#1-two-sum&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;1-1-problem-description&quot;&gt;1.1 Problem Description&lt;/span&gt;&lt;a href=&quot;#1-1-problem-description&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.&lt;/p&gt;
-&lt;p&gt;You may assume that each input would have exactly one solution, and you may not use the same element twice.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given nums = [2, 7, 11, 15], target = 9,&lt;/p&gt;
-&lt;p&gt;Because nums[0] + nums[1] = 2 + 7 = 9,&lt;/p&gt;
-&lt;p&gt;return [0, 1].&lt;/p&gt;
-&lt;h3&gt;&lt;span id=&quot;1-2-soulution&quot;&gt;1.2 Soulution&lt;/span&gt;&lt;a href=&quot;#1-2-soulution&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] twoSum(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] nums, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; target) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Map&amp;lt;Integer, Integer&amp;gt; map = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; HashMap&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; nums.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        map.put(nums[i], i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; nums.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; temp = target - nums[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(map.containsKey(temp) &amp;amp;&amp;amp; map.get(temp) != i) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] &amp;#123;i, map.get(temp)&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;&lt;span id=&quot;2-add-two-numbers&quot;&gt;2 Add Two Numbers&lt;/span&gt;&lt;a href=&quot;#2-add-two-numbers&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;2-1-problem-description&quot;&gt;2.1 Problem Description&lt;/span&gt;&lt;a href=&quot;#2-1-problem-description&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
     
   </entry>
   
@@ -162,18 +80,6 @@
 &lt;/div&gt;
 
 &lt;h1&gt;&lt;span id=&quot;spring-introduction&quot;&gt;Spring introduction&lt;/span&gt;&lt;a href=&quot;#spring-introduction&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;what-is-spring&quot;&gt;What is spring&lt;/span&gt;&lt;a href=&quot;#what-is-spring&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;It is a very popular framework for building Java application and initially a simpler and light weight alternative to J2EE. Also, it provides a large number of helper classes.&lt;/p&gt;
-&lt;h2&gt;&lt;span id=&quot;update-on-spring-5&quot;&gt;Update on Spring 5&lt;/span&gt;&lt;a href=&quot;#update-on-spring-5&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Upgraded minimum requirements for Java 8 or higher&lt;/li&gt;
-&lt;li&gt;Deprecated legacy integration for: Tiles, Velocity, portlet, Guava etc&lt;/li&gt;
-&lt;li&gt;Upgraded Spring MVC to use new versions of Servlet API 4.0&lt;/li&gt;
-&lt;li&gt;Added new reactive programming framework: Spring WebFlux&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;span id=&quot;spring-core-framework&quot;&gt;Spring Core Framework&lt;/span&gt;&lt;a href=&quot;#spring-core-framework&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;goals-of-spring&quot;&gt;Goals of Spring&lt;/span&gt;&lt;a href=&quot;#goals-of-spring&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Lightweight development with Java POJOs(Plain-Old-Java-Objects)&lt;/li&gt;
-&lt;li&gt;Dependency injection to promote loose coupling&lt;/li&gt;
-&lt;li&gt;Declarative programming with Aspect-Oriented-Programming(AOP)&lt;/li&gt;
-&lt;li&gt;Minimize boilerplate Java code&lt;/li&gt;
-&lt;/ul&gt;
     
     </summary>
     
@@ -219,7 +125,7 @@
 &lt;/div&gt;
 
 &lt;h2&gt;&lt;span id=&quot;basic-grammer&quot;&gt;Basic grammer&lt;/span&gt;&lt;a href=&quot;#basic-grammer&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;how-to-call-async-method-in-sync-method&quot;&gt;How to call async method in sync method&lt;/span&gt;&lt;a href=&quot;#how-to-call-async-method-in-sync-method&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;suppose function A() is marked as async, if we want to call A in function B, usually we use await and marked b as async. However, if we dont want to modify the return type of B. To solve that, I decide to use anonymous function to encapsulate the calling of function A, then receive the return_val of A sync.&lt;br&gt;&lt;figure class=&quot;highlight c#&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;B&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; asyncTask = Task.Run(&lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; () =&amp;gt; &amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        IEnumerable&amp;lt;returnObj&amp;gt;res = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; A();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res; &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    asyncTask.Wait();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; asyncTask.Result().Count();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;span id=&quot;utility&quot;&gt;Utility&lt;/span&gt;&lt;a href=&quot;#utility&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;elmah&quot;&gt;ELMAH&lt;/span&gt;&lt;a href=&quot;#elmah&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;&lt;span id=&quot;log4net&quot;&gt;log4net&lt;/span&gt;&lt;a href=&quot;#log4net&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;&lt;span id=&quot;automapper&quot;&gt;&lt;/span&gt;&lt;a href=&quot;#automapper&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;span id=&quot;introduction&quot;&gt;Introduction&lt;/span&gt;&lt;a href=&quot;#introduction&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;AutoMapper is an object-object mapper. Object-object mapping works by transforming an input object of one type into an output object of a different type. What makes AutoMapper interesting is that it provides some interesting conventions to take the dirty work out of figuring out how to map type A to type B. As long as type B follows AutoMapper’s established convention, almost zero configuration is needed to map two types.&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&quot;utility&quot;&gt;Utility&lt;/span&gt;&lt;a href=&quot;#utility&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -451,142 +357,12 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;To be simple, Data is raw fact, objective exists in the real word. Information is a kind of processed data. After gathering and processing, data becomes information. For example, the data of phone is pixel but the people can see it is a picture.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Knowledge is useful information. Something you can do with the information. Knowledge can use the information we found.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;span id=&quot;2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making&quot;&gt;2. What a database is, the various types of databases, and why they are valuable assets for decision making.&lt;/span&gt;&lt;a href=&quot;#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Database is a shared, integrated computer structure that sotres a collection of:&lt;ul&gt;
-&lt;li&gt;End-user data: Raw facts of interest to end user, such as student’s gpa…&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Metadata&lt;/strong&gt;: Data about data, which the end-user data are integrated and managed&lt;ul&gt;
-&lt;li&gt;describe data characteristics and relationships such as what does the GPA mean and some restriction such as $0 \leq GPA \leq 4.0$ and $student-age &amp;gt; 0$. About how we store the information. Or How many tables we have.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Database management system(DBMS)&lt;ul&gt;
-&lt;li&gt;Collection of programs&lt;/li&gt;
-&lt;li&gt;Manages the database structure&lt;/li&gt;
-&lt;li&gt;Controls access to data stored in the database(who can access database | access restrictions)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Role of the DBMS&lt;ul&gt;
-&lt;li&gt;Intermediary between the user and the database&lt;/li&gt;
-&lt;li&gt;Enables data to be shared&lt;/li&gt;
-&lt;li&gt;Presents the end user with an integrated view of the data&lt;/li&gt;
-&lt;li&gt;Receives and translates application requests(what are you searching for) into operations required to fulfill the request&lt;/li&gt;
-&lt;li&gt;Hides database’s internal complexity from the application programs and users(People can reorganise data in the future)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Advantages of DBMS&lt;ul&gt;
-&lt;li&gt;Better data integration and less data inconsistency(pervent having two difference record of the same things)&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data inconsistency:&lt;/strong&gt; Different versions of the same data appear in different places&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Increase end-user productivity&lt;/li&gt;
-&lt;li&gt;Data sharing&lt;/li&gt;
-&lt;li&gt;Data security // Who gonna see what&lt;/li&gt;
-&lt;li&gt;Data access&lt;/li&gt;
-&lt;li&gt;Decision making&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data quality&lt;/strong&gt;: Promoting accuracy, validity, and timeliness of data.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Types of databases&lt;ul&gt;
-&lt;li&gt;Single-user database: Supports one user at a time (Like a database in your phone/Desktop)&lt;ul&gt;
-&lt;li&gt;Desktop database: Runs on PC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Multiuser database: Supports multiple users at the same time (Like BOA or Amazon database)&lt;ul&gt;
-&lt;li&gt;Workgroup databases: Support a small number of users or a specific department&lt;/li&gt;
-&lt;li&gt;Enterprise database: Supports many users across many departments&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Centralized database: Data is located at a single site&lt;/li&gt;
-&lt;li&gt;Distributed database: Data is distributed across different sites (Part of database from xxx part of database from xxx different contries) &lt;strong&gt;Note&lt;/strong&gt;: It is not copies. Just different parts of one database from different sites. — google uses it&lt;/li&gt;
-&lt;li&gt;Cloud database: Created and maintained using cloud data services that provide defined performance measures for the database. Companies do not actually using the hardwares. Like UBER, they dont have their physical, their databases live on some cloud.(AWS)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Types of databases (Another way to classify database)&lt;ul&gt;
-&lt;li&gt;General-purpose databases: Contains a wide variety of data used in multiple disciplines. Like Oracle database, you can use the database where you want. And you can put anything you want in Oracle. —&amp;gt; general purpose&lt;/li&gt;
-&lt;li&gt;Discipline-specific databases: Contains data focused on specific subject areas. Like scientists use protein database(PDB -&amp;gt; protein data bank) Every protein molecules are stored in database. Different structure for specific usage. They have their own buliding plans and only the users know what it is or what it represents.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Types of databases (Another way to classify database) -&amp;gt; purly for business point of view&lt;ul&gt;
-&lt;li&gt;Operational database: Designed to support a company’s day to day operations. &lt;/li&gt;
-&lt;li&gt;Analytical database: Stores historical data and business metrics used exclusively for tactical or strategic decision making&lt;ul&gt;
-&lt;li&gt;Data warehouse: Stores data in a format optimized for decision support.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Example:&lt;/strong&gt; Constantly writing data…. every purchase into Operational database daily. At night, they put the data to one central place called analytical database(used to analytical later) It is constantly reading database.&lt;/li&gt;
-&lt;li&gt;where do data warehouse caculations&lt;ul&gt;
-&lt;li&gt;Online analytical processing(OLAP) Command to go to the warehouse and analysis data&lt;ul&gt;
-&lt;li&gt;Enable retrieving, processing, and modeling data from the data warehouse.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Business intelligence: Captures and processes business data to generate information that support decision making. (stock from Operational database to Analytical database piece to piece) -&amp;gt; data mining&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Types of databases (Another way to classify database)&lt;ul&gt;
-&lt;li&gt;Unstructured data: It exists in their original state (dont have a specific format like musci/video files)&lt;/li&gt;
-&lt;li&gt;Structured data: It results from formatting (like students information stored in each row of studnet table)&lt;ul&gt;
-&lt;li&gt;Structure is applied based on type of processing to be performed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Semistructured data: Processed to some extent like document. Generally it is used to describe sth. Between structured and unstructured.&lt;/li&gt;
-&lt;li&gt;Extensible Markup Language(XML) Json better than xml can be used in structured and unstructured&lt;ul&gt;
-&lt;li&gt;Represents data elements in textual format&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;span id=&quot;3-the-importance-of-database-design&quot;&gt;3. The importance of database design&lt;/span&gt;&lt;a href=&quot;#3-the-importance-of-database-design&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
     
     </summary>
     
     
       <category term="Database" scheme="https://blobming.github.io/categories/Database/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Algorithms review 5 Greedy Algorithms</title>
-    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev5/"/>
-    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev5/</id>
-    <published>2020-02-01T17:54:28.000Z</published>
-    <updated>2020-02-19T03:37:29.131Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#optimization-problem&quot;&gt;Optimization
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
     
   </entry>
   
@@ -623,76 +399,41 @@
 &lt;li&gt;&lt;p&gt;The potential method(or the physicist’s method).&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;span id=&quot;unbounded-array&quot;&gt;Unbounded Array&lt;/span&gt;&lt;a href=&quot;#unbounded-array&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;the-aggregrate-method&quot;&gt;The _aggregrate_ method&lt;/span&gt;&lt;a href=&quot;#the-aggregrate-method&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We implement the idea of java.util.ArrayList in java. We maintain an array of a fixed length limit and an internal index size. When we insert a value, if current index dose reach array.length, we will double the size and then we will copy our elements to the new array. The table showing below records the current size of the array, its new size, the number of inserts and the number of copies.&lt;/p&gt;
-&lt;div class=&quot;table-container&quot;&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Insert&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Old size&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;New Size&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Copy&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;3&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;5&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;6&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;7&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;9&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;16&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+    
+    </summary>
+    
+    
+      <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev5/"/>
+    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev5/</id>
+    <published>2020-02-01T17:54:28.000Z</published>
+    <updated>2020-02-19T03:37:29.131Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#optimization-problem&quot;&gt;Optimization problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#suboptimal-solution&quot;&gt;Suboptimal solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
 &lt;/div&gt;
-&lt;p&gt;This table shows that 9 inserts requre$1 + 2 + 4 + 8 = 15$ copy operations. Therefore, the amortized cost of a single insert is the total cost$(9+15=24)$ over $9$ inserts, which is $2.67$.&lt;/p&gt;
+
+&lt;h2&gt;&lt;span id=&quot;optimization-problem&quot;&gt;Optimization problem&lt;/span&gt;&lt;a href=&quot;#optimization-problem&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.&lt;/p&gt;
+&lt;p&gt;Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.&lt;/p&gt;
     
     </summary>
     
@@ -751,21 +492,6 @@
 &lt;ul&gt;
 &lt;li&gt;self-loop is an edge that connects to the same vertex twice. &lt;/li&gt;
 &lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;mult-edge is a set of two or more edges that have the same two vertices.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Simple graph is a graph does not have mult-edges or self-loops&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;In a graph G, if every two vertices of G are connected by a unique path (no circle) &amp;lt;-&amp;gt; G is connected and $V = E + 1$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;In an undirected simple graph $G = (V, E)$, there are at most $V(V-1)/2$ edges. In short, by using the asymptotic notation,$E = O(v^2)$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;a graph G is dense if $E=\Omega(v^2)$&lt;/li&gt;
-&lt;/ul&gt;
     
     </summary>
     
@@ -817,12 +543,7 @@
 &lt;li&gt;We measure the runtime of an algorithm using $\Theta$,$\Omega$,O&lt;h2&gt;&lt;span id=&quot;upper-bound-big-o&quot;&gt;Upper Bound (Big-O)&lt;/span&gt;&lt;a href=&quot;#upper-bound-big-o&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;For any monotonic functions with two positive number f, g,we say $f(n) = O(g(n))$[or $f(n)\in O(g(n))$ if $g(n)$ eventually dominates $f(n)$]. Formally, there exists a positive real number $c&amp;gt;0$, and a real number, $n_0$, such that $f(n) \leq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is smaller or equal than $g(n)$) or we called $g(n)$ is upper bound of $f(n)$.&lt;h2&gt;&lt;span id=&quot;lower-bound-big-omega&quot;&gt;Lower Bound (Big-Omega)&lt;/span&gt;&lt;a href=&quot;#lower-bound-big-omega&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;For any monotonic functions with two positive numbers f, g,we say $f(n) = \Omega(g(n))$[or $f(n)\in \Omega(g(n))$ if $f(n)$ eventually dominates $g(n)$]. Formally, there exists a positive real number $c&amp;gt;0$, and a real number, $n_0$, such that $f(n) \geq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is greater or equal than $g(n)$)&lt;h2&gt;&lt;span id=&quot;exact-bound-big-theta&quot;&gt;Exact Bound (Big-Theta)&lt;/span&gt;&lt;a href=&quot;#exact-bound-big-theta&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;For any monotonic functions with two positive numbers f, g,we say $f(n) = \Theta(g(n))$[or $f(n)\in \Theta(g(n))$ if $f(n) = \Omega(g(n))$ and $f(n) = O(g(n))$]. Formally, there exists two positive real number $c_1$ and $c_2$, and a real number, $n_0$, such that $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ has the same increasing rate with $g(n)$)&lt;h2&gt;&lt;span id=&quot;lower-bound-for-sorting&quot;&gt;Lower Bound for Sorting&lt;/span&gt;&lt;a href=&quot;#lower-bound-for-sorting&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;For any sorting based on comparison we must take at least($\Omega(n\log(n))$)to sort an array of n elements in the worst case. A decision tree model was introducted to illustrate this model.&lt;br&gt;&lt;img src=&quot;/2020/01/29/AlgorithmsRev1/decisionTree.png&quot; alt=&quot;Decision Tree&quot;&gt;&lt;!--center&gt;Decision Tree&lt;/center--&gt;
 Suppose we have input size = n, Now we have 6 leaves in this decision tree which can represent as $n!$. If we make it as a Full Binary Tree, the number of leaves becomes $2^h$ where h represents its height. Hence, $2^h \geq n!$, after taking log on both sides, $h \geq\log(n!)$. Since h(the height of decision tree) represents the number of comparisons in a sorting algorithm, so $T(n) = h \geq \log(n!)$. To simplify $\log(n!)$:&lt;script type=&quot;math/tex; mode=display&quot;&gt;\log(n!) = \log(n(n-1)(n-2)...1)&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\log(n!) \geq \log(n(n-1)(n-2)...(n-n/2))&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\log(n!) \geq \log((n/2)^{n/2}) = \Omega(n \cdot \log(n))&lt;/script&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;span id=&quot;some-tips-to-compare-time-complexity&quot;&gt;Some tips to compare time complexity&lt;/span&gt;&lt;a href=&quot;#some-tips-to-compare-time-complexity&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;example-1&quot;&gt;Example 1&lt;/span&gt;&lt;a href=&quot;#example-1&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) = $O(g(n))$&lt;/p&gt;
-&lt;p&gt;$\log{n^n}$, $n^2$,$n^{\log n}$,$n\log\log{n}$,$2^{\log{n}}$,$\log^2{n}$,$n^{\sqrt{2}}$&lt;/p&gt;
-&lt;p&gt;Tips:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$2^{\log{n}}$ = $n$&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;&lt;span id=&quot;some-tips-to-compare-time-complexity&quot;&gt;Some tips to compare time complexity&lt;/span&gt;&lt;a href=&quot;#some-tips-to-compare-time-complexity&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -881,12 +602,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 &lt;li&gt;DBMS: database management system, a system used to create or manamge database&lt;/li&gt;
 &lt;li&gt;SQL: strucutred query language, a kind of way to communicate with database.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;span id=&quot;2-dql-data-query-language&quot;&gt;2. DQL (Data query language)&lt;/span&gt;&lt;a href=&quot;#2-dql-data-query-language&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;1-syntax&quot;&gt;1. Syntax&lt;/span&gt;&lt;a href=&quot;#1-syntax&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;select col_name&lt;br&gt;from table_name;&lt;/p&gt;
-&lt;h3&gt;&lt;span id=&quot;2-character&quot;&gt;2. Character&lt;/span&gt;&lt;a href=&quot;#2-character&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;col_name can be a single or muliple column, constant value, expression, function&lt;/li&gt;
-&lt;li&gt;the result is a virtual table&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;&lt;span id=&quot;3-example&quot;&gt;3. Example&lt;/span&gt;&lt;a href=&quot;#3-example&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;span id=&quot;2-dql-data-query-language&quot;&gt;2. DQL (Data query language)&lt;/span&gt;&lt;a href=&quot;#2-dql-data-query-language&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -1044,8 +760,6 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 &lt;/div&gt;
 
 &lt;h2&gt;&lt;span id=&quot;1-er-wei-shu-zu-zhong-de-cha-zhao&quot;&gt;1. 二维数组中的查找&lt;/span&gt;&lt;a href=&quot;#1-er-wei-shu-zu-zhong-de-cha-zhao&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;1-1-wen-ti-miao-shu&quot;&gt;1.1 问题描述&lt;/span&gt;&lt;a href=&quot;#1-1-wen-ti-miao-shu&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。&lt;/p&gt;
-&lt;h3&gt;&lt;span id=&quot;1-2-jie-jue-fang-an&quot;&gt;1.2 解决方案&lt;/span&gt;&lt;a href=&quot;#1-2-jie-jue-fang-an&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;先将坐标定位在右上角，然后将该位置的值与target比较，如果target值比较大则坐标向下移动，否则坐标向左移动。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; target, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; [][] array)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m = array.length - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; n = array[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;].length - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, j = n; i &amp;lt;= m &amp;amp;&amp;amp; j &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(array[i][j] == target) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(array[i][j] &amp;lt; target) i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; j--;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;span id=&quot;2-ti-huan-kong-ge&quot;&gt;2 替换空格&lt;/span&gt;&lt;a href=&quot;#2-ti-huan-kong-ge&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;2-1-wen-ti-miao-shu&quot;&gt;2.1 问题描述&lt;/span&gt;&lt;a href=&quot;#2-1-wen-ti-miao-shu&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。&lt;/p&gt;
     
     </summary>
     
@@ -1093,113 +807,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
 &lt;!-- tocstop --&gt;
 &lt;/div&gt;
 
-&lt;h1&gt;&lt;span id=&quot;java-basic&quot;&gt;Java Basic&lt;/span&gt;&lt;a href=&quot;#java-basic&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;basic-grammar&quot;&gt;Basic grammar&lt;/span&gt;&lt;a href=&quot;#basic-grammar&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;三元操作符如果遇到可以转换为数字的类型，会做自动类型提升。&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Object o1 = (&lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;) ? &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Double(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;) : &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Integer(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.out.println(o1);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Output: 2.0&lt;/p&gt;
-&lt;p&gt;三元操作符类型的转换规则：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;若两个操作数不可转换，则不做转换，返回值为Object类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;若两个操作数是明确类型的表达式（比如变量），则按照正常的二进制数字来转换，int类型转换为long类型，long类型转换为float类型等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;若两个操作数中有一个是数字S,另外一个是表达式，且其类型标示为T，那么，若数字S在T的范围内，则转换为T类型；若S超出了T类型的范围，则T转换为S类型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;若两个操作数都是直接量数字，则返回值类型为范围较大者&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Java中的那些基本类型属于原生类，而数组是引用类型，不属于原生类，可以看成是一种对象。&lt;/li&gt;
-&lt;li&gt;Synchronized保证三大性，原子性，有序性，可见性，volatile保证有序性，可见性，不能保证原子性&lt;/li&gt;
-&lt;li&gt;Java的堆内存分为两块:permantspace（持久带） 和 heap space。&lt;br&gt;持久带中主要存放用于存放静态类型数据，如 Java Class, Method 等， 与垃圾收集器要收集的Java对象关系不大。&lt;br&gt;而heapspace分为年轻带和年老带&lt;br&gt;年轻代的垃圾回收叫 Young GC， 年老代的垃圾回收叫 Full GC。&lt;br&gt;在年轻代中经历了N次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象&lt;br&gt;年老代溢出原因有  循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存，既A B D选项&lt;br&gt;持久代溢出原因  动态加载了大量Java类而导致溢出。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Java 内部类、成员类、局部类、匿名类等&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;类指外部类，最大的类，修饰符有public(表示该类在项目所有类中可以被导入），default(该类只能在同一个package中使用）,abstract,final&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;内部类指位于类内部但不包括位于块、构造器、方法内，且有名称的类，修饰符有public,private,protected访问控制符，也可以用static,final关键字修饰，public和private比较简单，一个表示所有可以被所有类访问，一个表示只能被自身访问，protected修饰的成员类可以被同一个包中的类和子类访问。而default修饰的成员类只能被同一个包中的类访问。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;局部内部类指位于块、构造器、方法内的有名称类，最多只能有final修饰&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/a327369238/article/details/52780442&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Reference Link&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Java几个常用程序&lt;br&gt;|程序名|用法|&lt;br&gt;|:———:|:———:|&lt;br&gt;|java.exe|java虚拟机|&lt;br&gt;|javadoc.exe|制作java文档|&lt;br&gt;|jdb.exe|java的调试器|&lt;br&gt;|javaprof.exe|剖析工具|&lt;br&gt;|jps.exe|查看本机java进程信息|&lt;br&gt;|jstack|打印线程的栈信息，制作线程dump文件|&lt;br&gt;|jmap|打印内存映射，制作堆dump文件|&lt;br&gt;|jstat|性能监控工具|&lt;br&gt;|jhat|内存分析工具|&lt;br&gt;|jconsole|简易的可视化控制台|&lt;br&gt;|jvisualvm|功能强大的控制台|&lt;/li&gt;
-&lt;li&gt;Java中的位运算符：&lt;ul&gt;
-&lt;li&gt;&gt;&gt;表示右移，如果该数为正，则高位补0，若为负数，则高位补1；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&gt;&gt;&gt;表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;抽象类中可以有普通成员变量，接口中没有普通成员变量&lt;/li&gt;
-&lt;li&gt;HttpServletResponse完成：设置http头标，设置cookie，设置返回数据类型，输出返回数据；读取路径信息是HttpServletRequest做的&lt;/li&gt;
-&lt;li&gt;ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间。//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。对于LInkedList的话，由于每个节点都需要额外的指针。&lt;/li&gt;
-&lt;li&gt;可以正确获取结果集的有&lt;ul&gt;
-&lt;li&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Statement sta=con.createStatement();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ResultSet rst=sta.executeQuery(“select * from book”);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;PreparedStatement pst=con.prepareStatement(“select * from book”);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ResultSet rst=pst.executeQuery();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Java允许对boolean类型的值进行按位“与”、“或”和“异或”操作，但不能进行按位“非”。对于boolean值，按位操作与逻辑操作有相同的结果，但是不会发生“短路”。&lt;/li&gt;
-&lt;li&gt;Array的foreach可以用break直接跳出&lt;/li&gt;
-&lt;li&gt;java初始化顺序&lt;ul&gt;
-&lt;li&gt;不同类中 父类 &amp;gt; 子类&lt;/li&gt;
-&lt;li&gt;同类中 静态变量 &amp;gt; 静态代码块 &amp;gt; 普通成员变量 &amp;gt; 普通代码块 &amp;gt; 构造方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;(b1 + b4)  结果仍然转换成int //b1, b4均为byte&lt;/li&gt;
-&lt;li&gt;Java复制的效率System.arraycopy&amp;gt;clone&amp;gt;Arrays.copyOf&amp;gt;for循环，这个有兴趣自己测试一下就知道了。这里面在System类源码中给出了arraycopy的方法，是native方法，也就是本地方法，肯定是最快的。而Arrays.copyOf(注意是Arrays类，不是Array)的实现，在源码中是调用System.copyOf的，多了一个步骤，肯定就不是最快的。&lt;/li&gt;
-&lt;li&gt;二维数组定义，一维长度必须定义，二维可以后续定义&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; f[][] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; []f[] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; [][]f = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; [][]f = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;][];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;java Collection and map&lt;ul&gt;
-&lt;li&gt;Collection&lt;ul&gt;
-&lt;li&gt;List&lt;ul&gt;
-&lt;li&gt;LinkedList    非同步&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;ArrayList      非同步，实现了可变大小的元素数组&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Vector          同步&lt;ul&gt;
-&lt;li&gt;Stack&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Set   不允许有相同的元素&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;- Map
-    + HashTable        同步，实现一个key--value映射的哈希表
-    - HashMap          非同步，
-    + WeakHashMap      改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;加载驱动方法&lt;ul&gt;
-&lt;li&gt;Class.forName(“com.microsoft.sqlserver.jdbc.SQLServerDriver”);&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;DriverManager.registerDriver(new com.mysql.jdbc.Driver());&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;System.setProperty(“jdbc.drivers”, “com.mysql.jdbc.Driver”);&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Arrays.asList(num1, num2, num3)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Arrays.sort(intervals, (x, y) -&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Integer.compare(x[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;], y[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;map.getOrDefault(t.charAt(i), &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;map.computeIfAbsent() &lt;span class=&quot;comment&quot;&gt;//V computeIfAbsent(K key, Function&amp;lt;? super K, ? extends V&amp;gt; mappingFunction)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;&lt;span id=&quot;exception&quot;&gt;Exception&lt;/span&gt;&lt;a href=&quot;#exception&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h1&gt;&lt;span id=&quot;java-basic&quot;&gt;Java Basic&lt;/span&gt;&lt;a href=&quot;#java-basic&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;basic-grammar&quot;&gt;Basic grammar&lt;/span&gt;&lt;a href=&quot;#basic-grammar&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -1242,7 +850,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
     <summary type="html">
     
       &lt;p&gt;This is a markdown demo to quickly start&lt;/p&gt;
-&lt;h1&gt;&lt;span id=&quot;1-title&quot;&gt;1. Title&lt;/span&gt;&lt;a href=&quot;#1-title&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span id=&quot;title1&quot;&gt;Title1&lt;/span&gt;&lt;a href=&quot;#title1&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;title2&quot;&gt;Title2&lt;/span&gt;&lt;a href=&quot;#title2&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;title3&quot;&gt;Title3&lt;/span&gt;&lt;a href=&quot;#title3&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;span id=&quot;title4&quot;&gt;Title4&lt;/span&gt;&lt;a href=&quot;#title4&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;&lt;span id=&quot;title5&quot;&gt;Title5&lt;/span&gt;&lt;a href=&quot;#title5&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;&lt;h6&gt;&lt;span id=&quot;title6&quot;&gt;Title6&lt;/span&gt;&lt;a href=&quot;#title6&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h6&gt;&lt;h1&gt;&lt;span id=&quot;2-blod&quot;&gt;2. Blod&lt;/span&gt;&lt;a href=&quot;#2-blod&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Blod Text&lt;/strong&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;1-title&quot;&gt;1. Title&lt;/span&gt;&lt;a href=&quot;#1-title&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span id=&quot;title1&quot;&gt;Title1&lt;/span&gt;&lt;a href=&quot;#title1&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;title2&quot;&gt;Title2&lt;/span&gt;&lt;a href=&quot;#title2&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;title3&quot;&gt;Title3&lt;/span&gt;&lt;a href=&quot;#title3&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
     
     </summary>
     
@@ -1279,61 +887,6 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
     
       <category term="projects" scheme="https://blobming.github.io/categories/projects/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode-05/10/2020</title>
-    <link href="https://blobming.github.io/2010/05/20/LeetCode-xxx/"/>
-    <id>https://blobming.github.io/2010/05/20/LeetCode-xxx/</id>
-    <published>2010-05-20T16:28:21.000Z</published>
-    <updated>2020-05-11T03:55:27.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is a record of my craking process for Leetcode.&lt;br&gt;List it by frequency.&lt;/p&gt;
-&lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-two-sum&quot;&gt;1. Two Sum&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-1-problem-description&quot;&gt;1.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#1-2-soulution&quot;&gt;1.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-add-two-numbers&quot;&gt;2 Add Two Numbers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#2-1-problem-description&quot;&gt;2.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-2-soulution&quot;&gt;2.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-add-two-numbers-1&quot;&gt;2 Add Two Numbers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#2-1-problem-description-1&quot;&gt;2.1 Problem Description&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-2-soulution-1&quot;&gt;2.2 Soulution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- tocstop --&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;&lt;span id=&quot;1-two-sum&quot;&gt;1. Two Sum&lt;/span&gt;&lt;a href=&quot;#1-two-sum&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;1-1-problem-description&quot;&gt;1.1 Problem Description&lt;/span&gt;&lt;a href=&quot;#1-1-problem-description&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.&lt;/p&gt;
-&lt;p&gt;You may assume that each input would have exactly one solution, and you may not use the same element twice.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given nums = [2, 7, 11, 15], target = 9,&lt;/p&gt;
-&lt;p&gt;Because nums[0] + nums[1] = 2 + 7 = 9,&lt;/p&gt;
-&lt;p&gt;return [0, 1].&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;&lt;span id=&quot;1-2-soulution&quot;&gt;1.2 Soulution&lt;/span&gt;&lt;a href=&quot;#1-2-soulution&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] twoSum(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] nums, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; target) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Map&amp;lt;Integer, Integer&amp;gt; map = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; HashMap&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; nums.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        map.put(nums[i], i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; nums.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; temp = target - nums[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(map.containsKey(temp) &amp;amp;&amp;amp; map.get(temp) != i) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] &amp;#123;i, map.get(temp)&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
-    
-    
-      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
     
   </entry>
   

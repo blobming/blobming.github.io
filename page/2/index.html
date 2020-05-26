@@ -163,107 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/01/04/MySqlNotes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jiaming Xu">
-      <meta itemprop="description" content="Personal Life record">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiaming's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/04/MySqlNotes/" class="post-title-link" itemprop="url">MYSQL NOTES</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-04 11:02:08 / Modified: 15:50:25" itemprop="dateCreated datePublished" datetime="2020-01-04T11:02:08-08:00">2020-01-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is a note of MySQL datbase for future review</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#1-basic-concept">1. Basic Concept</a></li>
-<li><a href="#2-dql-data-query-language">2. DQL (Data query language)</a><ul>
-<li><a href="#1-syntax">1. Syntax</a></li>
-<li><a href="#2-character">2. Character</a></li>
-<li><a href="#3-example">3. Example</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="1-basic-concept">1. Basic Concept</span><a href="#1-basic-concept" class="header-anchor">#</a></h2><ol>
-<li>DB: database, a container used to store data.</li>
-<li>DBMS: database management system, a system used to create or manamge database</li>
-<li>SQL: strucutred query language, a kind of way to communicate with database.</li>
-</ol>
-<h2><span id="2-dql-data-query-language">2. DQL (Data query language)</span><a href="#2-dql-data-query-language" class="header-anchor">#</a></h2><h3><span id="1-syntax">1. Syntax</span><a href="#1-syntax" class="header-anchor">#</a></h3><p>select col_name<br>from table_name;</p>
-<h3><span id="2-character">2. Character</span><a href="#2-character" class="header-anchor">#</a></h3><ol>
-<li>col_name can be a single or muliple column, constant value, expression, function</li>
-<li>the result is a virtual table</li>
-</ol>
-<h3><span id="3-example">3. Example</span><a href="#3-example" class="header-anchor">#</a></h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/04/MySqlNotes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2019/11/27/JianZhiOfferProgramming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -453,8 +352,6 @@
 </div>
 
 <h2><span id="1-er-wei-shu-zu-zhong-de-cha-zhao">1. 二维数组中的查找</span><a href="#1-er-wei-shu-zu-zhong-de-cha-zhao" class="header-anchor">#</a></h2><h3><span id="1-1-wen-ti-miao-shu">1.1 问题描述</span><a href="#1-1-wen-ti-miao-shu" class="header-anchor">#</a></h3><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<h3><span id="1-2-jie-jue-fang-an">1.2 解决方案</span><a href="#1-2-jie-jue-fang-an" class="header-anchor">#</a></h3><p>先将坐标定位在右上角，然后将该位置的值与target比较，如果target值比较大则坐标向下移动，否则坐标向左移动。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span> [][] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = array.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> n = array[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = n; i &lt;= m &amp;&amp; j &gt;= <span class="number">0</span>;) &#123;</span><br><span class="line">        <span class="keyword">if</span>(array[i][j] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(array[i][j] &lt; target) i++;</span><br><span class="line">        <span class="keyword">else</span> j--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2><span id="2-ti-huan-kong-ge">2 替换空格</span><a href="#2-ti-huan-kong-ge" class="header-anchor">#</a></h2><h3><span id="2-1-wen-ti-miao-shu">2.1 问题描述</span><a href="#2-1-wen-ti-miao-shu" class="header-anchor">#</a></h3><p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/27/JianZhiOfferProgramming/#more" rel="contents">
@@ -560,113 +457,7 @@
 <!-- tocstop -->
 </div>
 
-<h1><span id="java-basic">Java Basic</span><a href="#java-basic" class="header-anchor">#</a></h1><h2><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h2><ol>
-<li><p>三元操作符如果遇到可以转换为数字的类型，会做自动类型提升。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o1 = (<span class="keyword">false</span>) ? <span class="keyword">new</span> Double(<span class="number">1.0</span>) : <span class="keyword">new</span> Integer(<span class="number">2</span>);</span><br><span class="line">System.out.println(o1);</span><br></pre></td></tr></table></figure>
-<p>Output: 2.0</p>
-<p>三元操作符类型的转换规则：</p>
-<ul>
-<li>若两个操作数不可转换，则不做转换，返回值为Object类型</li>
-</ul>
-<ul>
-<li>若两个操作数是明确类型的表达式（比如变量），则按照正常的二进制数字来转换，int类型转换为long类型，long类型转换为float类型等。</li>
-</ul>
-<ul>
-<li>若两个操作数中有一个是数字S,另外一个是表达式，且其类型标示为T，那么，若数字S在T的范围内，则转换为T类型；若S超出了T类型的范围，则T转换为S类型。</li>
-</ul>
-<ul>
-<li>若两个操作数都是直接量数字，则返回值类型为范围较大者</li>
-</ul>
-</li>
-<li>Java中的那些基本类型属于原生类，而数组是引用类型，不属于原生类，可以看成是一种对象。</li>
-<li>Synchronized保证三大性，原子性，有序性，可见性，volatile保证有序性，可见性，不能保证原子性</li>
-<li>Java的堆内存分为两块:permantspace（持久带） 和 heap space。<br>持久带中主要存放用于存放静态类型数据，如 Java Class, Method 等， 与垃圾收集器要收集的Java对象关系不大。<br>而heapspace分为年轻带和年老带<br>年轻代的垃圾回收叫 Young GC， 年老代的垃圾回收叫 Full GC。<br>在年轻代中经历了N次（可配置）垃圾回收后仍然存活的对象，就会被复制到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象<br>年老代溢出原因有  循环上万次的字符串处理、创建上千万个对象、在一段代码内申请上百M甚至上G的内存，既A B D选项<br>持久代溢出原因  动态加载了大量Java类而导致溢出。</li>
-<li><p>Java 内部类、成员类、局部类、匿名类等</p>
-<ul>
-<li>类指外部类，最大的类，修饰符有public(表示该类在项目所有类中可以被导入），default(该类只能在同一个package中使用）,abstract,final</li>
-</ul>
-<ul>
-<li>内部类指位于类内部但不包括位于块、构造器、方法内，且有名称的类，修饰符有public,private,protected访问控制符，也可以用static,final关键字修饰，public和private比较简单，一个表示所有可以被所有类访问，一个表示只能被自身访问，protected修饰的成员类可以被同一个包中的类和子类访问。而default修饰的成员类只能被同一个包中的类访问。</li>
-</ul>
-<ul>
-<li><p>局部内部类指位于块、构造器、方法内的有名称类，最多只能有final修饰</p>
-<p><a href="http://blog.csdn.net/a327369238/article/details/52780442" target="_blank" rel="noopener">Reference Link</a></p>
-</li>
-</ul>
-</li>
-<li>Java几个常用程序<br>|程序名|用法|<br>|:———:|:———:|<br>|java.exe|java虚拟机|<br>|javadoc.exe|制作java文档|<br>|jdb.exe|java的调试器|<br>|javaprof.exe|剖析工具|<br>|jps.exe|查看本机java进程信息|<br>|jstack|打印线程的栈信息，制作线程dump文件|<br>|jmap|打印内存映射，制作堆dump文件|<br>|jstat|性能监控工具|<br>|jhat|内存分析工具|<br>|jconsole|简易的可视化控制台|<br>|jvisualvm|功能强大的控制台|</li>
-<li>Java中的位运算符：<ul>
-<li>>>表示右移，如果该数为正，则高位补0，若为负数，则高位补1；</li>
-</ul>
-<ul>
-<li>>>>表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。</li>
-</ul>
-</li>
-<li>抽象类中可以有普通成员变量，接口中没有普通成员变量</li>
-<li>HttpServletResponse完成：设置http头标，设置cookie，设置返回数据类型，输出返回数据；读取路径信息是HttpServletRequest做的</li>
-<li>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间。//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。对于LInkedList的话，由于每个节点都需要额外的指针。</li>
-<li>可以正确获取结果集的有<ul>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement sta=con.createStatement();</span><br><span class="line">ResultSet rst=sta.executeQuery(“select * from book”);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement pst=con.prepareStatement(“select * from book”);</span><br><span class="line">ResultSet rst=pst.executeQuery();</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>Java允许对boolean类型的值进行按位“与”、“或”和“异或”操作，但不能进行按位“非”。对于boolean值，按位操作与逻辑操作有相同的结果，但是不会发生“短路”。</li>
-<li>Array的foreach可以用break直接跳出</li>
-<li>java初始化顺序<ul>
-<li>不同类中 父类 &gt; 子类</li>
-<li>同类中 静态变量 &gt; 静态代码块 &gt; 普通成员变量 &gt; 普通代码块 &gt; 构造方法</li>
-</ul>
-</li>
-<li>(b1 + b4)  结果仍然转换成int //b1, b4均为byte</li>
-<li>Java复制的效率System.arraycopy&gt;clone&gt;Arrays.copyOf&gt;for循环，这个有兴趣自己测试一下就知道了。这里面在System类源码中给出了arraycopy的方法，是native方法，也就是本地方法，肯定是最快的。而Arrays.copyOf(注意是Arrays类，不是Array)的实现，在源码中是调用System.copyOf的，多了一个步骤，肯定就不是最快的。</li>
-<li>二维数组定义，一维长度必须定义，二维可以后续定义<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f[][] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> []f[] = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="keyword">float</span> [][]f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">6</span>][];</span><br></pre></td></tr></table></figure></li>
-<li>java Collection and map<ul>
-<li>Collection<ul>
-<li>List<ul>
-<li>LinkedList    非同步</li>
-</ul>
-<ul>
-<li>ArrayList      非同步，实现了可变大小的元素数组</li>
-</ul>
-<ul>
-<li>Vector          同步<ul>
-<li>Stack</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Set   不允许有相同的元素</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>- Map
-    + HashTable        同步，实现一个key--value映射的哈希表
-    - HashMap          非同步，
-    + WeakHashMap      改进的HashMap，实现了“弱引用”，如果一个key不被引用，则被GC回收
-</code></pre><ol>
-<li>加载驱动方法<ul>
-<li>Class.forName(“com.microsoft.sqlserver.jdbc.SQLServerDriver”);</li>
-</ul>
-<ul>
-<li>DriverManager.registerDriver(new com.mysql.jdbc.Driver());</li>
-</ul>
-<ul>
-<li>System.setProperty(“jdbc.drivers”, “com.mysql.jdbc.Driver”);</li>
-</ul>
-</li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.asList(num1, num2, num3)</span><br></pre></td></tr></table></figure></li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(intervals, (x, y) -&gt; &#123;</span><br><span class="line">       <span class="keyword">return</span> Integer.compare(x[<span class="number">0</span>], y[<span class="number">0</span>]);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.getOrDefault(t.charAt(i), <span class="number">0</span>);</span><br><span class="line">map.computeIfAbsent() <span class="comment">//V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<h2><span id="exception">Exception</span><a href="#exception" class="header-anchor">#</a></h2>
+<h1><span id="java-basic">Java Basic</span><a href="#java-basic" class="header-anchor">#</a></h1><h2><span id="basic-grammar">Basic grammar</span><a href="#basic-grammar" class="header-anchor">#</a></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/27/JavaInterviewNotes/#more" rel="contents">
@@ -809,7 +600,7 @@
 
       
           <p>This is a markdown demo to quickly start</p>
-<h1><span id="1-title">1. Title</span><a href="#1-title" class="header-anchor">#</a></h1><h1><span id="title1">Title1</span><a href="#title1" class="header-anchor">#</a></h1><h2><span id="title2">Title2</span><a href="#title2" class="header-anchor">#</a></h2><h3><span id="title3">Title3</span><a href="#title3" class="header-anchor">#</a></h3><h4><span id="title4">Title4</span><a href="#title4" class="header-anchor">#</a></h4><h5><span id="title5">Title5</span><a href="#title5" class="header-anchor">#</a></h5><h6><span id="title6">Title6</span><a href="#title6" class="header-anchor">#</a></h6><h1><span id="2-blod">2. Blod</span><a href="#2-blod" class="header-anchor">#</a></h1><p><strong>Blod Text</strong></p>
+<h1><span id="1-title">1. Title</span><a href="#1-title" class="header-anchor">#</a></h1><h1><span id="title1">Title1</span><a href="#title1" class="header-anchor">#</a></h1><h2><span id="title2">Title2</span><a href="#title2" class="header-anchor">#</a></h2><h3><span id="title3">Title3</span><a href="#title3" class="header-anchor">#</a></h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/16/demo/#more" rel="contents">
@@ -906,119 +697,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2010/05/20/LeetCode-xxx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jiaming Xu">
-      <meta itemprop="description" content="Personal Life record">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiaming's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2010/05/20/LeetCode-xxx/" class="post-title-link" itemprop="url">LeetCode-05/10/2020</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2010-05-20 09:28:21" itemprop="dateCreated datePublished" datetime="2010-05-20T09:28:21-07:00">2010-05-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-10 20:55:27" itemprop="dateModified" datetime="2020-05-10T20:55:27-07:00">2020-05-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is a record of my craking process for Leetcode.<br>List it by frequency.</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#1-two-sum">1. Two Sum</a><ul>
-<li><a href="#1-1-problem-description">1.1 Problem Description</a></li>
-<li><a href="#1-2-soulution">1.2 Soulution</a></li>
-</ul>
-</li>
-<li><a href="#2-add-two-numbers">2 Add Two Numbers</a><ul>
-<li><a href="#2-1-problem-description">2.1 Problem Description</a></li>
-<li><a href="#2-2-soulution">2.2 Soulution</a></li>
-</ul>
-</li>
-<li><a href="#2-add-two-numbers-1">2 Add Two Numbers</a><ul>
-<li><a href="#2-1-problem-description-1">2.1 Problem Description</a></li>
-<li><a href="#2-2-soulution-1">2.2 Soulution</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="1-two-sum">1. Two Sum</span><a href="#1-two-sum" class="header-anchor">#</a></h2><h3><span id="1-1-problem-description">1.1 Problem Description</span><a href="#1-1-problem-description" class="header-anchor">#</a></h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p><strong>Example:</strong></p>
-<blockquote>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
-<p>return [0, 1].</p>
-</blockquote>
-<h3><span id="1-2-soulution">1.2 Soulution</span><a href="#1-2-soulution" class="header-anchor">#</a></h3><p>It is very easy to come up with a brute force soulution which Time complex is O(n ^ 2).However, we can use a map structure to record the num and index in the nums we have iteratered. And also, when we check each number, we can find (target - number) in the current map. Then, it will be the solution.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(temp)&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2010/05/20/LeetCode-xxx/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1090,7 +768,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1103,7 +781,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
