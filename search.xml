@@ -2167,7 +2167,7 @@
 <li><strong>MDBMS</strong>: Uses proprietary techniques store data in matrix-like n-dimensional arrays</li>
 <li>End users visualize stored data as a 3D data cube §Grow to n dimensions, becoming hypercubes</li>
 <li>Held in memory in a cube cache to speed access</li>
-<li><strong>Sparsity</strong>: Measures the density of the data held in the data cube<br><img src="/2020/02/18/DatabaseRev/R:M-OLAP.png" alt="R:MOLAP"></li>
+<li><strong>Sparsity</strong>: Measures the density of the data held in the data cube<br><img src="/2020/02/18/DatabaseRev/R-M-OLAP.png" alt="R:MOLAP"></li>
 </ul>
 <h2><span id="sql-extensions-for-olap">SQL Extensions for OLAP</span><a href="#sql-extensions-for-olap" class="header-anchor">#</a></h2><h3><span id="the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension">The ROLLUP extension(get upper domian data sorted by lower dimension)</span><a href="#the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension" class="header-anchor">#</a></h3><ul>
 <li>Used with GROUP BY clause to generate aggregates by different dimensions</li>
