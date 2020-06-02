@@ -2302,31 +2302,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Algorithms review 5 Greedy Algorithms</title>
-    <url>/2020/02/01/AlgorithmsRev5/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#optimization-problem">Optimization problem</a></li>
-<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
-<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
-<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
-      <categories>
-        <category>Algorithms</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Algorithms review 3 Amortized Analysis</title>
     <url>/2020/02/01/AlgorithmsRev3/</url>
     <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
@@ -2427,6 +2402,31 @@
 <script type="math/tex; mode=display">\lim_{n\to\infty}\frac{3\cdot2^n}{1+2^n} = 3</script><p>So the amortized cost of insertion is constant, namely $O(3)$. This method is called _aggegate_ method which seeks an upper bound on the total running time of a sequence of operations.</p>
 <h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <url>/2020/02/01/AlgorithmsRev5/</url>
+    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#optimization-problem">Optimization problem</a></li>
+<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
+<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
+<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
