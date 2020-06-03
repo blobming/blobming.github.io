@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCodeDailyNotes</title>
+    <url>/2020/06/03/LeetCodeDailyNotes/</url>
+    <content><![CDATA[<h1><span id="leetcode-daily-notes">LeetCode Daily Notes</span><a href="#leetcode-daily-notes" class="header-anchor">#</a></h1><h2><span id="6-3-2020">6/3/2020</span><a href="#6-3-2020" class="header-anchor">#</a></h2><ul>
+<li><p>string.trim() is used to trim leading and tailing spaces in a String</p>
+</li>
+<li><p>If we want to split a string by multiple spaces we can use string.split(“\\\s+”)</p>
+</li>
+<li><p>If we want to concatenate a list of string, we can use String.join(“ “, wordList).</p>
+</li>
+<li><p>Lambda expression used in sorting List or Array</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">arr1.sort((a, b) -&gt; Integer.compare(a[<span class="number">1</span>] - a[<span class="number">0</span>], b[<span class="number">1</span>] - b[<span class="number">0</span>]));</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">arr1.sort(Comparator.comparingInt(a -&gt; a[<span class="number">1</span>] - a[<span class="number">0</span>]));</span><br><span class="line"><span class="comment">// or this method is more flexible</span></span><br><span class="line">arr2.sort((a, b) -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(a[<span class="number">0</span>] &gt; a[<span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[<span class="number">0</span>] &lt; a[<span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Spring Annotation Notes</title>
     <url>/2020/05/25/Spring-Annotation-Notes/</url>
     <content><![CDATA[<h1><span id="spring-zhu-jie-qu-dong-kai-fa">Spring 注解驱动开发</span><a href="#spring-zhu-jie-qu-dong-kai-fa" class="header-anchor">#</a></h1><h2><span id="rong-qi-container">容器(Container)</span><a href="#rong-qi-container" class="header-anchor">#</a></h2><p>配置类 == 配置文件</p>
@@ -2308,6 +2326,31 @@
       </categories>
   </entry>
   <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <url>/2020/02/01/AlgorithmsRev5/</url>
+    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#optimization-problem">Optimization problem</a></li>
+<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
+<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
+<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithms review 3 Amortized Analysis</title>
     <url>/2020/02/01/AlgorithmsRev3/</url>
     <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
@@ -2408,31 +2451,6 @@
 <script type="math/tex; mode=display">\lim_{n\to\infty}\frac{3\cdot2^n}{1+2^n} = 3</script><p>So the amortized cost of insertion is constant, namely $O(3)$. This method is called _aggegate_ method which seeks an upper bound on the total running time of a sequence of operations.</p>
 <h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
-      <categories>
-        <category>Algorithms</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algorithms review 5 Greedy Algorithms</title>
-    <url>/2020/02/01/AlgorithmsRev5/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#optimization-problem">Optimization problem</a></li>
-<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
-<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
-<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
