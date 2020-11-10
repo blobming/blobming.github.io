@@ -35,12 +35,14 @@
 <li><strong>执行一个所谓的Java程序的时候，真真正正在执行的是一个叫做Java虚拟机的进程</strong></li>
 </ol>
 <h3><span id="xu-ni-ji-de-tui-chu">虚拟机的退出</span><a href="#xu-ni-ji-de-tui-chu" class="header-anchor">#</a></h3><ol>
-<li>程序正常执行结束</li>
+<li>程序正常执行结束 //jps 查看进程</li>
 <li>程序在执行过程中遇到了异常或错误而异常终止</li>
 <li>由于操作系统用现错误而导致Java虚拟机进程终止</li>
 <li>某线程调用Runtime类或System类的exit()方法，或Runtime类的halt()方法，并且Java安全管理器也允许这次exit()或halt()操作。</li>
 <li>除此之外，JNI（Java Native Interface）规范描述了用JNI Invocation API来加载或卸载 Java虚拟机时，Java虚拟机的退出情况。</li>
 </ol>
+<h1><span id="lei-jia-zai-zi-xi-tong">类加载子系统</span><a href="#lei-jia-zai-zi-xi-tong" class="header-anchor">#</a></h1><p>完整框图</p>
+<p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTQ1MzIxMjIyLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTQ1MzIxMjIyLnBuZw"></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -3452,17 +3454,6 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       </tags>
   </entry>
   <entry>
-    <title>Introduction To Computer System</title>
-    <url>/2019/11/16/IntroToComSys/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Computer Architecture</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Template Page</title>
     <url>/2019/11/16/demo/</url>
     <content><![CDATA[<p>This is a markdown demo to quickly start</p>
@@ -3667,6 +3658,17 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       <tags>
         <tag>Learning</tag>
         <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduction To Computer System</title>
+    <url>/2019/11/16/IntroToComSys/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
