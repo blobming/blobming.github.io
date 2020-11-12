@@ -3,7 +3,7 @@
   <entry>
     <title>jvm</title>
     <url>/2020/11/08/jvm/</url>
-    <content><![CDATA[<h1><span id="jvm">Jvm</span><a href="#jvm" class="header-anchor">#</a></h1><h2><span id="java-ti-xi-jie-gou">Java 体系结构</span><a href="#java-ti-xi-jie-gou" class="header-anchor">#</a></h2><p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw"></p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1><span id="jvm">Jvm</span><a href="#jvm" class="header-anchor">#</a></h1><h2><span id="java-ti-xi-jie-gou">Java 体系结构</span><a href="#java-ti-xi-jie-gou" class="header-anchor">#</a></h2><p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw"></p>
 <h2><span id="java-de-zheng-ti-jie-gou">Java 的整体结构</span><a href="#java-de-zheng-ti-jie-gou" class="header-anchor">#</a></h2><ol>
 <li>HotSpot VM是目前市面上高性能虚拟机的代表作之一。</li>
 <li>它采用<strong>解释器与即时编译器并存的架构</strong>。</li>
@@ -141,7 +141,7 @@
   <entry>
     <title>LeetCodeDailyNotes</title>
     <url>/2020/06/03/LeetCodeDailyNotes/</url>
-    <content><![CDATA[<h1><span id="leetcode-daily-notes">LeetCode Daily Notes</span><a href="#leetcode-daily-notes" class="header-anchor">#</a></h1><h2><span id="6-3-2020">6/3/2020</span><a href="#6-3-2020" class="header-anchor">#</a></h2><ul>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1><span id="leetcode-daily-notes">LeetCode Daily Notes</span><a href="#leetcode-daily-notes" class="header-anchor">#</a></h1><h2><span id="6-3-2020">6/3/2020</span><a href="#6-3-2020" class="header-anchor">#</a></h2><ul>
 <li><p>string.trim() is used to trim leading and tailing spaces in a String</p>
 </li>
 <li><p>If we want to split a string by multiple spaces we can use string.split(“\\\s+”)</p>
@@ -159,7 +159,7 @@
   <entry>
     <title>Spring Annotation Notes</title>
     <url>/2020/05/25/Spring-Annotation-Notes/</url>
-    <content><![CDATA[<h1><span id="spring-zhu-jie-qu-dong-kai-fa">Spring 注解驱动开发</span><a href="#spring-zhu-jie-qu-dong-kai-fa" class="header-anchor">#</a></h1><h2><span id="rong-qi-container">容器(Container)</span><a href="#rong-qi-container" class="header-anchor">#</a></h2><p>配置类 == 配置文件</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1><span id="spring-zhu-jie-qu-dong-kai-fa">Spring 注解驱动开发</span><a href="#spring-zhu-jie-qu-dong-kai-fa" class="header-anchor">#</a></h1><h2><span id="rong-qi-container">容器(Container)</span><a href="#rong-qi-container" class="header-anchor">#</a></h2><p>配置类 == 配置文件</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//配置类</span></span><br><span class="line"><span class="meta">@Configuration</span> <span class="comment">//告诉spring这事一个配置类</span></span><br><span class="line"><span class="comment">//@ComponentScan //value表示要扫描包的位置</span></span><br><span class="line"><span class="comment">//excludeFilters 要排除哪些Component,里面装着是Filter[]</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, excludeFilters = &#123;</span><br><span class="line">  <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">&#125;)</span></span><br><span class="line"><span class="class">//<span class="title">Filter</span>的<span class="title">type</span>是表明按照什么方式去排除，里面有5种,分别是：<span class="title">FilterType</span>.<span class="title">ANNOTATION</span>, <span class="title">FilterType</span>.<span class="title">ASPECTJ</span>, <span class="title">FilterType</span>.<span class="title">ASSIGNABLE</span>, <span class="title">FilterType</span>.<span class="title">CUSTOM</span>, <span class="title">FilterType</span>.<span class="title">REGEX</span> 在后面跟<span class="title">classes</span> 表明要去掉哪些包</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ANNOTATION</span> 按照注解</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ASSIGNABLE_TYPE</span> 按照给定的类型</span></span><br><span class="line"><span class="class">@<span class="title">Filter</span>(<span class="title">type</span></span>=<span class="string">"FilterType.ASSIGNABLE_TYPE"</span>,classes=&#123;BookService<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">ASPECTJ</span> 使用<span class="title">ASPECTJ</span>表达式</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">REGEX</span> 使用正则表达式规则</span></span><br><span class="line"><span class="class">//<span class="title">FilterType</span>.<span class="title">CUSTOM</span> 给定一个<span class="title">TypeFilter</span>的实现类</span></span><br><span class="line"><span class="class">@<span class="title">Filter</span>(<span class="title">type</span></span>=FilterType.CUSTOM, classes=&#123;MyTypeFilter<span class="class">.<span class="keyword">class</span>&#125;) //就是看<span class="title">MyTypeFilter</span>里面的<span class="title">math</span>返回<span class="title">true</span>或者<span class="title">false</span>来决定匹不匹配</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">//includeFilters 扫描的时候只需要包含哪些组件，里面装着是Filter[] 注意只包含生效的条件是要禁用默认规则，默认规则是扫描所有的因此要禁用掉</span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, includeFilters = &#123;</span><br><span class="line">  <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)&#125;,<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>)</span><br><span class="line"><span class="comment">//制定扫描策略，可以写多条</span></span><br><span class="line"><span class="meta">@ComponentScans</span>(</span><br><span class="line">	value = &#123;</span><br><span class="line">    <span class="meta">@ComponentScan</span>(value=<span class="string">"com.atguigu"</span>, includeFilters = &#123;</span><br><span class="line">      <span class="meta">@Filter</span>(type=<span class="string">"FilterType.ANNOTATION"</span>,classes=&#123;Controller<span class="class">.<span class="keyword">class</span>&#125;)&#125;,<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainConfig</span></span>&#123;</span><br><span class="line">  <span class="comment">//给容器中注册一个Bean; 类型为返回值的类型，id默认是方法名作为id</span></span><br><span class="line">  <span class="meta">@Bean</span>(<span class="string">"person"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Person <span class="title">person</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">20</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>MyTypeFilter.java 自定义Filter的实现类</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTypeFilter</span> <span class="keyword">implements</span> <span class="title">TypeFilter</span></span>&#123;</span><br><span class="line">  <span class="comment">//metadatareader读取的是当前正在扫描的类的信息</span></span><br><span class="line">  <span class="comment">//MetaDataReaderFactory 可以获取到其他任何类的信息</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">math</span><span class="params">(MetadataReader metadataReader, MetaDataReaderFactory metadatareaderfactory)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取当前类注解的信息</span></span><br><span class="line">    AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();</span><br><span class="line">    <span class="comment">//获取当前正在扫描类的类信息</span></span><br><span class="line">    ClassMetadata classMetadata = metadataReader.getClassMetadata();</span><br><span class="line">    <span class="comment">//获取当前类资源信息(类的路径)</span></span><br><span class="line">    Resource resource = metadataReader.getResource();</span><br><span class="line">    <span class="comment">//classMetadata 可以获取到当前类名 当前类子类、父类类名</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -239,7 +239,7 @@
   <entry>
     <title>JavaSpringNotes</title>
     <url>/2020/05/08/JavaSpringNotes/</url>
-    <content><![CDATA[<p>This is a personal notes for Java spring framework</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes for Java spring framework</p>
 <div class="toc">
 
 <!-- toc -->
@@ -376,7 +376,7 @@
   <entry>
     <title>C#-working-notes</title>
     <url>/2020/02/19/C-working-notes/</url>
-    <content><![CDATA[<div class="toc">
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><div class="toc">
 
 <!-- toc -->
 <ul>
@@ -413,7 +413,7 @@
   <entry>
     <title>DatabaseReview</title>
     <url>/2020/02/18/DatabaseRev/</url>
-    <content><![CDATA[<p>This is a review reference and some notes/my own understanding of datbase course.<br>REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a review reference and some notes/my own understanding of datbase course.<br>REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2466,7 +2466,7 @@
   <entry>
     <title>Algorithms review 3 Amortized Analysis</title>
     <url>/2020/02/01/AlgorithmsRev3/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2575,7 +2575,7 @@
   <entry>
     <title>Algorithms review 5 Greedy Algorithms</title>
     <url>/2020/02/01/AlgorithmsRev5/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2600,7 +2600,7 @@
   <entry>
     <title>Algorithms review 2 Trees and Graphs</title>
     <url>/2020/01/30/AlgorithmsRev2/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2705,7 +2705,7 @@
   <entry>
     <title>Algorithms review 1 Runtime Complexity</title>
     <url>/2020/01/29/AlgorithmsRev1/</url>
-    <content><![CDATA[<p>This is a personal notes of algorithms courses</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2788,12 +2788,12 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
   <entry>
     <title>latex</title>
     <url>/2020/01/13/latex/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">]]></content>
   </entry>
   <entry>
     <title>MYSQL NOTES</title>
     <url>/2020/01/04/MySqlNotes/</url>
-    <content><![CDATA[<p>This is a note of MySQL datbase for future review</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a note of MySQL datbase for future review</p>
 <div class="toc">
 
 <!-- toc -->
@@ -2884,7 +2884,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
   <entry>
     <title>Coding Interview</title>
     <url>/2019/11/27/JianZhiOfferProgramming/</url>
-    <content><![CDATA[<p>This is a record of my craking process for 剑指offer.</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a record of my craking process for 剑指offer.</p>
 <div class="toc">
 
 <!-- toc -->
@@ -3124,7 +3124,7 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
   <entry>
     <title>Java Personal Notes</title>
     <url>/2019/11/27/JavaInterviewNotes/</url>
-    <content><![CDATA[<p>This is a record of JAVA questions from Nowcoder.</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a record of JAVA questions from Nowcoder.</p>
 <p>!!!<br>Most original answers rights to the original author listed on Nowcoder websites if there is any wrong please contact me as soon as possible to do delete processing.[xjm.good@gmail.com]</p>
 <div class="toc">
 
@@ -3541,9 +3541,20 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       </tags>
   </entry>
   <entry>
+    <title>Introduction To Computer System</title>
+    <url>/2019/11/16/IntroToComSys/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">]]></content>
+      <categories>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Template Page</title>
     <url>/2019/11/16/demo/</url>
-    <content><![CDATA[<p>This is a markdown demo to quickly start</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a markdown demo to quickly start</p>
 <h1><span id="1-title">1. Title</span><a href="#1-title" class="header-anchor">#</a></h1><h1><span id="title1">Title1</span><a href="#title1" class="header-anchor">#</a></h1><h2><span id="title2">Title2</span><a href="#title2" class="header-anchor">#</a></h2><h3><span id="title3">Title3</span><a href="#title3" class="header-anchor">#</a></h3><h4><span id="title4">Title4</span><a href="#title4" class="header-anchor">#</a></h4><h5><span id="title5">Title5</span><a href="#title5" class="header-anchor">#</a></h5><h6><span id="title6">Title6</span><a href="#title6" class="header-anchor">#</a></h6><h1><span id="2-blod">2. Blod</span><a href="#2-blod" class="header-anchor">#</a></h1><p><strong>Blod Text</strong></p>
 <p>Non Blod Text</p>
 <h1><span id="3-italic">3. Italic</span><a href="#3-italic" class="header-anchor">#</a></h1><p>/<em>italic</em>/<br>_italic_</p>
@@ -3748,20 +3759,9 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       </tags>
   </entry>
   <entry>
-    <title>Introduction To Computer System</title>
-    <url>/2019/11/16/IntroToComSys/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Computer Architecture</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++</title>
     <url>/2019/06/09/C/</url>
-    <content><![CDATA[<p>asfd<br>asfd<br>asf<br>asf<br>sadfa<br>s</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>asfd<br>asfd<br>asf<br>asf<br>sadfa<br>s</p>
 ]]></content>
       <categories>
         <category>projects</category>

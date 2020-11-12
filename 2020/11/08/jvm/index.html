@@ -20,13 +20,13 @@
     var CONFIG = {"hostname":"blobming.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Jvm#Java 体系结构# Java 的整体结构# HotSpot VM是目前市面上高性能虚拟机的代表作之一。 它采用解释器与即时编译器并存的架构。 在今天，Java程序的运行性能早已脱胎换骨，已经达到了可以和C&#x2F;C++程序一较高下的地步。 执行引擎包含三部分：解释器，即时编译器，垃圾回收器">
+  <meta name="description" content="Jvm#Java 体系结构# Java 的整体结构#">
 <meta name="keywords" content="Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm">
 <meta property="og:url" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;11&#x2F;08&#x2F;jvm&#x2F;index.html">
 <meta property="og:site_name" content="Jiaming&#39;s Blog">
-<meta property="og:description" content="Jvm#Java 体系结构# Java 的整体结构# HotSpot VM是目前市面上高性能虚拟机的代表作之一。 它采用解释器与即时编译器并存的架构。 在今天，Java程序的运行性能早已脱胎换骨，已经达到了可以和C&#x2F;C++程序一较高下的地步。 执行引擎包含三部分：解释器，即时编译器，垃圾回收器">
+<meta property="og:description" content="Jvm#Java 体系结构# Java 的整体结构#">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;11&#x2F;08&#x2F;jvm&#x2F;aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;blobming.github.io&#x2F;2020&#x2F;11&#x2F;08&#x2F;jvm&#x2F;aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTMyMzMwNjgyLnBuZw.png">
@@ -229,7 +229,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1><span id="jvm">Jvm</span><a href="#jvm" class="header-anchor">#</a></h1><h2><span id="java-ti-xi-jie-gou">Java 体系结构</span><a href="#java-ti-xi-jie-gou" class="header-anchor">#</a></h2><p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw"></p>
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1><span id="jvm">Jvm</span><a href="#jvm" class="header-anchor">#</a></h1><h2><span id="java-ti-xi-jie-gou">Java 体系结构</span><a href="#java-ti-xi-jie-gou" class="header-anchor">#</a></h2><p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTIzNTExNTAxLnBuZw"></p>
 <h2><span id="java-de-zheng-ti-jie-gou">Java 的整体结构</span><a href="#java-de-zheng-ti-jie-gou" class="header-anchor">#</a></h2><ol>
 <li>HotSpot VM是目前市面上高性能虚拟机的代表作之一。</li>
 <li>它采用<strong>解释器与即时编译器并存的架构</strong>。</li>
