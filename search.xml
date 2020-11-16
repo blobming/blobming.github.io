@@ -130,6 +130,61 @@
 <li><strong>若该类具有父类，JVM会保证子类的<code>&lt;clinit&gt;()</code>执行前，父类的<code>&lt;clinit&gt;()</code>已经执行完毕</strong></li>
 <li><strong>虚拟机必须保证一个类的<code>&lt;clinit&gt;()</code>方法在多线程下被同步加锁</strong></li>
 </ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassInitTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">10</span>;      <span class="comment">//linking之prepare: number = 0 --&gt; initial: 10 --&gt; 20</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        num = <span class="number">2</span>;</span><br><span class="line">        number = <span class="number">20</span>;</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        <span class="comment">//System.out.println(number);    //报错：非法的前向引用（可以赋值，但不能调用）</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ClassInitTest.num);<span class="comment">//2</span></span><br><span class="line">        System.out.println(ClassInitTest.number);<span class="comment">//10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态变量 number 的值变化过程如下</p>
+<ul>
+<li>准备阶段时：0</li>
+<li>执行静态变量初始化：10</li>
+<li>执行静态代码块：20</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">blic <span class="class"><span class="keyword">class</span> <span class="title">ClassInitTest</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">static</span>&#123;</span><br><span class="line">       num = <span class="number">2</span>;</span><br><span class="line">       number = <span class="number">20</span>;</span><br><span class="line">       System.out.println(num);</span><br><span class="line">       <span class="comment">//System.out.println(number);    //报错：非法的前向引用（可以赋值，但不能调用）</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">10</span>;      <span class="comment">//linking之prepare: number = 0 --&gt; initial: 20 --&gt; 10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ClassInitTest.num);		<span class="comment">//2</span></span><br><span class="line">        System.out.println(ClassInitTest.number);	<span class="comment">//10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态变量 number 的值变化过程如下</p>
+<ul>
+<li>准备阶段时：0</li>
+<li>执行静态代码块：20</li>
+<li>执行静态变量初始化：10</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClinitTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//任何一个类声明以后，内部至少存在一个类的构造器</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClinitTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> d = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在构造器中：<ul>
+<li>先将类变量 a 赋值为 10</li>
+<li>再将局部变量赋值为 20</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClinitTest1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> A = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">static</span>&#123;</span><br><span class="line">            A = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> B = A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//加载Father类，其次加载Son类。</span></span><br><span class="line">        System.out.println(Son.B);<span class="comment">//2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上代码，加载流程如下：</p>
+<ul>
+<li>首先，执行 main() 方法需要加载 ClinitTest1 类</li>
+<li>获取 Son.B 静态变量，需要加载 Son 类</li>
+<li>Son 类的父类是 Father 类，所以需要先执行 Father 类的加载，再执行 Son 类的加载</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Runnable r = () -&gt; &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"开始"</span>);</span><br><span class="line">            DeadThread dead = <span class="keyword">new</span> DeadThread();</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"结束"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(r, <span class="string">"线程1"</span>);</span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(r, <span class="string">"线程2"</span>);</span><br><span class="line"></span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DeadThread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"初始化当前类"</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序卡死，分析原因：</p>
+<ul>
+<li>两个线程同时去加载 DeadThread 类，而 DeadThread 类中静态代码块中有一处死循环</li>
+<li>先加载 DeadThread 类的线程抢到了同步锁，然后在类的静态代码块中执行死循环，而另一个线程在等待同步锁的释放</li>
+<li>所以无论哪个线程先执行 DeadThread 类的加载，另外一个类也不会继续执行</li>
+</ul>
+<h2><span id="lei-jia-zai-qi-de-fen-lei">类加载器的分类</span><a href="#lei-jia-zai-qi-de-fen-lei" class="header-anchor">#</a></h2><h3><span id="lei-jia-zai-qi-gai-shu">类加载器概述</span><a href="#lei-jia-zai-qi-gai-shu" class="header-anchor">#</a></h3><p>类加载器的分类</p>
+<ol>
+<li><strong>JVM支持两种类型的类加载器 。分别为引导类加载器（Bootstrap ClassLoader）和自定义类加载器（User-Defined ClassLoader）</strong></li>
+<li>从概念上来讲，自定义类加载器一般指的是程序中由开发人员自定义的一类类加载器，但是Java虚拟机规范却没有这么定义，而是<strong>将所有派生于抽象类ClassLoader的类加载器都划分为自定义类加载器</strong></li>
+<li>无论类加载器的类型如何划分，在程序中我们最常见的类加载器始终只有3个，如下所示</li>
+<li>这里的四者之间是包含关系，不是上层和下层，也不是子父类的继承关系。</li>
+</ol>
+<p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzA1MDk0MTQ5MjIzLnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzA1MDk0MTQ5MjIzLnBuZw"></p>
+<p>ExtClassLoader 继承树</p>
+<p><img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTcwODM3NTM4LnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTcwODM3NTM4LnBuZw"></p>
+<ul>
+<li>AppClassLoader 继承树<img src="/2020/11/08/jvm/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTcwOTE4MDM3LnBuZw.png" alt="aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTcwOTE4MDM3LnBuZw"></li>
+</ul>
+<p><strong>代码</strong>：</p>
+<ul>
+<li>我们尝试获取引导类加载器，获取到的值为 null ，这并不代表引导类加载器不存在，<strong>因为引导类加载器右 C/C++ 语言，我们获取不到</strong></li>
+<li>两次获取系统类加载器的值都相同：sun.misc.Launcher$AppClassLoader@18b4aac2 ，这说明<strong>系统类加载器是全局唯一的</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取系统类加载器</span></span><br><span class="line">        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();</span><br><span class="line">        System.out.println(systemClassLoader);<span class="comment">//sun.misc.Launcher$AppClassLoader@18b4aac2</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取其上层：扩展类加载器</span></span><br><span class="line">        ClassLoader extClassLoader = systemClassLoader.getParent();</span><br><span class="line">        System.out.println(extClassLoader);<span class="comment">//sun.misc.Launcher$ExtClassLoader@1540e19d</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取其上层：获取不到引导类加载器</span></span><br><span class="line">        ClassLoader bootstrapClassLoader = extClassLoader.getParent();</span><br><span class="line">        System.out.println(bootstrapClassLoader);<span class="comment">//null</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对于用户自定义类来说：默认使用系统类加载器进行加载</span></span><br><span class="line">        ClassLoader classLoader = ClassLoaderTest<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>()</span>;</span><br><span class="line">        System.out.println(classLoader);<span class="comment">//sun.misc.Launcher$AppClassLoader@18b4aac2</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//String类使用引导类加载器进行加载的。---&gt; Java的核心类库都是使用引导类加载器进行加载的。</span></span><br><span class="line">        ClassLoader classLoader1 = String<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>()</span>;</span><br><span class="line">        System.out.println(classLoader1);<span class="comment">//null</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -2464,6 +2519,31 @@
       </categories>
   </entry>
   <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <url>/2020/02/01/AlgorithmsRev5/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#optimization-problem">Optimization problem</a></li>
+<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
+<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
+<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
+      <categories>
+        <category>Algorithms</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithms review 3 Amortized Analysis</title>
     <url>/2020/02/01/AlgorithmsRev3/</url>
     <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
@@ -2564,31 +2644,6 @@
 <script type="math/tex; mode=display">\lim_{n\to\infty}\frac{3\cdot2^n}{1+2^n} = 3</script><p>So the amortized cost of insertion is constant, namely $O(3)$. This method is called _aggegate_ method which seeks an upper bound on the total running time of a sequence of operations.</p>
 <h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
 ]]></content>
-      <categories>
-        <category>Algorithms</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algorithms review 5 Greedy Algorithms</title>
-    <url>/2020/02/01/AlgorithmsRev5/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This is a personal notes of algorithms courses</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#optimization-problem">Optimization problem</a></li>
-<li><a href="#suboptimal-solution">Suboptimal solution</a></li>
-</ul>
-<!-- tocstop -->
-</div>
-
-<h2><span id="optimization-problem">Optimization problem</span><a href="#optimization-problem" class="header-anchor">#</a></h2><p>We are to make a change of $0.40 using US currency and assuming that there is an unlimited supply of coins.</p>
-<p>Like the graph shown before, the height of the tree would be $h$, and the total time complexity of all choices would be $O(4^h)$. But we only need the most optimal choice, we always choose the coin which has the largest value. Then our choice will become $40 = 25+30+5$. The greedy algorithms is that instead we go through the whole tree, we only go through a single branches. Then the time compleity would be lower to $O(h)$.</p>
-<h2><span id="suboptimal-solution">Suboptimal solution</span><a href="#suboptimal-solution" class="header-anchor">#</a></h2>]]></content>
       <categories>
         <category>Algorithms</category>
       </categories>
