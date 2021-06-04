@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2021-06-03T05:25:47.230Z</updated>
+  <updated>2021-06-04T05:36:05.567Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-6-3-2021</title>
+    <link href="https://blobming.github.io/2021/06/03/leetcode-6-3-2021/"/>
+    <id>https://blobming.github.io/2021/06/03/leetcode-6-3-2021/</id>
+    <published>2021-06-04T05:20:10.000Z</published>
+    <updated>2021-06-04T05:36:05.567Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css&quot;&gt;&lt;p&gt;This is a record of my craking process for Leetcode.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-number-of-ways-to-paint-n-x-3-grid-1411&quot;&gt;1. Number of Ways to Paint N × 3 Grid(#1411)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-1-soulution&quot;&gt;1.1 Soulution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-robot-bounded-in-circle-1041&quot;&gt;2. Robot Bounded In Circle (#1041)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#2-1-soulution&quot;&gt;2.1 Soulution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;&lt;span id=&quot;1-number-of-ways-to-paint-n-x-3-grid-1411&quot;&gt;1. Number of Ways to Paint N × 3 Grid(#1411)&lt;/span&gt;&lt;a href=&quot;#1-number-of-ways-to-paint-n-x-3-grid-1411&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;1-1-soulution&quot;&gt;1.1 Soulution&lt;/span&gt;&lt;a href=&quot;#1-1-soulution&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+      <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+      <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode-6-2-2021</title>
@@ -984,31 +1024,6 @@ Suppose we have input size = n, Now we have 6 leaves in this decision tree which
       <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
     
       <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++</title>
-    <link href="https://blobming.github.io/2019/06/09/C/"/>
-    <id>https://blobming.github.io/2019/06/09/C/</id>
-    <published>2019-06-09T14:10:00.000Z</published>
-    <updated>2021-05-21T17:08:24.699Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="projects" scheme="https://blobming.github.io/categories/projects/"/>
-    
     
   </entry>
   
