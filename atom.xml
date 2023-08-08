@@ -6,7 +6,7 @@
   <link href="https://blobming.github.io/atom.xml" rel="self"/>
   
   <link href="https://blobming.github.io/"/>
-  <updated>2021-06-04T05:20:10.000Z</updated>
+  <updated>2023-08-08T21:48:18.000Z</updated>
   <id>https://blobming.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-08/08/2022</title>
+    <link href="https://blobming.github.io/2023/08/08/leetcode-8-8-2022/"/>
+    <id>https://blobming.github.io/2023/08/08/leetcode-8-8-2022/</id>
+    <published>2023-08-08T21:48:18.000Z</published>
+    <updated>2023-08-08T21:48:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of my craking process for Leetcode.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode-6-3-2021</title>
@@ -554,34 +587,6 @@
     
     
     <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Template Page</title>
-    <link href="https://blobming.github.io/2019/11/16/demo/"/>
-    <id>https://blobming.github.io/2019/11/16/demo/</id>
-    <published>2019-11-16T20:13:02.000Z</published>
-    <updated>2019-11-16T20:13:02.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;This is a markdown demo to quickly start&lt;/p&gt;
-&lt;h1&gt;&lt;span id=&quot;1-title&quot;&gt;1. Title&lt;/span&gt;&lt;a href=&quot;#1-title&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Blog" scheme="https://blobming.github.io/categories/Blog/"/>
-    
-    
-    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
-    
-    <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
     
   </entry>
   
