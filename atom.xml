@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jiaming&#39;s Blog</title>
+  
+  
+  <link href="https://blobming.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://blobming.github.io/"/>
+  <updated>2023-08-08T15:17:28.717Z</updated>
+  <id>https://blobming.github.io/</id>
+  
+  <author>
+    <name>Jiaming Xu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-6-3-2021</title>
+    <link href="https://blobming.github.io/2021/06/03/leetcode-6-3-2021/"/>
+    <id>https://blobming.github.io/2021/06/03/leetcode-6-3-2021/</id>
+    <published>2021-06-04T05:20:10.000Z</published>
+    <updated>2023-08-08T15:17:28.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of my craking process for Leetcode.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-6-2-2021</title>
+    <link href="https://blobming.github.io/2021/06/02/leetcode-6-2-2021/"/>
+    <id>https://blobming.github.io/2021/06/02/leetcode-6-2-2021/</id>
+    <published>2021-06-03T04:18:10.000Z</published>
+    <updated>2023-08-08T15:17:28.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of my craking process for Leetcode.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-6-1-2021</title>
+    <link href="https://blobming.github.io/2021/06/01/leetcode-6-1-2021/"/>
+    <id>https://blobming.github.io/2021/06/01/leetcode-6-1-2021/</id>
+    <published>2021-06-02T05:21:52.000Z</published>
+    <updated>2023-08-08T15:17:28.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of my craking process for Leetcode.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="LeetCode" scheme="https://blobming.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning Rust</title>
+    <link href="https://blobming.github.io/2021/05/21/Learning-Rust/"/>
+    <id>https://blobming.github.io/2021/05/21/Learning-Rust/</id>
+    <published>2021-05-21T17:11:46.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Here is my personal notes for Rust&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&quot;mutable-ref-and-immutable-ref&quot;&gt;mutable ref and immutable ref&lt;/span&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Rust" scheme="https://blobming.github.io/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm</title>
+    <link href="https://blobming.github.io/2020/11/08/jvm/"/>
+    <id>https://blobming.github.io/2020/11/08/jvm/</id>
+    <published>2020-11-09T03:37:55.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;jvm&quot;&gt;Jvm&lt;/span&gt;&lt;a href=&quot;#jvm&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;java-ti-xi-jie-gou&quot;&gt;Java 体系结构&lt;/span&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://blobming.github.io/categories/Java/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCodeDailyNotes</title>
+    <link href="https://blobming.github.io/2020/06/03/LeetCodeDailyNotes/"/>
+    <id>https://blobming.github.io/2020/06/03/LeetCodeDailyNotes/</id>
+    <published>2020-06-03T15:18:02.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;leetcode-daily-notes&quot;&gt;LeetCode Daily Notes&lt;/span&gt;&lt;a href=&quot;#leetcode-daily-notes&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="Leetcode" scheme="https://blobming.github.io/categories/Leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Annotation Notes</title>
+    <link href="https://blobming.github.io/2020/05/25/Spring-Annotation-Notes/"/>
+    <id>https://blobming.github.io/2020/05/25/Spring-Annotation-Notes/</id>
+    <published>2020-05-26T04:52:30.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;spring-zhu-jie-qu-dong-kai-fa&quot;&gt;Spring 注解驱动开发&lt;/span&gt;&lt;a href=&quot;#spring-zhu-jie-qu-dong-kai-fa&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Spring" scheme="https://blobming.github.io/categories/Spring/"/>
+    
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaSpringNotes</title>
+    <link href="https://blobming.github.io/2020/05/08/JavaSpringNotes/"/>
+    <id>https://blobming.github.io/2020/05/08/JavaSpringNotes/</id>
+    <published>2020-05-09T02:30:58.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a personal notes for Java spring framework&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#spring-introduction&quot;&gt;Spring</summary>
+        
+      
+    
+    
+    
+    <category term="Spring" scheme="https://blobming.github.io/categories/Spring/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#-working-notes</title>
+    <link href="https://blobming.github.io/2020/02/19/C-working-notes/"/>
+    <id>https://blobming.github.io/2020/02/19/C-working-notes/</id>
+    <published>2020-02-19T21:39:23.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#basic-grammer&quot;&gt;Basic grammer&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="C#" scheme="https://blobming.github.io/categories/C/"/>
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/tags/Programming/"/>
+    
+    <category term="ASP.NET" scheme="https://blobming.github.io/tags/ASP-NET/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DatabaseReview</title>
+    <link href="https://blobming.github.io/2020/02/18/DatabaseRev/"/>
+    <id>https://blobming.github.io/2020/02/18/DatabaseRev/</id>
+    <published>2020-02-19T03:37:59.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a review reference and some notes&amp;#x2F;my own understanding of datbase course.&lt;br&gt;REFERENCE to CSCI 585 2020 SPRING lectured by</summary>
+        
+      
+    
+    
+    
+    <category term="Database" scheme="https://blobming.github.io/categories/Database/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 3 Amortized Analysis</title>
+    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev3/"/>
+    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev3/</id>
+    <published>2020-02-01T17:54:28.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 5 Greedy Algorithms</title>
+    <link href="https://blobming.github.io/2020/02/01/AlgorithmsRev5/"/>
+    <id>https://blobming.github.io/2020/02/01/AlgorithmsRev5/</id>
+    <published>2020-02-01T17:54:28.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 2 Trees and Graphs</title>
+    <link href="https://blobming.github.io/2020/01/30/AlgorithmsRev2/"/>
+    <id>https://blobming.github.io/2020/01/30/AlgorithmsRev2/</id>
+    <published>2020-01-30T22:20:35.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms review 1 Runtime Complexity</title>
+    <link href="https://blobming.github.io/2020/01/29/AlgorithmsRev1/"/>
+    <id>https://blobming.github.io/2020/01/29/AlgorithmsRev1/</id>
+    <published>2020-01-30T02:05:25.000Z</published>
+    <updated>2023-08-08T15:17:28.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a personal notes of algorithms courses&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithms" scheme="https://blobming.github.io/categories/Algorithms/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>latex</title>
+    <link href="https://blobming.github.io/2020/01/13/latex/"/>
+    <id>https://blobming.github.io/2020/01/13/latex/</id>
+    <published>2020-01-14T04:51:15.000Z</published>
+    <updated>2023-08-08T15:17:28.717Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MYSQL NOTES</title>
+    <link href="https://blobming.github.io/2020/01/04/MySqlNotes/"/>
+    <id>https://blobming.github.io/2020/01/04/MySqlNotes/</id>
+    <published>2020-01-04T19:02:08.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a note of MySQL datbase for future review&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-basic-concept&quot;&gt;1. Basic</summary>
+        
+      
+    
+    
+    
+    <category term="Database" scheme="https://blobming.github.io/categories/Database/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="MySQL" scheme="https://blobming.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Coding Interview</title>
+    <link href="https://blobming.github.io/2019/11/27/JianZhiOfferProgramming/"/>
+    <id>https://blobming.github.io/2019/11/27/JianZhiOfferProgramming/</id>
+    <published>2019-11-28T03:48:54.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of my craking process for 剑指offer.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://blobming.github.io/categories/Programming/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Coding Interview" scheme="https://blobming.github.io/tags/Coding-Interview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Personal Notes</title>
+    <link href="https://blobming.github.io/2019/11/27/JavaInterviewNotes/"/>
+    <id>https://blobming.github.io/2019/11/27/JavaInterviewNotes/</id>
+    <published>2019-11-27T17:03:01.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a record of JAVA questions from Nowcoder.&lt;/p&gt;
+&lt;p&gt;!!!&lt;br&gt;Most original answers rights to the original author listed on Nowcoder</summary>
+        
+      
+    
+    
+    
+    <category term="Interviews" scheme="https://blobming.github.io/categories/Interviews/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="Java" scheme="https://blobming.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction To Computer System</title>
+    <link href="https://blobming.github.io/2019/11/16/IntroToComSys/"/>
+    <id>https://blobming.github.io/2019/11/16/IntroToComSys/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+    
+    
+    <category term="Computer Architecture" scheme="https://blobming.github.io/categories/Computer-Architecture/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Template Page</title>
+    <link href="https://blobming.github.io/2019/11/16/demo/"/>
+    <id>https://blobming.github.io/2019/11/16/demo/</id>
+    <published>2019-11-16T20:13:02.000Z</published>
+    <updated>2023-08-08T15:17:28.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This is a markdown demo to quickly start&lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;1-title&quot;&gt;1. Title&lt;/span&gt;&lt;a href=&quot;#1-title&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Blog" scheme="https://blobming.github.io/categories/Blog/"/>
+    
+    
+    <category term="Learning" scheme="https://blobming.github.io/tags/Learning/"/>
+    
+    <category term="MarkDown" scheme="https://blobming.github.io/tags/MarkDown/"/>
+    
+  </entry>
+  
+</feed>

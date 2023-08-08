@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blobming.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This is a personal notes of algorithms courses      Definition Upper Bound (Big-O) Lower Bound (Big-Omega) Exact Bound (Big-Theta) Lower Bound for Sorting Some tips to compare time complexity Example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithms review 1 Runtime Complexity">
+<meta property="og:url" content="https://blobming.github.io/2020/01/29/AlgorithmsRev1/index.html">
+<meta property="og:site_name" content="Jiaming&#39;s Blog">
+<meta property="og:description" content="This is a personal notes of algorithms courses      Definition Upper Bound (Big-O) Lower Bound (Big-Omega) Exact Bound (Big-Theta) Lower Bound for Sorting Some tips to compare time complexity Example">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blobming.github.io/AlgorithmsRev1/decisionTree.png">
+<meta property="article:published_time" content="2020-01-30T02:05:25.000Z">
+<meta property="article:modified_time" content="2023-08-08T15:17:28.693Z">
+<meta property="article:author" content="Jiaming Xu">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blobming.github.io/AlgorithmsRev1/decisionTree.png">
+
+
+<link rel="canonical" href="https://blobming.github.io/2020/01/29/AlgorithmsRev1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blobming.github.io/2020/01/29/AlgorithmsRev1/","path":"2020/01/29/AlgorithmsRev1/","title":"Algorithms review 1 Runtime Complexity"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Algorithms review 1 Runtime Complexity | Jiaming's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Jiaming's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jiaming's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Upper Bound (Big-O)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Lower Bound (Big-Omega)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Exact Bound (Big-Theta)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">Lower Bound for Sorting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Some tips to compare time complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.2.</span> <span class="nav-text">Example 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.3.</span> <span class="nav-text">Example 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.4.</span> <span class="nav-text">Example 4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiaming Xu"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Jiaming Xu</p>
+  <div class="site-description" itemprop="description">Personal Life record</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blobming" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blobming" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/01/29/AlgorithmsRev1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jiaming Xu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaming's Blog">
+      <meta itemprop="description" content="Personal Life record">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Algorithms review 1 Runtime Complexity | Jiaming's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Algorithms review 1 Runtime Complexity
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-29 18:05:25" itemprop="dateCreated datePublished" datetime="2020-01-29T18:05:25-08:00">2020-01-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-08 08:17:28" itemprop="dateModified" datetime="2023-08-08T08:17:28-07:00">2023-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>This is a personal notes of algorithms courses</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#upper-bound-big-o">Upper Bound (Big-O)</a></li>
+<li><a href="#lower-bound-big-omega">Lower Bound (Big-Omega)</a></li>
+<li><a href="#exact-bound-big-theta">Exact Bound (Big-Theta)</a></li>
+<li><a href="#lower-bound-for-sorting">Lower Bound for Sorting</a></li>
+<li><a href="#some-tips-to-compare-time-complexity">Some tips to compare time complexity</a><ul>
+<li><a href="#example-1">Example 1</a></li>
+<li><a href="#example-2">Example 2</a></li>
+<li><a href="#example-3">Example 3</a></li>
+<li><a href="#example-4">Example 4</a></li>
+</ul>
+</li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+
+<h2><span id="definition">Definition</span><a href="#definition" class="header-anchor">#</a></h2><ol>
+<li>We measure the run time of an algorithm by counting the number of steps and therefore define an algorithmic complexity as a numerical function T(n), where n is the input size.</li>
+<li>Constant time means the time is independent of the input size</li>
+<li>We measure the runtime of an algorithm using $\Theta$,$\Omega$,O</li>
+</ol>
+<h2><span id="upper-bound-big-o">Upper Bound (Big-O)</span><a href="#upper-bound-big-o" class="header-anchor">#</a></h2><p>For any monotonic functions with two positive number f, g,we say $f(n) &#x3D; O(g(n))$[or $f(n)\in O(g(n))$ if $g(n)$ eventually dominates $f(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \leq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is smaller or equal than $g(n)$) or we called $g(n)$ is upper bound of $f(n)$.</p>
+<h2><span id="lower-bound-big-omega">Lower Bound (Big-Omega)</span><a href="#lower-bound-big-omega" class="header-anchor">#</a></h2><p>For any monotonic functions with two positive numbers f, g,we say $f(n) &#x3D; \Omega(g(n))$[or $f(n)\in \Omega(g(n))$ if $f(n)$ eventually dominates $g(n)$]. Formally, there exists a positive real number $c&gt;0$, and a real number, $n_0$, such that $f(n) \geq c \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ is greater or equal than $g(n)$)</p>
+<h2><span id="exact-bound-big-theta">Exact Bound (Big-Theta)</span><a href="#exact-bound-big-theta" class="header-anchor">#</a></h2><p>For any monotonic functions with two positive numbers f, g,we say $f(n) &#x3D; \Theta(g(n))$[or $f(n)\in \Theta(g(n))$ if $f(n) &#x3D; \Omega(g(n))$ and $f(n) &#x3D; O(g(n))$]. Formally, there exists two positive real number $c_1$ and $c_2$, and a real number, $n_0$, such that $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$ for all $n \geq n_0$. (To be simple, when $n$ goes infinity, $f(n)$ has the same increasing rate with $g(n)$)</p>
+<h2><span id="lower-bound-for-sorting">Lower Bound for Sorting</span><a href="#lower-bound-for-sorting" class="header-anchor">#</a></h2><p>For any sorting based on comparison we must take at least($\Omega(n\log(n))$)to sort an array of n elements in the worst case. A decision tree model was introducted to illustrate this model.<br><img src="/AlgorithmsRev1/decisionTree.png" alt="Decision Tree"></p>
+<!--center>Decision Tree</center-->
+<p>Suppose we have input size &#x3D; n, Now we have 6 leaves in this decision tree which can represent as $n!$. If we make it as a Full Binary Tree, the number of leaves becomes $2^h$ where h represents its height. Hence, $2^h \geq n!$, after taking log on both sides, $h \geq\log(n!)$. Since h(the height of decision tree) represents the number of comparisons in a sorting algorithm, so $T(n) &#x3D; h \geq \log(n!)$. To simplify $\log(n!)$:<br>$$\log(n!) &#x3D; \log(n(n-1)(n-2)…1)$$<br>$$\log(n!) \geq \log(n(n-1)(n-2)…(n-n&#x2F;2))$$<br>$$\log(n!) \geq \log((n&#x2F;2)^{n&#x2F;2}) &#x3D; \Omega(n \cdot \log(n))$$</p>
+<h2><span id="some-tips-to-compare-time-complexity">Some tips to compare time complexity</span><a href="#some-tips-to-compare-time-complexity" class="header-anchor">#</a></h2><h3><span id="example-1">Example 1</span><a href="#example-1" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) &#x3D; $O(g(n))$</p>
+<p>$\log{n^n}$, $n^2$,$n^{\log n}$,$n\log\log{n}$,$2^{\log{n}}$,$\log^2{n}$,$n^{\sqrt{2}}$</p>
+<p>Tips:</p>
+<ul>
+<li>$2^{\log{n}}$ &#x3D; $n$</li>
+</ul>
+<ul>
+<li>$\log{n^n}$ &#x3D; $n\cdot\log{n}$</li>
+</ul>
+<ul>
+<li>TRICK: set n &#x3D; 1024</li>
+</ul>
+<h3><span id="example-2">Example 2</span><a href="#example-2" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) &#x3D; O(g(n))$, Is it true that $2^{f(n)} &#x3D; O(2^{g(n)})$ ?</p>
+<p>Tip : Suppose $f(n) &#x3D; 2n$ and $g(n) &#x3D; n$.</p>
+<h3><span id="example-3">Example 3</span><a href="#example-3" class="header-anchor">#</a></h3><p>Arrange the following functions in increasing order of growth rae with $g(n)$ gollowing $f(n)$ in your list if and only if f(n) &#x3D; $O(g(n))$</p>
+<p>$4^{\log n}$,$\sqrt{\log n}$,$n^{\log\log n}$,$(\sqrt{2})^{\log n}$,$2^{2\sqrt{\log n}}$,$n^{1&#x2F;\log{n}}$,$(\log{n})!$</p>
+<p>Tips:</p>
+<ul>
+<li><p>$\because$ $a^{\log_a{N}} &#x3D; N$ $\And$ $(a^m)^n &#x3D; a^{mn} &#x3D; {a^n}^m$ </p>
+<p>$\therefore$ $4^{\log n} &#x3D; n^2$</p>
+</li>
+</ul>
+<ul>
+<li><p>$\because$ $\log_a{N} &#x3D; \frac{\log_m{N}}{\log_m{a}}$</p>
+<p>$\therefore$ $\log_{a^m}{b^n} &#x3D; \frac{n}{m}\log_a{b}$ $\And$ $\log_a{b} &#x3D; \frac{1}{\log_b{a}}$</p>
+<p>$\therefore$ $n^{1&#x2F;\log{n}} &#x3D; n^{log_n{2}} &#x3D; 2$</p>
+</li>
+</ul>
+<ul>
+<li><p>$\because$ $n! &#x3D; \sqrt{2\pi{n}}(\frac{n}{e})^n$</p>
+<p>$\therefore$ $n! &#x3D; O(\sqrt{n}\cdot{n^n})$</p>
+<p>$\therefore$ $(\log{n})! &#x3D; O(\sqrt{\log{n}}\cdot(\log n)^{\log n})$</p>
+</li>
+</ul>
+<ul>
+<li><p>Set $\log{n} &#x3D; t$</p>
+<p>$n^{\log\log n} &#x3D; n^{\log t} &#x3D; n^{\frac{\log_n{t}}{\log_n{2}}} &#x3D; (n^{log_n{t}})^\frac{1}{\log_n{2}} &#x3D; t^\frac{1}{log_n{2}} &#x3D; (\log{n})^{\log{n}}$</p>
+</li>
+</ul>
+<h3><span id="example-4">Example 4</span><a href="#example-4" class="header-anchor">#</a></h3><p>Suppose that f(n) and g(n) are two positive non-dereasing functions such that $f(n) &#x3D; \Omega(g(n))$, Is it true that $2^{f(n)} &#x3D; \Omega(2^{g(n)})$ ?</p>
+<p>Tip : Suppose $f(n) &#x3D; n$ and $g(n) &#x3D; 5n$.</p>
+<h2><span id="reference">Reference</span><a href="#reference" class="header-anchor">#</a></h2><p>[1] Algorithms in Action, by V. Savvich, First Edition, 2019.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Learning/" rel="tag"># Learning</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/01/13/latex/" rel="prev" title="latex">
+                  <i class="fa fa-angle-left"></i> latex
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/01/30/AlgorithmsRev2/" rel="next" title="Algorithms review 2 Trees and Graphs">
+                  Algorithms review 2 Trees and Graphs <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jiaming Xu</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":"enable","tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

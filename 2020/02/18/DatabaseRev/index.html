@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blobming.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This is a review reference and some notes&#x2F;my own understanding of datbase course.REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California      Introduction 1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DatabaseReview">
+<meta property="og:url" content="https://blobming.github.io/2020/02/18/DatabaseRev/index.html">
+<meta property="og:site_name" content="Jiaming&#39;s Blog">
+<meta property="og:description" content="This is a review reference and some notes&#x2F;my own understanding of datbase course.REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California      Introduction 1.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/EvoDataModel.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/ADVDISDERIATTR.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/keys.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/1nf.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/2nf.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/3nf.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/SampleDatabaseStatic.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/optimizerHints.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/BUSINESS_INTELLIGENCE_FRAMEWORK.png">
+<meta property="og:image" content="https://blobming.github.io/DatabaseRev/R-M-OLAP.png">
+<meta property="article:published_time" content="2020-02-19T03:37:59.000Z">
+<meta property="article:modified_time" content="2023-08-08T15:17:28.693Z">
+<meta property="article:author" content="Jiaming Xu">
+<meta property="article:tag" content="Programming, Traveling">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blobming.github.io/DatabaseRev/EvoDataModel.png">
+
+
+<link rel="canonical" href="https://blobming.github.io/2020/02/18/DatabaseRev/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blobming.github.io/2020/02/18/DatabaseRev/","path":"2020/02/18/DatabaseRev/","title":"DatabaseReview"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DatabaseReview | Jiaming's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Jiaming's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jiaming's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">1. The difference between data and and information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">3. The importance of database design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">4. How modern databases envolved from file systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flaws in file system data management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">6. The main components of the database system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">7. The main functions of a database management system(DBMS)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Data Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">About data modeling and why data models are important</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Modeling and Data Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.2.</span> <span class="nav-text">Importance of Data Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">About the basic data-modeling building blocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">What business rules are and how they influence database design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">Hierarchical modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.5.</span> <span class="nav-text">Network modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.6.</span> <span class="nav-text">Difference between Schema and Sub Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.7.</span> <span class="nav-text">Difference between DML and DDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.8.</span> <span class="nav-text">The Relational Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.9.</span> <span class="nav-text">Relational DBMS(Database Management System)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.10.</span> <span class="nav-text">How the major data models evolved</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.11.</span> <span class="nav-text">Data Abstraction Levels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.12.</span> <span class="nav-text">The External Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.13.</span> <span class="nav-text">The Conceptual Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.14.</span> <span class="nav-text">The Internal Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.15.</span> <span class="nav-text">The Physical Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.16.</span> <span class="nav-text">About emerging alternative data models and the need they fulfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.17.</span> <span class="nav-text">How data models can be classified by their level of abstraction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">ER</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">Entity Relationship Model (ERM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">Relationships</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Relational Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">A Logical View of Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.2.</span> <span class="nav-text">Keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.3.</span> <span class="nav-text">Determination</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.4.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.5.</span> <span class="nav-text">Types of Keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.6.</span> <span class="nav-text">Ways to Handle Nulls</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.7.</span> <span class="nav-text">Relational Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.8.</span> <span class="nav-text">Relational Set Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.9.</span> <span class="nav-text">Data Dictionary and the System Catalog(hold metadata)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">Extended ER (“EER”)-&gt; Advanced data modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">Extended Entity Relationship Model (EERM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.2.</span> <span class="nav-text">Entity Supertypes and Subtypes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.3.</span> <span class="nav-text">Specialization Hierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.4.</span> <span class="nav-text">Inheritanc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.5.</span> <span class="nav-text">Subtype Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.6.</span> <span class="nav-text">Disjoint and Overlapping Constraints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.7.</span> <span class="nav-text">Completeness Constraint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.8.</span> <span class="nav-text">Entity Cluster</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">Normalization (Do normalization once a time one entity a time)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.2.</span> <span class="nav-text">Need for Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.3.</span> <span class="nav-text">Normalization Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.4.</span> <span class="nav-text">Normal Forms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.5.</span> <span class="nav-text">Functional Dependence Concepts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.6.</span> <span class="nav-text">Types of Functional Dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.7.</span> <span class="nav-text">Conversion to First Normal Form</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.8.</span> <span class="nav-text">Conversion to Two Normal Form</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.9.</span> <span class="nav-text">Conversion to Third Normal Form</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.10.</span> <span class="nav-text">Requirements for Good Normalized Set of Tables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.11.</span> <span class="nav-text">Denormalization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Transaction Management</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.1.</span> <span class="nav-text">Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.2.</span> <span class="nav-text">Transaction Properities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.3.</span> <span class="nav-text">Transaction Management with SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.4.</span> <span class="nav-text">Transaction log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.5.</span> <span class="nav-text">Concurrency Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.6.</span> <span class="nav-text">The Scheduler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.7.</span> <span class="nav-text">Concurrency Control with Locking Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.8.</span> <span class="nav-text">Lock Granularity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.9.</span> <span class="nav-text">Lock Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.10.</span> <span class="nav-text">Two-Phase Locking (2PL) -&gt; avoid deadlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.11.</span> <span class="nav-text">Deadlocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.12.</span> <span class="nav-text">Time Stamping -&gt; prevent deadlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.13.</span> <span class="nav-text">Wait&#x2F;Die and Wound&#x2F;Wait Concurrency Control Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.14.</span> <span class="nav-text">Phases of Optimistic Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">Distributed DBs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.1.</span> <span class="nav-text">Vertical scalling and horizontal scalling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.2.</span> <span class="nav-text">Distributed Processing and Distributed Databases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.3.</span> <span class="nav-text">Functions of Distributed DBMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.4.</span> <span class="nav-text">DDBMS Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.5.</span> <span class="nav-text">Single-Site Processing, Single-Site Data(MPSD) pretty simple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.6.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.7.</span> <span class="nav-text">Multiple-Site Processing, Single-Site Data (MPSD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.8.</span> <span class="nav-text">Restrictions of DDBMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.9.</span> <span class="nav-text">Distributed Requests and Distributed Transactions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.10.</span> <span class="nav-text">Distributed Concurrency Control (2PC 2 phrase commit)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.11.</span> <span class="nav-text">Two-Phase Commit Protocol(2PC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.12.</span> <span class="nav-text">Transparency (Hide sth to users)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.13.</span> <span class="nav-text">Distributed Database Design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.14.</span> <span class="nav-text">Data Fragmentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.15.</span> <span class="nav-text">Data Replication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.16.</span> <span class="nav-text">Data Replication Scenarios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.17.</span> <span class="nav-text">Data Allocation Strategies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.18.</span> <span class="nav-text">The CAP Theorem (That’s what u need consider when you design a database)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.19.</span> <span class="nav-text">Database Connectivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.20.</span> <span class="nav-text">Various connectivity options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.21.</span> <span class="nav-text">Components of ODBC Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.22.</span> <span class="nav-text">Object Linking and Embedding for Database (OLE-DB) Database becomes object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.23.</span> <span class="nav-text">Database Internet Connectivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.24.</span> <span class="nav-text">Web-to-Database Middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.25.</span> <span class="nav-text">Client-Side Extensions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">Performance Tuning and Query Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.1.</span> <span class="nav-text">Tuning(Database Performance-Tuning Concepts)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.2.</span> <span class="nav-text">Performance Tuning: Client and Server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.2.1.</span> <span class="nav-text">Client side</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.2.2.</span> <span class="nav-text">Server side</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.3.</span> <span class="nav-text">DBMS Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.4.</span> <span class="nav-text">Database Query Optimization Modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.5.</span> <span class="nav-text">Classification of Operation Modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.6.</span> <span class="nav-text">Based on Timing of Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.7.</span> <span class="nav-text">Type of Information Used to Optimize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.8.</span> <span class="nav-text">Sample Database Statistics Measurements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.9.</span> <span class="nav-text">Query Processing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.10.</span> <span class="nav-text">SQL Parsing Phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.11.</span> <span class="nav-text">SQL Execution Phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.12.</span> <span class="nav-text">SQL Fetching Phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.13.</span> <span class="nav-text">Query Processing Bottlenecks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.14.</span> <span class="nav-text">Indexes and Query Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.15.</span> <span class="nav-text">Indexes and Query Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.16.</span> <span class="nav-text">index Selectivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.17.</span> <span class="nav-text">Optimizer Choices -&gt; statisitc-based</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.18.</span> <span class="nav-text">Using Hints to Affect Optimizer Choices</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.19.</span> <span class="nav-text">Conditional Expressions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.20.</span> <span class="nav-text">Query Formulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.21.</span> <span class="nav-text">DBMS Performance Tuning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">Business Intelligence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.1.</span> <span class="nav-text">Business Intelligence(BI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.2.</span> <span class="nav-text">Business Intelligence Benefits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.3.</span> <span class="nav-text">Decision Support Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.4.</span> <span class="nav-text">Decision Support Database Requirements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.5.</span> <span class="nav-text">Data Marts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.6.</span> <span class="nav-text">Components of Star Schemas</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.7.</span> <span class="nav-text">Performance-Improving Techniques for the Star Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.8.</span> <span class="nav-text">Data Anaytics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.9.</span> <span class="nav-text">OLAP-&gt; Online Analytical Processing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.10.</span> <span class="nav-text">Relational Online Analytical Processing (ROLAP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.11.</span> <span class="nav-text">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.12.</span> <span class="nav-text">SQL Extensions for OLAP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">10.12.1.</span> <span class="nav-text">The ROLLUP extension(get upper domian data sorted by lower dimension)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">10.12.2.</span> <span class="nav-text">The CUBE extension(only get total by one dimension separately)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.13.</span> <span class="nav-text">Data lake</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">Discussion1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">Discussion 2</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiaming Xu"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Jiaming Xu</p>
+  <div class="site-description" itemprop="description">Personal Life record</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blobming" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blobming" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blobming.github.io/2020/02/18/DatabaseRev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jiaming Xu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaming's Blog">
+      <meta itemprop="description" content="Personal Life record">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="DatabaseReview | Jiaming's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DatabaseReview
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-18 19:37:59" itemprop="dateCreated datePublished" datetime="2020-02-18T19:37:59-08:00">2020-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-08 08:17:28" itemprop="dateModified" datetime="2023-08-08T08:17:28-07:00">2023-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>This is a review reference and some notes&#x2F;my own understanding of datbase course.<br>REFERENCE to CSCI 585 2020 SPRING lectured by Prof. Saty in University of Southern California</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#1-the-difference-between-data-and-and-information">1. The difference between data and and information</a></li>
+<li><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</a></li>
+<li><a href="#3-the-importance-of-database-design">3. The importance of database design</a></li>
+<li><a href="#4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</a></li>
+<li><a href="#5-flaws-in-file-system-data-management">5. Flaws in file system data management</a></li>
+<li><a href="#6-the-main-components-of-the-database-system">6. The main components of the database system</a></li>
+<li><a href="#7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</a></li>
+</ul>
+</li>
+<li><a href="#data-modeling">Data Modeling</a><ul>
+<li><a href="#about-data-modeling-and-why-data-models-are-important">About data modeling and why data models are important</a><ul>
+<li><a href="#data-modeling-and-data-models">Data Modeling and Data Models</a></li>
+<li><a href="#importance-of-data-models">Importance of Data Models</a></li>
+</ul>
+</li>
+<li><a href="#about-the-basic-data-modeling-building-blocks">About the basic data-modeling building blocks</a></li>
+<li><a href="#what-business-rules-are-and-how-they-influence-database-design">What business rules are and how they influence database design</a></li>
+<li><a href="#hierarchical-modeling">Hierarchical modeling</a></li>
+<li><a href="#network-modeling">Network modeling</a></li>
+<li><a href="#difference-between-schema-and-sub-schema">Difference between Schema and Sub Schema</a></li>
+<li><a href="#difference-between-dml-and-ddl">Difference between DML and DDL</a></li>
+<li><a href="#the-relational-model">The Relational Model</a></li>
+<li><a href="#relational-dbms-database-management-system">Relational DBMS(Database Management System)</a></li>
+<li><a href="#how-the-major-data-models-evolved">How the major data models evolved</a></li>
+<li><a href="#data-abstraction-levels">Data Abstraction Levels</a></li>
+<li><a href="#the-external-model">The External Model</a></li>
+<li><a href="#the-conceptual-model">The Conceptual Model</a></li>
+<li><a href="#the-internal-model">The Internal Model</a></li>
+<li><a href="#the-physical-model">The Physical Model</a></li>
+<li><a href="#about-emerging-alternative-data-models-and-the-need-they-fulfill">About emerging alternative data models and the need they fulfill</a></li>
+<li><a href="#how-data-models-can-be-classified-by-their-level-of-abstraction">How data models can be classified by their level of abstraction</a></li>
+</ul>
+</li>
+<li><a href="#er">ER</a><ul>
+<li><a href="#entity-relationship-model-erm">Entity Relationship Model (ERM)</a></li>
+<li><a href="#attributes">Attributes</a></li>
+<li><a href="#relationships">Relationships</a></li>
+</ul>
+</li>
+<li><a href="#relational-modeling">Relational Modeling</a><ul>
+<li><a href="#a-logical-view-of-data">A Logical View of Data</a></li>
+<li><a href="#keys">Keys</a></li>
+<li><a href="#determination">Determination</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#types-of-keys">Types of Keys</a></li>
+<li><a href="#ways-to-handle-nulls">Ways to Handle Nulls</a></li>
+<li><a href="#relational-algebra">Relational Algebra</a></li>
+<li><a href="#relational-set-operators">Relational Set Operators</a></li>
+<li><a href="#data-dictionary-and-the-system-catalog-hold-metadata">Data Dictionary and the System Catalog(hold metadata)</a></li>
+</ul>
+</li>
+<li><a href="#extended-er-eer-advanced-data-modeling">Extended ER (“EER”)-&gt; Advanced data modeling</a><ul>
+<li><a href="#extended-entity-relationship-model-eerm">Extended Entity Relationship Model (EERM)</a></li>
+<li><a href="#entity-supertypes-and-subtypes">Entity Supertypes and Subtypes</a></li>
+<li><a href="#specialization-hierarchy">Specialization Hierarchy</a></li>
+<li><a href="#inheritanc">Inheritanc</a></li>
+<li><a href="#subtype-discriminator">Subtype Discriminator</a></li>
+<li><a href="#disjoint-and-overlapping-constraints">Disjoint and Overlapping Constraints</a></li>
+<li><a href="#completeness-constraint">Completeness Constraint</a></li>
+<li><a href="#entity-cluster">Entity Cluster</a></li>
+</ul>
+</li>
+<li><a href="#normalization">Normalization</a><ul>
+<li><a href="#normalization-do-normalization-once-a-time-one-entity-a-time">Normalization (Do normalization once a time one entity a time)</a></li>
+<li><a href="#need-for-normalization">Need for Normalization</a></li>
+<li><a href="#normalization-process">Normalization Process</a></li>
+<li><a href="#normal-forms">Normal Forms</a></li>
+<li><a href="#functional-dependence-concepts">Functional Dependence Concepts</a></li>
+<li><a href="#types-of-functional-dependencies">Types of Functional Dependencies</a></li>
+<li><a href="#conversion-to-first-normal-form">Conversion to First Normal Form</a></li>
+<li><a href="#conversion-to-two-normal-form">Conversion to Two Normal Form</a></li>
+<li><a href="#conversion-to-third-normal-form">Conversion to Third Normal Form</a></li>
+<li><a href="#requirements-for-good-normalized-set-of-tables">Requirements for Good Normalized Set of Tables</a></li>
+<li><a href="#denormalization">Denormalization</a></li>
+</ul>
+</li>
+<li><a href="#transaction-management">Transaction Management</a><ul>
+<li><a href="#transaction">Transaction</a></li>
+<li><a href="#transaction-properities">Transaction Properities</a></li>
+<li><a href="#transaction-management-with-sql">Transaction Management with SQL</a></li>
+<li><a href="#transaction-log">Transaction log</a></li>
+<li><a href="#concurrency-control">Concurrency Control</a></li>
+<li><a href="#the-scheduler">The Scheduler</a></li>
+<li><a href="#concurrency-control-with-locking-methods">Concurrency Control with Locking Methods</a></li>
+<li><a href="#lock-granularity">Lock Granularity</a></li>
+<li><a href="#lock-types">Lock Types</a></li>
+<li><a href="#two-phase-locking-2pl-avoid-deadlock">Two-Phase Locking (2PL) -&gt; avoid deadlock</a></li>
+<li><a href="#deadlocks">Deadlocks</a></li>
+<li><a href="#time-stamping-prevent-deadlock">Time Stamping -&gt; prevent deadlock</a></li>
+<li><a href="#wait-die-and-wound-wait-concurrency-control-schema">Wait&#x2F;Die and Wound&#x2F;Wait Concurrency Control Schema</a></li>
+<li><a href="#phases-of-optimistic-approach">Phases of Optimistic Approach</a></li>
+</ul>
+</li>
+<li><a href="#distributed-dbs">Distributed DBs</a><ul>
+<li><a href="#vertical-scalling-and-horizontal-scalling">Vertical scalling and horizontal scalling</a></li>
+<li><a href="#distributed-processing-and-distributed-databases">Distributed Processing and Distributed Databases</a></li>
+<li><a href="#functions-of-distributed-dbms">Functions of Distributed DBMS</a></li>
+<li><a href="#ddbms-components">DDBMS Components</a></li>
+<li><a href="#single-site-processing-single-site-data-mpsd-pretty-simple">Single-Site Processing, Single-Site Data(MPSD) pretty simple</a></li>
+<li><a href="#multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</a></li>
+<li><a href="#multiple-site-processing-single-site-data-mpsd-1">Multiple-Site Processing, Single-Site Data (MPSD)</a></li>
+<li><a href="#restrictions-of-ddbms">Restrictions of DDBMS</a></li>
+<li><a href="#distributed-requests-and-distributed-transactions">Distributed Requests and Distributed Transactions</a></li>
+<li><a href="#distributed-concurrency-control-2pc-2-phrase-commit">Distributed Concurrency Control (2PC 2 phrase commit)</a></li>
+<li><a href="#two-phase-commit-protocol-2pc">Two-Phase Commit Protocol(2PC)</a></li>
+<li><a href="#transparency-hide-sth-to-users">Transparency (Hide sth to users)</a></li>
+<li><a href="#distributed-database-design">Distributed Database Design</a></li>
+<li><a href="#data-fragmentation">Data Fragmentation</a></li>
+<li><a href="#data-replication">Data Replication</a></li>
+<li><a href="#data-replication-scenarios">Data Replication Scenarios</a></li>
+<li><a href="#data-allocation-strategies">Data Allocation Strategies</a></li>
+<li><a href="#the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database">The CAP Theorem (That’s what u need consider when you design a database)</a></li>
+<li><a href="#database-connectivity">Database Connectivity</a></li>
+<li><a href="#various-connectivity-options">Various connectivity options</a></li>
+<li><a href="#components-of-odbc-architecture">Components of ODBC Architecture</a></li>
+<li><a href="#object-linking-and-embedding-for-database-ole-db-database-becomes-object">Object Linking and Embedding for Database (OLE-DB) Database becomes object</a></li>
+<li><a href="#database-internet-connectivity">Database Internet Connectivity</a></li>
+<li><a href="#web-to-database-middleware">Web-to-Database Middleware</a></li>
+<li><a href="#client-side-extensions">Client-Side Extensions</a></li>
+</ul>
+</li>
+<li><a href="#performance-tuning-and-query-optimization">Performance Tuning and Query Optimization</a><ul>
+<li><a href="#tuning-database-performance-tuning-concepts">Tuning(Database Performance-Tuning Concepts)</a></li>
+<li><a href="#performance-tuning-client-and-server">Performance Tuning: Client and Server</a><ul>
+<li><a href="#client-side">Client side</a></li>
+<li><a href="#server-side">Server side</a></li>
+</ul>
+</li>
+<li><a href="#dbms-architecture">DBMS Architecture</a></li>
+<li><a href="#database-query-optimization-modes">Database Query Optimization Modes</a></li>
+<li><a href="#classification-of-operation-modes">Classification of Operation Modes</a></li>
+<li><a href="#based-on-timing-of-optimization">Based on Timing of Optimization</a></li>
+<li><a href="#type-of-information-used-to-optimize">Type of Information Used to Optimize</a></li>
+<li><a href="#sample-database-statistics-measurements">Sample Database Statistics Measurements</a></li>
+<li><a href="#query-processing">Query Processing</a></li>
+<li><a href="#sql-parsing-phase">SQL Parsing Phase</a></li>
+<li><a href="#sql-execution-phase">SQL Execution Phase</a></li>
+<li><a href="#sql-fetching-phase">SQL Fetching Phase</a></li>
+<li><a href="#query-processing-bottlenecks">Query Processing Bottlenecks</a></li>
+<li><a href="#indexes-and-query-optimization">Indexes and Query Optimization</a></li>
+<li><a href="#indexes-and-query-optimization-1">Indexes and Query Optimization</a></li>
+<li><a href="#index-selectivity">index Selectivity</a></li>
+<li><a href="#optimizer-choices-statisitc-based">Optimizer Choices -&gt; statisitc-based</a></li>
+<li><a href="#using-hints-to-affect-optimizer-choices">Using Hints to Affect Optimizer Choices</a></li>
+<li><a href="#conditional-expressions">Conditional Expressions</a></li>
+<li><a href="#query-formulation">Query Formulation</a></li>
+<li><a href="#dbms-performance-tuning">DBMS Performance Tuning</a></li>
+</ul>
+</li>
+<li><a href="#business-intelligence">Business Intelligence</a><ul>
+<li><a href="#business-intelligence-bi">Business Intelligence(BI)</a></li>
+<li><a href="#business-intelligence-benefits">Business Intelligence Benefits</a></li>
+<li><a href="#decision-support-data">Decision Support Data</a></li>
+<li><a href="#decision-support-database-requirements">Decision Support Database Requirements</a></li>
+<li><a href="#data-marts">Data Marts</a></li>
+<li><a href="#components-of-star-schemas">Components of Star Schemas</a></li>
+<li><a href="#performance-improving-techniques-for-the-star-schema">Performance-Improving Techniques for the Star Schema</a></li>
+<li><a href="#data-anaytics">Data Anaytics</a></li>
+<li><a href="#olap-online-analytical-processing">OLAP-&gt; Online Analytical Processing</a></li>
+<li><a href="#relational-online-analytical-processing-rolap">Relational Online Analytical Processing (ROLAP)</a></li>
+<li><a href="#multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database</a></li>
+<li><a href="#sql-extensions-for-olap">SQL Extensions for OLAP</a><ul>
+<li><a href="#the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension">The ROLLUP extension(get upper domian data sorted by lower dimension)</a></li>
+<li><a href="#the-cube-extension-only-get-total-by-one-dimension-separately">The CUBE extension(only get total by one dimension separately)</a></li>
+</ul>
+</li>
+<li><a href="#data-lake">Data lake</a></li>
+</ul>
+</li>
+<li><a href="#discussion1">Discussion1</a></li>
+<li><a href="#discussion-2">Discussion 2</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h1><span id="introduction">Introduction</span><a href="#introduction" class="header-anchor">#</a></h1><h2><span id="1-the-difference-between-data-and-and-information">1. The difference between data and and information</span><a href="#1-the-difference-between-data-and-and-information" class="header-anchor">#</a></h2><table>
+<thead>
+<tr>
+<th align="left">Data</th>
+<th align="left">Information</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Raw fact(Raw data- Not yet been processed to reveal the meaning)</td>
+<td align="left">produced by processing data</td>
+</tr>
+<tr>
+<td align="left">Building blocks of information</td>
+<td align="left">Reveals the meaning of data</td>
+</tr>
+<tr>
+<td align="left">Data management(Generation, storage, and retrieval of data)</td>
+<td align="left">Enables knowledge creation</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Should be accurate, relevant, and timely to enable good decision making</td>
+</tr>
+</tbody></table>
+<ul>
+<li>To be simple, Data is raw fact, objective exists in the real word. Information is a kind of processed data. After gathering and processing, data becomes information. For example, the data of phone is pixel but the people can see it is a picture.</li>
+</ul>
+<ul>
+<li>Knowledge is useful information. Something you can do with the information. Knowledge can use the information we found.</li>
+</ul>
+<h2><span id="2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making">2. What a database is, the various types of databases, and why they are valuable assets for decision making.</span><a href="#2-what-a-database-is-the-various-types-of-databases-and-why-they-are-valuable-assets-for-decision-making" class="header-anchor">#</a></h2><ul>
+<li>Database is a shared, integrated computer structure that sotres a collection of:<ul>
+<li>End-user data: Raw facts of interest to end user, such as student’s gpa…</li>
+<li><strong>Metadata</strong>: Data about data, which the end-user data are integrated and managed<ul>
+<li>describe data characteristics and relationships such as what does the GPA mean and some restriction such as $0 \leq GPA \leq 4.0$ and $student-age &gt; 0$. About how we store the information. Or How many tables we have.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database management system(DBMS)<ul>
+<li>Collection of programs</li>
+<li>Manages the database structure</li>
+<li>Controls access to data stored in the database(who can access database | access restrictions)</li>
+</ul>
+</li>
+<li>Role of the DBMS<ul>
+<li>Intermediary between the user and the database</li>
+<li>Enables data to be shared</li>
+<li>Presents the end user with an integrated view of the data</li>
+<li>Receives and translates application requests(what are you searching for) into operations required to fulfill the request</li>
+<li>Hides database’s internal complexity from the application programs and users(People can reorganise data in the future)</li>
+</ul>
+</li>
+<li>Advantages of DBMS<ul>
+<li>Better data integration and less data inconsistency(pervent having two difference record of the same things)<ul>
+<li><strong>Data inconsistency:</strong> Different versions of the same data appear in different places</li>
+</ul>
+</li>
+<li>Increase end-user productivity</li>
+<li>Data sharing</li>
+<li>Data security &#x2F;&#x2F; Who gonna see what</li>
+<li>Data access</li>
+<li>Decision making<ul>
+<li><strong>Data quality</strong>: Promoting accuracy, validity, and timeliness of data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases<ul>
+<li>Single-user database: Supports one user at a time (Like a database in your phone&#x2F;Desktop)<ul>
+<li>Desktop database: Runs on PC</li>
+</ul>
+</li>
+<li>Multiuser database: Supports multiple users at the same time (Like BOA or Amazon database)<ul>
+<li>Workgroup databases: Support a small number of users or a specific department</li>
+<li>Enterprise database: Supports many users across many departments</li>
+</ul>
+</li>
+<li>Centralized database: Data is located at a single site</li>
+<li>Distributed database: Data is distributed across different sites (Part of database from xxx part of database from xxx different contries) <strong>Note</strong>: It is not copies. Just different parts of one database from different sites. – google uses it</li>
+<li>Cloud database: Created and maintained using cloud data services that provide defined performance measures for the database. Companies do not actually using the hardwares. Like UBER, they dont have their physical, their databases live on some cloud.(AWS)</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>General-purpose databases: Contains a wide variety of data used in multiple disciplines. Like Oracle database, you can use the database where you want. And you can put anything you want in Oracle. –&gt; general purpose</li>
+<li>Discipline-specific databases: Contains data focused on specific subject areas. Like scientists use protein database(PDB -&gt; protein data bank) Every protein molecules are stored in database. Different structure for specific usage. They have their own buliding plans and only the users know what it is or what it represents.</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database) -&gt; purly for business point of view<ul>
+<li>Operational database: Designed to support a company’s day to day operations. </li>
+<li>Analytical database: Stores historical data and business metrics used exclusively for tactical or strategic decision making<ul>
+<li>Data warehouse: Stores data in a format optimized for decision support.</li>
+</ul>
+</li>
+<li><strong>Example:</strong> Constantly writing data…. every purchase into Operational database daily. At night, they put the data to one central place called analytical database(used to analytical later) It is constantly reading database.</li>
+<li>where do data warehouse caculations<ul>
+<li>Online analytical processing(OLAP) Command to go to the warehouse and analysis data<ul>
+<li>Enable retrieving, processing, and modeling data from the data warehouse.</li>
+</ul>
+</li>
+<li>Business intelligence: Captures and processes business data to generate information that support decision making. (stock from Operational database to Analytical database piece to piece) -&gt; data mining</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of databases (Another way to classify database)<ul>
+<li>Unstructured data: It exists in their original state (dont have a specific format like musci&#x2F;video files)</li>
+<li>Structured data: It results from formatting (like students information stored in each row of studnet table)<ul>
+<li>Structure is applied based on type of processing to be performed</li>
+</ul>
+</li>
+<li>Semistructured data: Processed to some extent like document. Generally it is used to describe sth. Between structured and unstructured.</li>
+<li>Extensible Markup Language(XML) Json better than xml can be used in structured and unstructured<ul>
+<li>Represents data elements in textual format</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="3-the-importance-of-database-design">3. The importance of database design</span><a href="#3-the-importance-of-database-design" class="header-anchor">#</a></h2><h2><span id="4-how-modern-databases-envolved-from-file-systems">4. How modern databases envolved from file systems</span><a href="#4-how-modern-databases-envolved-from-file-systems" class="header-anchor">#</a></h2><ul>
+<li>Early Dbs: file systems<ul>
+<li>Manual file systems: Accompulished through a system of file folders and filing cabinets</li>
+<li>Computerized File Systems<ul>
+<li>Data processing(DP) specialist: Create a computer-based system that would track data and produce required reports</li>
+</ul>
+</li>
+<li>File System Redux: Mdern End-User Productivity Tools(Includes spreadsheet programs such as Microsoft Excel)</li>
+</ul>
+</li>
+<li>File systems<ul>
+<li>Data -&gt; Raw facts, such as a Tel number, birth date or customer name. Data have little meaning unless they have been organized in some logical manner. Each cell!</li>
+<li>Field -&gt; A character of group of characters(alphabetic or numeric) that has a specific meaning. A field is used to define and store data. Like the definition of the meaning of data in this field.</li>
+<li>Record -&gt; A row (contains person’s name, address….)</li>
+<li>File -&gt; a collection of record</li>
+</ul>
+</li>
+<li>Problems with Fie System Data Processing<ul>
+<li>Lengthy development times</li>
+<li>Difficulty of getting quick answers</li>
+<li>Complex system administration</li>
+<li>Lack of security and limited data sharing</li>
+<li>Extensive programming</li>
+</ul>
+</li>
+<li>Structural and Data dependence<ul>
+<li>Data dependence<ul>
+<li>Data access changes when data storage characteristics chage</li>
+</ul>
+</li>
+<li>Data independence<ul>
+<li>Data storage characteristics is changed without affecting the program’s ability to access the data</li>
+</ul>
+</li>
+<li>Practical significance of data dependence is difference between logical and physical format</li>
+</ul>
+</li>
+<li>Data Redundancy<ul>
+<li>Unnecessarily storing same data at different places</li>
+<li>Islands of information: Scattered data locations<ul>
+<li>Increases the probability of having different versions of the same data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Redundancy Implications (the defects of data redundancy)<ul>
+<li>Poor data security</li>
+<li>Data inconsistency</li>
+<li>Increased likelihood of data-entry errors when complex enries are made in different files</li>
+<li>Data anomaly: Develops when not all of the required changes in the redundant data are made successfully.<ul>
+<li>Update Anomalies (happens when data is already there)</li>
+<li>Insertion Anomalies (create data for the first time)</li>
+<li>Deletion Anomalies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database System<ul>
+<li>Logically related data stored in a single logical data repository<ul>
+<li>Physically distributed among multiple storage facilities</li>
+<li>DBMS eliminates most of file system’s problems</li>
+</ul>
+</li>
+<li>Curent generation DBMS software<ul>
+<li>Stores data structures, relationships between structures, and access pahts</li>
+<li>Defines, stores, and manages all access paths and components.</li>
+</ul>
+</li>
+<li>DBMS Functions<ul>
+<li>Data dictionary management</li>
+<li>Data storage management<ul>
+<li>Per</li>
+</ul>
+</li>
+<li>Data transformation and presentation<ul>
+<li>Transforms entrered data to conform required data structures</li>
+</ul>
+</li>
+<li>Security management<ul>
+<li>Enforces user security and data privacy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="5-flaws-in-file-system-data-management">5. Flaws in file system data management</span><a href="#5-flaws-in-file-system-data-management" class="header-anchor">#</a></h2><h2><span id="6-the-main-components-of-the-database-system">6. The main components of the database system</span><a href="#6-the-main-components-of-the-database-system" class="header-anchor">#</a></h2><h2><span id="7-the-main-functions-of-a-database-management-system-dbms">7. The main functions of a database management system(DBMS)</span><a href="#7-the-main-functions-of-a-database-management-system-dbms" class="header-anchor">#</a></h2><ul>
+<li>Data dictionary management &#x3D;&#x3D; meta data example for one column<ul>
+<li><strong>Data dictionary</strong>: Stores definitions of the data elements and their relationships</li>
+</ul>
+</li>
+<li>Data storage management<ul>
+<li><strong>Performance tuning</strong>: Ensures efficient performance of the database in terms of storage and access speed</li>
+</ul>
+</li>
+<li>Data transformation and presentation<ul>
+<li>Transforms entered data to conform to required data structures.</li>
+</ul>
+</li>
+<li>Security management<ul>
+<li>Enforces user security and data privacy.</li>
+</ul>
+</li>
+<li>Multiuser access control<ul>
+<li>Sophisticated algorithms ensure that multiple users can access the database concurrently without compromising its integrity.</li>
+</ul>
+</li>
+<li>Backup and recovery management<ul>
+<li>Enables recovery of the database after a failure</li>
+</ul>
+</li>
+<li>Data integrity management<ul>
+<li>Minimizes redundancy and maximizes consistency</li>
+</ul>
+</li>
+<li>Database access languages and application programming interfaces <ul>
+<li>Query language: Lets the user specify what must be done without having to specify how </li>
+<li>Structured Query Language (SQL): De facto query language and data access standard supported by the majority of DBMS vendors</li>
+</ul>
+</li>
+<li>Database communication interfaces<ul>
+<li>Accept end-user requests via multiple, different network environments</li>
+</ul>
+</li>
+<li>Disadvantage of Database Systems<ul>
+<li>Increased costs</li>
+<li>Management complexity</li>
+<li>Maintaining currency</li>
+<li>Vendor dependence</li>
+<li>Frequent upgrade&#x2F;replacement cycles</li>
+</ul>
+</li>
+</ul>
+<h1><span id="data-modeling">Data Modeling</span><a href="#data-modeling" class="header-anchor">#</a></h1><h2><span id="about-data-modeling-and-why-data-models-are-important">About data modeling and why data models are important</span><a href="#about-data-modeling-and-why-data-models-are-important" class="header-anchor">#</a></h2><h3><span id="data-modeling-and-data-models">Data Modeling and Data Models</span><a href="#data-modeling-and-data-models" class="header-anchor">#</a></h3><ul>
+<li><strong>Data modeling</strong>: Iterative and progressive process of creating a specific data model for a determined problem domain </li>
+<li><strong>Data models</strong>: Simple representations of complex real-world data structures<br>Useful for supporting a specific problem domain</li>
+<li><strong>Model</strong> - Abstraction of a real-world object or event</li>
+</ul>
+<h3><span id="importance-of-data-models">Importance of Data Models</span><a href="#importance-of-data-models" class="header-anchor">#</a></h3><ul>
+<li>Are a communication tool </li>
+<li>Give an overall view of the database</li>
+<li>Organize data for various users</li>
+<li>Are an abstraction for the creation of good database</li>
+</ul>
+<h2><span id="about-the-basic-data-modeling-building-blocks">About the basic data-modeling building blocks</span><a href="#about-the-basic-data-modeling-building-blocks" class="header-anchor">#</a></h2><ul>
+<li><strong>Entity</strong>: Unique and distinct object used to collect and store data<ul>
+<li><strong>Attribute</strong>: Characteristic of an entity</li>
+</ul>
+</li>
+<li><strong>Relationship</strong>: Describes an association among entities(one row in an entity can relate to how many rows in other entities)<ul>
+<li><strong>One-to-many</strong> (1:M)</li>
+<li><strong>Many-to-many</strong> (M:N or M:M)</li>
+<li><strong>One-to-one</strong> (1:1)</li>
+</ul>
+</li>
+<li><strong>Constraint</strong>: Set of rules to ensure data integrity</li>
+</ul>
+<h2><span id="what-business-rules-are-and-how-they-influence-database-design">What business rules are and how they influence database design</span><a href="#what-business-rules-are-and-how-they-influence-database-design" class="header-anchor">#</a></h2><ul>
+<li>Brief, precise, and unambiguous description of a policy, procedure, or principle</li>
+<li>Enable defining the basic building blocks </li>
+<li>Describe main and distinguishing characteristics of the data</li>
+<li>Sources of Business Rules(sb. write the manual)<ul>
+<li>Company managers</li>
+<li>Policy makers</li>
+<li>Department managers</li>
+<li>Written documentation</li>
+<li>Direct interviews with end users</li>
+</ul>
+</li>
+<li>Why we need business rules<ul>
+<li>Help standardize company’s view of data</li>
+<li>Communications tool between users and designers</li>
+<li>Allow designer to:<ul>
+<li>Understand the nature, role, scope of data, and business processes</li>
+<li>Develop appropriate relationship participation rules and constraints</li>
+<li>Create an accurate data model</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="hierarchical-modeling">Hierarchical modeling</span><a href="#hierarchical-modeling" class="header-anchor">#</a></h2><ul>
+<li>Manage large amounts of data for complex manufacturing projects</li>
+<li>Represented by an upside-down tree which contains segments</li>
+<li>Segments: Equivalent of a file system’s record type</li>
+<li>Depicts a set of one-to-many (1:M) relationships</li>
+<li>Advantage<ul>
+<li>Promotes data sharing</li>
+<li>Parent&#x2F;child relationship promotes conceptual simplicity and data integrity</li>
+<li>Database security is provided and enforced by DBMS</li>
+<li>Efficient with 1:M relationships</li>
+</ul>
+</li>
+<li>Disadvantages<ul>
+<li>Requires knowledge of physical data storage characteristics</li>
+<li>Navigational system requires knowledge of hierarchical path</li>
+<li>Changes in structure require changes in all application programs</li>
+<li>Implementation limitations </li>
+<li>No data definition </li>
+<li>Lack of standards</li>
+</ul>
+</li>
+</ul>
+<h2><span id="network-modeling">Network modeling</span><a href="#network-modeling" class="header-anchor">#</a></h2><ul>
+<li>Represent complex data relationships</li>
+<li>Improve database performance and impose a database standard</li>
+<li>Depicts both one-to-many (1:M) and many-to-many (M:N) relationships</li>
+<li>Advantages<ul>
+<li>Conceptual simplicity</li>
+<li>Handles more relationship types </li>
+<li>Data access is flexible </li>
+<li>Data owner&#x2F;member relationship promotes data integrity</li>
+<li>Conformance to standards</li>
+<li>Includes data definition language (DDL) and data manipulation language (DML)</li>
+</ul>
+</li>
+<li>Disadvantages<ul>
+<li>System complexity limits efficiency </li>
+<li>Navigational system yields complex implementation, application development, and management</li>
+<li>Structural changes require changes in all application programs</li>
+</ul>
+</li>
+</ul>
+<h2><span id="difference-between-schema-and-sub-schema">Difference between Schema and Sub Schema</span><a href="#difference-between-schema-and-sub-schema" class="header-anchor">#</a></h2><ul>
+<li>Schema is a Conceptual organization of the entire database as viewed by the database administrator(means the whole thing)</li>
+<li>SubSchema is a Portion of the database seen by the application programs that produce the desired information from the data within the database.(only a sub part of schema)</li>
+</ul>
+<h2><span id="difference-between-dml-and-ddl">Difference between DML and DDL</span><a href="#difference-between-dml-and-ddl" class="header-anchor">#</a></h2><ul>
+<li>Data manipulation language(DML): Environment in which data can be managed and is used to work with the data in the database(add &#x2F; delete&#x2F; modify&#x2F; query data)</li>
+<li>Schema data definition language(DDL): Enables the database administrator to define the schema components (create the structure)</li>
+</ul>
+<h2><span id="the-relational-model">The Relational Model</span><a href="#the-relational-model" class="header-anchor">#</a></h2><ul>
+<li>Produced an automatic transmission database that replaced standard transmission databases </li>
+<li>Based on a relation<ul>
+<li>Relation or table: Matrix composed of intersecting tuple and attribute(Here we need to note that we have two kinds of relation.One is the relation between different tables. And the other thing is one cell related to rows and columns. For example, one score can relate to one student and it is belonged to gpa column it is an intersection)<ul>
+<li>Tuple: Rows</li>
+<li>Attribute: Columns</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Describes a precise set of data manipulation constructs</li>
+<li>Advantage<ul>
+<li>Structural independence is promoted using independent tables</li>
+<li>Tabular view improves conceptual simplicity</li>
+<li>Ad hoc query capability is based on SQL</li>
+<li>Isolates the end user from physical-level details </li>
+<li>Improves implementation and management simplicity</li>
+</ul>
+</li>
+</ul>
+<h2><span id="relational-dbms-database-management-system">Relational DBMS(Database Management System)</span><a href="#relational-dbms-database-management-system" class="header-anchor">#</a></h2><ul>
+<li>Performs basic functions provided by the hierarchical and network DBMS systems</li>
+<li>Makes the relational data model easier to understand and implement</li>
+<li>Hides the complexities of the relational model from the user</li>
+</ul>
+<h2><span id="how-the-major-data-models-evolved">How the major data models evolved</span><a href="#how-the-major-data-models-evolved" class="header-anchor">#</a></h2><p><img src="/DatabaseRev/EvoDataModel.png" alt="The Evolution of Data Model"></p>
+<h2><span id="data-abstraction-levels">Data Abstraction Levels</span><a href="#data-abstraction-levels" class="header-anchor">#</a></h2><p>It means you change sth, the level above this layer will no change</p>
+<p>Physical independence means pyhsical model can change but internal Model could not change.</p>
+<p>Logical independence means if internal model changes but conceptual could not change. Such as if Internal Model is changed to NoSQL from RDM, nobody will notice that.</p>
+<h2><span id="the-external-model">The External Model</span><a href="#the-external-model" class="header-anchor">#</a></h2><ul>
+<li>End users’ view of the data environment</li>
+<li>ER diagrams are used to represent the external views</li>
+<li>External schema: Specific representation of an external view</li>
+</ul>
+<h2><span id="the-conceptual-model">The Conceptual Model</span><a href="#the-conceptual-model" class="header-anchor">#</a></h2><ul>
+<li>Represents a global view of the entire database by the entire organization</li>
+<li>Conceptual schema: Basis for the identification and high-level description of the main data objects</li>
+<li>Has a macro-level view of data environment</li>
+<li>Is software and hardware independent</li>
+<li>Logical design: Task of creating a conceptual data model</li>
+</ul>
+<h2><span id="the-internal-model">The Internal Model</span><a href="#the-internal-model" class="header-anchor">#</a></h2><ul>
+<li>Representing database as seen by the DBMS mapping conceptual model to the DBMS</li>
+<li><strong>Internal schema</strong>: Specific representation of an internal model<ul>
+<li>Uses the database constructs supported by the chosen database</li>
+</ul>
+</li>
+<li>Is software dependent and hardware independent</li>
+<li><strong>Logical independence</strong>: Changing internal model without affecting the conceptual model</li>
+</ul>
+<h2><span id="the-physical-model">The Physical Model</span><a href="#the-physical-model" class="header-anchor">#</a></h2><ul>
+<li>Operates at lowest level of abstraction</li>
+<li>Describes the way data are saved on storage media such as disks or tapes</li>
+<li>Requires the definition of physical storage and data access methods</li>
+<li>Relational model aimed at logical level<br>Does not require physical-level details</li>
+<li><strong>Physical independence</strong>: Changes in physical model do not affect internal model</li>
+</ul>
+<h2><span id="about-emerging-alternative-data-models-and-the-need-they-fulfill">About emerging alternative data models and the need they fulfill</span><a href="#about-emerging-alternative-data-models-and-the-need-they-fulfill" class="header-anchor">#</a></h2><h2><span id="how-data-models-can-be-classified-by-their-level-of-abstraction">How data models can be classified by their level of abstraction</span><a href="#how-data-models-can-be-classified-by-their-level-of-abstraction" class="header-anchor">#</a></h2><h1><span id="er">ER</span><a href="#er" class="header-anchor">#</a></h1><h2><span id="entity-relationship-model-erm">Entity Relationship Model (ERM)</span><a href="#entity-relationship-model-erm" class="header-anchor">#</a></h2><ul>
+<li>Basis of an entity relationship diagram (ERD) </li>
+<li>ERD depicts the:<ul>
+<li>Conceptual database as viewed by end user</li>
+<li>Database’s main components<ul>
+<li>Entities</li>
+<li>Attributes</li>
+<li>Relationships</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Entity - Refers to the entity set and not to a single entity occurrence</li>
+</ul>
+<h2><span id="attributes">Attributes</span><a href="#attributes" class="header-anchor">#</a></h2><ul>
+<li>Characteristics of entities</li>
+<li><strong>Required attribute</strong>: Must have a value, cannot be left empty -Id&#x2F;Lastname</li>
+<li><strong>Optional attribute</strong>: Does not require a value, can be left empty -secondary Email</li>
+<li>Domain - Set of possible values for a given attribute(range the possible like GPA 0-4 name can only be 40chars long ..valid values)</li>
+<li><strong>Identifiers</strong>: One or more attributes that uniquely identify each entity instance(must exist and cannot be null like primary key(s))</li>
+<li><strong>Compondend attribute</strong>: Attribute that can be subdivided to yield additional attributes(Different from compond. One column can contain more than one colums in it, such as color can contain R,G,B or Name can contain first_name and last_name</li>
+<li><strong>Composite identifier</strong>: Primary key composed of more than one attribute</li>
+<li><strong>Composite attribute</strong>: composit is like the combinations of several columns same as Composite identifier, but identifier is primary key.</li>
+<li><strong>Simple attribute</strong>: Attribute that cannot be subdivided</li>
+<li><strong>Single-valued attribute</strong>: Attribute that has only a single value</li>
+<li><strong>Multivalued attributes</strong>: Attributes that have many values and require creating:<ul>
+<li>Several new attributes, one for each component of the original multivalued attribute</li>
+<li>A new entity composed of the original multivalued attribute’s components</li>
+</ul>
+</li>
+<li><strong>Derived attribute</strong>: Attribute whose value is calculated from other attributes<ul>
+<li>Derived using an algorithm</li>
+</ul>
+</li>
+<li>Advantages and Disadvantages of Storing Derived Attributes<br><img src="/DatabaseRev/ADVDISDERIATTR.png" alt="Advantages and Disadvantages of Storing Derived Attributes"></li>
+</ul>
+<h2><span id="relationships">Relationships</span><a href="#relationships" class="header-anchor">#</a></h2><ul>
+<li>Association between entities that always operate in both directions</li>
+<li><strong>Participants</strong>: Entities that participate in a relationship</li>
+<li><strong>Connectivity</strong>: Describes the relationship classification</li>
+<li><strong>Cardinality</strong>: Expresses the minimum and maximum number of entity occurrences associated with one occurrence of related entity</li>
+<li>Existence Dependence and Existence Independence<table>
+<thead>
+<tr>
+<th align="center">Existence dependence</th>
+<th align="center">Existence independence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Entity exists in the database only when it is associated with another related entity occurrence</td>
+<td align="center">Entity exists apart from all of its related entities. Referred to as a strong entity or regular entity</td>
+</tr>
+<tr>
+<td align="center">For example, the Employee(<strong>String entity</strong>&#x2F;<strong>regular entity</strong>) and their children (*** Children is not week entity!!!) Please notice that When a primary is shared between two Entity, the other entity(which owns both its only key and shared key) is <strong>weak entity</strong> And the <strong>relationship between them is strong relationship</strong>.</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+However, if one entity has a foreign key from other entity <strong>there is a weak relationship</strong>. This is not a weak entiy but it is also existence depency.</li>
+<li>Relationship Strength<ul>
+<li>Weak (non-identifying) relationship<ul>
+<li>Primary key of the related entity does not contain a primary key component of the parent entity</li>
+</ul>
+</li>
+<li>Strong (identifying) relationships<ul>
+<li>Primary key of the related entity contains a primary key component of the parent entity<br>A strong relationship makes the right side be weak. But the right hand side of a Weak entiy is not weak though it is still existant dependency.</li>
+</ul>
+</li>
+<li>A weak entity has two Conditions<br>+Existence-dependent <ul>
+<li>Has a primary key that is partially or totally derived from parent entity in the relationship</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Relationship Participation<ul>
+<li>Optional participation<ul>
+<li>One entity occurrence does not require a corresponding entity occurrence in a particular relationship</li>
+</ul>
+</li>
+<li>Mandatory participation<ul>
+<li>One entity occurrence requires a corresponding entity occurrence in a particular relationship</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Relationship Degree<ul>
+<li>Indicates the number of entities or participants associated with a relationship</li>
+<li><strong>Unary relationship</strong>: Association is maintained within a single entity -&gt; Some row in a table has some relationship with some row in the same table<ul>
+<li><strong>Recursive relationship</strong>: Relationship exists between occurrences of the same entity set</li>
+</ul>
+</li>
+<li><strong>Binary relationship</strong>: Two entities are associated</li>
+<li><strong>Ternary relationship</strong>: Three entities are associated</li>
+</ul>
+</li>
+<li>Associative Entities<ul>
+<li>Also known as composite or bridge entities</li>
+<li>Used to represent an M:N relationship between two or more entities</li>
+<li>Is in a 1:M relationship with the parent entities<ul>
+<li>Composed of the primary key attributes of each parent entity</li>
+</ul>
+</li>
+<li>May also contain additional attributes that play no role in connective process</li>
+</ul>
+</li>
+<li>Developing an ER Diagram<ul>
+<li>Create a detailed narrative of the organization’s  description of operations</li>
+<li>Identify business rules based on the descriptions</li>
+<li>Identify main entities and relationships from the business rules</li>
+<li>Develop the initial ERD</li>
+<li>Identify the attributes and primary keys that adequately describe entities</li>
+<li>Revise and review ERD</li>
+</ul>
+</li>
+</ul>
+<h1><span id="relational-modeling">Relational Modeling</span><a href="#relational-modeling" class="header-anchor">#</a></h1><h2><span id="a-logical-view-of-data">A Logical View of Data</span><a href="#a-logical-view-of-data" class="header-anchor">#</a></h2><ul>
+<li>Relational database model enables logical representation of the data and its relationships</li>
+<li>Logical simplicity yields simple and effective database design methodologies </li>
+<li>Facilitated by the creation of data relationships based on a logical construct called a relation</li>
+</ul>
+<h2><span id="keys">Keys</span><a href="#keys" class="header-anchor">#</a></h2><ul>
+<li>Consist of one or more attributes that determine other attributes</li>
+<li>Used to: <ul>
+<li>Ensure that each row in a table is uniquely identifiable</li>
+<li>Establish relationships among tables and to ensure the integrity of the data</li>
+</ul>
+</li>
+<li><strong>Primary key (PK)</strong>: Attribute or combination of attributes that uniquely identifies any given row</li>
+</ul>
+<h2><span id="determination">Determination</span><a href="#determination" class="header-anchor">#</a></h2><ul>
+<li>State in which knowing the value of one attribute makes it possible to determine the value of another</li>
+<li>Is the basis for establishing the role of a key </li>
+<li>Based on the relationships among the attributes</li>
+</ul>
+<h2><span id="dependencies">Dependencies</span><a href="#dependencies" class="header-anchor">#</a></h2><ul>
+<li><strong>Functional dependence</strong>: Value of one or more attributes determines the value of one or more other attributes<ul>
+<li><strong>Determinant</strong>: Attribute whose value determines another </li>
+<li><strong>Dependent</strong>: Attribute whose value is determined by the other attribute</li>
+</ul>
+</li>
+<li><strong>Full functional dependence</strong>: Entire collection of attributes in the determinant is necessary for the relationship. For example, like first_name and last_name are determinant. So if I want to query sth, I must git all of them</li>
+</ul>
+<h2><span id="types-of-keys">Types of Keys</span><a href="#types-of-keys" class="header-anchor">#</a></h2><ul>
+<li><strong>Composite key</strong>: Key that is composed of more than one attribute</li>
+<li><strong>Key attribute</strong>: Attribute that is a part of a key</li>
+<li><strong>Entity integrity</strong>: Condition in which each row in the table has its own unique identity <ul>
+<li>All of the values in the primary key must be unique</li>
+<li>No key attribute in the primary key can contain a null</li>
+</ul>
+</li>
+<li><strong>Null</strong>: Absence of any data value that could represent:<ul>
+<li>An unknown attribute value </li>
+<li>A known, but missing, attribute value  </li>
+<li>A inapplicable condition</li>
+</ul>
+</li>
+<li><strong>Referential integrity</strong>: Every reference to an entity instance by another entity instance is valid (foreign key) if reference is null, it violates the integrity</li>
+<li>Superkey: An attribute or combination of attributes that uniquely identifies each row in a table(A superkey is a group of single or multiple keys which identifies rows in a table. A Super key may have additional attributes that are not needed for unique identification.)</li>
+<li>Candidate key: A minimal(irreducible) superkey; a superkey that does contain a subset of attributes that is itself a superkey.<br>  It is a set of attributes that uniquely identify tuples in a table. Candidate Key is a super key with no repeated attributes. The Primary key should be selected from the candidate keys. Every table must have at least a single candidate key. A table can have multiple candidate keys but only a single primary key.<ul>
+<li>Properties of Candidate key:<ul>
+<li>It must contain unique values</li>
+<li>Candidate key may have multiple attributes</li>
+<li>Must not contain null values</li>
+<li>It should contain minimum fields to ensure uniqueness</li>
+<li>Uniquely identify each record in a table</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Secondary key<ul>
+<li>Secondary Key is the key that has not been selected to be the primary key. A secondary key is a non-identifying column or set of columns that can be used to find row in a table. It is only for data retrieval purposes</li>
+<li><img src="/DatabaseRev/keys.png" alt="Advantages and Disadvantages of Storing Derived Attributes"></li>
+</ul>
+</li>
+</ul>
+<h2><span id="ways-to-handle-nulls">Ways to Handle Nulls</span><a href="#ways-to-handle-nulls" class="header-anchor">#</a></h2><ul>
+<li><strong>Flags</strong>: Special codes used to indicate the absence of some value </li>
+<li>NOT NULL constraint - Placed on a column to ensure that every row in the table has a value for that column</li>
+<li>UNIQUE constraint - Restriction placed on a column to ensure that no duplicate values exist for that column</li>
+</ul>
+<h2><span id="relational-algebra">Relational Algebra</span><a href="#relational-algebra" class="header-anchor">#</a></h2><ul>
+<li>Theoretical way of manipulating table contents using relational operators</li>
+<li><strong>Relvar</strong>: Variable that holds a relation</li>
+<li>Heading contains the names of the attributes and the body contains the relation</li>
+<li>Relational operators have the property of closure<ul>
+<li><strong>Closure</strong>: Use of relational algebra operators on existing relations produces new relations</li>
+</ul>
+</li>
+</ul>
+<h2><span id="relational-set-operators">Relational Set Operators</span><a href="#relational-set-operators" class="header-anchor">#</a></h2><ul>
+<li>Select (Restrict)<ul>
+<li>Unary operator that yields a horizontal subset of a table</li>
+</ul>
+</li>
+<li>Project<ul>
+<li>Unary operator that yields a vertical subset of a table</li>
+</ul>
+</li>
+<li>Union<ul>
+<li>Combines all rows from two tables, excluding duplicate rows</li>
+<li>Union-compatible: Tables share the same number of columns, and their corresponding columns share compatible domains</li>
+</ul>
+</li>
+<li>Intersect<ul>
+<li>Yields only the rows that appear in both tables</li>
+<li>Tables must be union-compatible to yield valid results</li>
+</ul>
+</li>
+<li>Difference <ul>
+<li>Yields all rows in one table that are not found in the other table</li>
+<li>Tables must be union-compatible to yield valid results</li>
+</ul>
+</li>
+<li>Product <ul>
+<li>Yields all possible pairs of rows from two tables</li>
+</ul>
+</li>
+<li>Join<ul>
+<li>Allows information to be intelligently combined from two or more tables </li>
+<li>Types of Joins<ul>
+<li>Natural join: Links tables by selecting only the rows with common values in their common attributes<ul>
+<li>Join columns: Common columns -&gt; the columns have exactly the same name. -&gt; If not the same we do not call it nature join</li>
+</ul>
+</li>
+<li>Equijoin: Links tables on the basis of an equality condition that compares specified columns of each table -&gt; &#x3D;&#x3D; !&#x3D; &lt; &gt; &lt;&#x3D; &gt;&#x3D; ….</li>
+<li>Theta join: Extension of natural join, denoted by adding a theta subscript after the JOIN symbol</li>
+<li>Inner join: Only returns matched records from the tables that are being joined</li>
+<li>Outer join: Matched pairs are retained and unmatched values in the other table are left null </li>
+<li>Left outer join: Yields all of the rows in the first table, including those that do not have a matching value in the second table </li>
+<li>Right outer join: Yields all of the rows in the second table, including those that do not have matching values in the first table</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Divide<ul>
+<li>Uses one 2-column table as the dividend and one single-column table as the divisor</li>
+<li>Output is a single column that contains all values from the second column of the dividend that are associated with every row in the divisor</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-dictionary-and-the-system-catalog-hold-metadata">Data Dictionary and the System Catalog(hold metadata)</span><a href="#data-dictionary-and-the-system-catalog-hold-metadata" class="header-anchor">#</a></h2><ul>
+<li><strong>Data dictionary</strong>: Description of all tables in the database created by the user and designer &#x2F;&#x2F; Where is the table located and the characteristic of columns</li>
+<li><strong>System catalog</strong>: System data dictionary that describes all objects within the database  &#x2F;&#x2F; the same as data dictionary</li>
+<li>Homonyms and synonyms must be avoided to lessen confusion<ul>
+<li>Homonym: Same name is used to label different attributes -&gt; Cannot use the same name to describe diff things</li>
+<li>Synonym: Different names are used to describe the same attribute -&gt; same</li>
+</ul>
+</li>
+</ul>
+<h1><span id="extended-er-eer-gt-advanced-data-modeling">Extended ER (“EER”)-&gt; Advanced data modeling</span><a href="#extended-er-eer-gt-advanced-data-modeling" class="header-anchor">#</a></h1><h2><span id="extended-entity-relationship-model-eerm">Extended Entity Relationship Model (EERM)</span><a href="#extended-entity-relationship-model-eerm" class="header-anchor">#</a></h2><ul>
+<li>Result of adding more semantic constructs to the original entity relationship (ER) model</li>
+<li><strong>EER diagram (EERD)</strong>: Uses the EER model</li>
+</ul>
+<h2><span id="entity-supertypes-and-subtypes">Entity Supertypes and Subtypes</span><a href="#entity-supertypes-and-subtypes" class="header-anchor">#</a></h2><ul>
+<li><strong>Entity supertype</strong>: Generic entity type related to one or more entity subtypes<ul>
+<li>Contains common characteristics</li>
+</ul>
+</li>
+<li><strong>Entity subtype</strong>: Contains unique characteristics of each entity subtype</li>
+<li>Criteria to determine the usage<ul>
+<li>There must be different, identifiable kinds of the entity in the user’s environment</li>
+<li>The different kinds of instances should each have one or more attributes that are unique to that kind of instance</li>
+</ul>
+</li>
+</ul>
+<h2><span id="specialization-hierarchy">Specialization Hierarchy</span><a href="#specialization-hierarchy" class="header-anchor">#</a></h2><ul>
+<li>Depicts arrangement of higher-level entity supertypes and lower-level entity subtypes</li>
+<li>Relationships are described in terms of “is-a” relationships -&gt; Composition can have “Has-a” relation</li>
+<li>Subtype exists within the context of a supertype</li>
+<li>Every subtype has one supertype to which it is directly related # Cannot have more</li>
+<li>Supertype can have many subtypes</li>
+<li>Provides the means to:<ul>
+<li>Support attribute inheritance</li>
+<li>Define a special supertype attribute known as the subtype discriminator</li>
+<li>Define disjoint&#x2F;overlapping constraints and complete&#x2F;partial constraints</li>
+</ul>
+</li>
+</ul>
+<h2><span id="inheritanc">Inheritanc</span><a href="#inheritanc" class="header-anchor">#</a></h2><ul>
+<li>Enables an entity subtype to inherit attributes and relationships of the supertype</li>
+<li>All entity subtypes inherit their primary key attribute from their supertype</li>
+<li>At the implementation level, supertype and its subtype(s) maintain a 1:1 relationship</li>
+<li>Entity subtypes inherit all relationships in which supertype entity participates</li>
+<li>Lower-level subtypes inherit all attributes and relationships from its upper-level supertypes</li>
+</ul>
+<h2><span id="subtype-discriminator">Subtype Discriminator</span><a href="#subtype-discriminator" class="header-anchor">#</a></h2><ul>
+<li>Attribute in the supertype entity that determines to which entity subtype the supertype occurrence is related</li>
+<li>Default comparison condition is the equality comparison  example:’p’ -&gt; pilot</li>
+</ul>
+<h2><span id="disjoint-and-overlapping-constraints">Disjoint and Overlapping Constraints</span><a href="#disjoint-and-overlapping-constraints" class="header-anchor">#</a></h2><ul>
+<li><strong>Disjoint subtypes</strong>: Contain a unique subset of the supertype entity set<ul>
+<li>Known as <strong>nonoverlapping subtypes</strong></li>
+<li>Implementation is based on the value of the subtype discriminator attribute in the supertype<br><strong>Overlapping subtypes</strong>: Contain nonunique subsets of the supertype entity set</li>
+<li>Implementation requires the use of one discriminator attribute for each subtype</li>
+</ul>
+</li>
+</ul>
+<h2><span id="completeness-constraint">Completeness Constraint</span><a href="#completeness-constraint" class="header-anchor">#</a></h2><ul>
+<li>Specifies whether each supertype occurrence must also be a member of at least one subtype</li>
+<li>Types<ul>
+<li><strong>Partial completeness</strong>: Not every supertype occurrence is a member of a subtype</li>
+<li><strong>Total completeness</strong>: Every supertype occurrence must be a member of any</li>
+</ul>
+</li>
+</ul>
+<h2><span id="entity-cluster">Entity Cluster</span><a href="#entity-cluster" class="header-anchor">#</a></h2><ul>
+<li>Virtual entity type used to represent multiple entities and relationships in ERD</li>
+<li>Avoid the display of attributes to eliminate complications that result when the inheritance rules change</li>
+</ul>
+<h1><span id="normalization">Normalization</span><a href="#normalization" class="header-anchor">#</a></h1><h2><span id="normalization-do-normalization-once-a-time-one-entity-a-time">Normalization (Do normalization once a time one entity a time)</span><a href="#normalization-do-normalization-once-a-time-one-entity-a-time" class="header-anchor">#</a></h2><ul>
+<li>Evaluating and correcting table structures to minimize data redundancies </li>
+<li>Reduces data anomalies</li>
+<li>Assigns attributes to tables based on determination</li>
+<li>Normal forms<ul>
+<li>First normal form (1NF)</li>
+<li>Second normal form (2NF)</li>
+<li>Third normal form (3NF)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="need-for-normalization">Need for Normalization</span><a href="#need-for-normalization" class="header-anchor">#</a></h2><ul>
+<li>Used while designing a new database structure<ul>
+<li>Analyzes the relationship among the attributes within each entity</li>
+<li>Determines if the structure can be improved</li>
+</ul>
+</li>
+<li>Improves the existing data structure and creates an appropriate database design</li>
+</ul>
+<h2><span id="normalization-process">Normalization Process</span><a href="#normalization-process" class="header-anchor">#</a></h2><ul>
+<li>Objective is to ensure that each table conforms to the concept of well-formed relations<ul>
+<li>Each table represents a single subject</li>
+<li>No data item will be unnecessarily stored in more than one table</li>
+<li>All nonprime attributes in a table are wholely dependent on the primary key</li>
+<li>Each table is void of insertion, update, and deletion anomalies</li>
+</ul>
+</li>
+<li>Ensures that all tables are in at least 3NF</li>
+<li>Higher forms are not likely to be encountered in business environment</li>
+<li>Works one relation at a time</li>
+<li>Starts by:<ul>
+<li>Identifying the dependencies of a relation (table)</li>
+<li>Progressively breaking the relation into new set of relations</li>
+</ul>
+</li>
+</ul>
+<h2><span id="normal-forms">Normal Forms</span><a href="#normal-forms" class="header-anchor">#</a></h2><table>
+<thead>
+<tr>
+<th align="center">NORMAL FORM</th>
+<th align="center">CHARACTERISTIC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">First Normal form(1NF)</td>
+<td align="center">Table format, no repeating groups, and PK identified -&gt; Each cell is atomic, cannot be seperated any more</td>
+</tr>
+<tr>
+<td align="center">Second normal form(2NF)</td>
+<td align="center">1NF and no partial dependencies</td>
+</tr>
+<tr>
+<td align="center">Third normal form(3NF)</td>
+<td align="center">2NF and no transitive dependencies</td>
+</tr>
+<tr>
+<td align="center">*Note: Normalization how-to, in one sentence: work on one relation (table) at a time: identify dependencies, then ‘normalize’ - progressively break it down into smaller relations (tables), based on the dependencies we identify in the original relation</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2><span id="functional-dependence-concepts">Functional Dependence Concepts</span><a href="#functional-dependence-concepts" class="header-anchor">#</a></h2><table>
+<thead>
+<tr>
+<th align="left">Concept</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Functional dependence</td>
+<td align="left">The attribute B is fully functionally dependent on the attribute A if each value of A determines one and only one value of B. -&gt; A determines B</td>
+</tr>
+<tr>
+<td align="left">Functional dependence (Generalized definition)</td>
+<td align="left">Attribute A determines attribute B if all of the rows in the table that agree in value for attribute A also agree in value for attribute B.</td>
+</tr>
+<tr>
+<td align="left">Fully functional dependence (composite key)</td>
+<td align="left">If attribute B is functionally dependent on a composite key A but not on any Subset of that composite key, the attribute B is fully functionally dependent on A. A is composite Key and any subsets of A is not enough to determine B</td>
+</tr>
+</tbody></table>
+<h2><span id="types-of-functional-dependencies">Types of Functional Dependencies</span><a href="#types-of-functional-dependencies" class="header-anchor">#</a></h2><ul>
+<li>Partial dependency: Functional dependence in which the determinant is only part of the primary key (A determines B -&gt; A is determinant)<ul>
+<li>Assumption - One candidate key </li>
+<li>Straight forward</li>
+<li>Easy to identify</li>
+<li>It means that the B only fully determined by part of primary key. -&gt; dont need whole compositive key</li>
+</ul>
+</li>
+<li>Transitive dependency: An attribute functionally depends on another nonkey attribute</li>
+</ul>
+<h2><span id="conversion-to-first-normal-form">Conversion to First Normal Form</span><a href="#conversion-to-first-normal-form" class="header-anchor">#</a></h2><ul>
+<li><strong>Repeating group</strong>: Group of multiple entries of same type can exist for any single key attribute occurrence<ul>
+<li>Existence proves the presence of data redundancies</li>
+</ul>
+</li>
+<li>Enable reducing data redundancies</li>
+<li>Steps<ul>
+<li>Eliminate the repeating groups </li>
+<li>Identify the primary key </li>
+<li>Identify all dependencies</li>
+</ul>
+</li>
+<li><strong>Dependency diagram</strong>: Depicts all dependencies found within given table structure<ul>
+<li>Helps to get an overview of all relationships among table’s attributes</li>
+<li>Makes it less likely that an important dependency will be overlooked</li>
+</ul>
+</li>
+<li>1NF</li>
+<li><img src="/DatabaseRev/1nf.png" alt="1NF"></li>
+</ul>
+<h2><span id="conversion-to-two-normal-form">Conversion to Two Normal Form</span><a href="#conversion-to-two-normal-form" class="header-anchor">#</a></h2><ul>
+<li>Steps <ul>
+<li>Make new tables to eliminate partial dependencies</li>
+<li>Reassign corresponding dependent attributes</li>
+</ul>
+</li>
+<li>Table is in 2NF when it:<ul>
+<li>Is in 1NF</li>
+<li>Includes no partial dependencies</li>
+</ul>
+</li>
+<li>2NF</li>
+<li><img src="/DatabaseRev/2nf.png" alt="2NF"></li>
+</ul>
+<h2><span id="conversion-to-third-normal-form">Conversion to Third Normal Form</span><a href="#conversion-to-third-normal-form" class="header-anchor">#</a></h2><ul>
+<li>Steps<ul>
+<li>Make new tables to eliminate transitive dependencies </li>
+<li>Determinant: Any attribute whose value determines other values within a row</li>
+<li>Reassign corresponding dependent attributes</li>
+</ul>
+</li>
+<li>Table is in 3NF when it:<ul>
+<li>Is in 2NF</li>
+<li>Contains no transitive dependencies</li>
+</ul>
+</li>
+<li>3NF</li>
+<li><img src="/DatabaseRev/3nf.png" alt="3NF"></li>
+</ul>
+<h2><span id="requirements-for-good-normalized-set-of-tables">Requirements for Good Normalized Set of Tables</span><a href="#requirements-for-good-normalized-set-of-tables" class="header-anchor">#</a></h2><ul>
+<li>Evaluate PK assignments and naming conventions -&gt; create a job_code</li>
+<li>evaluate naming conventions -&gt; JOB_CHG_HOUR</li>
+<li>Refine attribute atomicity -&gt; EMP_NAME -&gt; first name, last name<ul>
+<li><strong>Atomic attribute</strong>: Cannot be further subdivided</li>
+<li><strong>Atomicity</strong>: Characteristic of an atomic attribute</li>
+</ul>
+</li>
+<li>Identify new attributes $\And$ new relationships -&gt; EMP_HIREDATE(Add more columns to make it more useful) $\And$ PROJECT can have EMP_NO as FK</li>
+<li>Refine primary keys as required for data granularity -&gt; ASSIGN_NUM<ul>
+<li><strong>Granularity</strong>: Level of detail represented by the values stored in a table’s row</li>
+</ul>
+</li>
+<li>Maintain historical accuracy $\And$ evaluate using derived attributes -&gt; sotre JOB_CHG_HOUR IN assignment $\And$ ASSIGN_CHARGE (It can be caculatd by xx xx waste space but get better performance))</li>
+</ul>
+<h2><span id="denormalization">Denormalization</span><a href="#denormalization" class="header-anchor">#</a></h2><ul>
+<li>Design goals<ul>
+<li>Creation of normalized relations </li>
+<li>Processing requirements and speed</li>
+</ul>
+</li>
+<li>Number of database tables expands when tables are decomposed to conform to normalization requirements</li>
+<li>Joining a larger number of tables:<ul>
+<li>Takes additional input&#x2F;output (I&#x2F;O) operations and processing logic</li>
+<li>Reduces system speed</li>
+</ul>
+</li>
+<li>Defects in unnormalized tables<ul>
+<li>Data updates are less efficient because tables are larger</li>
+<li>Indexing is more cumbersome</li>
+<li>No simple strategies for creating virtual tables known as views</li>
+</ul>
+</li>
+</ul>
+<h1><span id="transaction-management">Transaction Management</span><a href="#transaction-management" class="header-anchor">#</a></h1><h2><span id="transaction">Transaction</span><a href="#transaction" class="header-anchor">#</a></h2><ul>
+<li>Logical unit of work that must be entirely completed or aborted</li>
+<li>Consists of:<ul>
+<li>SELECT statement </li>
+<li>Series of related UPDATE statements</li>
+<li>Series of INSERT statements</li>
+<li>Combination of SELECT, UPDATE, and INSERT statements</li>
+</ul>
+</li>
+<li><strong>Consistent database state</strong>: All data integrity constraints are satisfied &#x2F;&#x2F; Before transaction, the database is good and clean and after transaction is completed, the transaction will leave the database again in a consistent sate.<ul>
+<li>Must begin with the database in a known consistent state to ensure consistency</li>
+</ul>
+</li>
+<li>Formed by two or more database requests<ul>
+<li><strong>Database requests</strong>: Equivalent of a single SQL statement in an application program or transaction</li>
+</ul>
+</li>
+<li>Consists of a single SQL statement or a collection of related SQL statements</li>
+</ul>
+<h2><span id="transaction-properities">Transaction Properities</span><a href="#transaction-properities" class="header-anchor">#</a></h2><ul>
+<li><strong>Atomicity</strong>: All operations of a transaction must be completed. If not, the transaction is aborted.</li>
+<li><strong>Consistency</strong>: Permanence of database’s consistent state</li>
+<li><strong>Isolation</strong>: Data used during transaction cannot be used by second transaction until the first is completed</li>
+<li><strong>Durability</strong>: Ensures that once transactions are committed, they cannot be undone or lost</li>
+<li><strong>Serializability</strong>: Ensures that the schedule for the concurrent execution of several transactions should yield consistent results</li>
+</ul>
+<h2><span id="transaction-management-with-sql">Transaction Management with SQL</span><a href="#transaction-management-with-sql" class="header-anchor">#</a></h2><ul>
+<li>SQL statements that provide transaction support<ul>
+<li>COMMIT </li>
+<li>ROLLBACK -&gt; roll back the current transaction to last commit</li>
+</ul>
+</li>
+<li>Transaction sequence must continue until:<ul>
+<li>COMMIT statement is reached</li>
+<li>ROLLBACK statement is reached</li>
+<li>End of program is reached</li>
+<li>Program is abnormally terminated</li>
+</ul>
+</li>
+</ul>
+<h2><span id="transaction-log">Transaction log</span><a href="#transaction-log" class="header-anchor">#</a></h2><ul>
+<li>Keeps track of all transactions that update the database</li>
+<li>DBMS uses the information stored in a log for:<ul>
+<li>Recovery requirement triggered by a ROLLBACK statement</li>
+<li>A program’s abnormal termination</li>
+<li>A system failure</li>
+</ul>
+</li>
+</ul>
+<h2><span id="concurrency-control">Concurrency Control</span><a href="#concurrency-control" class="header-anchor">#</a></h2><ul>
+<li>Coordination of the simultaneous transactions execution in a multiuser database system</li>
+<li>Objective - Ensures serializability of transactions in a multiuser database environment</li>
+<li>dirty read：一个事务可以读取另一个尚未提交事务的修改数据。</li>
+<li>nonrepeatable read：在同一个事务中，同一个查询在T1时间读取某一行，在T2时间重新读取这一行时候，这一行的数据已经发生修改，可能被更新了（update），也可能被删除了（delete）。</li>
+<li>phantom read：在同一事务中，同一查询多次进行时候，由于其他插入操作（insert）的事务提交，导致每次返回不同的结果集。</li>
+</ul>
+<h2><span id="the-scheduler">The Scheduler</span><a href="#the-scheduler" class="header-anchor">#</a></h2><ul>
+<li>Establishes the order in which the operations are executed within concurrent transactions <ul>
+<li>Interleaves the execution of database operations to ensure serializability and isolation of transactions</li>
+</ul>
+</li>
+<li>Based on concurrent control algorithms to determine the appropriate order</li>
+<li>Creates serialization schedule <ul>
+<li>Serializable schedule: Interleaved execution of transactions yields the same results as the serial execution of the transactions</li>
+</ul>
+</li>
+</ul>
+<h2><span id="concurrency-control-with-locking-methods">Concurrency Control with Locking Methods</span><a href="#concurrency-control-with-locking-methods" class="header-anchor">#</a></h2><ul>
+<li>Locking methods - Facilitate isolation of data items used in concurrently executing transactions   </li>
+<li><strong>Lock</strong>: Guarantees exclusive use of a data item to a current transaction</li>
+<li><strong>Pessimistic locking</strong>: Use of locks based on the assumption that conflict between transactions is likely</li>
+<li><strong>Lock manager</strong>: Responsible for assigning and policing the locks used by the transactions</li>
+</ul>
+<h2><span id="lock-granularity">Lock Granularity</span><a href="#lock-granularity" class="header-anchor">#</a></h2><ul>
+<li>Indicates the level of lock use</li>
+<li>Levels of locking <ul>
+<li>Database-level lock</li>
+<li>Table-level lock</li>
+<li>Page-level lock<ul>
+<li>Page or diskpage: Directly addressable section of a disk</li>
+</ul>
+</li>
+<li>Row-level lock</li>
+<li>Field-level lock</li>
+</ul>
+</li>
+</ul>
+<h2><span id="lock-types">Lock Types</span><a href="#lock-types" class="header-anchor">#</a></h2><ul>
+<li>Binary lock</li>
+<li>Has two states, locked (1) and unlocked (0)<ul>
+<li>If an object is locked by a transaction, no other transaction can use that object</li>
+<li>If an object is unlocked, any transaction can lock the object for its use</li>
+</ul>
+</li>
+<li>Exclusive lock -write<ul>
+<li>Exists when access is reserved for the transaction that locked the object</li>
+</ul>
+</li>
+<li>Shared lock -&gt; read<ul>
+<li>Exists when concurrent transactions are granted read access on the basis of a common lock</li>
+</ul>
+</li>
+</ul>
+<h2><span id="two-phase-locking-2pl-gt-avoid-deadlock">Two-Phase Locking (2PL) -&gt; avoid deadlock</span><a href="#two-phase-locking-2pl-gt-avoid-deadlock" class="header-anchor">#</a></h2><ul>
+<li>Defines how transactions acquire and relinquish locks</li>
+<li>Guarantees serializability but does not prevent deadlocks </li>
+<li>Phases<ul>
+<li>Growing phase - Transaction acquires all required locks without unlocking any data</li>
+<li>Running operations(middle)</li>
+<li>Shrinking phase - Transaction releases all locks and cannot obtain any new lock</li>
+</ul>
+</li>
+<li>Governing rules<ul>
+<li>Two transactions cannot have conflicting locks</li>
+<li>No unlock operation can precede a lock operation in the same transaction</li>
+<li>No data are affected until all locks are obtained</li>
+</ul>
+</li>
+</ul>
+<h2><span id="deadlocks">Deadlocks</span><a href="#deadlocks" class="header-anchor">#</a></h2><ul>
+<li>Occurs when two transactions wait indefinitely for each other to unlock data<ul>
+<li>Known as deadly embrace</li>
+</ul>
+</li>
+<li>Control techniques<ul>
+<li>Deadlock prevention possible deadlock detect and kill one of the potential confilct -&gt; timestamp based</li>
+<li>Deadlock detection </li>
+<li>Deadlock avoidance -&gt; The transaction must obtain all the lock to execute, in the transaction process, no deadlock will occur</li>
+</ul>
+</li>
+<li>Choice of deadlock control method depends on database environment</li>
+</ul>
+<h2><span id="time-stamping-gt-prevent-deadlock">Time Stamping -&gt; prevent deadlock</span><a href="#time-stamping-gt-prevent-deadlock" class="header-anchor">#</a></h2><ul>
+<li>Assigns global, unique time stamp to each transaction<ul>
+<li>Produces explicit order in which transactions are submitted to DBMS</li>
+</ul>
+</li>
+<li>Properties<ul>
+<li>Uniqueness: Ensures no equal time stamp values exist</li>
+<li>Monotonicity: Ensures time stamp values always increases</li>
+</ul>
+</li>
+<li>Disadvantages<ul>
+<li>Each value stored in the database requires two additional stamp fields</li>
+<li>Increases memory needs</li>
+<li>Increases the database’s processing overhead</li>
+<li>Demands a lot of system resources</li>
+</ul>
+</li>
+</ul>
+<h2><span id="wait-x2f-die-and-wound-x2f-wait-concurrency-control-schema">Wait&#x2F;Die and Wound&#x2F;Wait Concurrency Control Schema</span><a href="#wait-x2f-die-and-wound-x2f-wait-concurrency-control-schema" class="header-anchor">#</a></h2><table>
+<thead>
+<tr>
+<th align="left">Transaction Request Lock</th>
+<th align="left">Transaction Owning Lock</th>
+<th align="left">WAIT&#x2F;DIE Scheme(People who currently has resources has higher privelege)</th>
+<th align="left">Wound&#x2F;Wait Scheme -&gt; Old always first if Old has higher privelege</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">T1(11548789)</td>
+<td align="left">T2(19562545)</td>
+<td align="left">T1 wait until T2 is complete</td>
+<td align="left">T1 preempts(rollback) T2 and T2 reschedule</td>
+</tr>
+<tr>
+<td align="left">T2(19562545)</td>
+<td align="left">T1(11548789)</td>
+<td align="left">T2 dies and reschedule with the same timestamp</td>
+<td align="left">T2 waits T1 is completed and T1 releases lock</td>
+</tr>
+</tbody></table>
+<h2><span id="phases-of-optimistic-approach">Phases of Optimistic Approach</span><a href="#phases-of-optimistic-approach" class="header-anchor">#</a></h2><ul>
+<li>Read<ul>
+<li>Transaction:<ul>
+<li>Reads the database</li>
+<li>Executes the needed computations</li>
+<li>Makes the updates to a private copy of the database values</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Validation<ul>
+<li>Transaction is validated to ensure that the changes made will not affect the integrity and consistency of the database</li>
+</ul>
+</li>
+<li>Write<ul>
+<li>Changes are permanently applied to the database</li>
+</ul>
+</li>
+</ul>
+<h1><span id="distributed-dbs">Distributed DBs</span><a href="#distributed-dbs" class="header-anchor">#</a></h1><h2><span id="vertical-scalling-and-horizontal-scalling">Vertical scalling and horizontal scalling</span><a href="#vertical-scalling-and-horizontal-scalling" class="header-anchor">#</a></h2><ul>
+<li>Vertical scalling: very bad, it’s take one server and add more and more Gigbyte it run, but it is restricted in one machine</li>
+<li>Horizontal scalling: add more and more servers</li>
+</ul>
+<h2><span id="distributed-processing-and-distributed-databases">Distributed Processing and Distributed Databases</span><a href="#distributed-processing-and-distributed-databases" class="header-anchor">#</a></h2><ul>
+<li>Distributed processing: Database’s logical processing is shared among two or more physically independent sites via network</li>
+<li>Distributed database: Stores logically related database over two or more physically independent sites via computer network<ul>
+<li>Database fragments: Database composed of many parts in distributed database system. EXAMPle: take a table and split it to many pieces</li>
+</ul>
+</li>
+</ul>
+<h2><span id="functions-of-distributed-dbms">Functions of Distributed DBMS</span><a href="#functions-of-distributed-dbms" class="header-anchor">#</a></h2><ul>
+<li>Receives the request of an application </li>
+<li><strong>Validates analyzes</strong>, and decomposes the request</li>
+<li>Maps the request</li>
+<li>Decomposes request into several I&#x2F;O operations</li>
+<li>Searches and validates data</li>
+<li>Ensures consistency, security, and integrity</li>
+<li>Validates data for specific conditions</li>
+<li>Presents data in required format</li>
+</ul>
+<h2><span id="ddbms-components">DDBMS Components</span><a href="#ddbms-components" class="header-anchor">#</a></h2><ul>
+<li>Computer workstations or remote devices</li>
+<li>Network hardware and software components</li>
+<li>Communications media</li>
+<li><strong>Transaction processor (TP)</strong>: Software component of a system that requests data -&gt; access the database and get the query fullfill(make a request)</li>
+<li>Known as <strong>transaction manager (TM)</strong> or <strong>application processor (AP)</strong></li>
+<li><strong>Data processor (DP)</strong> or <strong>data manager (DM)</strong> -&gt; Only serve data dont care where the request come from</li>
+<li>Software component on a system that stores and retrieves data from its location</li>
+</ul>
+<h2><span id="single-site-processing-single-site-data-mpsd-pretty-simple">Single-Site Processing, Single-Site Data(MPSD) pretty simple</span><a href="#single-site-processing-single-site-data-mpsd-pretty-simple" class="header-anchor">#</a></h2><h2><span id="multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</span><a href="#multiple-site-processing-single-site-data-mpsd" class="header-anchor">#</a></h2><ul>
+<li>Multiple processes run on different computers sharing a single data repository</li>
+<li>Require network file server running conventional applications <ul>
+<li>Accessed through LAN</li>
+</ul>
+</li>
+<li><strong>Client&#x2F;server architecture</strong><br>Reduces network traffic<br>Processing is distributed<br>Supports data at multiple sites</li>
+</ul>
+<h2><span id="multiple-site-processing-single-site-data-mpsd">Multiple-Site Processing, Single-Site Data (MPSD)</span><a href="#multiple-site-processing-single-site-data-mpsd" class="header-anchor">#</a></h2><ul>
+<li>Fully distributed database management system<ul>
+<li>Support multiple data processors and transaction processors at multiple sites</li>
+</ul>
+</li>
+<li>Classification of DDBMS depending on the level of support for various types of databases<ul>
+<li>Homogeneous: Integrate multiple instances of same DBMS over a network -&gt; all databases are in the same model(all oracle&#x2F;mysql)</li>
+<li>Heterogeneous: Integrate different types of DBMSs -&gt; can have different vendors(oracle, mysql,sqlite) but must follow the same relational model</li>
+<li>Fully heterogeneous: Support different DBMSs, each supporting different data model (some maybe noSQL data&#x2F;graph&#x2F;kv pairs)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="restrictions-of-ddbms">Restrictions of DDBMS</span><a href="#restrictions-of-ddbms" class="header-anchor">#</a></h2><ul>
+<li>Remote access is provided on a read-only basis</li>
+<li>Restrictions on the number of remote tables that may be accessed in a single transaction</li>
+<li>Restrictions on the number of distinct databases that may be accessed</li>
+<li>Restrictions on the database model that may be accessed</li>
+</ul>
+<h2><span id="distributed-requests-and-distributed-transactions">Distributed Requests and Distributed Transactions</span><a href="#distributed-requests-and-distributed-transactions" class="header-anchor">#</a></h2><ul>
+<li>Remote request<ul>
+<li>Single SQL statement accesses data processed by a single remote database processor</li>
+</ul>
+</li>
+<li>Remote transaction<ul>
+<li>Accesses data at single remote site composed of several requests</li>
+</ul>
+</li>
+<li>Distributed transaction<ul>
+<li>Requests data from several different remote sites on network</li>
+</ul>
+</li>
+<li>Distributed request<ul>
+<li>Single SQL statement references data at several DP sites</li>
+</ul>
+</li>
+</ul>
+<h2><span id="distributed-concurrency-control-2pc-2-phrase-commit">Distributed Concurrency Control (2PC 2 phrase commit)</span><a href="#distributed-concurrency-control-2pc-2-phrase-commit" class="header-anchor">#</a></h2><ul>
+<li>Concurrency control is important in distributed databases environment<ul>
+<li>Due to multi-site multiple-process operations that create inconsistencies and deadlocked transactions</li>
+</ul>
+</li>
+</ul>
+<h2><span id="two-phase-commit-protocol-2pc">Two-Phase Commit Protocol(2PC)</span><a href="#two-phase-commit-protocol-2pc" class="header-anchor">#</a></h2><ul>
+<li><p>Guarantees if a portion of a transaction operation cannot be committed, all changes made at the other sites will be undone </p>
+<ul>
+<li>To maintain a consistent database state</li>
+</ul>
+</li>
+<li><p>Requires that each DP’s transaction log entry be written before database fragment is updated</p>
+</li>
+<li><p><strong>DO-UNDO-REDO protocol</strong>: Roll transactions back and forward with the help of the system’s transaction log entries</p>
+</li>
+<li><p><strong>Write-ahead protocol</strong>: Forces the log entry to be written to permanent storage before actual operation takes place </p>
+</li>
+<li><p>Defines operations between <strong>coordinator</strong> and <strong>subordinates</strong></p>
+</li>
+<li><p>Phases of implementation</p>
+<ul>
+<li><ol>
+<li>Preparation -&gt; request if others can commit or not(failure happends)</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>The final COMMIT -&gt; Tell all others they can commit</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Details:</p>
+</li>
+<li><p>第一阶段：准备<br>协调器发送一个PREPARE TO COMMIT信息给所有的从属者。</p>
+<p>从属者接到这个信息，使用先写协议，写入事务日志并发送一个确认信息（YES&#x2F;PREPARED TO COMMIT或NO&#x2F;NO PREPARED）给协调器。<br>协调器确保所有节点要么提交，要么取消。<br>如果所有节点为PREPARED TO COMMIT，事务调转到第二阶段。如果有一个或多个节点为NO或NO PREPARED协调器就给所有从属者发送一个ABORT。</p>
+<p>第二阶段：最后的提交</p>
+<p>协调器广播一个COMMIT信息给所有从属者并等待回复。<br>每个从属者接收到COMMIT信息并且使用DO协议更性数据库。<br>从属者回复一个 COMMITTED或者NOT COMMITTED信息给协调器。<br>如果一个或者多个从属者没有提交，协调器就发送一个ABORT消息，这样就使它们都取消所有的操作。</p>
+<p>两阶段提交的目的是为了确保每个节点都提交事务自己所操作的部分；否则，事务就取消。如果其中一个节点提交失败，就用事务日志来恢复数据库的信息，而且使用的是DO-UNDO-REDO协议来恢复（记住使用先写协议更新日志信息）。</p>
+</li>
+<li><p>CUBRID -&gt; how transaction manager&#x2F;distribute a good example</p>
+</li>
+</ul>
+<h2><span id="transparency-hide-sth-to-users">Transparency (Hide sth to users)</span><a href="#transparency-hide-sth-to-users" class="header-anchor">#</a></h2><ul>
+<li>Distribution transparency: The users dont know the databases are distrubuted<ul>
+<li>Allows management of physically dispersed database as if centralized(好像是centralized的)</li>
+<li>Levels<ul>
+<li>Fragmentation transparency </li>
+<li>Location transparency </li>
+<li>Local mapping transparency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transaction transparency: The users dont know what parts of transaction happens where<ul>
+<li>Ensures database transactions will maintain distributed database’s integrity and consistency</li>
+<li>Ensures transaction completed only when all database sites involved complete their part</li>
+<li>Distributed database systems require complex mechanisms to manage transactions</li>
+</ul>
+</li>
+<li>Failure transparency: If the query go to one place, the place is down, they the user will not feel that. reroute to other copies<ul>
+<li>Ensures the system will operate in case of network failure</li>
+<li>Considerations for resolving requests in a distributed data environment<ul>
+<li>Data distribution</li>
+<li>Data replication<ul>
+<li><strong>Replica transparency</strong>: DDBMS’s ability to hide multiple copies of data from the user</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Performance transparency: Hide latency.<ul>
+<li>Allows a DDBMS to perform as if it were a centralized database</li>
+</ul>
+</li>
+<li>Network and node availability<ul>
+<li><strong>Network latency</strong>: delay imposed by the amount of time required for a data packet to make a round trip</li>
+<li><strong>Network partitioning</strong>: delay imposed when nodes become suddenly unavailable due to a network failure</li>
+</ul>
+</li>
+<li>Heterogeneity transparency: dont know what operating system&#x2F; database system …</li>
+</ul>
+<h2><span id="distributed-database-design">Distributed Database Design</span><a href="#distributed-database-design" class="header-anchor">#</a></h2><ul>
+<li><strong>Data fragmentation</strong>: How to partition database into fragments</li>
+<li><strong>Data replication</strong>: Which fragments to replicate</li>
+<li><strong>Data allocation</strong>: Where to locate those fragments and replicas</li>
+</ul>
+<h2><span id="data-fragmentation">Data Fragmentation</span><a href="#data-fragmentation" class="header-anchor">#</a></h2><ul>
+<li>Breaks single object into many segments<br>Information is stored in distributed data catalog (DDC)</li>
+<li>Strategies<ul>
+<li><strong>Horizontal fragmentation</strong>: Division of a relation into subsets (fragments) of tuples (rows)</li>
+<li><strong>Vertical fragmentation</strong>: Division of a relation into attribute (column) subsets</li>
+<li><strong>Mixed fragmentation</strong>: Combination of horizontal and vertical strategies</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-replication">Data Replication</span><a href="#data-replication" class="header-anchor">#</a></h2><ul>
+<li>Data copies stored at multiple sites served by a computer network</li>
+<li><strong>Mutual consistency rule</strong>: Replicated data fragments should be identical</li>
+<li>Styles of replication -&gt; How to make changes propogate<ul>
+<li>Push replication -&gt; send changes to others</li>
+<li>Pull replication -&gt; pull others’ changes</li>
+</ul>
+</li>
+<li>Helps restore lost data</li>
+</ul>
+<h2><span id="data-replication-scenarios">Data Replication Scenarios</span><a href="#data-replication-scenarios" class="header-anchor">#</a></h2><ul>
+<li>Fully replicated database<ul>
+<li>Stores multiple copies of each database fragment at multiple sites</li>
+</ul>
+</li>
+<li>Partially replicated database<ul>
+<li>Stores multiple copies of some database fragments at multiple sites</li>
+</ul>
+</li>
+<li>Unreplicated database<ul>
+<li>Stores each database fragment at a single site</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-allocation-strategies">Data Allocation Strategies</span><a href="#data-allocation-strategies" class="header-anchor">#</a></h2><ul>
+<li>Centralized data allocation<ul>
+<li>Entire database stored at one site</li>
+</ul>
+</li>
+<li>Partitioned data allocation<ul>
+<li>Database is divided into two or more disjoined fragments and stored at two or more sites</li>
+</ul>
+</li>
+<li>Replicated data allocation<ul>
+<li>Copies of one or more database fragments are stored at several sites</li>
+</ul>
+</li>
+</ul>
+<h2><span id="the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database">The CAP Theorem (That’s what u need consider when you design a database)</span><a href="#the-cap-theorem-that-s-what-u-need-consider-when-you-design-a-database" class="header-anchor">#</a></h2><ul>
+<li>CAP stands for:<ul>
+<li>Consistency: Are all partitions of data keeping the same </li>
+<li>Availability: if some nodes are down, the system can still work</li>
+<li>Partition tolerance: the cluster continues to function even if there is a “partition” (communication break) between two nodes (both nodes are up, but can’t communicate). -&gt; Continue to work even some nodes fail</li>
+</ul>
+</li>
+<li><strong>Basically available, soft state, eventually consistent (BASE)</strong><ul>
+<li>Data changes are not immediate but propagate slowly through the system until all replicas are consistent</li>
+</ul>
+</li>
+</ul>
+<h2><span id="database-connectivity">Database Connectivity</span><a href="#database-connectivity" class="header-anchor">#</a></h2><p><strong>Database middleware</strong>: Provides an interface between the application program and the database<br><strong>Data repository&#x2F;source</strong> - Data management application used to store data generated by an application program<br><strong>Universal Data Access (UDA)</strong>: Collection of technologies used to access any type of data source and manage the data through a common interface<br>ODBC, OLE-DB, ADO.NET form the backbone of MS UDA architecture</p>
+<h2><span id="various-connectivity-options">Various connectivity options</span><a href="#various-connectivity-options" class="header-anchor">#</a></h2><ul>
+<li><p>Native SQL(provided by vendors)</p>
+<ul>
+<li>Connection interface provided by database vendors, which is unique to each vendor</li>
+<li>Interfaces are optimized for particular vendor’s DBMS<ul>
+<li>Maintenance is a burden for the programmer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>M’soft: 1.ODBC(Open database connectivity(Microsoft’s implementation of a superset of SQL Access Group)), DAO(Data Access Object)+JET, RDO(Remote Data Object)</p>
+<ul>
+<li>ODBC<ul>
+<li>Open Database Connectivity (ODBC):Microsoft’s implementation of a superset of SQL Access Group Call Level Interface (CLI) standard for database access</li>
+<li>Widely supported database connectivity interface</li>
+<li>Allows Windows application to access relational data sources by using SQL via standard application programming interface (API)</li>
+</ul>
+</li>
+<li>Data Access Objects(DAO)<ul>
+<li>Object-oriented API used to access MS Access, MS FoxPro, and dBase databases from Visual Basic programs</li>
+<li>Provides an optimized interface that expose functionality of Jet data engine to programmers</li>
+<li>DAO interface can be used to access other relational style data sources</li>
+<li>Jet is a wrapper of DAO</li>
+</ul>
+</li>
+<li>Remote Data Objects (RDO)<ul>
+<li>Higher-level object-oriented application interface used to access remote database servers</li>
+</ul>
+</li>
+<li>Dynamic-link libraries (DLLs)<ul>
+<li>Implements ODBC, DAO, and RDO as shared code that is dynamically linked to the Windows operating environment</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>M’soft: OLE-DB(open linking embeding db)</p>
+</li>
+<li><p>M’soft: ADO.NET(Access Data Object)</p>
+</li>
+<li><p>JDBC(from Sum)</p>
+</li>
+</ul>
+<h2><span id="components-of-odbc-architecture">Components of ODBC Architecture</span><a href="#components-of-odbc-architecture" class="header-anchor">#</a></h2><ul>
+<li>High-level ODBC API through which application programs access ODBC functionality -&gt; face to program</li>
+<li>Driver manager that is in charge of managing all database connections -&gt; face to table</li>
+<li>ODBC driver that communicates directly to DBMS</li>
+</ul>
+<h2><span id="object-linking-and-embedding-for-database-ole-db-database-becomes-object">Object Linking and Embedding for Database (OLE-DB) Database becomes object</span><a href="#object-linking-and-embedding-for-database-ole-db-database-becomes-object" class="header-anchor">#</a></h2><p>Before: OMG(object management group)<br>CORBA: COMMON OBJECT REQUEST BREAKER ARCHITECHTURE -&gt; Object exchange from different os regardless different memory</p>
+<ul>
+<li>Database middleware that adds object-oriented functionality for access to data</li>
+<li>Series of COM(component object model) objects provides low-level database connectivity for applications</li>
+<li>Types of objects based on functionality<ul>
+<li>Consumers(request data)</li>
+<li>Providers(produce data)</li>
+</ul>
+</li>
+<li>Does not provide support for scripting languages</li>
+<li>ActiveX Data Objects (ADO): Provides:</li>
+<li>High-level application-oriented interface to interact with OLE-DB, DAO, and RDO</li>
+<li>Unified interface to access data from any programming language that uses the underlying OLE-DB objects</li>
+<li>ADO.NET<ul>
+<li>Data access component of Microsoft’s .NET application development framework</li>
+</ul>
+</li>
+<li>Microsoft’s .NET framework<ul>
+<li>Component-based platform for developing distributed, heterogeneous, interoperable applications </li>
+<li>Manipulates any type of data using any combination of network, operating system, and programming language</li>
+</ul>
+</li>
+<li>Features critical for the development of distributed applications<ul>
+<li>DataSet: Disconnected memory-resident representation of database</li>
+<li>XML support <ul>
+<li>DataSet is internally stored in XML format</li>
+<li>Data in DataSet is made persistent as XML documents</li>
+<li>DataSet is internally stored in XML format</li>
+<li>Data in DataSet made persistent as XML documents</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="database-internet-connectivity">Database Internet Connectivity</span><a href="#database-internet-connectivity" class="header-anchor">#</a></h2><ul>
+<li>Allows new innovative services that:<ul>
+<li>Permit rapid response by bringing new services and products to market quickly</li>
+<li>Increase customer satisfaction through creation of web-based support services</li>
+<li>Allow anywhere, anytime data access using mobile smart devices via the Internet</li>
+<li>Yield fast and effective information dissemination through universal access</li>
+</ul>
+</li>
+</ul>
+<h2><span id="web-to-database-middleware">Web-to-Database Middleware</span><a href="#web-to-database-middleware" class="header-anchor">#</a></h2><ul>
+<li>Web server is the main hub through which Internet services are accessed</li>
+<li><strong>Server-side extension</strong>: Program that interacts directly with the web server<ul>
+<li>Known as <strong>web-to-database middleware</strong></li>
+<li>Provides its services to the web server in a way that is totally transparent to the client browser</li>
+</ul>
+</li>
+<li>Middleware must be well integrated</li>
+</ul>
+<h2><span id="client-side-extensions">Client-Side Extensions</span><a href="#client-side-extensions" class="header-anchor">#</a></h2><ul>
+<li>Add functionality to Web browser</li>
+<li>Types <ul>
+<li>Plug-in: External application automatically invoked by the browser when needed</li>
+<li>Java and JavaScript: Embedded in web page<ul>
+<li>Downloaded with the Web page and activated by an event</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ActiveX and VBScript: Embedded in web page<ul>
+<li>Downloaded with page and activated by event</li>
+<li>Oriented to Windows applications</li>
+</ul>
+</li>
+</ul>
+<h1><span id="performance-tuning-and-query-optimization">Performance Tuning and Query Optimization</span><a href="#performance-tuning-and-query-optimization" class="header-anchor">#</a></h1><h2><span id="tuning-database-performance-tuning-concepts">Tuning(Database Performance-Tuning Concepts)</span><a href="#tuning-database-performance-tuning-concepts" class="header-anchor">#</a></h2><ul>
+<li>Goal of database performance is to execute queries as fast as possible</li>
+<li>Database performance tuning: Set of activities and procedures that reduce response time of database system</li>
+<li>Fine-tuning the performance of a system requires that all factors must operate at optimum level with minimal bottlenecks</li>
+</ul>
+<h2><span id="performance-tuning-client-and-server">Performance Tuning: Client and Server</span><a href="#performance-tuning-client-and-server" class="header-anchor">#</a></h2><h3><span id="client-side">Client side</span><a href="#client-side" class="header-anchor">#</a></h3><ul>
+<li>SQL performance tuning: Generates SQL query that returns correct answer in least amount of time -&gt; suppose A and B and C-&gt; A should fail many times. Re-arranging sql query language<ul>
+<li>Using minimum amount of resources at server</li>
+</ul>
+</li>
+</ul>
+<h3><span id="server-side">Server side</span><a href="#server-side" class="header-anchor">#</a></h3><ul>
+<li>DBMS performance tuning: DBMS environment configured to respond to clients’ requests as fast as possible<ul>
+<li>Optimum use of existing resources</li>
+</ul>
+</li>
+</ul>
+<h2><span id="dbms-architecture">DBMS Architecture</span><a href="#dbms-architecture" class="header-anchor">#</a></h2><ul>
+<li>All data in a database are stored in <strong>data files</strong><ul>
+<li>Data files automatically <strong>expand</strong> in predefined increments known as extends</li>
+</ul>
+</li>
+<li>Data files are grouped in <strong>file groups</strong> or <strong>table spaces</strong><ul>
+<li><strong>Table space</strong> or <strong>file group</strong>: Logical grouping of several data files that store data with similar characteristics</li>
+</ul>
+</li>
+<li><strong>Data cache</strong> or <strong>buffer cache</strong>: Shared, reserved memory area<ul>
+<li>Stores most recently accessed data blocks in RAM</li>
+</ul>
+</li>
+<li><strong>SQL cache</strong> or <strong>procedure cache</strong>: Stores most recently executed SQL statements or PL&#x2F;SQL procedures</li>
+<li>DBMS retrieves data from permanent storage and places them in RAM <strong>Input&#x2F;output request</strong>: Low-level data access operation that reads or writes data to and from computer devices</li>
+<li>Data cache is faster than working with data files </li>
+<li>Majority of performance-tuning activities focus on minimizing I&#x2F;O operations</li>
+<li><strong>Listener</strong> The listener process listens for clients’ requests and handles the processing of the SQL requests to other DBMS processes. Once a request is received, the listener passes the request to the appropriate user process</li>
+<li><strong>User</strong> The DBSM creates a user process to manager each client session. Therefore, when you log on to the DBMS, you are assigned a user process. This process handles all requests you submit to the server. There are many user processes-at least onper logged-in client.</li>
+<li><strong>Scheduler</strong> The scheduler process organizes the concurrent execution of SQL requests.</li>
+<li><strong>Lock Mnager</strong> This process manages all locks placed on database objects, including disk pages</li>
+<li><strong>Optimizer</strong> The optimizer analyzes SQL queries and finds the most efficient way to access the data. &#x2F;&#x2F; How can we make it better.</li>
+</ul>
+<h2><span id="database-query-optimization-modes">Database Query Optimization Modes</span><a href="#database-query-optimization-modes" class="header-anchor">#</a></h2><ul>
+<li>Algorithms proposed for query optimization are based on:<ul>
+<li>Selection of the optimum order to achieve the fastest execution time &#x2F;&#x2F; The order to visit each table</li>
+<li>Selection of sites to be accessed to minimize communication costs</li>
+</ul>
+</li>
+<li>Evaluated on the basis of: <ul>
+<li>Operation mode</li>
+<li>Timing of its optimization</li>
+<li>Type of information(used for optimization)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="classification-of-operation-modes">Classification of Operation Modes</span><a href="#classification-of-operation-modes" class="header-anchor">#</a></h2><ul>
+<li>Automatic query optimization: DBMS finds the most cost-effective access path without user intervention</li>
+<li>Manual query optimization: Requires that the optimization be selected and scheduled by the end user or programmer</li>
+</ul>
+<h2><span id="based-on-timing-of-optimization">Based on Timing of Optimization</span><a href="#based-on-timing-of-optimization" class="header-anchor">#</a></h2><ul>
+<li><strong>Static query optimization</strong>: best optimization strategy is selected when the query is compiled by the DBMS<ul>
+<li>Takes place at compilation time</li>
+</ul>
+</li>
+<li><strong>Dynamic query optimization</strong>: Access strategy is dynamically determined by the DBMS at run time, using the most up-to-date information about the database<ul>
+<li>Takes place at execution time: more processing ahead</li>
+</ul>
+</li>
+</ul>
+<h2><span id="type-of-information-used-to-optimize">Type of Information Used to Optimize</span><a href="#type-of-information-used-to-optimize" class="header-anchor">#</a></h2><ul>
+<li><strong>Statistically based query optimization algorithm</strong>: Statistics are used by the DBMS to determine the best access strategy</li>
+<li>Statistical information is generated by DBMS through: <ul>
+<li><strong>Dynamic statistical generation mode - auto eval</strong></li>
+<li><strong>Manual statistical generation mode - via user</strong></li>
+</ul>
+</li>
+<li><strong>Rule-based query optimization algorithm</strong>: based on a set of user-defined rules to determine the best query access strategy</li>
+</ul>
+<h2><span id="sample-database-statistics-measurements">Sample Database Statistics Measurements</span><a href="#sample-database-statistics-measurements" class="header-anchor">#</a></h2><p><img src="/DatabaseRev/SampleDatabaseStatic.png" alt="Advantages and Disadvantages of Storing Derived Attributes"></p>
+<h2><span id="query-processing">Query Processing</span><a href="#query-processing" class="header-anchor">#</a></h2><ul>
+<li>Parsing<ul>
+<li>DBMS parses the SQL query and chooses the most efficient access&#x2F;execution plan</li>
+</ul>
+</li>
+<li>Execution<ul>
+<li>DBMS executes the SQL query using the chosen execution plan</li>
+</ul>
+</li>
+<li>Fetching<ul>
+<li>DBMS fetches the data and sends the result set back to the client</li>
+</ul>
+</li>
+</ul>
+<h2><span id="sql-parsing-phase">SQL Parsing Phase</span><a href="#sql-parsing-phase" class="header-anchor">#</a></h2><ul>
+<li>Query is broken down into smaller units</li>
+<li>Original SQL query transformed into slightly different version of original SQL code which is fully equivalent and more efficient</li>
+<li><strong>Query optimizer</strong>: Analyzes SQL query and finds most efficient way to access data</li>
+<li><strong>Access plans</strong>: DBMS-specific and translate client’s SQL query into a series of complex I&#x2F;O operations</li>
+<li>If access plan already exists for query in SQL cache, DBMS reuses it</li>
+<li>If not, optimizer evaluates various plans and chooses one to be placed in SQL cache for use</li>
+</ul>
+<h2><span id="sql-execution-phase">SQL Execution Phase</span><a href="#sql-execution-phase" class="header-anchor">#</a></h2><ul>
+<li>All I&#x2F;O operations indicated in the access plan are executed<ul>
+<li>Locks are acquired</li>
+<li>Data are retrieved and placed in data cache</li>
+<li>Transaction management commands are processed</li>
+</ul>
+</li>
+</ul>
+<h2><span id="sql-fetching-phase">SQL Fetching Phase</span><a href="#sql-fetching-phase" class="header-anchor">#</a></h2><ul>
+<li>Rows of resulting query result set are returned to client<ul>
+<li>DBMS may use temporary table space to store temporary data</li>
+<li>Database server coordinates the movement of the result set rows from the server cache to the client cache</li>
+</ul>
+</li>
+</ul>
+<h2><span id="query-processing-bottlenecks">Query Processing Bottlenecks</span><a href="#query-processing-bottlenecks" class="header-anchor">#</a></h2><ul>
+<li>Delay introduced in the processing of an I&#x2F;O operation that slows the system</li>
+<li>Caused by the: <ul>
+<li>CPU</li>
+<li>RAM</li>
+<li>Hard disk</li>
+<li>Network</li>
+<li>Application code</li>
+</ul>
+</li>
+</ul>
+<h2><span id="indexes-and-query-optimization">Indexes and Query Optimization</span><a href="#indexes-and-query-optimization" class="header-anchor">#</a></h2><ul>
+<li>Indexes<ul>
+<li>Help speed up data access</li>
+<li>Facilitate searching, sorting, using aggregate functions, and join operations</li>
+<li>Ordered set of values that contain the index key and pointers</li>
+<li>More efficient than a full table scan</li>
+</ul>
+</li>
+</ul>
+<h2><span id="indexes-and-query-optimization">Indexes and Query Optimization</span><a href="#indexes-and-query-optimization" class="header-anchor">#</a></h2><ul>
+<li>Data sparsity: Number of different values a column could have; low sparsity &#x3D;&gt; index might be useless</li>
+<li>Data structures used to implement indexes: <ul>
+<li>Hash indexes -&gt; Bitl generate short-link by hash function</li>
+<li>B-tree indexes</li>
+<li>Bitmap indexes</li>
+</ul>
+</li>
+<li>DBMSs determine best type of index to use</li>
+</ul>
+<h2><span id="index-selectivity">index Selectivity</span><a href="#index-selectivity" class="header-anchor">#</a></h2><ul>
+<li>Measure of the likelihood that an index will be used in query processing. So we strive to create indexes that have high selectivity.</li>
+<li>Indexes are used when a subset of rows from a large table is to be selected based on a given condition</li>
+<li>Index cannot always be used to improve performance</li>
+<li><strong>Function-based index</strong>: Based on a specific SQL function or expression(eg. EMP_SALARY + EMP_COMMISSION)</li>
+<li>Indexes are useful when<ul>
+<li>an indexable column occurs in a WHERE or HAVING search expression</li>
+<li>an indexable column appears in a GROUP BY or ORDER BY clause</li>
+<li>MAX or MIN is applied to an indexable column</li>
+<li>there is high data sparsity on an indexable column</li>
+</ul>
+</li>
+<li>Worth creating indexes on single columns that appear in WHERE, HAVING, ORDER BY, GROUP BY and join conditions.</li>
+</ul>
+<h2><span id="optimizer-choices-gt-statisitc-based">Optimizer Choices -&gt; statisitc-based</span><a href="#optimizer-choices-gt-statisitc-based" class="header-anchor">#</a></h2><ul>
+<li><strong>Rule-based optimizer</strong>: Uses preset rules and points to determine the best approach to execute a query</li>
+<li><strong>Cost-based optimizer</strong>: Uses algorithms based on statistics about objects being accessed to determine the best approach to execute a query(collect all kinds of costs and choose on lowest cost)</li>
+</ul>
+<h2><span id="using-hints-to-affect-optimizer-choices">Using Hints to Affect Optimizer Choices</span><a href="#using-hints-to-affect-optimizer-choices" class="header-anchor">#</a></h2><ul>
+<li>Optimizer might not choose the best execution plan<ul>
+<li>Makes decisions based on existing statistics, which might be old</li>
+<li>Might choose less-efficient decisions</li>
+</ul>
+</li>
+<li>Optimizer hints: Special instructions for the optimizer, embedded in the SQL command text</li>
+<li>Example</li>
+<li><img src="/DatabaseRev/optimizerHints.png" alt="Optimizer Hints"></li>
+</ul>
+<h2><span id="conditional-expressions">Conditional Expressions</span><a href="#conditional-expressions" class="header-anchor">#</a></h2><ul>
+<li>Equality comparisons are faster than inequality comparisons</li>
+<li>Transform conditional expressions to use literals</li>
+<li>Write equality conditions first when using multiple conditional expressions</li>
+<li>When using multiple AND conditions, write the condition most likely to be false first</li>
+<li>When using multiple OR conditions, put the condition most likely to be true first</li>
+<li>Avoid the use of NOT logical operator</li>
+</ul>
+<h2><span id="query-formulation">Query Formulation</span><a href="#query-formulation" class="header-anchor">#</a></h2><ul>
+<li>Identify what columns and computations are required §Identify source tables</li>
+<li>Determine how to join tables</li>
+<li>Determine what selection criteria are needed</li>
+<li>Determine the order in which to display the output</li>
+</ul>
+<h2><span id="dbms-performance-tuning">DBMS Performance Tuning</span><a href="#dbms-performance-tuning" class="header-anchor">#</a></h2><ul>
+<li>Managing DBMS processes in primary memory and the structures in physical storage</li>
+<li>DBMS performance tuning at server end focuses on setting parameters used for:<ul>
+<li>Data cache</li>
+<li>SQL cache</li>
+<li>Sort cache</li>
+<li>Optimizer mode</li>
+</ul>
+</li>
+<li><strong>In-memory database</strong>: Store large portions of the database in primary storage</li>
+<li>Recommendations for physical storage of databases:<ul>
+<li>Use RAID (Redundant Array of Independent Disks) to provide a balance between performance improvement and fault tolerance</li>
+<li>Minimize disk contention</li>
+<li>Put high-usage tables in their own table spaces</li>
+<li>Assign separate data files in separate storage volumes for indexes, system, and high-usage tables</li>
+</ul>
+</li>
+<li>Take advantage of the various table storage organizations in the database</li>
+<li>Index-organized table or clustered index table: Stores the end-user data and the index data in consecutive locations in permanent storage</li>
+<li>Partition tables based on usage</li>
+<li>Use denormalized tables where appropriate </li>
+<li>Store computed and aggregate attributes in tables</li>
+</ul>
+<h1><span id="business-intelligence">Business Intelligence</span><a href="#business-intelligence" class="header-anchor">#</a></h1><h2><span id="business-intelligence-bi">Business Intelligence(BI)</span><a href="#business-intelligence-bi" class="header-anchor">#</a></h2><ul>
+<li>Comprehensive, cohesive, integrated set of tools and processes<ul>
+<li>Captures, collects, integrates, stores, and analyzes data</li>
+</ul>
+</li>
+<li>Generates and presents information to support business decision making</li>
+<li>Allows a business to transform:<ul>
+<li>Data into information</li>
+<li>Information into knowledge</li>
+<li>Knowledge into wisdom</li>
+</ul>
+</li>
+<li>ETL: extraction transformation and loading</li>
+<li>QUERY &amp; Reporting : include ml algorithm</li>
+<li>Governance: How often to upadte warehouse</li>
+<li>Management: How ETL happens<br><img src="/DatabaseRev/BUSINESS_INTELLIGENCE_FRAMEWORK.png" alt="Optimizer Hints"></li>
+</ul>
+<h2><span id="business-intelligence-benefits">Business Intelligence Benefits</span><a href="#business-intelligence-benefits" class="header-anchor">#</a></h2><ul>
+<li>Improve decision making</li>
+<li>Integrating architecture</li>
+<li>Common user interface for data reporting and analysis</li>
+<li>Common data repository fosters single version of company data</li>
+<li>Imporeve organizational performance</li>
+</ul>
+<h2><span id="decision-support-data">Decision Support Data</span><a href="#decision-support-data" class="header-anchor">#</a></h2><ul>
+<li>Effectiveness of BI depends on quality of data gathered at operational level</li>
+<li>Operational data<ul>
+<li>Seldom well-suited for decision support tasks</li>
+<li>Stored in relational database with highly normalized structures</li>
+<li>Optimized to support transactions representing daily operations</li>
+</ul>
+</li>
+<li>Differ from operational data in:</li>
+<li>Time span</li>
+<li>Granularity<ul>
+<li><strong>Drill down</strong>: Decomposing a data to a lower level </li>
+<li><strong>Roll up</strong>: Aggregating a data into a higher level</li>
+</ul>
+</li>
+<li>Dimensionality</li>
+</ul>
+<h2><span id="decision-support-database-requirements">Decision Support Database Requirements</span><a href="#decision-support-database-requirements" class="header-anchor">#</a></h2><ul>
+<li>Database schema<ul>
+<li>Must support complex, non-normalized data representations</li>
+<li>Data must be aggregated and summarized</li>
+<li>Queries must be able to extract multidimensional time slices</li>
+</ul>
+</li>
+<li>Data extraction and loading<ul>
+<li>Allow batch and scheduled data extraction</li>
+<li>Support different data sources and check for inconsistent data or data validation rules</li>
+<li>Support advanced integration, aggregation, and classification</li>
+</ul>
+</li>
+<li>Database size should support<ul>
+<li>Very large databases (VLDBs) </li>
+<li>Advanced storage technologies </li>
+<li>Multiple-processor technologies</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-marts">Data Marts</span><a href="#data-marts" class="header-anchor">#</a></h2><ul>
+<li>Small, single-subject data warehouse subset</li>
+<li>Provide decision support to a small group of people</li>
+<li>Benefits over data warehouses</li>
+<li>Lower cost and shorter implementation time § Technologically advanced</li>
+<li>Inevitable people issues</li>
+</ul>
+<h2><span id="components-of-star-schemas">Components of Star Schemas</span><a href="#components-of-star-schemas" class="header-anchor">#</a></h2><ul>
+<li>Facts<ul>
+<li>Numeric values that represent a specific business aspect</li>
+</ul>
+</li>
+<li>Dimensions <ul>
+<li>Qualifying characteristics that provide additional perspectives to a given fact</li>
+</ul>
+</li>
+<li>Attributes<ul>
+<li>Used to search, filter, and classify facts</li>
+<li><strong>Slice and dice</strong>: Ability to focus on slices of the data cube for more detailed analysis.</li>
+</ul>
+</li>
+<li>Attribute hierarchy<ul>
+<li>Provides a top-down data organization</li>
+</ul>
+</li>
+</ul>
+<h2><span id="performance-improving-techniques-for-the-star-schema">Performance-Improving Techniques for the Star Schema</span><a href="#performance-improving-techniques-for-the-star-schema" class="header-anchor">#</a></h2><ul>
+<li>Normalizing dimensional tables<ul>
+<li><strong>Snowflake schema</strong>: Dimension tables can have their own dimension tables</li>
+</ul>
+</li>
+<li>Maintaining multiple fact tables to represent different aggregation levels</li>
+<li>Denormalizing fact tables</li>
+</ul>
+<h2><span id="data-anaytics">Data Anaytics</span><a href="#data-anaytics" class="header-anchor">#</a></h2><ul>
+<li>Encompasses a wide range of mathematical, statistical, and modeling techiques to extract knowledge from data<ul>
+<li>subset of BI functionality</li>
+</ul>
+</li>
+<li>Classfication of tools<ul>
+<li><strong>Explanatory analytics</strong>: Focuses on discovering and explaining data characteristics and relationships based on existing data</li>
+<li><strong>Predictive analytics</strong>: Focuses on predicting future outcomes with a high degree of accuracy</li>
+</ul>
+</li>
+</ul>
+<h2><span id="olap-gt-online-analytical-processing">OLAP-&gt; Online Analytical Processing</span><a href="#olap-gt-online-analytical-processing" class="header-anchor">#</a></h2><ul>
+<li>Advanced data analysis environment that supports decision making, business modeling, and operations research</li>
+<li>Characteristics:<ul>
+<li>Multidimensional data analysis techniques</li>
+<li>Advanced database support</li>
+<li>Easy-to-use end-user interfaces</li>
+</ul>
+</li>
+</ul>
+<h2><span id="relational-online-analytical-processing-rolap">Relational Online Analytical Processing (ROLAP)</span><a href="#relational-online-analytical-processing-rolap" class="header-anchor">#</a></h2><ul>
+<li>Provides OLAP functionality using relational databases and familiar relational tools to store and analyze multidimensional data</li>
+<li>Extensions added to traditional RDBMS technology</li>
+<li>Multidimensional data schema support within the RDBMS</li>
+<li>Data access language and query performance optimized for multidimensional data</li>
+<li>Support for very large databases (VLDBs)</li>
+</ul>
+<h2><span id="multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database">Multidimensional Online Analytical Processing (MOLAP) pointer to pointer to formulate multi-dimensional database</span><a href="#multidimensional-online-analytical-processing-molap-pointer-to-pointer-to-formulate-multi-dimensional-database" class="header-anchor">#</a></h2><ul>
+<li>Extends OLAP functionality to multidimensional database management systems (MDBMSs)</li>
+<li><strong>MDBMS</strong>: Uses proprietary techniques store data in matrix-like n-dimensional arrays</li>
+<li>End users visualize stored data as a 3D data cube §Grow to n dimensions, becoming hypercubes</li>
+<li>Held in memory in a cube cache to speed access</li>
+<li><strong>Sparsity</strong>: Measures the density of the data held in the data cube<br><img src="/DatabaseRev/R-M-OLAP.png" alt="R:MOLAP"></li>
+</ul>
+<h2><span id="sql-extensions-for-olap">SQL Extensions for OLAP</span><a href="#sql-extensions-for-olap" class="header-anchor">#</a></h2><h3><span id="the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension">The ROLLUP extension(get upper domian data sorted by lower dimension)</span><a href="#the-rollup-extension-get-upper-domian-data-sorted-by-lower-dimension" class="header-anchor">#</a></h3><ul>
+<li>Used with GROUP BY clause to generate aggregates by different dimensions</li>
+<li>Enables subtotal for each column listed except for the last one, which gets a grand total</li>
+<li>Order of column list important</li>
+</ul>
+<h3><span id="the-cube-extension-only-get-total-by-one-dimension-separately">The CUBE extension(only get total by one dimension separately)</span><a href="#the-cube-extension-only-get-total-by-one-dimension-separately" class="header-anchor">#</a></h3><ul>
+<li>Used with GROUP BY clause to generate aggregates by the listed columns</li>
+<li>Includes the last column</li>
+</ul>
+<h2><span id="data-lake">Data lake</span><a href="#data-lake" class="header-anchor">#</a></h2><ul>
+<li>A traditional data warehouse is an ETL-based, historical record of transactions - very RDB-like</li>
+<li>A ‘modern’ alternative is a ‘data lake’, which offers a more continuous form of analytics, driven by the rise of unstructed data, streaming, cloud storage, etc. In a data lake, data is NOT ETLd, rather, it is stored in its ‘raw’ (“natural”) form [even incomplete, untransformed…].</li>
+</ul>
+<h1><span id="discussion1">Discussion1</span><a href="#discussion1" class="header-anchor">#</a></h1><ul>
+<li>Data - origins?<ul>
+<li>copper</li>
+<li>parchment</li>
+<li>leaves</li>
+<li>stone</li>
+</ul>
+</li>
+<li>Data - tech?<ul>
+<li>hologram</li>
+<li>…</li>
+</ul>
+</li>
+<li>Data vs info vs knowledge<ul>
+<li>info is by Searching sorting … calculation - computation of data(collected from somewhere) |exact information</li>
+<li>knowledge is useful information</li>
+</ul>
+</li>
+<li>Modeling<ul>
+<li>Why? leave the part I dont want (abstraction) features!</li>
+</ul>
+</li>
+<li>Relational -&gt; relating different entity</li>
+<li>Another example of a ‘unary’ relationship? (employee table manager)</li>
+<li>Another example of a ternary relationship? (manufactory)</li>
+<li>Instead of TinyCollege, consider USC - more entities?</li>
+<li>Why is full functional dependence a good thing?</li>
+<li>Diff between entity and referential integrity, in terms of…</li>
+<li>Examples of ‘blind’ (non-identifying) keys in RL?</li>
+<li>How can we use tables to model unary relationships?<ul>
+<li>one the same table a column called manager column -&gt; point to itself’s employee_id -&gt; drawback if many people donot have manager, it would be sparse column</li>
+<li>use two tables -&gt; make a table called manager_employee which only has two cols (employee1, employee2) em1 -&gt; employeers, em2-&gt; managers</li>
+</ul>
+</li>
+<li>Closure - where else?</li>
+<li>Why is closure a good property?</li>
+<li>Set diff is non-commutative - what else is?</li>
+<li>What is the conceptual shift, from a ‘spreadsheet DB’ to a relational one?</li>
+</ul>
+<h1><span id="discussion-2">Discussion 2</span><a href="#discussion-2" class="header-anchor">#</a></h1><ul>
+<li><p>SQL: ____ Oriented Programming - what? What else?</p>
+<ul>
+<li>imperative programming: use for loop to accomplish the same goal. SQL is not but java c c++ is</li>
+<li>Object Oriented -&gt; take data and method of data package them together</li>
+<li>Functional programming language: put function as input in and get function out as output. SQL is functional oriented</li>
+<li><ul>
+<li>Function oriented programming language</li>
+</ul>
+</li>
+<li><ul>
+<li>Set oriented language -&gt; SQL engine figuer out how to do 21:46</li>
+</ul>
+</li>
+<li><ul>
+<li>Declearative … tell what u want fine control</li>
+</ul>
+</li>
+<li>Aspect oriented programming -&gt; AOP<ul>
+<li>aspect means some tasks a program need to do. draw, email, send to printer</li>
+<li>get all the task classes together and make an internface</li>
+<li>if we implement the interface called aspect</li>
+<li>SQL is also domain specific language DSL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pattern matching - <a target="_blank" rel="noopener" href="https://www.rexegg.com/regex-quickstart.html">https://www.rexegg.com/regex-quickstart.html</a> _-&gt; single word % -&gt; more than one word</p>
+</li>
+<li><p>More datatypes?</p>
+<ul>
+<li>Color type</li>
+<li>currency type</li>
+</ul>
+</li>
+<li><p>Breaking closure -&gt; It cannot chain further stop chaining operation</p>
+</li>
+<li><p>RL(real life) situations (not DB) where transactions are done sequentially?</p>
+<ul>
+<li>dating cannot date with many peoples</li>
+</ul>
+</li>
+<li><p>Robert rules room how to make sure everybody get a chance to speak</p>
+</li>
+<li><p>DB cases in RL where interleaving in inevitable?</p>
+<ul>
+<li>travel book ticket</li>
+<li>buy books from amazon</li>
+<li>Linkedin Job</li>
+</ul>
+</li>
+<li><p>Database state, during lost updates vs inconsistent analysis?</p>
+<ul>
+<li>lost updates -&gt; t2 override t1’s modification -&gt; data destroy&#x2F; table is not always fine.</li>
+<li>inconsistent analysis -&gt; nonrepeatable read -&gt; integrate of table not harm. table not change the datastructure.</li>
+</ul>
+</li>
+<li><p>Serial schedule - how many exist, for n serializable transactions?</p>
+<ul>
+<li>rearrange many transactions very important</li>
+<li>transaction isolation level -&gt; 4 levels for example, allow dirty read allow nonrepeatable read …<ul>
+<li>avoid dirty read</li>
+<li>avoid nonrepeatable read</li>
+<li>avoid phantom read</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Why not make all schedules serial? -&gt; consider performance</p>
+</li>
+<li><p>2PL(Static&#x2F;Conservative) vs Strict 2PL(“S2PL”){hold on some writes and release all the reads, release read lock } vs Rigorous(Stricter&#x2F;StrongStrict&#x2F;SS2PL!)(hold on all the lock until commit complete)</p>
+</li>
+<li><p>Newton and his 2 cats</p>
+</li>
+<li><p>Replication - three reasons?</p>
+<ul>
+<li>failure reasons</li>
+<li>network-balancing</li>
+<li></li>
+</ul>
+</li>
+<li><p>Replication tradeoffs with consistency? -&gt; amazon</p>
+</li>
+<li><p>2PC - failure, how? rollback hang</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/01/AlgorithmsRev3/" rel="prev" title="Algorithms review 3 Amortized Analysis">
+                  <i class="fa fa-angle-left"></i> Algorithms review 3 Amortized Analysis
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/19/C-working-notes/" rel="next" title="C#-working-notes">
+                  C#-working-notes <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jiaming Xu</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":"enable","tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
